@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>One Model, One Motion — Agent-First GTM Strategy</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#032D60;--blue:#0D9DDA;--blue2:#1B96FF;--teal:#04C3B5;--purple:#7B5EA7;
+  --amber:#E8A500;--slate:#334E68;--red:#C23B22;
+  --bg:#ffffff;--bg2:#f4f9ff;--bg3:#eef5fc;
+  --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.18);
+  --text:#032D60;--muted:#5A7A99;--hint:#8AAFCC;
+  --radius-md:8px;--radius-lg:12px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0D1B2E;--bg2:#112040;--bg3:#0A1830;
+    --border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.2);
+    --text:#E8F4FF;--muted:#8CCFFE;--hint:#4A7A9B;
+  }
+}
+html{font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg3);color:var(--text);min-height:100vh}
+
+.page{max-width:900px;margin:0 auto;padding:20px 16px}
+
+.shell{border-radius:var(--radius-lg);overflow:hidden;border:0.5px solid var(--border2);box-shadow:0 4px 24px rgba(0,0,0,0.12)}
+
+.topbar{background:var(--navy);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.topbar-left h1{font-size:16px;font-weight:600;color:#fff;line-height:1.2}
+.topbar-left p{font-size:11px;color:#8CCFFE;margin-top:2px;letter-spacing:.04em}
+.sf-badge{background:#1798C1;border-radius:8px;padding:5px 10px;font-size:10px;font-weight:600;color:#fff;letter-spacing:.06em;white-space:nowrap}
+
+.nav{background:#021830;display:flex;overflow-x:auto;border-bottom:0.5px solid #0A3870;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{padding:11px 18px;font-size:11px;font-weight:600;color:#8CCFFE;background:transparent;border:none;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s;letter-spacing:.04em;text-transform:uppercase}
+.nav-btn:hover{color:#fff;background:rgba(255,255,255,.05)}
+.nav-btn.active{color:#fff;border-bottom-color:var(--blue)}
+
+.panel{display:none}
+.panel.visible{display:block}
+
+/* ── HERO / STRATEGIC MOMENT ── */
+.hero-panel{background:var(--navy);padding:24px 20px}
+.hero-eyebrow{font-size:9px;font-weight:700;color:var(--amber);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.hero-title{font-size:28px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:6px}
+.hero-sub{font-size:13px;color:#8CCFFE;line-height:1.55;margin-bottom:18px;max-width:540px}
+.hero-quote{background:#0A3870;border-left:3px solid var(--amber);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:12px 16px;margin-bottom:20px}
+.hero-quote p{font-size:12px;color:#e8f4ff;line-height:1.65;font-style:italic}
+.stk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:600px){.stk-grid{grid-template-columns:1fr}}
+.stk-card{background:#0A3870;border-radius:var(--radius-lg);overflow:hidden;border:0.5px solid #1B5EA0}
+.stk-head{padding:10px 12px;display:flex;align-items:center;gap:8px;border-bottom:0.5px solid #1B5EA0}
+.stk-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.stk-head-title{font-size:12px;font-weight:600;color:#fff}
+.stk-items{padding:8px 12px}
+.stk-item{font-size:11px;color:#8CCFFE;padding:4px 0;border-bottom:0.5px solid rgba(27,94,160,0.5);line-height:1.45;display:flex;align-items:flex-start;gap:6px}
+.stk-item:last-child{border-bottom:none}
+.stk-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px}
+
+/* ── DIAGNOSIS ── */
+.diag-panel{padding:20px;background:var(--bg)}
+.diag-alert{background:var(--bg2);border:0.5px solid var(--border);border-left:3px solid var(--navy);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:12px 16px;margin-bottom:16px}
+.diag-alert p{font-size:12px;color:var(--text);line-height:1.65;font-style:italic}
+.gap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:600px){.gap-grid{grid-template-columns:1fr}}
+.gap-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;border-top:3px solid}
+.gap-inner{padding:12px 14px}
+.gap-num{font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+.gap-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.3}
+.gap-body{font-size:11.5px;color:var(--muted);line-height:1.6}
+
+/* ── ROI AXES ── */
+.roi-panel{padding:20px;background:var(--bg)}
+.roi-chart-wrap{width:100%;margin-bottom:16px;background:var(--navy);border-radius:var(--radius-lg);padding:16px 12px}
+.roi-chart-title{font-size:10px;font-weight:700;color:#8CCFFE;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+svg.roi-svg{width:100%;display:block}
+.roi-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:580px){.roi-cards{grid-template-columns:1fr}}
+.roi-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.roi-card-head{padding:8px 12px;display:flex;align-items:center;gap:6px}
+.roi-card-head-label{font-size:9px;font-weight:700;color:#fff;letter-spacing:.1em}
+.roi-card-body{padding:10px 12px}
+.roi-card-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px}
+.roi-card-sub{font-size:11px;color:var(--muted);font-style:italic;margin-bottom:10px;line-height:1.45}
+.roi-item{font-size:11.5px;color:var(--muted);display:flex;align-items:flex-start;gap:7px;padding:5px 0;border-bottom:0.5px solid var(--border);line-height:1.45}
+.roi-item:last-child{border-bottom:none}
+.ri-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+
+/* ── FRAMEWORK ── */
+.fw-panel{padding:20px;background:var(--bg)}
+.fw-vis{background:var(--navy);border-radius:var(--radius-lg);padding:16px;margin-bottom:16px}
+.fw-vis-label{font-size:9px;font-weight:700;color:#8CCFFE;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.fw-vis-quote{font-size:12px;color:#e8f4ff;line-height:1.65;font-style:italic;border-left:3px solid var(--blue);padding-left:12px;margin-bottom:14px}
+.pillars-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:580px){.pillars-row{grid-template-columns:repeat(2,1fr)}}
+.pillar-mini{background:#0A3870;border-radius:var(--radius-md);overflow:hidden;border:1.5px solid transparent;cursor:pointer;transition:border-color .15s}
+.pillar-mini:hover{border-color:rgba(255,255,255,.25)}
+.pillar-mini.selected{border-color:#fff}
+.pillar-top{height:4px}
+.pillar-inner{padding:8px 10px}
+.pillar-num{font-size:8px;font-weight:700;color:rgba(255,255,255,.45);margin-bottom:4px;letter-spacing:.06em}
+.pillar-name{font-size:11px;font-weight:600;color:#fff;line-height:1.35}
+.pillar-detail{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px}
+.pd-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.pd-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.pd-title{font-size:15px;font-weight:600;color:var(--text);line-height:1.2}
+.pd-sub{font-size:11px;color:var(--muted);font-style:italic;margin-top:2px}
+.pd-vision{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:12px;padding:10px 12px;background:var(--bg);border-radius:var(--radius-md);border:0.5px solid var(--border)}
+.pd-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:580px){.pd-cols{grid-template-columns:1fr}}
+.pd-section-label{font-size:9px;font-weight:700;color:var(--hint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.pd-method{margin-bottom:10px}
+.pd-method-title{font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:3px;line-height:1.3}
+.pd-method-body{font-size:11px;color:var(--muted);line-height:1.55}
+.pd-measure{font-size:11.5px;color:var(--muted);padding:5px 0;border-bottom:0.5px solid var(--border);display:flex;align-items:flex-start;gap:7px;line-height:1.45}
+.pd-measure:last-child{border-bottom:none}
+
+/* ── OUTCOMES ── */
+.out-panel{padding:20px;background:var(--bg)}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+@media(max-width:600px){.kpi-row{grid-template-columns:1fr}}
+.kpi-card{background:var(--navy);border-radius:var(--radius-lg);overflow:hidden;border:0.5px solid #1B5EA0}
+.kpi-top{height:4px}
+.kpi-inner{padding:12px 14px}
+.kpi-metric{font-size:32px;font-weight:700;line-height:1;margin-bottom:4px}
+.kpi-label{font-size:10px;font-weight:700;color:#8CCFFE;letter-spacing:.04em;margin-bottom:8px;text-transform:uppercase}
+.kpi-body{font-size:11px;color:#8CCFFE;line-height:1.55}
+.flow-row{background:var(--bg2);border-radius:var(--radius-lg);padding:12px 14px;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;border:0.5px solid var(--border)}
+.flow-label{font-size:11px;font-weight:600;color:var(--muted);margin-right:4px}
+.flow-stage{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;color:#fff}
+.flow-arrow{color:var(--muted);font-size:16px;font-weight:300}
+.flow-note{font-size:11px;color:var(--muted);font-style:italic}
+.talent-box{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;display:grid;grid-template-columns:1fr 1fr;gap:16px;border-left:3px solid var(--purple)}
+@media(max-width:580px){.talent-box{grid-template-columns:1fr}}
+.talent-left p{font-size:11.5px;color:var(--muted);line-height:1.65}
+.talent-right{border-left:0.5px solid var(--border);padding-left:16px;display:flex;flex-direction:column;justify-content:center}
+.talent-quote{font-size:13px;font-weight:600;color:var(--purple);line-height:1.5;font-style:italic;margin-bottom:6px}
+.talent-coda{font-size:11px;color:var(--muted);font-style:italic}
+
+/* ── FOOTER ── */
+.site-footer{text-align:center;padding:20px;font-size:11px;color:var(--hint)}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="shell">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1>One Model, One Motion</h1>
+      <p>AGENT-FIRST GTM OPERATING STRATEGY &nbsp;·&nbsp; Solutions CoE &nbsp;·&nbsp; FY27</p>
+    </div>
+    <div class="sf-badge">salesforce</div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav">
+    <button class="nav-btn active" onclick="show('moment',this)">01 Strategic Moment</button>
+    <button class="nav-btn" onclick="show('diagnosis',this)">02 The Diagnosis</button>
+    <button class="nav-btn" onclick="show('roi',this)">03 ROI Axes</button>
+    <button class="nav-btn" onclick="show('framework',this)">04 Framework</button>
+    <button class="nav-btn" onclick="show('outcomes',this)">05 Outcomes</button>
+  </div>
+
+  <!-- 01 STRATEGIC MOMENT -->
+  <div id="panel-moment" class="panel visible">
+    <div class="hero-panel">
+      <div class="hero-eyebrow">Leadership Moment</div>
+      <div class="hero-title">Human-First to Agent-First.</div>
+      <div class="hero-sub">The shift is already happening. The question is whether we define it or react to it.</div>
+      <div class="hero-quote">
+        <p>The art of the possible — speed, scale, specificity, affordability, and reliability for customers — is unlocked only by an agent-first operating model. This is the moment to define the how.</p>
+      </div>
+      <div class="stk-grid">
+        <div class="stk-card">
+          <div class="stk-head"><div class="stk-num" style="background:#0D9DDA">1</div><div class="stk-head-title">For Customers</div></div>
+          <div class="stk-items">
+            <div class="stk-item"><div class="stk-dot" style="background:#0D9DDA"></div>Solutions built in days, not quarters</div>
+            <div class="stk-item"><div class="stk-dot" style="background:#0D9DDA"></div>Specificity at scale for every industry</div>
+            <div class="stk-item"><div class="stk-dot" style="background:#0D9DDA"></div>Reliable agents with protected data</div>
+            <div class="stk-item"><div class="stk-dot" style="background:#0D9DDA"></div>Affordability of bespoke AI delivery</div>
+          </div>
+        </div>
+        <div class="stk-card">
+          <div class="stk-head"><div class="stk-num" style="background:#04C3B5">2</div><div class="stk-head-title">For Investors</div></div>
+          <div class="stk-items">
+            <div class="stk-item"><div class="stk-dot" style="background:#04C3B5"></div>Margin expansion via AI-native delivery</div>
+            <div class="stk-item"><div class="stk-dot" style="background:#04C3B5"></div>Faster time-to-value on new deployments</div>
+            <div class="stk-item"><div class="stk-dot" style="background:#04C3B5"></div>Differentiation in agentic enterprise</div>
+            <div class="stk-item"><div class="stk-dot" style="background:#04C3B5"></div>Scalable growth without headcount drag</div>
+          </div>
+        </div>
+        <div class="stk-card">
+          <div class="stk-head"><div class="stk-num" style="background:#7B5EA7">3</div><div class="stk-head-title">For Employees</div></div>
+          <div class="stk-items">
+            <div class="stk-item"><div class="stk-dot" style="background:#7B5EA7"></div>Builder identity: build with tools</div>
+            <div class="stk-item"><div class="stk-dot" style="background:#7B5EA7"></div>Permission to experiment — ungated</div>
+            <div class="stk-item"><div class="stk-dot" style="background:#7B5EA7"></div>Compound capability via CoE library</div>
+            <div class="stk-item"><div class="stk-dot" style="background:#7B5EA7"></div>AI fluency as a career differentiator</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 DIAGNOSIS -->
+  <div id="panel-diagnosis" class="panel">
+    <div class="diag-panel">
+      <div class="diag-alert">
+        <p>The current framework solves the symptom of tool sprawl. The real problem is the absence of an operating model capable of driving customer adoption and consumption of agentic enterprise solutions at speed, at scale, and with specificity for every customer. We are providing a prescription without a diagnosis.</p>
+      </div>
+      <div class="gap-grid">
+        <div class="gap-card" style="border-top-color:#C23B22">
+          <div class="gap-inner">
+            <div class="gap-num">GAP 01</div>
+            <div class="gap-title">Strategy without infrastructure</div>
+            <div class="gap-body">We have a vision for agent-first innovation but no operating model to execute it. Tools are adopted ad hoc. Adoption is defined differently by every team. There is no mechanism to turn field learning into organizational capability.</div>
+          </div>
+        </div>
+        <div class="gap-card" style="border-top-color:#E8A500">
+          <div class="gap-inner">
+            <div class="gap-num">GAP 02</div>
+            <div class="gap-title">Adoption without outcomes</div>
+            <div class="gap-body">Engineers measure adoption as token consumption. Professional Services and Solutions measure it as the outcome a solution delivers. Without a unified definition, we cannot measure progress or connect AI activity to business results.</div>
+          </div>
+        </div>
+        <div class="gap-card" style="border-top-color:#7B5EA7">
+          <div class="gap-inner">
+            <div class="gap-num">GAP 03</div>
+            <div class="gap-title">Innovation without compounding</div>
+            <div class="gap-body">Similar solutions are built in parallel across teams with no sharing mechanism. Field learning disappears at the end of each engagement. The org is not getting smarter with every customer interaction — it is starting over.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 ROI AXES -->
+  <div id="panel-roi" class="panel">
+    <div class="roi-panel">
+      <div class="roi-chart-wrap">
+        <div class="roi-chart-title">The Two ROI Axes — Where Agent-First Value Is Created</div>
+        <svg class="roi-svg" viewBox="0 0 620 310" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrowX" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,0 L0,8 L8,4 Z" fill="#04C3B5"/>
+            </marker>
+            <marker id="arrowY" markerWidth="8" markerHeight="8" refX="4" refY="2" orient="auto">
+              <path d="M0,8 L8,8 L4,0 Z" fill="#7B5EA7"/>
+            </marker>
+          </defs>
+          <!-- Innovation zone -->
+          <rect x="340" y="38" width="235" height="152" fill="#1B96FF" fill-opacity="0.09" rx="4"/>
+          <text x="356" y="57" font-family="-apple-system,sans-serif" font-size="9" font-weight="700" fill="#8CCFFE" letter-spacing="1.2">AGENT-FIRST INNOVATION ZONE</text>
+          <!-- Grid lines -->
+          <line x1="100" y1="38" x2="100" y2="258" stroke="#1B5EA0" stroke-width="0.5" stroke-dasharray="3,4" opacity=".5"/>
+          <line x1="220" y1="38" x2="220" y2="258" stroke="#1B5EA0" stroke-width="0.5" stroke-dasharray="3,4" opacity=".5"/>
+          <line x1="340" y1="38" x2="340" y2="258" stroke="#1B5EA0" stroke-width="0.5" stroke-dasharray="3,4" opacity=".5"/>
+          <line x1="460" y1="38" x2="460" y2="258" stroke="#1B5EA0" stroke-width="0.5" stroke-dasharray="3,4" opacity=".5"/>
+          <line x1="40" y1="78" x2="580" y2="78" stroke="#1B5EA0" stroke-width="0.5" stroke-dasharray="3,4" opacity=".5"/>
+          <line x1="40" y1="148" x2="580" y2="148" stroke="#1B5EA0" stroke-width="0.5" stroke-dasharray="3,4" opacity=".5"/>
+          <line x1="40" y1="208" x2="580" y2="208" stroke="#1B5EA0" stroke-width="0.5" stroke-dasharray="3,4" opacity=".5"/>
+          <!-- Axes -->
+          <line x1="40" y1="258" x2="582" y2="258" stroke="#04C3B5" stroke-width="2.5" marker-end="url(#arrowX)"/>
+          <line x1="40" y1="258" x2="40" y2="30" stroke="#7B5EA7" stroke-width="2.5" marker-end="url(#arrowY)"/>
+          <!-- X label -->
+          <text x="570" y="278" font-family="-apple-system,sans-serif" font-size="10" font-weight="700" fill="#04C3B5" text-anchor="end">TECHNOLOGY ROI (X)</text>
+          <text x="570" y="290" font-family="-apple-system,sans-serif" font-size="8.5" fill="#5AC8BE" text-anchor="end">Speed · Cost reduction · Dev acceleration</text>
+          <!-- Y label -->
+          <text x="14" y="148" font-family="-apple-system,sans-serif" font-size="10" font-weight="700" fill="#7B5EA7" text-anchor="middle" transform="rotate(-90,14,148)">BUSINESS ROI (Y)</text>
+          <text x="28" y="148" font-family="-apple-system,sans-serif" font-size="8.5" fill="#B09CD0" text-anchor="middle" transform="rotate(-90,28,148)">Customer agents · Transformation</text>
+          <!-- Journey dashed path -->
+          <polyline points="118,230 228,192 370,132 492,68" stroke="#1B96FF" stroke-width="1.8" stroke-dasharray="5,5" fill="none" opacity=".8"/>
+          <!-- Points -->
+          <!-- Today -->
+          <circle cx="118" cy="230" r="11" fill="#5A8AB0"/>
+          <text x="133" y="224" font-family="-apple-system,sans-serif" font-size="9" fill="#8ABBE0">Today</text>
+          <text x="133" y="235" font-family="-apple-system,sans-serif" font-size="9" fill="#8ABBE0">(fragmented)</text>
+          <!-- Framework launched -->
+          <circle cx="228" cy="192" r="11" fill="#0D9DDA"/>
+          <text x="243" y="186" font-family="-apple-system,sans-serif" font-size="9" fill="#8CCFFE">Framework</text>
+          <text x="243" y="197" font-family="-apple-system,sans-serif" font-size="9" fill="#8CCFFE">launched</text>
+          <!-- Scale -->
+          <circle cx="370" cy="132" r="12" fill="#04C3B5"/>
+          <text x="386" y="126" font-family="-apple-system,sans-serif" font-size="9" fill="#7EECD8">Scale &amp;</text>
+          <text x="386" y="137" font-family="-apple-system,sans-serif" font-size="9" fill="#7EECD8">compound</text>
+          <!-- Art of possible -->
+          <circle cx="492" cy="68" r="14" fill="#E8A500"/>
+          <text x="510" y="62" font-family="-apple-system,sans-serif" font-size="9.5" font-weight="700" fill="#FAC75A">Art of the</text>
+          <text x="510" y="75" font-family="-apple-system,sans-serif" font-size="9.5" font-weight="700" fill="#FAC75A">possible</text>
+          <!-- Quadrant labels -->
+          <text x="55" y="56" font-family="-apple-system,sans-serif" font-size="8" fill="#9B7FCC" font-style="italic" opacity=".65">High Business / Low Tech</text>
+          <text x="55" y="246" font-family="-apple-system,sans-serif" font-size="8" fill="#4A6A80" font-style="italic" opacity=".65">Current state</text>
+          <text x="455" y="246" font-family="-apple-system,sans-serif" font-size="8" fill="#2A8078" font-style="italic" opacity=".65" text-anchor="end">Low Business / High Tech</text>
+        </svg>
+      </div>
+      <div class="roi-cards">
+        <div class="roi-card">
+          <div class="roi-card-head" style="background:#7B5EA7"><span class="roi-card-head-label">Y-AXIS &nbsp;·&nbsp; CRO OWNS</span></div>
+          <div class="roi-card-body">
+            <div class="roi-card-title">Business ROI</div>
+            <div class="roi-card-sub">What new value do we create for customers through AI?</div>
+            <div class="roi-item"><div class="ri-dot" style="background:#7B5EA7"></div>Customer-facing agents: billing, returns, onboarding, CS</div>
+            <div class="roi-item"><div class="ri-dot" style="background:#7B5EA7"></div>Business process transformation end-to-end</div>
+            <div class="roi-item"><div class="ri-dot" style="background:#7B5EA7"></div>Outcome specificity by customer industry and workflow</div>
+            <div class="roi-item"><div class="ri-dot" style="background:#7B5EA7"></div>CCR and NNAoV acceleration</div>
+          </div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-head" style="background:#04C3B5"><span class="roi-card-head-label">X-AXIS &nbsp;·&nbsp; CTO / ENG OWNS</span></div>
+          <div class="roi-card-body">
+            <div class="roi-card-title">Technology ROI</div>
+            <div class="roi-card-sub">How much faster and cheaper can we build and deliver through AI?</div>
+            <div class="roi-item"><div class="ri-dot" style="background:#04C3B5"></div>Development acceleration: coding, testing, deployment</div>
+            <div class="roi-item"><div class="ri-dot" style="background:#04C3B5"></div>Demo and PoC automation, pre-sales efficiency</div>
+            <div class="roi-item"><div class="ri-dot" style="background:#04C3B5"></div>ProServ delivery compression, reduced rework</div>
+            <div class="roi-item"><div class="ri-dot" style="background:#04C3B5"></div>AWU velocity per hour of AI-assisted work</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 FRAMEWORK -->
+  <div id="panel-framework" class="panel">
+    <div class="fw-panel">
+      <div class="fw-vis">
+        <div class="fw-vis-label">The Execution Vehicle</div>
+        <div class="fw-vis-quote">The framework enables the strategy — it is not the strategy itself. It is the infrastructure that makes agent-first innovation executable at scale, with governance connected to business outcomes.</div>
+        <div class="pillars-row">
+          <div class="pillar-mini selected" onclick="selectPillar(0,this)" id="pm-0">
+            <div class="pillar-top" style="background:#0D9DDA"></div>
+            <div class="pillar-inner"><div class="pillar-num">PILLAR 01</div><div class="pillar-name">Signal Intake &amp; Closed-Loop Steering</div></div>
+          </div>
+          <div class="pillar-mini" onclick="selectPillar(1,this)" id="pm-1">
+            <div class="pillar-top" style="background:#7B5EA7"></div>
+            <div class="pillar-inner"><div class="pillar-num">PILLAR 02</div><div class="pillar-name">Agentic Tools Enablement Framework</div></div>
+          </div>
+          <div class="pillar-mini" onclick="selectPillar(2,this)" id="pm-2">
+            <div class="pillar-top" style="background:#04C3B5"></div>
+            <div class="pillar-inner"><div class="pillar-num">PILLAR 03</div><div class="pillar-name">Connected GTM Handoffs</div></div>
+          </div>
+          <div class="pillar-mini" onclick="selectPillar(3,this)" id="pm-3">
+            <div class="pillar-top" style="background:#E8A500"></div>
+            <div class="pillar-inner"><div class="pillar-num">PILLAR 04</div><div class="pillar-name">Measuring Success</div></div>
+          </div>
+        </div>
+      </div>
+      <div id="pillar-detail"></div>
+    </div>
+  </div>
+
+  <!-- 05 OUTCOMES -->
+  <div id="panel-outcomes" class="panel">
+    <div class="out-panel">
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-top" style="background:#0D9DDA"></div>
+          <div class="kpi-inner">
+            <div class="kpi-metric" style="color:#0D9DDA">CCR</div>
+            <div class="kpi-label">Customer Consumed Revenue/div>
+            <div class="kpi-body">Faster cycle times, richer handoffs, and purposeful AI adoption drive more PoCs shipped and more pipeline converted. New logos, faster.</div>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top" style="background:#04C3B5"></div>
+          <div class="kpi-inner">
+            <div class="kpi-metric" style="color:#04C3B5">AWU</div>
+            <div class="kpi-label">Agentic Work Unit Velocity</div>
+            <div class="kpi-body">Builder fluency tied to PoCs and pipeline turns productivity into compound org-wide output. Fluency converts to revenue.</div>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top" style="background:#E8A500"></div>
+          <div class="kpi-inner">
+            <div class="kpi-metric" style="color:#E8A500">NNAoV</div>
+            <div class="kpi-label">Net New Annual Order Value/div>
+            <div class="kpi-body">Protecting handoff quality and reducing execution rework preserves deals won in the evaluation phase. Deals are lost after the win, not during it.</div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-row">
+        <span class="flow-label">Connected GTM motion:</span>
+        <span class="flow-stage" style="background:#0D9DDA">SE</span>
+        <span class="flow-arrow">&#8594;</span>
+        <span class="flow-stage" style="background:#04C3B5">FDE</span>
+        <span class="flow-arrow">&#8594;</span>
+        <span class="flow-stage" style="background:#7B5EA7">ProServ</span>
+        <span class="flow-arrow">&#8594;</span>
+        <span class="flow-stage" style="background:#E8A500">CS</span>
+        <span class="flow-note">&nbsp; Every handoff is a data event, not a conversation</span>
+      </div>
+      <div class="talent-box">
+        <div class="talent-left">
+          <div class="pd-section-label" style="margin-bottom:8px">Talent &amp; Permission: The Multiplier</div>
+          <p>Two levers: recruiting people who already carry AI-native instincts, and unlocking the people already here. The second is the faster one. AI DNA does not have to be hired in — much of it already exists in the org, waiting for the expectation to change.</p>
+        </div>
+        <div class="talent-right">
+          <div class="talent-quote">When leadership makes building the standard rather than the exception, that shift happens fast.</div>
+          <div class="talent-coda">That is not a culture initiative. That is a decision.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.shell -->
+</div><!-- /.page -->
+
+<div class="site-footer">CONFIDENTIAL &nbsp;·&nbsp; Solutions CoE &nbsp;·&nbsp; FY27 &nbsp;·&nbsp; One Model, One Motion</div>
+
+<script>
+const pillarsData = [
+  {
+    color: "#0D9DDA",
+    title: "Signal Intake & Closed-Loop Steering",
+    sub: "One loop. From first signal to governance decision.",
+    vision: "Every tool demand signal flows into a lightweight submission process fast enough that people actually use it. The same system that captures the signal closes the loop: adoption data flows back in, tools that deliver get investment, and tools that don't get retired. One pillar owns it end-to-end.",
+    methods: [
+      { t: "Lightweight Signal Submission", b: "Slack-native intake. Low friction by design. Submitting a signal feels like a message, not a procurement request. Every tool maps to a job to be done, by role." },
+      { t: "Three-Lane Launch Tracks", b: "Lane 1 (internal/demo): no approval, 48hr ack. Lane 2 (customer data, early adopter): 5-day SLA. Lane 3 (customer data, broad scale): full approval cycle." },
+      { t: "Closed-Loop Governance Pulse", b: "Standing CoE cadence. Adoption signals, escalations, and tool retirement reviewed on a fixed schedule. Tools gaining adoption get investment. Tools not delivering get retired." }
+    ],
+    measures: [
+      "Signal volume by source: field / customer / vendor",
+      "Avg time-to-approval per lane vs. published SLA",
+      "Lane 1 &#8594; Lane 2 conversion rate",
+      "Tools retired vs. added per quarter (health ratio)"
+    ]
+  },
+  {
+    color: "#7B5EA7",
+    title: "Agentic Tools Enablement Framework",
+    sub: "From tool instruction to builder fluency.",
+    vision: "Enablement happens by doing — not by completing a module. This is also a change management program. Participation is not optional — it is the expectation. People who are ready to build will be given room to lead. People who haven't had the permission or the push will get both.",
+    methods: [
+      { t: "Expose &#8594; Experiment &#8594; Operationalize", b: "Three-stage model by role. Expose: introduction to the tool and its job. Experiment: guided use on real work with a required output. Operationalize: embedded in workflow, skill published to CoE library." },
+      { t: "Builder Fluency Benchmarks by Role", b: "Fluency defined for SE, FDE, ProServ, and CS. Measured by demonstrated output, not training completion. Time-to-proficiency tracked as a core metric." },
+      { t: "Change Management & Resource Rebalancing", b: "Building is the expectation, not the exception. Two levers: recruiting AI-native people, and unlocking those already here. The second is faster. That shift is a leadership decision." }
+    ],
+    measures: [
+      "Time-to-proficiency by role (target: &lt;30 days to first output)",
+      "Teach-backs completed per quarter",
+      "Skills published to CoE library (cumulative)",
+      "AWU velocity attributed to enablement cohorts"
+    ]
+  },
+  {
+    color: "#04C3B5",
+    title: "Connected GTM Handoffs",
+    sub: "SE &#8594; FDE &#8594; ProServ &#8594; CS. Every handoff is a data event.",
+    vision: "When tools become connective tissue across the GTM motion, context stops getting lost. Each handoff carries structured, role-specific intelligence forward — not summaries, not PDFs. Customer context compounds across the engagement lifecycle rather than resetting at every transition.",
+    methods: [
+      { t: "SE &#8594; FDE: Technical Qualification Handoff", b: "SE passes architecture notes, objections surfaced, PoC outcomes, demo assets, integration flags. FDE enters every engagement with a clear technical baseline — not a blank page." },
+      { t: "FDE &#8594; ProServ: Scoping & Delivery Handoff", b: "FDE passes confirmed requirements, stakeholder map, risks, and timeline sensitivities. ProServ starts with full pre-sales context, reducing rework and misaligned expectations." },
+      { t: "ProServ &#8594; CS: Success & Expansion Handoff", b: "ProServ passes delivery outcomes, adoption signals, open risks, and expansion opportunities. CS enters with full engagement history — not just a CRM record." }
+    ],
+    measures: [
+      "Handoff completion rate (structured vs. informal) by stage",
+      "Time-to-productive engagement per FDE / ProServ",
+      "NNAoV preservation rate (post-win execution quality proxy)",
+      "CS expansion pipeline sourced from ProServ signals"
+    ]
+  },
+  {
+    color: "#E8A500",
+    title: "Measuring Success",
+    sub: "Standardized definitions. A central Hub. Data that moves.",
+    vision: "Measurement only works if everyone is measuring the same thing. This pillar owns three layers: standards defining adoption by role, the Hub making data accessible to every stakeholder, and the data infrastructure that makes it all possible at scale.",
+    methods: [
+      { t: "Standardization — Unified Definitions by Role", b: "Adoption, proficiency, and impact defined consistently across SE, FDE, ProServ, and CS. Shared language for what good looks like — tied to CCR, AWUs, pipeline, NNAoV, and cycle time." },
+      { t: "Experience Layer — The Hub", b: "Central repository: approved tools, waitlisted, not approved. Enablement sessions, skills library, leaderboards in one place. Single pane of glass from IC to CRO. Front door for Lane 1 discovery." },
+      { t: "Data Infrastructure — Unified Pipeline", b: "Streaming process unifying activity, adoption, and outcome signals across all functions. SE &#8594; FDE &#8594; ProServ &#8594; CS, all connected. Powers the outcome dashboard and closes the feedback loop." }
+    ],
+    measures: [
+      "Adoption rate by role vs. defined proficiency benchmark",
+      "Dashboard coverage: % of GTM functions on shared definitions",
+      "Data pipeline latency (signal-to-dashboard SLA)",
+      "Hub engagement: active users, tools accessed, sessions"
+    ]
+  }
+];
+
+function show(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('visible'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+
+function selectPillar(idx, el) {
+  document.querySelectorAll('.pillar-mini').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  const p = pillarsData[idx];
+  document.getElementById('pillar-detail').innerHTML = `
+    <div class="pillar-detail">
+      <div class="pd-header">
+        <div class="pd-num" style="background:${p.color}">${idx + 1}</div>
+        <div>
+          <div class="pd-title">${p.title}</div>
+          <div class="pd-sub">${p.sub}</div>
+        </div>
+      </div>
+      <div class="pd-vision">${p.vision}</div>
+      <div class="pd-cols">
+        <div>
+          <div class="pd-section-label">Methods</div>
+          ${p.methods.map(m => `
+            <div class="pd-method">
+              <div class="pd-method-title" style="color:${p.color}">${m.t}</div>
+              <div class="pd-method-body">${m.b}</div>
+            </div>`).join('')}
+        </div>
+        <div>
+          <div class="pd-section-label">Key measures</div>
+          ${p.measures.map(m => `
+            <div class="pd-measure">
+              <div class="ri-dot" style="background:${p.color};width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px"></div>
+              ${m}
+            </div>`).join('')}
+        </div>
+      </div>
+    </div>`;
+}
+
+// Init pillar 0
+selectPillar(0, document.getElementById('pm-0'));
+</script>
+</body>
+</html>
