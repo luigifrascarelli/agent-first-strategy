@@ -16,110 +16,110 @@
   --red:#C23B22;--red-bg:#FFF0EE;
   --mut:#5A8AB0;--bg:#EFF7FF;
 }
-html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--navy);width:100%;min-height:100vh}
+html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;background:var(--bg);color:var(--navy);width:100%;min-height:100vh}
 .shell{display:flex;min-height:100vh;width:100%}
-aside{width:210px;min-width:210px;background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto}
-.sb-logo{padding:18px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)}
-.sb-logo-row{display:flex;align-items:center;gap:9px}
-.sf-icon{width:36px;height:36px;background:#1798C1;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sb-brand{font-size:13px;font-weight:700;color:#fff;line-height:1.2}
-.sb-sub{font-size:9px;color:#8CCFFE;margin-top:6px;letter-spacing:.05em;text-transform:uppercase}
-nav{padding:8px 0;flex:1}
-.ng{padding:5px 16px 2px;font-size:9px;font-weight:700;color:rgba(140,207,254,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
-.nl{display:flex;align-items:center;gap:8px;padding:8px 16px;font-size:12px;color:rgba(255,255,255,.55);border-left:2px solid transparent;cursor:pointer;transition:all .12s;user-select:none}
+aside{width:220px;min-width:220px;background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sb-logo{padding:20px 18px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb-logo-row{display:flex;align-items:center;gap:10px}
+.sf-icon{width:38px;height:38px;background:#1798C1;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sb-brand{font-size:15px;font-weight:700;color:#fff;line-height:1.25}
+.sb-sub{font-size:11px;color:#8CCFFE;margin-top:6px;letter-spacing:.05em;text-transform:uppercase}
+nav{padding:10px 0;flex:1}
+.ng{padding:6px 18px 3px;font-size:11px;font-weight:700;color:rgba(140,207,254,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.nl{display:flex;align-items:center;gap:9px;padding:10px 18px;font-size:14px;color:rgba(255,255,255,.55);border-left:2px solid transparent;cursor:pointer;transition:all .12s;user-select:none}
 .nl:hover{color:#fff;background:rgba(255,255,255,.05)}
 .nl.active{color:#fff;background:rgba(13,157,218,.14);border-left-color:var(--blue)}
-.nl-ic{font-size:11px;opacity:.7;flex-shrink:0}
-.sb-foot{padding:10px 16px;border-top:1px solid rgba(255,255,255,.07);font-size:9px;color:rgba(140,207,254,.35);line-height:1.5}
-main{flex:1;min-width:0;padding:26px 30px;overflow:visible}
+.nl-ic{font-size:13px;opacity:.7;flex-shrink:0}
+.sb-foot{padding:12px 18px;border-top:1px solid rgba(255,255,255,.07);font-size:11px;color:rgba(140,207,254,.35);line-height:1.6}
+main{flex:1;min-width:0;padding:28px 32px;overflow:visible}
 .panel{display:none}
 .panel.active{display:block}
-.hero{background:var(--navy);border-radius:10px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:12px}
-.hero-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:2px}
-.hero-sub{font-size:9px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em}
-.hero-kpis{display:flex;gap:8px}
-.hk{background:rgba(255,255,255,.07);border-radius:8px;padding:10px 14px;text-align:center;border-top:3px solid}
-.hk-v{font-size:22px;font-weight:700;color:#fff;line-height:1}
-.hk-l{font-size:9px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.05em;margin-top:2px;font-weight:600}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.callout{border-radius:8px;padding:10px 14px;font-size:11px;line-height:1.6;display:flex;gap:8px;align-items:flex-start;margin-top:10px}
-.c-ico{font-size:12px;flex-shrink:0;margin-top:1px}
+.hero{background:var(--navy);border-radius:10px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;gap:14px}
+.hero-title{font-size:22px;font-weight:700;color:#fff;margin-bottom:3px}
+.hero-sub{font-size:12px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em}
+.hero-kpis{display:flex;gap:9px}
+.hk{background:rgba(255,255,255,.07);border-radius:8px;padding:11px 16px;text-align:center;border-top:3px solid}
+.hk-v{font-size:26px;font-weight:700;color:#fff;line-height:1}
+.hk-l{font-size:11px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.05em;margin-top:3px;font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.callout{border-radius:8px;padding:14px 18px;font-size:14px;line-height:1.7;display:flex;gap:9px;align-items:flex-start;margin-top:14px}
+.c-ico{font-size:14px;flex-shrink:0;margin-top:2px}
 .cb{background:var(--light);border:1px solid var(--bd);color:var(--navy)}
 .ca{background:var(--amb-bg);border:1px solid var(--amb-bd);color:#4A2500}
 .cg{background:var(--grn-bg);border:1px solid var(--grn-bd);color:#0A2A22}
 .cr{background:var(--red-bg);border:1px solid #F5C4B3;color:#7A1A08}
 .stk-card{background:#0A3870;border-radius:10px;overflow:hidden;border:0.5px solid #1B5EA0}
-.stk-head{padding:10px 12px;display:flex;align-items:center;gap:8px;border-bottom:0.5px solid #1B5EA0}
-.stk-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
-.stk-ht{font-size:12px;font-weight:700;color:#fff}
-.stk-items{padding:8px 12px}
-.stk-item{font-size:11px;color:#8CCFFE;padding:3px 0;border-bottom:0.5px solid rgba(27,94,160,.5);line-height:1.4;display:flex;align-items:flex-start;gap:5px}
+.stk-head{padding:13px 15px;display:flex;align-items:center;gap:9px;border-bottom:0.5px solid #1B5EA0}
+.stk-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.stk-ht{font-size:15px;font-weight:700;color:#fff}
+.stk-items{padding:10px 15px}
+.stk-item{font-size:13.5px;color:#8CCFFE;padding:5px 0;border-bottom:0.5px solid rgba(27,94,160,.5);line-height:1.55;display:flex;align-items:flex-start;gap:7px}
 .stk-item:last-child{border-bottom:none}
-.si-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.si-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
 .gap-card{background:#fff;border-radius:10px;border:0.5px solid var(--bd);overflow:hidden;border-top:3px solid}
-.gap-inner{padding:12px 14px}
-.gap-n{font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--mut);margin-bottom:5px}
-.gap-t{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
-.gap-b{font-size:11px;color:var(--mut);line-height:1.55}
-.roi-wrap{background:#0B1628;border-radius:10px;overflow:hidden;margin-bottom:14px;position:relative}
-.roi-header{padding:16px 20px 0}
-.roi-eyebrow{font-size:9px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
-.roi-title{font-size:18px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px}
+.gap-inner{padding:16px 18px}
+.gap-n{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--mut);margin-bottom:6px}
+.gap-t{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3}
+.gap-b{font-size:13.5px;color:var(--mut);line-height:1.65}
+.roi-wrap{background:#0B1628;border-radius:10px;overflow:hidden;margin-bottom:16px;position:relative}
+.roi-header{padding:20px 24px 0}
+.roi-eyebrow{font-size:11px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:5px}
+.roi-title{font-size:22px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:5px}
 .roi-title span.tx{color:#E8A500}
 .roi-title span.bx{color:#0D9DDA}
-.roi-sub{font-size:11px;color:#8CCFFE;margin-bottom:12px}
+.roi-sub{font-size:13px;color:#8CCFFE;margin-bottom:14px}
 .chart-area{display:flex;gap:0;align-items:flex-start}
-.chart-left{flex:1;min-width:0;padding:0 16px 16px}
-.chart-right{width:280px;flex-shrink:0;padding:12px 16px 16px;border-left:1px solid rgba(255,255,255,.06)}
-.tooltip-box{position:absolute;background:#1A2E4A;border:1px solid #2A4E7A;border-radius:8px;padding:10px 13px;font-size:11px;color:#fff;pointer-events:none;max-width:210px;z-index:10;line-height:1.5;display:none}
-.tb-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
-.ri-card{background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(255,255,255,.07);margin-bottom:8px;overflow:hidden}
-.ri-card-head{padding:7px 11px;display:flex;align-items:center;gap:6px}
-.ri-card-lbl{font-size:9px;font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase}
-.ri-card-body{padding:8px 11px}
-.ri-card-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
-.ri-card-sub{font-size:10px;color:#8CCFFE;font-style:italic;margin-bottom:7px}
-.ri-item{font-size:10.5px;color:#8CCFFE;display:flex;align-items:flex-start;gap:6px;padding:3px 0;border-bottom:0.5px solid rgba(255,255,255,.06);line-height:1.4}
+.chart-left{flex:1;min-width:0;padding:0 18px 18px}
+.chart-right{width:300px;flex-shrink:0;padding:14px 18px 18px;border-left:1px solid rgba(255,255,255,.06)}
+.tooltip-box{position:absolute;background:#1A2E4A;border:1px solid #2A4E7A;border-radius:8px;padding:12px 15px;font-size:13px;color:#fff;pointer-events:none;max-width:230px;z-index:10;line-height:1.6;display:none}
+.tb-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.ri-card{background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(255,255,255,.07);margin-bottom:10px;overflow:hidden}
+.ri-card-head{padding:9px 13px;display:flex;align-items:center;gap:7px}
+.ri-card-lbl{font-size:11px;font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase}
+.ri-card-body{padding:10px 13px}
+.ri-card-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:3px}
+.ri-card-sub{font-size:12px;color:#8CCFFE;font-style:italic;margin-bottom:9px}
+.ri-item{font-size:13px;color:#8CCFFE;display:flex;align-items:flex-start;gap:7px;padding:5px 0;border-bottom:0.5px solid rgba(255,255,255,.06);line-height:1.55}
 .ri-item:last-child{border-bottom:none}
-.ri-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
-.pillar-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.ri-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.pillar-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
 .pm{background:#0A3870;border-radius:8px;overflow:hidden;border:1.5px solid transparent;cursor:pointer;transition:border-color .15s}
 .pm:hover{border-color:rgba(255,255,255,.2)}
 .pm.sel{border-color:#fff}
 .pm-top{height:4px}
-.pm-in{padding:7px 9px}
-.pm-n{font-size:8px;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:3px;letter-spacing:.06em}
-.pm-t{font-size:11px;font-weight:600;color:#fff;line-height:1.3}
-.pd{background:var(--lighter);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
-.pd-hd{display:flex;align-items:center;gap:9px;margin-bottom:9px}
-.pd-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
-.pd-ti{font-size:14px;font-weight:700;color:var(--navy);line-height:1.2}
-.pd-su{font-size:11px;color:var(--mut);font-style:italic;margin-top:1px}
-.pd-vis{font-size:12px;color:var(--mut);line-height:1.65;margin-bottom:11px;padding:9px 12px;background:#fff;border-radius:8px;border:1px solid var(--bd)}
-.pd-cols{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.pd-sl{font-size:9px;font-weight:700;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
-.pd-m{margin-bottom:9px}
-.pd-mt{font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:2px;line-height:1.3}
-.pd-mb{font-size:11px;color:var(--mut);line-height:1.5}
-.pd-ms{font-size:11.5px;color:var(--mut);padding:4px 0;border-bottom:0.5px solid var(--bd);display:flex;align-items:flex-start;gap:6px;line-height:1.4}
+.pm-in{padding:10px 12px}
+.pm-n{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:4px;letter-spacing:.06em}
+.pm-t{font-size:13px;font-weight:600;color:#fff;line-height:1.35}
+.pd{background:var(--lighter);border:1px solid var(--bd);border-radius:10px;padding:18px 20px}
+.pd-hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.pd-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0}
+.pd-ti{font-size:17px;font-weight:700;color:var(--navy);line-height:1.2}
+.pd-su{font-size:13px;color:var(--mut);font-style:italic;margin-top:2px}
+.pd-vis{font-size:14px;color:var(--mut);line-height:1.75;margin-bottom:15px;padding:13px 16px;background:#fff;border-radius:8px;border:1px solid var(--bd)}
+.pd-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pd-sl{font-size:11px;font-weight:700;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin-bottom:9px}
+.pd-m{margin-bottom:13px}
+.pd-mt{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px;line-height:1.3}
+.pd-mb{font-size:13.5px;color:var(--mut);line-height:1.6}
+.pd-ms{font-size:13.5px;color:var(--mut);padding:6px 0;border-bottom:0.5px solid var(--bd);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
 .pd-ms:last-child{border-bottom:none}
 .kpi-card{background:var(--navy);border-radius:10px;overflow:hidden;border:0.5px solid #1B5EA0}
 .kpi-top{height:4px}
-.kpi-in{padding:12px 14px}
-.kpi-m{font-size:30px;font-weight:700;line-height:1;margin-bottom:3px}
-.kpi-l{font-size:9px;font-weight:700;color:#8CCFFE;letter-spacing:.04em;margin-bottom:7px;text-transform:uppercase}
-.kpi-b{font-size:11px;color:#8CCFFE;line-height:1.5}
-.flow-row{background:var(--lighter);border-radius:10px;padding:11px 14px;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;border:1px solid var(--bd)}
-.flow-l{font-size:11px;font-weight:600;color:var(--mut);margin-right:3px}
-.fl-stage{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;color:#fff}
-.fl-arr{color:var(--mut);font-size:15px}
-.fl-note{font-size:11px;color:var(--mut);font-style:italic}
-.talent-box{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;border-left:3px solid var(--pur-bd)}
-.tb-l p{font-size:11.5px;color:var(--mut);line-height:1.65}
-.tb-r{border-left:1px solid var(--bd);padding-left:14px;display:flex;flex-direction:column;justify-content:center}
-.tb-q{font-size:13px;font-weight:600;color:var(--pur);line-height:1.5;font-style:italic;margin-bottom:5px}
-.tb-c{font-size:11px;color:var(--mut);font-style:italic}
+.kpi-in{padding:16px 18px}
+.kpi-m{font-size:36px;font-weight:700;line-height:1;margin-bottom:5px}
+.kpi-l{font-size:11px;font-weight:700;color:#8CCFFE;letter-spacing:.04em;margin-bottom:9px;text-transform:uppercase}
+.kpi-b{font-size:13.5px;color:#8CCFFE;line-height:1.6}
+.flow-row{background:var(--lighter);border-radius:10px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid var(--bd)}
+.flow-l{font-size:13px;font-weight:600;color:var(--mut);margin-right:3px}
+.fl-stage{padding:7px 18px;border-radius:20px;font-size:14px;font-weight:700;color:#fff}
+.fl-arr{color:var(--mut);font-size:17px}
+.fl-note{font-size:13px;color:var(--mut);font-style:italic}
+.talent-box{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:18px;border-left:3px solid var(--pur-bd)}
+.tb-l p{font-size:14px;color:var(--mut);line-height:1.75}
+.tb-r{border-left:1px solid var(--bd);padding-left:18px;display:flex;flex-direction:column;justify-content:center}
+.tb-q{font-size:16px;font-weight:600;color:var(--pur);line-height:1.5;font-style:italic;margin-bottom:7px}
+.tb-c{font-size:13.5px;color:var(--mut);font-style:italic}
 </style>
 </head>
 <body>
@@ -153,7 +153,7 @@ main{flex:1;min-width:0;padding:26px 30px;overflow:visible}
 <!-- 01 STRATEGIC MOMENT -->
 <div id="p-moment" class="panel active">
   <div class="hero">
-    <div><div class="hero-title">One Model, One Motion</div><div class="hero-sub">Agent-First GTM Operating Strategy &middot; AI Council &middot; FY27</div></div>
+    <div><div class="hero-title">One Model, One Motion</div><div class="hero-sub">Agent-First GTM Operating Strategy &middot; Solutions CoE &middot; FY27</div></div>
     <div class="hero-kpis">
       <div class="hk" style="border-top-color:#0D9DDA"><div class="hk-v">4</div><div class="hk-l">Pillars</div></div>
       <div class="hk" style="border-top-color:#9B7FE8"><div class="hk-v">5</div><div class="hk-l">Roles</div></div>
@@ -161,8 +161,8 @@ main{flex:1;min-width:0;padding:26px 30px;overflow:visible}
     </div>
   </div>
   <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:16px">
-    <div style="font-size:9px;font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px">Leadership Moment</div>
-    <div style="font-size:12px;color:#e8f4ff;line-height:1.65;font-style:italic">The art of the possible &mdash; speed, scale, specificity, affordability, and reliability for customers &mdash; is unlocked only by an agent-first operating model. The question is not whether to make this shift. It is whether we define it or react to it.</div>
+    <div style="font-size:12px;font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px">Leadership Moment</div>
+    <div style="font-size:15px;color:#e8f4ff;line-height:1.75;font-style:italic">The art of the possible &mdash; speed, scale, specificity, affordability, and reliability for customers &mdash; is unlocked only by an agent-first operating model. The question is not whether to make this shift. It is whether we define it or react to it.</div>
   </div>
   <div class="grid3" style="margin-bottom:12px">
     <div class="stk-card">
@@ -209,21 +209,21 @@ main{flex:1;min-width:0;padding:26px 30px;overflow:visible}
   </div>
   <div class="grid2">
     <div style="background:var(--navy);border-radius:10px;padding:14px 16px">
-      <div style="font-size:9px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">What the symptoms look like</div>
+      <div style="font-size:12px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the symptoms look like</div>
       <div style="display:flex;flex-direction:column;gap:5px">
-        <div style="font-size:11px;padding:5px 9px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &mdash; no front door, no qualification</div>
-        <div style="font-size:11px;padding:5px 9px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div>
-        <div style="font-size:11px;padding:5px 9px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &rarr; FDE &rarr; ProServ &rarr; CS</div>
-        <div style="font-size:11px;padding:5px 9px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of "adoption" across orgs</div>
+        <div style="font-size:14px;padding:7px 11px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &mdash; no front door, no qualification</div>
+        <div style="font-size:14px;padding:7px 11px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div>
+        <div style="font-size:14px;padding:7px 11px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &rarr; FDE &rarr; ProServ &rarr; CS</div>
+        <div style="font-size:14px;padding:7px 11px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of "adoption" across orgs</div>
       </div>
     </div>
     <div style="background:#fff;border-radius:10px;padding:14px 16px;border:1px solid var(--bd)">
-      <div style="font-size:9px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">What the framework actually solves</div>
+      <div style="font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework actually solves</div>
       <div style="display:flex;flex-direction:column;gap:5px">
-        <div style="font-size:11px;padding:5px 9px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &mdash; signal to governance, end-to-end</div>
-        <div style="font-size:11px;padding:5px 9px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &mdash; fluency, not completion</div>
-        <div style="font-size:11px;padding:5px 9px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &mdash; every transition is a data event</div>
-        <div style="font-size:11px;padding:5px 9px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &mdash; one metric language across all orgs</div>
+        <div style="font-size:14px;padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &mdash; signal to governance, end-to-end</div>
+        <div style="font-size:14px;padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &mdash; fluency, not completion</div>
+        <div style="font-size:14px;padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &mdash; every transition is a data event</div>
+        <div style="font-size:14px;padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &mdash; one metric language across all orgs</div>
       </div>
     </div>
   </div>
@@ -254,22 +254,22 @@ main{flex:1;min-width:0;padding:26px 30px;overflow:visible}
             <line x1="40" y1="195" x2="440" y2="195" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/>
             <line x1="40" y1="122" x2="440" y2="122" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/>
             <line x1="40" y1="50" x2="440" y2="50" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/>
-            <text x="36" y="272" font-family="-apple-system,sans-serif" font-size="9" fill="#3A6A9A" text-anchor="end">Low</text>
-            <text x="36" y="54" font-family="-apple-system,sans-serif" font-size="9" fill="#3A6A9A" text-anchor="end">High</text>
-            <text x="46" y="285" font-family="-apple-system,sans-serif" font-size="9" fill="#3A6A9A">Low</text>
-            <text x="422" y="285" font-family="-apple-system,sans-serif" font-size="9" fill="#3A6A9A">High</text>
+            <text x="36" y="272" font-family="-apple-system,sans-serif" font-size="10" fill="#3A6A9A" text-anchor="end">Low</text>
+            <text x="36" y="54" font-family="-apple-system,sans-serif" font-size="10" fill="#3A6A9A" text-anchor="end">High</text>
+            <text x="46" y="285" font-family="-apple-system,sans-serif" font-size="10" fill="#3A6A9A">Low</text>
+            <text x="422" y="285" font-family="-apple-system,sans-serif" font-size="10" fill="#3A6A9A">High</text>
             <line x1="40" y1="270" x2="448" y2="270" stroke="#04C3B5" stroke-width="2" marker-end="url(#ax)"/>
             <line x1="40" y1="270" x2="40" y2="22" stroke="#E8A500" stroke-width="2" marker-end="url(#ay)"/>
-            <text x="445" y="285" font-family="-apple-system,sans-serif" font-size="9.5" font-weight="700" fill="#04C3B5" text-anchor="end">TECH ROI (AI ACCELERATION)</text>
-            <text x="18" y="160" font-family="-apple-system,sans-serif" font-size="9.5" font-weight="700" fill="#E8A500" text-anchor="middle" transform="rotate(-90,18,160)">BUSINESS ROI</text>
+            <text x="445" y="285" font-family="-apple-system,sans-serif" font-size="11" font-weight="700" fill="#04C3B5" text-anchor="end">TECH ROI (AI ACCELERATION)</text>
+            <text x="18" y="160" font-family="-apple-system,sans-serif" font-size="11" font-weight="700" fill="#E8A500" text-anchor="middle" transform="rotate(-90,18,160)">BUSINESS ROI</text>
             <path d="M40,270 Q160,260 220,220 Q300,165 380,80 Q410,55 440,35" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
             <circle cx="218" cy="222" r="7" fill="#22C55E"/>
             <rect x="140" y="185" width="118" height="38" rx="5" fill="#0A2818" stroke="#22C55E" stroke-width="1"/>
-            <text x="199" y="200" font-family="-apple-system,sans-serif" font-size="9" font-weight="700" fill="#22C55E" text-anchor="middle">The Sweet Spot</text>
-            <text x="199" y="213" font-family="-apple-system,sans-serif" font-size="8.5" fill="#22C55E" text-anchor="middle">Aligned acceleration</text>
+            <text x="199" y="200" font-family="-apple-system,sans-serif" font-size="10" font-weight="700" fill="#22C55E" text-anchor="middle">The Sweet Spot</text>
+            <text x="199" y="213" font-family="-apple-system,sans-serif" font-size="10" fill="#22C55E" text-anchor="middle">Aligned acceleration</text>
             <rect x="48" y="28" width="108" height="38" rx="5" fill="#0A1E3A" stroke="#1B96FF" stroke-width="0.5" stroke-dasharray="3,3"/>
-            <text x="102" y="44" font-family="-apple-system,sans-serif" font-size="8.5" fill="#8CCFFE" text-anchor="middle">Untapped potential</text>
-            <text x="102" y="57" font-family="-apple-system,sans-serif" font-size="8" fill="#5A8AB0" text-anchor="middle">Goals, no tools</text>
+            <text x="102" y="44" font-family="-apple-system,sans-serif" font-size="10" fill="#8CCFFE" text-anchor="middle">Untapped potential</text>
+            <text x="102" y="57" font-family="-apple-system,sans-serif" font-size="10" fill="#5A8AB0" text-anchor="middle">Goals, no tools</text>
             <circle id="dot-a" cx="320" cy="218" r="9" fill="#E8A500" style="cursor:pointer"/>
             <circle id="dot-b" cx="155" cy="155" r="9" fill="#C23B22" style="cursor:pointer"/>
             <circle id="dot-c" cx="265" cy="148" r="9" fill="#7B5EA7" style="cursor:pointer"/>
@@ -302,8 +302,8 @@ main{flex:1;min-width:0;padding:26px 30px;overflow:visible}
           </div>
         </div>
         <div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:8px;padding:9px 11px">
-          <div style="font-size:9px;font-weight:700;color:#22C55E;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Aligned acceleration</div>
-          <div style="font-size:11px;color:#86EFAC;line-height:1.55">When Business + Tech ROI move together, productivity compounds and every dollar spent maps to a measurable outcome.</div>
+          <div style="font-size:12px;font-weight:700;color:#22C55E;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px">Aligned acceleration</div>
+          <div style="font-size:14px;color:#86EFAC;line-height:1.6">When Business + Tech ROI move together, productivity compounds and every dollar spent maps to a measurable outcome.</div>
         </div>
       </div>
     </div>
@@ -321,8 +321,8 @@ main{flex:1;min-width:0;padding:26px 30px;overflow:visible}
     <div><div class="hero-title">The Four Pillars</div><div class="hero-sub">The execution vehicle &mdash; not the strategy itself</div></div>
   </div>
   <div style="background:var(--navy);border-radius:10px;padding:14px 16px;margin-bottom:14px">
-    <div style="font-size:9px;font-weight:700;color:#8CCFFE;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px">Vision</div>
-    <div style="font-size:12px;color:#e8f4ff;font-style:italic;line-height:1.65;border-left:3px solid var(--blue);padding-left:12px">Build a unified AI operating model that makes the right tools available to the right roles, measures what matters, and connects the full GTM motion &mdash; from first signal to customer outcome.</div>
+    <div style="font-size:12px;font-weight:700;color:#8CCFFE;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Vision</div>
+    <div style="font-size:15px;color:#e8f4ff;font-style:italic;line-height:1.75;border-left:3px solid var(--blue);padding-left:12px">Build a unified AI operating model that makes the right tools available to the right roles, measures what matters, and connects the full GTM motion &mdash; from first signal to customer outcome.</div>
   </div>
   <div class="pillar-row">
     <div class="pm sel" onclick="selP(0,this)" id="pm0"><div class="pm-top" style="background:#0D9DDA"></div><div class="pm-in"><div class="pm-n">Pillar 01</div><div class="pm-t">Signal Intake &amp; Closed-Loop Steering</div></div></div>
@@ -339,9 +339,9 @@ main{flex:1;min-width:0;padding:26px 30px;overflow:visible}
     <div><div class="hero-title">Outcomes</div><div class="hero-sub">This is not an efficiency play. It is a revenue play &mdash; and a talent play.</div></div>
   </div>
   <div class="grid3" style="margin-bottom:12px">
-    <div class="kpi-card"><div class="kpi-top" style="background:#0D9DDA"></div><div class="kpi-in"><div class="kpi-m" style="color:#0D9DDA">CCR</div><div class="kpi-l">Customer Consumed Revenue</div><div class="kpi-b">Faster cycle times, richer handoffs, and purposeful AI adoption drive more PoCs shipped and more pipeline converted. New logos, faster.</div></div></div>
-    <div class="kpi-card"><div class="kpi-top" style="background:#04C3B5"></div><div class="kpi-in"><div class="kpi-m" style="color:#04C3B5">CV</div><div class="kpi-l">Customer Value</div><div class="kpi-b">Measurable business outcomes customer achieve with an agentic enterprise.</div></div></div>
-    <div class="kpi-card"><div class="kpi-top" style="background:#E8A500"></div><div class="kpi-in"><div class="kpi-m" style="color:#E8A500">NNAoV</div><div class="kpi-l">Net New Annual Order Value</div><div class="kpi-b">Protecting handoff quality and reducing rework preserves deals won in evaluation. Deals are lost after the win, not during it.</div></div></div>
+    <div class="kpi-card"><div class="kpi-top" style="background:#0D9DDA"></div><div class="kpi-in"><div class="kpi-m" style="color:#0D9DDA">CCR</div><div class="kpi-l">Close / Conversion Rate</div><div class="kpi-b">Faster cycle times, richer handoffs, and purposeful AI adoption drive more PoCs shipped and more pipeline converted. New logos, faster.</div></div></div>
+    <div class="kpi-card"><div class="kpi-top" style="background:#04C3B5"></div><div class="kpi-in"><div class="kpi-m" style="color:#04C3B5">AWU</div><div class="kpi-l">Agentic Work Unit Velocity</div><div class="kpi-b">Builder fluency tied to PoCs and pipeline turns individual SE productivity into compound org-wide output. Fluency converts to revenue.</div></div></div>
+    <div class="kpi-card"><div class="kpi-top" style="background:#E8A500"></div><div class="kpi-in"><div class="kpi-m" style="color:#E8A500">NNAoV</div><div class="kpi-l">Net New ACV Preservation</div><div class="kpi-b">Protecting handoff quality and reducing rework preserves deals won in evaluation. Deals are lost after the win, not during it.</div></div></div>
   </div>
   <div class="flow-row">
     <span class="flow-l">Connected GTM motion:</span>
@@ -356,7 +356,7 @@ main{flex:1;min-width:0;padding:26px 30px;overflow:visible}
   </div>
   <div class="talent-box">
     <div class="tb-l">
-      <div style="font-size:9px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px">Talent &amp; Permission: The Multiplier</div>
+      <div style="font-size:12px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Talent &amp; Permission: The Multiplier</div>
       <p>Two levers: recruiting people who already carry AI-native instincts, and unlocking the people already here. The second is the faster one. AI DNA does not have to be hired in &mdash; much of it already exists in the org, waiting for the expectation to change.</p>
     </div>
     <div class="tb-r">
@@ -438,7 +438,7 @@ const svg=document.getElementById('roi-svg');
   if(!dot)return;
   dot.addEventListener('mouseenter',function(e){
     const t=tooltips[id];
-    tip.innerHTML=`<div class="tb-label" style="color:${t.color}">${t.label}</div><div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:5px">${t.title}</div><div style="font-size:11px;color:#c8dff0;line-height:1.5">${t.body}</div>`;
+    tip.innerHTML=`<div class="tb-label" style="color:${t.color}">${t.label}</div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px">${t.title}</div><div style="font-size:13px;color:#c8dff0;line-height:1.6">${t.body}</div>`;
     tip.style.display='block';
     const rect=svg.getBoundingClientRect();
     const vbW=480,vbH=320;
