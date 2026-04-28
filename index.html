@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Innovation & Tooling Strategy · FY27</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#032D60;--navy2:#063A7A;--navy3:#0A4A96;
+  --blue:#0D9DDA;--bright:#1B96FF;--dark:#003A6B;
+  --light:#E4F4FF;--lighter:#EFF8FF;--bd:#C8E3F5;
+  --pur:#4A2EC0;--pur-bg:#EDE9FF;--pur-bd:#9B7FE8;
+  --amb:#B05C00;--amb-bg:#FFF4D6;--amb-bd:#E8A24A;
+  --grn:#0F6E56;--grn-bg:#E1F5EE;--grn-bd:#5DCAA5;
+  --mut:#5A8AB0;--bg:#EFF7FF;
+}
+html,body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;background:var(--bg);color:var(--navy);min-height:100vh}
+.shell{display:flex;min-height:100vh}
+aside{width:224px;min-width:224px;background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sb-logo{padding:20px 18px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb-logo-row{display:flex;align-items:center;gap:10px}
+.sf-icon{width:38px;height:38px;background:#1798C1;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sb-brand{font-size:13px;font-weight:700;color:#fff;line-height:1.25}
+.sb-sub{font-size:10px;color:#8CCFFE;margin-top:5px;letter-spacing:.06em;text-transform:uppercase}
+nav{padding:10px 0;flex:1}
+.ng{padding:6px 18px 3px;font-size:10px;font-weight:700;color:rgba(140,207,254,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.nl{display:flex;align-items:center;gap:9px;padding:9px 18px;font-size:13px;color:rgba(255,255,255,.55);border-left:2px solid transparent;cursor:pointer;transition:all .12s;user-select:none}
+.nl:hover{color:#fff;background:rgba(255,255,255,.05)}
+.nl.active{color:#fff;background:rgba(13,157,218,.14);border-left-color:var(--blue)}
+.nl-ic{font-size:12px;opacity:.7;flex-shrink:0;width:14px;text-align:center}
+.sb-foot{padding:12px 18px;border-top:1px solid rgba(255,255,255,.07);font-size:10px;color:rgba(140,207,254,.35);line-height:1.6}
+main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
+.panel{display:none}.panel.active{display:block}
+.hero{background:var(--navy);border-radius:12px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;gap:16px}
+.hero-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:3px}
+.hero-sub{font-size:11px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em}
+.hero-kpis{display:flex;gap:9px}
+.hk{background:rgba(255,255,255,.07);border-radius:8px;padding:11px 16px;text-align:center;border-top:3px solid}
+.hk-v{font-size:26px;font-weight:700;color:#fff;line-height:1}
+.hk-l{font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.05em;margin-top:3px;font-weight:600}
+.callout{border-radius:8px;padding:12px 16px;font-size:13px;line-height:1.7;display:flex;gap:9px;align-items:flex-start;margin-top:14px}
+.c-ico{font-size:13px;flex-shrink:0;margin-top:2px}
+.cb{background:var(--light);border:1px solid var(--bd);color:var(--navy)}
+.ca{background:var(--amb-bg);border:1px solid var(--amb-bd);color:#4A2500}
+.cg{background:var(--grn-bg);border:1px solid var(--grn-bd);color:#0A2A22}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gap-card{background:#fff;border-radius:10px;border:.5px solid var(--bd);overflow:hidden;border-top:3px solid}
+.gap-inner{padding:15px 17px}
+.gap-n{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--mut);margin-bottom:5px}
+.gap-t{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.gap-b{font-size:12px;color:var(--mut);line-height:1.6}
+.stk-card{background:#0A3870;border-radius:10px;overflow:hidden;border:.5px solid #1B5EA0}
+.stk-head{padding:12px 14px;display:flex;align-items:center;gap:8px;border-bottom:.5px solid #1B5EA0}
+.stk-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.stk-ht{font-size:14px;font-weight:700;color:#fff}
+.stk-items{padding:10px 14px}
+.stk-item{font-size:13px;color:#8CCFFE;padding:5px 0;border-bottom:.5px solid rgba(27,94,160,.5);line-height:1.5;display:flex;align-items:flex-start;gap:7px}
+.stk-item:last-child{border-bottom:none}
+.si-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.roi-wrap{background:#0B1628;border-radius:10px;overflow:hidden;margin-bottom:16px}
+.roi-header{padding:18px 22px 0}
+.roi-eyebrow{font-size:11px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+.roi-title{font-size:19px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px}
+.roi-title .tx{color:#E8A500}.roi-title .bx{color:#0D9DDA}
+.roi-sub{font-size:12px;color:#8CCFFE;margin-bottom:12px}
+.chart-area{display:flex;gap:0;align-items:flex-start}
+.chart-left{flex:1;min-width:0;padding:0 16px 16px}
+.chart-right{width:280px;flex-shrink:0;padding:12px 16px 16px;border-left:1px solid rgba(255,255,255,.06)}
+.tooltip-box{position:absolute;background:#1A2E4A;border:1px solid #2A4E7A;border-radius:8px;padding:11px 14px;font-size:12px;color:#fff;pointer-events:none;max-width:220px;z-index:10;line-height:1.6;display:none}
+.tb-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.ri-card{background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(255,255,255,.07);margin-bottom:9px;overflow:hidden}
+.ri-card-head{padding:8px 12px;display:flex;align-items:center;gap:7px}
+.ri-card-lbl{font-size:10px;font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase}
+.ri-card-body{padding:9px 12px}
+.ri-card-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}
+.ri-card-sub{font-size:11px;color:#8CCFFE;font-style:italic;margin-bottom:7px}
+.ri-item{font-size:12px;color:#8CCFFE;display:flex;align-items:flex-start;gap:6px;padding:4px 0;border-bottom:.5px solid rgba(255,255,255,.06);line-height:1.5}
+.ri-item:last-child{border-bottom:none}
+.ri-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.pillar-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.pm{background:#0A3870;border-radius:8px;overflow:hidden;border:1.5px solid transparent;cursor:pointer;transition:border-color .15s}
+.pm:hover{border-color:rgba(255,255,255,.2)}
+.pm.sel{border-color:#fff}
+.pm-top{height:4px}
+.pm-in{padding:9px 11px}
+.pm-n{font-size:10px;font-weight:700;color:rgba(255,255,255,.35);margin-bottom:3px;letter-spacing:.05em}
+.pm-t{font-size:12px;font-weight:600;color:#fff;line-height:1.35}
+.pd{background:var(--lighter);border:1px solid var(--bd);border-radius:10px;padding:16px 18px}
+.pd-hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.pd-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.pd-ti{font-size:15px;font-weight:700;color:var(--navy);line-height:1.2}
+.pd-su{font-size:12px;color:var(--mut);font-style:italic;margin-top:2px}
+.pd-vis{font-size:13px;color:var(--mut);line-height:1.7;margin-bottom:14px;padding:12px 15px;background:#fff;border-radius:8px;border:1px solid var(--bd)}
+.pd-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pd-sl{font-size:10px;font-weight:700;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.pd-m{margin-bottom:12px}
+.pd-mt{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;line-height:1.3}
+.pd-mb{font-size:12px;color:var(--mut);line-height:1.6}
+.pd-ms{font-size:12px;color:var(--mut);padding:5px 0;border-bottom:.5px solid var(--bd);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.pd-ms:last-child{border-bottom:none}
+.c-tier-label{font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px;padding-left:2px}
+.c-row{display:flex;gap:8px;margin-bottom:8px}
+.c-card{flex:1;border-radius:10px;padding:13px 15px;border:1px solid}
+.c-badge{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.c-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.c-desc{font-size:11px;line-height:1.5;margin-bottom:7px}
+.c-tags{display:flex;flex-wrap:wrap;gap:4px}
+.c-tag{font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px}
+.c-tag-tbd{font-size:9px;font-weight:700;padding:2px 10px;border-radius:20px;background:#F0F0F4;color:#888;font-style:italic;border:1px dashed #ccc}
+.tier-arrow{text-align:center;font-size:16px;color:var(--bd);margin:2px 0;line-height:1}
+.legend{display:flex;flex-wrap:wrap;gap:8px;padding:9px 13px;background:#F7FBFF;border-radius:8px;border:1px solid var(--bd);margin-bottom:14px}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--navy)}
+.stages{display:flex;gap:5px;align-items:stretch}
+.stage-box{flex:1;border-radius:10px;overflow:hidden;min-width:0}
+.stage-hdr{padding:10px 12px}
+.stage-num{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.stage-name{font-size:12px;font-weight:700}
+.stage-items{padding:10px 12px;background:#fff;border:1px solid;border-top:none;border-radius:0 0 10px 10px;display:flex;flex-direction:column;gap:4px}
+.si{font-size:10px;padding:5px 8px;border-radius:5px;border-left:3px solid;line-height:1.4}
+.stage-arrow{display:flex;align-items:center;color:var(--bd);font-size:16px;flex-shrink:0;align-self:center;padding-bottom:28px}
+.lc-bar{display:flex;border-radius:8px;overflow:hidden;height:28px;border:.5px solid var(--bd);margin-top:8px}
+.lc-seg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;flex:1}
+.bench-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
+.bench-card{background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:13px 14px;cursor:pointer;transition:all .16s;position:relative;overflow:hidden;border-top:3px solid var(--card-accent,var(--bd))}
+.bench-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.bench-card.sel{border-color:var(--navy);background:var(--lighter)}
+.bc-top{display:flex;align-items:flex-start;gap:9px;margin-bottom:6px}
+.bc-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.bc-name{font-size:12px;font-weight:700;color:var(--navy);line-height:1.25}
+.bc-lc{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.bc-jtbd{font-size:11px;color:var(--mut);line-height:1.4}
+.bench-detail{background:var(--navy);border-radius:12px;padding:18px 22px;margin-bottom:4px;display:none}
+.bench-detail.open{display:block}
+.bd-eyebrow{font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.bd-name{font-size:16px;font-weight:700;color:#fff;margin-bottom:3px}
+.bd-lc{font-size:11px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px}
+.bd-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bd-item label{font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:3px}
+.bd-item p{font-size:12px;color:#C5DFFF;line-height:1.55}
+.bd-note{margin-top:12px;padding-top:12px;border-top:.5px solid rgba(27,150,255,.2);font-size:11px;color:#8CCFFE;line-height:1.5;font-style:italic}
+.bb-hub{background:var(--navy);border-radius:12px;padding:20px 26px;text-align:center;margin-bottom:12px}
+.bb-hub-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:3px}
+.bb-hub-sub{font-size:12px;color:#8CCFFE;margin-bottom:14px}
+.bb-hub-principles{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.bb-principle{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:4px 12px;border-radius:20px;background:#1B96FF14;border:.5px solid #1B96FF33;color:#8CCFFE}
+.bb-flows{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bb-flow{background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:14px 16px}
+.bb-flow-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.bb-flow-title::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--dot-color,var(--blue));flex-shrink:0}
+.bb-item{font-size:12px;color:var(--navy);padding:4px 0;border-bottom:.5px solid #EFF8FF;line-height:1.4;display:flex;align-items:flex-start;gap:7px}
+.bb-item:last-child{border-bottom:none}
+.bb-item::before{content:'?';color:var(--blue);font-size:11px;margin-top:1px;flex-shrink:0}
+.kpi-card{background:var(--navy);border-radius:10px;overflow:hidden;border:.5px solid #1B5EA0}
+.kpi-top{height:4px}
+.kpi-in{padding:15px 17px}
+.kpi-m{font-size:32px;font-weight:700;line-height:1;margin-bottom:4px}
+.kpi-l{font-size:10px;font-weight:700;color:#8CCFFE;letter-spacing:.04em;margin-bottom:8px;text-transform:uppercase}
+.kpi-b{font-size:12px;color:#8CCFFE;line-height:1.6}
+.flow-row{background:var(--lighter);border-radius:10px;padding:13px 17px;margin-bottom:13px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;border:1px solid var(--bd)}
+.flow-l{font-size:12px;font-weight:600;color:var(--mut);margin-right:3px}
+.fl-stage{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;color:#fff}
+.fl-arr{color:var(--mut);font-size:15px}
+.tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tl-col{border-radius:10px;overflow:hidden}
+.tl-hdr{padding:10px 12px}
+.tl-q{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.tl-name{font-size:12px;font-weight:700}
+.tl-body{padding:10px 11px;background:#fff;border:1px solid;border-top:none;border-radius:0 0 10px 10px;display:flex;flex-direction:column;gap:4px}
+.tl-item{font-size:10px;padding:5px 8px;border-radius:5px;border-left:3px solid;line-height:1.4}
+.slack-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.slack-card{background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:14px 16px}
+.slack-tier{font-size:9px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.ch{display:flex;gap:8px;align-items:flex-start;padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid #EEF5FB}
+.ch:last-child{padding-bottom:0;margin-bottom:0;border-bottom:none}
+.ch-hash{font-size:16px;font-weight:700;color:var(--blue);line-height:1;flex-shrink:0;margin-top:1px}
+.ch-name{font-size:12px;font-weight:700;color:var(--navy)}
+.ch-desc{font-size:10px;color:var(--mut);margin-top:2px;line-height:1.4}
+.ch-pills{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.ch-pill{font-size:9px;font-weight:600;padding:2px 6px;border-radius:20px;background:var(--light);color:var(--dark)}
+.r-own{background:var(--navy);color:#fff;font-size:9px;font-weight:700;border-radius:4px;display:inline-block;padding:2px 6px}
+.r-gate{background:#B05C00;color:#fff;font-size:9px;font-weight:700;border-radius:4px;display:inline-block;padding:2px 6px}
+.r-contrib{background:#D4EEFF;color:#003A6B;font-size:9px;font-weight:600;border-radius:4px;display:inline-block;padding:2px 6px}
+.r-consult{background:var(--pur-bg);color:var(--pur);font-size:9px;font-weight:600;border-radius:4px;display:inline-block;padding:2px 6px}
+.r-inform{background:#F0F0F4;color:#666;font-size:9px;font-weight:500;border-radius:4px;display:inline-block;padding:2px 6px}
+.fn-acc{background:#fff;border:.5px solid var(--bd);border-radius:10px;margin-bottom:8px;overflow:hidden}
+.fn-acc-hdr{padding:13px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .12s}
+.fn-acc-hdr:hover{background:var(--lighter)}
+.fn-acc-hdr.open{background:var(--navy)}
+.fn-acc-left{display:flex;align-items:center;gap:10px}
+.fn-acc-badge{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:2px 8px;border-radius:20px}
+.fn-acc-title{font-size:13px;font-weight:700;color:var(--navy)}
+.fn-acc-hdr.open .fn-acc-title{color:#fff}
+.fn-acc-chev{font-size:16px;color:var(--bd);transition:transform .2s}
+.fn-acc-hdr.open .fn-acc-chev{transform:rotate(180deg);color:#8CCFFE}
+.fn-acc-body{display:none;padding:14px 16px;background:#F7FBFF;border-top:.5px solid var(--bd)}
+.fn-acc-body.open{display:block}
+.raci-role{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;background:#fff;border:.5px solid var(--bd);border-radius:20px;margin:3px}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside>
+  <div class="sb-logo">
+    <div class="sb-logo-row">
+      <div class="sf-icon">
+        <svg width="24" height="24" viewBox="0 0 44 44"><path d="M18.2 13.2c1.2-1.3 2.9-2.1 4.8-2.1 2.3 0 4.3 1.2 5.4 3 .7-.3 1.5-.5 2.3-.5 3.1 0 5.6 2.5 5.6 5.6 0 3.1-2.5 5.6-5.6 5.6-.4 0-.7 0-1.1-.1C28.7 26 27 27 25 27c-.6 0-1.1-.1-1.6-.3-.8 1.4-2.3 2.3-4 2.3-1.5 0-2.8-.7-3.7-1.7-.4.1-.8.1-1.2.1-2.8 0-5-2.2-5-5s2.2-5 5-5c.3 0 .5 0 .8.1.3-1.7 1.5-3.1 2.9-4.3z" fill="white"/></svg>
+      </div>
+      <div><div class="sb-brand">AI Innovation &amp;<br>Tooling Strategy</div></div>
+    </div>
+    <div class="sb-sub">Solutions CoE · FY27</div>
+  </div>
+  <nav>
+    <div class="ng">Strategy</div>
+    <div class="nl active" onclick="showP('moment',this)"><span class="nl-ic">&#9670;</span>Strategic Moment</div>
+    <div class="nl" onclick="showP('diagnosis',this)"><span class="nl-ic">&#8856;</span>The Diagnosis</div>
+    <div class="nl" onclick="showP('roi',this)"><span class="nl-ic">&#8853;</span>ROI Axis</div>
+    <div class="ng">Framework</div>
+    <div class="nl" onclick="showP('pillars',this)"><span class="nl-ic">&#8862;</span>4 Pillars</div>
+    <div class="ng">Governance</div>
+    <div class="nl" onclick="showP('council',this)"><span class="nl-ic">&#9673;</span>Council Structure</div>
+    <div class="nl" onclick="showP('functions',this)"><span class="nl-ic">&#8863;</span>Functions &amp; RACI</div>
+    <div class="nl" onclick="showP('govlifecycle',this)"><span class="nl-ic">&#8855;</span>Pilot Lifecycle</div>
+    <div class="ng">Scale</div>
+    <div class="nl" onclick="showP('hatm',this)"><span class="nl-ic">&#8859;</span>Human-Agent Teaming</div>
+    <div class="nl" onclick="showP('bench',this)"><span class="nl-ic">&#8860;</span>Agent Bench</div>
+    <div class="nl" onclick="showP('backbone',this)"><span class="nl-ic">&#8857;</span>Central Hub</div>
+    <div class="ng">Execution</div>
+    <div class="nl" onclick="showP('outcomes',this)"><span class="nl-ic">&#8858;</span>Outcomes</div>
+    <div class="nl" onclick="showP('roadmap',this)"><span class="nl-ic">&#8856;</span>Roadmap</div>
+    <div class="nl" onclick="showP('comms',this)"><span class="nl-ic">&#8861;</span>Comms &amp; Slack</div>
+  </nav>
+  <div class="sb-foot">FY27 · Confidential<br>Framework v2.3</div>
+</aside>
+
+<main id="scroller">
+
+<!-- STRATEGIC MOMENT -->
+<div id="p-moment" class="panel active">
+  <div class="hero">
+    <div><div class="hero-title">AI Innovation &amp; Tooling Strategy</div><div class="hero-sub">Agent-First Operating Model · AI Council · FY27</div></div>
+    <div class="hero-kpis">
+      <div class="hk" style="border-top-color:#0D9DDA"><div class="hk-v">4</div><div class="hk-l">Pillars</div></div>
+      <div class="hk" style="border-top-color:#9B7FE8"><div class="hk-v">12</div><div class="hk-l">Agents</div></div>
+      <div class="hk" style="border-top-color:#E8A24A"><div class="hk-v">5</div><div class="hk-l">Council Seats</div></div>
+      <div class="hk" style="border-top-color:#5DCAA5"><div class="hk-v">4</div><div class="hk-l">Gates</div></div>
+    </div>
+  </div>
+  <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:16px">
+    <div style="font-size:11px;font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px">Leadership Moment</div>
+    <div style="font-size:14px;color:#e8f4ff;line-height:1.75;font-style:italic">The art of the possible &#8212; speed, scale, specificity, affordability, and reliability for customers &#8212; is unlocked only by an agent-first operating model. The question is not whether to make this shift. It is whether we define it or react to it.</div>
+  </div>
+  <div class="grid3" style="margin-bottom:14px">
+    <div class="stk-card"><div class="stk-head"><div class="stk-num" style="background:#0D9DDA">1</div><div class="stk-ht">For Customers</div></div><div class="stk-items"><div class="stk-item"><div class="si-dot" style="background:#0D9DDA"></div>Solutions built in days, not quarters</div><div class="stk-item"><div class="si-dot" style="background:#0D9DDA"></div>Specificity at scale for every industry</div><div class="stk-item"><div class="si-dot" style="background:#0D9DDA"></div>Reliable agents with protected data</div><div class="stk-item"><div class="si-dot" style="background:#0D9DDA"></div>Affordability of bespoke AI delivery</div></div></div>
+    <div class="stk-card"><div class="stk-head"><div class="stk-num" style="background:#04C3B5">2</div><div class="stk-ht">For Investors</div></div><div class="stk-items"><div class="stk-item"><div class="si-dot" style="background:#04C3B5"></div>Margin expansion via AI-native delivery</div><div class="stk-item"><div class="si-dot" style="background:#04C3B5"></div>Faster time-to-value on new deployments</div><div class="stk-item"><div class="si-dot" style="background:#04C3B5"></div>Differentiation in agentic enterprise</div><div class="stk-item"><div class="si-dot" style="background:#04C3B5"></div>Scalable growth without headcount drag</div></div></div>
+    <div class="stk-card"><div class="stk-head"><div class="stk-num" style="background:#7B5EA7">3</div><div class="stk-ht">For Employees</div></div><div class="stk-items"><div class="stk-item"><div class="si-dot" style="background:#7B5EA7"></div>Builder identity: build with agents</div><div class="stk-item"><div class="si-dot" style="background:#7B5EA7"></div>Permission to experiment &#8212; ungated</div><div class="stk-item"><div class="si-dot" style="background:#7B5EA7"></div>Compound capability via CoE library</div><div class="stk-item"><div class="si-dot" style="background:#7B5EA7"></div>AI fluency as a career differentiator</div></div></div>
+  </div>
+  <div class="callout cb"><span class="c-ico">&#9670;</span><span>This is a <strong>leadership decision</strong> &#8212; not a culture initiative. The AI Innovation &amp; Tooling Strategy ties together the GTM operating model, AI Council governance, and Human-Agent Teaming into a single executable framework.</span></div>
+</div>
+
+<!-- DIAGNOSIS -->
+<div id="p-diagnosis" class="panel">
+  <div class="hero"><div><div class="hero-title">The Diagnosis</div><div class="hero-sub">A prescription without a diagnosis is malpractice</div></div></div>
+  <div class="callout ca" style="margin-bottom:14px"><span class="c-ico">!</span><span>The current framework solves the <strong>symptom</strong> of tool sprawl. The real problem is the absence of an operating model capable of driving customer adoption at speed, scale, and specificity.</span></div>
+  <div class="grid3" style="margin-bottom:14px">
+    <div class="gap-card" style="border-top-color:#C23B22"><div class="gap-inner"><div class="gap-n">Gap 01</div><div class="gap-t">Strategy without infrastructure</div><div class="gap-b">Vision for agent-first innovation but no operating model to execute it. Tools adopted ad hoc. No mechanism to turn field learning into org capability.</div></div></div>
+    <div class="gap-card" style="border-top-color:#E8A500"><div class="gap-inner"><div class="gap-n">Gap 02</div><div class="gap-t">Adoption without outcomes</div><div class="gap-b">Engineers count tokens. ProServ counts solution outcomes. Without a unified definition, we cannot connect AI activity to business results.</div></div></div>
+    <div class="gap-card" style="border-top-color:#7B5EA7"><div class="gap-inner"><div class="gap-n">Gap 03</div><div class="gap-t">Innovation without compounding</div><div class="gap-b">Similar solutions built in parallel with no sharing mechanism. Field learning disappears. The org is not getting smarter with every engagement.</div></div></div>
+  </div>
+  <div class="grid2">
+    <div style="background:var(--navy);border-radius:10px;padding:14px 16px"><div style="font-size:11px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of "adoption" across orgs</div></div></div>
+    <div style="background:#fff;border-radius:10px;padding:14px 16px;border:.5px solid var(--bd)"><div style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework solves</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &#8212; signal to governance, end-to-end</div><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &#8212; fluency, not completion</div><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &#8212; every transition is a data event</div><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &#8212; one metric language across all orgs</div></div></div>
+  </div>
+</div>
+
+<!-- ROI -->
+<div id="p-roi" class="panel">
+  <div class="roi-wrap">
+    <div class="roi-header">
+      <div class="roi-eyebrow">AI Transformation Strategy</div>
+      <div class="roi-title">You can&#8217;t accelerate <span class="tx">Tech</span> without knowing your <span class="bx">Business ROI</span></div>
+      <div class="roi-sub">Hover the dots on the chart to explore how each diagnosis maps to the axis</div>
+    </div>
+    <div class="chart-area">
+      <div class="chart-left">
+        <div style="position:relative">
+          <svg id="roi-svg" viewBox="0 0 480 320" width="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;cursor:crosshair">
+            <defs><marker id="ax" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 Z" fill="#04C3B5"/></marker><marker id="ay" markerWidth="7" markerHeight="7" refX="3.5" refY="2" orient="auto"><path d="M0,7 L7,7 L3.5,0 Z" fill="#E8A500"/></marker></defs>
+            <rect width="480" height="320" fill="#0B1628"/>
+            <line x1="70" y1="20" x2="70" y2="268" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/><line x1="175" y1="20" x2="175" y2="268" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/><line x1="280" y1="20" x2="280" y2="268" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/><line x1="385" y1="20" x2="385" y2="268" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/>
+            <line x1="40" y1="268" x2="440" y2="268" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/><line x1="40" y1="195" x2="440" y2="195" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/><line x1="40" y1="122" x2="440" y2="122" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/><line x1="40" y1="50" x2="440" y2="50" stroke="#1B3D6A" stroke-width="0.5" stroke-dasharray="3,4"/>
+            <text x="36" y="272" font-family="-apple-system,sans-serif" font-size="10" fill="#3A6A9A" text-anchor="end">Low</text><text x="36" y="54" font-family="-apple-system,sans-serif" font-size="10" fill="#3A6A9A" text-anchor="end">High</text><text x="46" y="285" font-family="-apple-system,sans-serif" font-size="10" fill="#3A6A9A">Low</text><text x="422" y="285" font-family="-apple-system,sans-serif" font-size="10" fill="#3A6A9A">High</text>
+            <line x1="40" y1="270" x2="448" y2="270" stroke="#04C3B5" stroke-width="2" marker-end="url(#ax)"/><line x1="40" y1="270" x2="40" y2="22" stroke="#E8A500" stroke-width="2" marker-end="url(#ay)"/>
+            <text x="445" y="285" font-family="-apple-system,sans-serif" font-size="11" font-weight="700" fill="#04C3B5" text-anchor="end">TECH ROI</text>
+            <text x="18" y="160" font-family="-apple-system,sans-serif" font-size="11" font-weight="700" fill="#E8A500" text-anchor="middle" transform="rotate(-90,18,160)">BUSINESS ROI</text>
+            <path d="M40,270 Q160,260 220,220 Q300,165 380,80 Q410,55 440,35" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="218" cy="222" r="7" fill="#22C55E"/>
+            <rect x="140" y="185" width="118" height="38" rx="5" fill="#0A2818" stroke="#22C55E" stroke-width="1"/>
+            <text x="199" y="200" font-family="-apple-system,sans-serif" font-size="10" font-weight="700" fill="#22C55E" text-anchor="middle">The Sweet Spot</text>
+            <text x="199" y="213" font-family="-apple-system,sans-serif" font-size="10" fill="#22C55E" text-anchor="middle">Aligned acceleration</text>
+            <rect x="48" y="28" width="108" height="38" rx="5" fill="#0A1E3A" stroke="#1B96FF" stroke-width="0.5" stroke-dasharray="3,3"/>
+            <text x="102" y="44" font-family="-apple-system,sans-serif" font-size="10" fill="#8CCFFE" text-anchor="middle">Untapped potential</text>
+            <text x="102" y="57" font-family="-apple-system,sans-serif" font-size="10" fill="#5A8AB0" text-anchor="middle">Goals, no tools</text>
+            <circle id="dot-a" cx="320" cy="218" r="9" fill="#E8A500" style="cursor:pointer"/><circle id="dot-b" cx="155" cy="155" r="9" fill="#C23B22" style="cursor:pointer"/><circle id="dot-c" cx="265" cy="148" r="9" fill="#7B5EA7" style="cursor:pointer"/><circle id="dot-d" cx="375" cy="98" r="9" fill="#0D9DDA" style="cursor:pointer"/>
+          </svg>
+          <div class="tooltip-box" id="roi-tip"></div>
+        </div>
+      </div>
+      <div class="chart-right">
+        <div class="ri-card"><div class="ri-card-head" style="background:#7B5EA7"><span class="ri-card-lbl">Y-axis · CRO owns</span></div><div class="ri-card-body"><div class="ri-card-title">Business ROI</div><div class="ri-card-sub">What new value do we create?</div><div class="ri-item"><div class="ri-dot" style="background:#7B5EA7"></div>Customer-facing agents across all workflows</div><div class="ri-item"><div class="ri-dot" style="background:#7B5EA7"></div>Business process transformation</div><div class="ri-item"><div class="ri-dot" style="background:#7B5EA7"></div>CCR and NNAoV acceleration</div></div></div>
+        <div class="ri-card"><div class="ri-card-head" style="background:#04C3B5"><span class="ri-card-lbl">X-axis · CTO/Eng owns</span></div><div class="ri-card-body"><div class="ri-card-title">Technology ROI</div><div class="ri-card-sub">How much faster can we build?</div><div class="ri-item"><div class="ri-dot" style="background:#04C3B5"></div>Dev acceleration: coding, testing, deploy</div><div class="ri-item"><div class="ri-dot" style="background:#04C3B5"></div>Demo and PoC automation</div><div class="ri-item"><div class="ri-dot" style="background:#04C3B5"></div>AWU velocity per AI-assisted hour</div></div></div>
+        <div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:8px;padding:8px 10px"><div style="font-size:11px;font-weight:700;color:#22C55E;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Aligned acceleration</div><div style="font-size:12px;color:#86EFAC;line-height:1.6">When Business + Tech ROI move together, every dollar maps to a measurable outcome.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="grid3">
+    <div class="callout" style="background:#FFF0EE;border:1px solid #F5C4B3;color:#7A1A08"><span class="c-ico">x</span><div><strong>Tech without direction:</strong> Unlimited token plans, no governance, no reporting on what is used or why.</div></div>
+    <div class="callout ca"><span class="c-ico">!</span><div><strong>Untapped productivity:</strong> 66% of orgs report AI efficiency gains — but only 20% see revenue impact. The gap is not the technology.</div></div>
+    <div class="callout cg"><span class="c-ico">+</span><div><strong>Agent-first intersection:</strong> Tools that accelerate delivery speed (X) and create new customer outcomes (Y) are where this framework focuses investment.</div></div>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<div id="p-pillars" class="panel">
+  <div class="hero"><div><div class="hero-title">The Four Pillars</div><div class="hero-sub">The execution vehicle &#8212; not the strategy itself</div></div></div>
+  <div style="background:var(--navy);border-radius:10px;padding:13px 15px;margin-bottom:14px"><div style="font-size:11px;font-weight:700;color:#8CCFFE;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px">Vision</div><div style="font-size:14px;color:#e8f4ff;font-style:italic;line-height:1.75;border-left:3px solid var(--blue);padding-left:12px">Build a unified AI operating model that makes the right tools available to the right roles, measures what matters, and connects the full GTM motion &#8212; from first signal to customer outcome.</div></div>
+  <div class="pillar-row">
+    <div class="pm sel" onclick="selP(0,this)" id="pm0"><div class="pm-top" style="background:#0D9DDA"></div><div class="pm-in"><div class="pm-n">Pillar 01</div><div class="pm-t">Signal Intake &amp; Closed-Loop Steering</div></div></div>
+    <div class="pm" onclick="selP(1,this)" id="pm1"><div class="pm-top" style="background:#7B5EA7"></div><div class="pm-in"><div class="pm-n">Pillar 02</div><div class="pm-t">Agentic Tools Enablement</div></div></div>
+    <div class="pm" onclick="selP(2,this)" id="pm2"><div class="pm-top" style="background:#04C3B5"></div><div class="pm-in"><div class="pm-n">Pillar 03</div><div class="pm-t">Connected GTM Handoffs</div></div></div>
+    <div class="pm" onclick="selP(3,this)" id="pm3"><div class="pm-top" style="background:#E8A500"></div><div class="pm-in"><div class="pm-n">Pillar 04</div><div class="pm-t">Measuring Success</div></div></div>
+  </div>
+  <div id="pd-area"></div>
+</div>
+
+<!-- COUNCIL -->
+<div id="p-council" class="panel">
+  <div class="hero"><div><div class="hero-title">AI Council Structure</div><div class="hero-sub">Three tiers of authority &#8212; executive sponsor, core council, extended layer</div></div></div>
+  <div class="c-tier-label">Executive Sponsor</div>
+  <div class="c-row" style="margin-bottom:4px"><div class="c-card" style="background:var(--navy);border-color:rgba(255,255,255,.1)"><div class="c-badge" style="color:#8CCFFE">Exec Sponsor</div><div class="c-title" style="color:#fff">EVP &#8212; TBD</div><div class="c-desc" style="color:rgba(140,207,254,.8)">Sets strategic direction, champions AI investment at C-suite, and holds final escalation authority. Chairs quarterly Council review.</div><div class="c-tags"><span class="c-tag-tbd">Seat TBD &#183; EVP Level</span></div></div></div>
+  <div class="tier-arrow">&#8597;</div>
+  <div class="c-tier-label">Core Council &#8212; Gate Authority</div>
+  <div class="c-row" style="margin-bottom:4px">
+    <div class="c-card" style="border-color:var(--blue);background:var(--lighter)"><div class="c-badge" style="color:var(--blue)">Strategy</div><div class="c-title">AI Council Lead(s)</div><div class="c-desc" style="color:var(--mut)">Owns tool roadmap, pilot framework, and gamification model. Sets the standards all other functions align to.</div><div class="c-tags"><span class="c-tag-tbd">Rep TBD &#8212; SE CoE</span><span class="c-tag-tbd">Rep TBD &#8212; FDE</span><span class="c-tag-tbd">Rep TBD &#8212; CS</span></div></div>
+    <div class="c-card" style="border-color:var(--amb-bd);background:var(--amb-bg)"><div class="c-badge" style="color:var(--amb)">Security</div><div class="c-title">Security &amp; Compliance</div><div class="c-desc" style="color:#5A3010">Mandatory gate authority. DLP, data residency, and access controls are non-negotiable. No pilot proceeds without Security sign-off.</div><div class="c-tags"><span class="c-tag" style="background:rgba(184,92,0,.12);color:var(--amb)">Security Lead</span></div></div>
+    <div class="c-card" style="border-color:var(--pur-bd);background:var(--pur-bg)"><div class="c-badge" style="color:var(--pur)">Legal</div><div class="c-title">Legal &amp; Risk</div><div class="c-desc" style="color:#2A1060">IP, data usage rights, vendor contract terms, and AI liability review. Blocking authority on all vendor approvals.</div><div class="c-tags"><span class="c-tag" style="background:rgba(74,46,192,.1);color:var(--pur)">Legal Counsel</span></div></div>
+    <div class="c-card" style="border-color:var(--grn-bd);background:var(--grn-bg)"><div class="c-badge" style="color:var(--grn)">Procurement</div><div class="c-title">Procurement &amp; Finance</div><div class="c-desc" style="color:#0A2A1A">All vendor contracts route through Procurement. Finance owns token budget allocation, ROI thresholds, and renewal approvals.</div><div class="c-tags"><span class="c-tag" style="background:rgba(15,110,86,.1);color:var(--grn)">Procurement Lead</span></div></div>
+  </div>
+  <div class="tier-arrow">&#8597;</div>
+  <div class="c-tier-label">Extended Council &#8212; Operational Layer</div>
+  <div class="c-row">
+    <div class="c-card" style="border-color:var(--bd);background:#fff"><div class="c-badge" style="color:var(--mut)">Enablement</div><div class="c-title">SE Enablement</div><div class="c-desc" style="color:var(--mut)">AWU certifications, tier progression (T1/T2/T3), CoE skills library, and teach-back programs.</div></div>
+    <div class="c-card" style="border-color:var(--bd);background:#fff"><div class="c-badge" style="color:var(--mut)">Change Mgmt</div><div class="c-title">Change Management</div><div class="c-desc" style="color:var(--mut)">Adoption curve, stakeholder comms, resistance handling, and readiness scoring tied to gamification milestones.</div></div>
+    <div class="c-card" style="border-color:var(--bd);background:#fff"><div class="c-badge" style="color:var(--mut)">Analytics</div><div class="c-title">Reporting &amp; Analytics</div><div class="c-desc" style="color:var(--mut)">Leaderboard, token dashboards, pilot scorecards, and exec QBR packages. Defines what "good" looks like in data.</div></div>
+  </div>
+  <div class="callout cb" style="margin-top:12px"><span class="c-ico">&#9670;</span><span>The AI Council is a <strong>unified governance body</strong> &#8212; not a committee. It owns decisions, not just recommendations. Security, Legal, and Procurement hold blocking authority on every pilot and vendor onboarding.</span></div>
+</div>
+
+<!-- FUNCTIONS -->
+<div id="p-functions" class="panel">
+  <div class="hero"><div><div class="hero-title">Functions &amp; RACI</div><div class="hero-sub">9 functions &#183; 3 governance modes &#183; Click any to expand</div></div></div>
+  <div class="legend">
+    <div class="leg-item"><div style="width:9px;height:9px;background:var(--amb-bd);border-radius:2px"></div>Top-Down &#8212; mandated, no deviation</div>
+    <div class="leg-item"><div style="width:9px;height:9px;background:var(--blue);border-radius:2px"></div>Hybrid &#8212; Council sets frame, orgs execute</div>
+    <div class="leg-item"><div style="width:9px;height:9px;background:var(--pur-bd);border-radius:2px"></div>Collaborative &#8212; jointly owned</div>
+  </div>
+  <div id="fn-accordion"></div>
+</div>
+
+<!-- PILOT LIFECYCLE -->
+<div id="p-govlifecycle" class="panel">
+  <div class="hero"><div><div class="hero-title">Pilot Governance Lifecycle</div><div class="hero-sub">Four-gate model &#183; Every tool passes intake &#8594; review &#8594; pilot &#8594; operationalize</div></div></div>
+  <div class="stages">
+    <div class="stage-box"><div class="stage-hdr" style="background:var(--navy)"><div class="stage-num" style="color:#8CCFFE">Gate 1</div><div class="stage-name" style="color:#fff">Intake</div></div><div class="stage-items" style="border-color:var(--bd)"><div class="si" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Slack intake form submitted</div><div class="si" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Vendor qual sheet scored</div><div class="si" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">One Tool conflict check</div><div class="si" style="background:#D4EEFF;border-left-color:var(--bright);color:var(--dark);font-weight:600">&#8594; Min score to proceed</div></div></div>
+    <div class="stage-arrow">&#8250;</div>
+    <div class="stage-box"><div class="stage-hdr" style="background:#1A0030"><div class="stage-num" style="color:#C5B4F8">Gate 2</div><div class="stage-name" style="color:#fff">Multi-Party Review</div></div><div class="stage-items" style="border-color:var(--pur-bd)"><div class="si" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">Security posture (blocking)</div><div class="si" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">Legal IP &amp; data (blocking)</div><div class="si" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">Procurement contract terms</div><div class="si" style="background:#EDE9FF;border-left-color:var(--pur);color:var(--pur);font-weight:600">&#8594; All four must approve</div></div></div>
+    <div class="stage-arrow">&#8250;</div>
+    <div class="stage-box"><div class="stage-hdr" style="background:#2A1800"><div class="stage-num" style="color:#F5C57A">Gate 3</div><div class="stage-name" style="color:#fff">Pilot</div></div><div class="stage-items" style="border-color:var(--amb-bd)"><div class="si" style="background:var(--amb-bg);border-left-color:var(--amb-bd);color:#4A2500">15-scenario eval run</div><div class="si" style="background:var(--amb-bg);border-left-color:var(--amb-bd);color:#4A2500">Scoring rubric completed</div><div class="si" style="background:var(--amb-bg);border-left-color:var(--amb-bd);color:#4A2500">Org team feedback collected</div><div class="si" style="background:#FFEEDD;border-left-color:var(--amb);color:var(--amb);font-weight:600">&#8594; Binding outcome only</div></div></div>
+    <div class="stage-arrow">&#8250;</div>
+    <div class="stage-box"><div class="stage-hdr" style="background:#001A10"><div class="stage-num" style="color:#6FDDAA">Post-Decision</div><div class="stage-name" style="color:#fff">Operationalize</div></div><div class="stage-items" style="border-color:var(--grn-bd)"><div class="si" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Admin provisioning configured</div><div class="si" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Enablement program built</div><div class="si" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Agent bench milestones set</div><div class="si" style="background:#D6F5E8;border-left-color:var(--grn);color:var(--grn);font-weight:600">&#8594; Live in leaderboard 30d</div></div></div>
+  </div>
+  <div class="callout ca" style="margin-top:14px"><span class="c-ico">&#9670;</span><span><strong>Key pattern:</strong> Security, Legal, and Procurement hold GATE on every pilot. Frameworks should be opinionated, not flexible &#8212; mandatory gates, fixed SLAs, and binding outcomes rather than advisory guidance.</span></div>
+</div>
+
+<!-- HATM -->
+<div id="p-hatm" class="panel">
+  <div class="hero"><div><div class="hero-title">Human-Agent Teaming Model</div><div class="hero-sub">Every Agentic Worker manages a personal bench of specialized agents</div></div></div>
+
+  <!-- Thesis stat cards -->
+  <div class="grid3" style="margin-bottom:18px">
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px">
+      <div style="font-size:42px;font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">12</div>
+      <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Agents per bench</div>
+      <div style="font-size:12px;color:var(--mut);line-height:1.6">Each Agentic Worker runs a personal team of specialized agents, each with a defined job to be done across the work lifecycle.</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px">
+      <div style="font-size:42px;font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">5</div>
+      <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Lifecycle stages covered</div>
+      <div style="font-size:12px;color:var(--mut);line-height:1.6">Intake through delivery and expansion &#8212; agents fire at the right moment across the full lifecycle of work.</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px">
+      <div style="font-size:42px;font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">1</div>
+      <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Central hub</div>
+      <div style="font-size:12px;color:var(--mut);line-height:1.6">Skills built by any team member sync to a central hub. Governance without over-control. Agentic Workers own their bench; the center owns the library.</div>
+    </div>
+  </div>
+
+  <!-- 4-tab nav -->
+  <div style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:7px;display:flex;gap:5px;margin-bottom:18px" id="hatm-tabs">
+    <button onclick="switchHatmTab('org',this)" style="flex:1;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:var(--navy);color:#fff;cursor:pointer">Org Model</button>
+    <button onclick="switchHatmTab('bench2',this)" style="flex:1;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">Agent Bench</button>
+    <button onclick="switchHatmTab('hub2',this)" style="flex:1;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">Central Hub</button>
+    <button onclick="switchHatmTab('how2',this)" style="flex:1;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">How It Works</button>
+  </div>
+
+  <!-- TAB: ORG MODEL -->
+  <div id="hatm-tab-org">
+    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:12px">Org structure &#8212; every person is an Agentic Worker</div>
+
+    <!-- Org Leader node -->
+    <div style="display:flex;justify-content:center;margin-bottom:0">
+      <div style="background:var(--navy);border-radius:12px;padding:18px 28px;text-align:center;min-width:340px;max-width:500px;width:100%">
+        <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:3px">Org Leader</div>
+        <div style="font-size:10px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px">Manager of team + agent bench</div>
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+          <button id="ldr-chip-0" onclick="toggleLeaderAgent(0)" style="background:rgba(255,255,255,.08);border:.5px solid rgba(140,207,254,.35);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;color:#8CCFFE;cursor:pointer;transition:all .15s;letter-spacing:.03em">&#129517; Strategy Agent</button>
+          <button id="ldr-chip-1" onclick="toggleLeaderAgent(1)" style="background:rgba(255,255,255,.08);border:.5px solid rgba(140,207,254,.35);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;color:#8CCFFE;cursor:pointer;transition:all .15s;letter-spacing:.03em">&#128161; Work Intel Agent</button>
+          <button id="ldr-chip-2" onclick="toggleLeaderAgent(2)" style="background:rgba(255,255,255,.08);border:.5px solid rgba(140,207,254,.35);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;color:#8CCFFE;cursor:pointer;transition:all .15s;letter-spacing:.03em">&#127891; Coaching Agent</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leader agent detail drawer -->
+    <div id="ldr-detail" style="display:none;max-width:500px;margin:0 auto">
+      <div style="width:1.5px;height:16px;background:var(--bd);margin:0 auto"></div>
+      <div style="background:#063A7A;border-radius:10px;padding:16px 18px">
+        <div id="ldr-eyebrow" style="font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px"></div>
+        <div id="ldr-name" style="font-size:16px;font-weight:700;color:#fff;margin-bottom:12px"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div><div style="font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">JTBD</div><div id="ldr-jtbd" style="font-size:12px;color:#C5DFFF;line-height:1.55"></div></div>
+          <div><div style="font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Outputs</div><div id="ldr-outputs" style="font-size:12px;color:#C5DFFF;line-height:1.55"></div></div>
+        </div>
+        <div style="margin-top:10px;padding-top:10px;border-top:.5px solid rgba(27,150,255,.2);font-size:11px;color:#8CCFFE;font-style:italic" id="ldr-note"></div>
+      </div>
+    </div>
+
+    <!-- Connector -->
+    <div style="width:1.5px;height:22px;background:var(--bd);margin:0 auto"></div>
+    <!-- Horizontal branch -->
+    <div style="position:relative;height:1px;margin:0 5%"><div style="position:absolute;inset:0;background:var(--bd)"></div></div>
+
+    <!-- Agentic Worker nodes -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding-top:20px">
+      <div id="aw-node-0" style="display:flex;flex-direction:column;align-items:center">
+        <div style="width:1px;height:18px;background:var(--bd)"></div>
+        <div onclick="toggleAWDetail(0)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
+          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
+            <div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
+          </div>
+        </div>
+      </div>
+      <div id="aw-node-1" style="display:flex;flex-direction:column;align-items:center">
+        <div style="width:1px;height:18px;background:var(--bd)"></div>
+        <div onclick="toggleAWDetail(1)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
+          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
+            <div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div>
+          </div>
+        </div>
+      </div>
+      <div id="aw-node-2" style="display:flex;flex-direction:column;align-items:center">
+        <div style="width:1px;height:18px;background:var(--bd)"></div>
+        <div onclick="toggleAWDetail(2)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
+          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
+            <div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
+          </div>
+        </div>
+      </div>
+      <div id="aw-node-3" style="display:flex;flex-direction:column;align-items:center">
+        <div style="width:1px;height:18px;background:var(--bd)"></div>
+        <div onclick="toggleAWDetail(3)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
+          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
+            <div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
+          </div>
+        </div>
+      </div>
+      <div id="aw-node-4" style="display:flex;flex-direction:column;align-items:center">
+        <div style="width:1px;height:18px;background:var(--bd)"></div>
+        <div onclick="toggleAWDetail(4)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
+          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
+            <div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AW detail drawer -->
+    <div id="aw-detail" style="display:none;background:var(--lighter);border:.5px solid var(--bd);border-radius:10px;padding:16px 18px;margin-top:12px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">AW</div>
+        <div><div id="aw-name" style="font-size:14px;font-weight:700;color:var(--navy)">Agentic Worker</div><div id="aw-role-lbl" style="font-size:11px;color:var(--mut);margin-top:2px">6 agents on bench</div></div>
+      </div>
+      <div id="aw-agents-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px"></div>
+    </div>
+
+    <!-- Lifecycle dot legend -->
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;padding:8px 12px;background:#F7FBFF;border-radius:8px;border:.5px solid var(--bd)">
+      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div>Intake</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div>Discovery</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div>Execution</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div>Delivery</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>Growth</div>
+      <div style="font-size:10px;color:var(--mut);font-style:italic;margin-left:6px">Click any leader agent or worker to expand</div>
+    </div>
+  </div>
+
+  <!-- TAB: AGENT BENCH -->
+  <div id="hatm-tab-bench2" style="display:none">
+    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px">12 core agents &#183; click any to expand</div>
+    <div class="lc-bar" style="margin-bottom:14px"><div class="lc-seg" style="background:#032D60">Intake</div><div class="lc-seg" style="background:#1565C0">Discovery</div><div class="lc-seg" style="background:#0A4A96;flex:1.8">Execution</div><div class="lc-seg" style="background:#0D9DDA;flex:1.5">Delivery</div><div class="lc-seg" style="background:#1B96FF;color:#032D60;flex:1.3">Growth</div></div>
+    <div class="bench-grid" id="bench-grid2"></div>
+    <div class="bench-detail" id="bench-detail2"></div>
+  </div>
+
+  <!-- TAB: CENTRAL HUB -->
+  <div id="hatm-tab-hub2" style="display:none">
+    <div class="bb-hub"><div class="bb-hub-title">Central Skills &amp; Agent Hub</div><div class="bb-hub-sub">Central backbone &#183; Skills sync &#183; System integration &#183; Org-wide library</div><div class="bb-hub-principles"><span class="bb-principle">Central governance</span><span class="bb-principle">Federated build</span><span class="bb-principle">Agent-to-agent calling</span><span class="bb-principle">CRM integration</span><span class="bb-principle">One Tool Principle</span></div></div>
+    <div class="bb-flows" style="margin-top:12px">
+      <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#0D9DDA">Inputs to backbone</div><div class="bb-item">Agent outputs from every team bench</div><div class="bb-item">Skills built by any Agentic Worker</div><div class="bb-item">Outcome signals from completed engagements</div><div class="bb-item">Consumption &amp; usage patterns</div></div>
+      <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#1B96FF">Outputs from backbone</div><div class="bb-item">Approved agent library (pull-to-bench)</div><div class="bb-item">Skill updates synced org-wide</div><div class="bb-item">Work data pushed to core business systems</div><div class="bb-item">Org reporting &amp; adoption tracking feeds</div></div>
+      <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#EDBC3A">Design principles</div><div class="bb-item">Central governance, federated build</div><div class="bb-item">Agentic Workers own bench; center owns library</div><div class="bb-item">Agents can call into each other</div><div class="bb-item">One Tool Principle governs approvals</div></div>
+      <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#9B7FE8">Agentic Worker autonomy</div><div class="bb-item">Customize agents for daily job to be done</div><div class="bb-item">Sub-agents built per team or domain</div><div class="bb-item">Push new skills back to central library</div><div class="bb-item">Adoption tracking measures impact, not activity</div></div>
+    </div>
+  </div>
+
+  <!-- TAB: HOW IT WORKS -->
+  <div id="hatm-tab-how2" style="display:none">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--navy)"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">01</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Every person manages a bench</div><div style="font-size:12px;color:var(--mut);line-height:1.6">Every Agentic Worker &#8212; regardless of role &#8212; maintains a personal team of specialized agents. Not one general-purpose AI. A curated bench with distinct jobs to be done.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--blue)"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">02</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Agents fire at the right moment</div><div style="font-size:12px;color:var(--mut);line-height:1.6">The Intake Agent fires at the start. The Live Assist Agent fires during the meeting. The Growth Agent fires post-delivery. Each agent is purpose-built for its moment.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--bright)"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">03</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Central hub &#8212; federated build</div><div style="font-size:12px;color:var(--mut);line-height:1.6">Skills built by any Agentic Worker sync to the central hub. The center governs what&#8217;s approved; workers decide what&#8217;s on their bench. Agents can call into each other.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #E8A500"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">04</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Human connection preserved</div><div style="font-size:12px;color:var(--mut);line-height:1.6">Agents handle triage, research, prep, and documentation. The human&#8217;s attention goes to what matters most: relationships, judgment, and high-stakes decisions.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #9B7FE8"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">05</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Outcomes tied to business results</div><div style="font-size:12px;color:var(--mut);line-height:1.6">Agent adoption is measured against business outcomes &#8212; not raw AI token usage. The metric is work quality and velocity, not activity volume.</div></div>
+      <div style="background:var(--navy);border-radius:10px;padding:16px 18px;border-top:3px solid #5DCAA5"><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;font-style:italic">&#8220;When leadership makes building the standard rather than the exception, that shift happens fast.&#8221;</div><div style="font-size:11px;color:#8CCFFE;line-height:1.5">That is not a culture initiative. That is a decision.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BENCH -->
+<div id="p-bench" class="panel">
+  <div class="hero"><div><div class="hero-title">The Agent Bench</div><div class="hero-sub">12 core agents &#183; Click any to expand &#183; Organized by lifecycle stage</div></div></div>
+  <div class="lc-bar" style="margin-bottom:14px"><div class="lc-seg" style="background:#032D60">Intake</div><div class="lc-seg" style="background:#1565C0">Discovery</div><div class="lc-seg" style="background:#0A4A96;flex:1.8">Execution</div><div class="lc-seg" style="background:#0D9DDA;flex:1.5">Delivery</div><div class="lc-seg" style="background:#1B96FF;color:#032D60;flex:1.3">Growth</div></div>
+  <div class="bench-grid" id="bench-grid"></div>
+  <div class="bench-detail" id="bench-detail"></div>
+</div>
+
+<!-- BACKBONE -->
+<div id="p-backbone" class="panel">
+  <div class="hero"><div><div class="hero-title">Central Hub</div><div class="hero-sub">Governance without over-control &#183; Skills sync &#183; Org-wide library</div></div></div>
+  <div class="bb-hub"><div class="bb-hub-title">Central Skills &amp; Agent Hub</div><div class="bb-hub-sub">Central backbone &#183; Skills sync &#183; System integration &#183; Org-wide library</div><div class="bb-hub-principles"><span class="bb-principle">Central governance</span><span class="bb-principle">Federated build</span><span class="bb-principle">Agent-to-agent calling</span><span class="bb-principle">CRM integration</span><span class="bb-principle">One Tool Principle</span></div></div>
+  <div class="bb-flows">
+    <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#0D9DDA">Inputs to backbone</div><div class="bb-item">Agent outputs from every team bench</div><div class="bb-item">Skills built by any Agentic Worker</div><div class="bb-item">Outcome signals from completed engagements</div><div class="bb-item">Consumption &amp; usage patterns</div></div>
+    <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#1B96FF">Outputs from backbone</div><div class="bb-item">Approved agent library (pull-to-bench)</div><div class="bb-item">Skill updates synced org-wide</div><div class="bb-item">Work data pushed to core business systems</div><div class="bb-item">Org reporting &amp; adoption tracking feeds</div></div>
+    <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#EDBC3A">Design principles</div><div class="bb-item">Central governance, federated build</div><div class="bb-item">Agentic Workers own bench; center owns library</div><div class="bb-item">Agents can call into each other</div><div class="bb-item">One Tool Principle governs approvals</div></div>
+    <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#9B7FE8">Agentic Worker autonomy</div><div class="bb-item">Customize agents for daily job to be done</div><div class="bb-item">Sub-agents built per team or domain</div><div class="bb-item">Push new skills back to central library</div><div class="bb-item">Adoption tracking measures impact, not activity</div></div>
+  </div>
+  <div class="callout cb" style="margin-top:12px"><span class="c-ico">&#9670;</span><span><strong>Connection to AI Council:</strong> The Central Hub is governed by the AI Council. Approved tools, waitlisted, and rejected tools all route through the same governance pipeline &#8212; ensuring the One Tool Principle holds across every org and bench.</span></div>
+</div>
+
+<!-- OUTCOMES -->
+<div id="p-outcomes" class="panel">
+  <div class="hero"><div><div class="hero-title">Outcomes</div><div class="hero-sub">This is not an efficiency play. It is a revenue play &#8212; and a talent play.</div></div></div>
+  <div class="grid3" style="margin-bottom:14px">
+    <div class="kpi-card"><div class="kpi-top" style="background:#0D9DDA"></div><div class="kpi-in"><div class="kpi-m" style="color:#0D9DDA">CCR</div><div class="kpi-l">Customer Consumed Revenue</div><div class="kpi-b">Faster cycle times, richer handoffs, and purposeful AI adoption drive more PoCs shipped and more pipeline converted.</div></div></div>
+    <div class="kpi-card"><div class="kpi-top" style="background:#04C3B5"></div><div class="kpi-in"><div class="kpi-m" style="color:#04C3B5">CV</div><div class="kpi-l">Customer Value</div><div class="kpi-b">Measurable business outcomes customers achieve ensuring they adopt, consume, and realize ROI from their Salesforce investment.</div></div></div>
+    <div class="kpi-card"><div class="kpi-top" style="background:#E8A500"></div><div class="kpi-in"><div class="kpi-m" style="color:#E8A500">NNAoV</div><div class="kpi-l">Net New Annual Order Value</div><div class="kpi-b">Protecting handoff quality and reducing rework preserves deals won in evaluation. Deals are lost after the win, not during it.</div></div></div>
+  </div>
+  <div class="flow-row"><span class="flow-l">Connected GTM motion:</span><span class="fl-stage" style="background:#0D9DDA">SE</span><span class="fl-arr">&#8594;</span><span class="fl-stage" style="background:#04C3B5">FDE</span><span class="fl-arr">&#8594;</span><span class="fl-stage" style="background:#7B5EA7">ProServ</span><span class="fl-arr">&#8594;</span><span class="fl-stage" style="background:#E8A500">CS</span><span style="font-size:12px;color:var(--mut);font-style:italic">&#160;&#183; Every handoff is a data event, not a conversation</span></div>
+  <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-left:3px solid var(--pur-bd)"><div style="font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Talent &amp; Permission: The Multiplier</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div style="font-size:13px;color:var(--mut);line-height:1.75">Two levers: recruiting people who carry AI-native instincts, and unlocking the people already here. The second is the faster one. AI DNA does not have to be hired in &#8212; much of it already exists in the org, waiting for the expectation to change.</div><div style="border-left:.5px solid var(--bd);padding-left:14px;display:flex;flex-direction:column;justify-content:center"><div style="font-size:15px;font-weight:600;color:var(--pur);line-height:1.5;font-style:italic;margin-bottom:6px">When leadership makes building the standard rather than the exception, that shift happens fast.</div><div style="font-size:12px;color:var(--mut);font-style:italic">That is not a culture initiative. That is a decision.</div></div></div></div>
+</div>
+
+<!-- ROADMAP -->
+<div id="p-roadmap" class="panel">
+  <div class="hero"><div><div class="hero-title">FY27 Execution Roadmap</div><div class="hero-sub">Council formation in Q1 &#183; Operational infrastructure in Q2 &#183; Scaled adoption H2</div></div></div>
+  <div class="tl-grid">
+    <div class="tl-col"><div class="tl-hdr" style="background:var(--navy)"><div class="tl-q" style="color:#8CCFFE">Q1 FY27</div><div class="tl-name" style="color:#fff">Foundation</div></div><div class="tl-body" style="border-color:var(--bd)"><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">AI Council charter &amp; seats defined</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">EVP Sponsor identified</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Framework v2.3 ratified</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Security baseline published</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">HATM v1 launched internally</div></div></div>
+    <div class="tl-col"><div class="tl-hdr" style="background:var(--navy2)"><div class="tl-q" style="color:#8CCFFE">Q2 FY27</div><div class="tl-name" style="color:#fff">Infrastructure</div></div><div class="tl-body" style="border-color:var(--bd)"><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">T1/T2/T3 enablement launched</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Leaderboard &amp; dashboards live</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">First pilot cohort: Gates 1&#8211;2</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Agent bench v1 deployed org-wide</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">CoE skills repo published</div></div></div>
+    <div class="tl-col"><div class="tl-hdr" style="background:#1A0A50"><div class="tl-q" style="color:#C5B4F8">Q3 FY27</div><div class="tl-name" style="color:#fff">Scale</div></div><div class="tl-body" style="border-color:var(--pur-bd)"><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">Second pilot cohort ops</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">T3 teach-backs active</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">Token optimization flags live</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">First QBR exec cycle done</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">HATM v2 function extensions</div></div></div>
+    <div class="tl-col"><div class="tl-hdr" style="background:#001A10"><div class="tl-q" style="color:#6FDDAA">Q4 FY27</div><div class="tl-name" style="color:#fff">Optimize</div></div><div class="tl-body" style="border-color:var(--grn-bd)"><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Framework v3.0 ratified</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Full org T1 certification</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">AI impact on CCR/NNAOV</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">FY28 tool budget to EVP</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Council annual review done</div></div></div>
+  </div>
+</div>
+
+<!-- COMMS -->
+<div id="p-comms" class="panel">
+  <div class="hero"><div><div class="hero-title">Comms &amp; Slack Architecture</div><div class="hero-sub">One channel per audience &#183; Eight channels &#183; Council owns the architecture</div></div></div>
+  <div class="slack-grid">
+    <div class="slack-card"><div class="slack-tier">Council / Executive Tier</div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-council</div><div class="ch-desc">Private. Decision records, pilot outcomes, framework updates, escalations. Council seats only.</div><div class="ch-pills"><span class="ch-pill">AI Council</span><span class="ch-pill">Security</span><span class="ch-pill">Legal</span><span class="ch-pill">EVP+</span></div></div></div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-council-pilots</div><div class="ch-desc">Active pilot coordination. Gate status, vendor Q&A threads, scoring updates.</div><div class="ch-pills"><span class="ch-pill">AI Council</span><span class="ch-pill">Security</span><span class="ch-pill">Procurement</span></div></div></div></div>
+    <div class="slack-card"><div class="slack-tier">Practitioner Tier (SE, FDE, PS, CS)</div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-tools-practitioners</div><div class="ch-desc">Primary community. Tool tips, wins, prompt sharing, agent bench updates, leaderboard shoutouts.</div><div class="ch-pills"><span class="ch-pill">SE</span><span class="ch-pill">FDE</span><span class="ch-pill">ProServ</span><span class="ch-pill">CS</span></div></div></div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-enablement</div><div class="ch-desc">T1/T2/T3 updates, AWU announcements, CoE skill releases, teach-back scheduling, HATM updates.</div><div class="ch-pills"><span class="ch-pill">All Orgs</span><span class="ch-pill">Enablement</span></div></div></div></div>
+    <div class="slack-card"><div class="slack-tier">Governance Notifications</div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-governance-updates</div><div class="ch-desc">Read-only broadcast. Framework releases, policy changes, mandatory security updates.</div><div class="ch-pills"><span class="ch-pill">All Solutions Staff</span></div></div></div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-tool-intake</div><div class="ch-desc">Workflow-triggered intake submissions. Auto-routes to Council triage. No discussion.</div><div class="ch-pills"><span class="ch-pill">Council Triage</span><span class="ch-pill">Requestors</span></div></div></div></div>
+    <div class="slack-card"><div class="slack-tier">Analytics &amp; Reporting</div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-leaderboard</div><div class="ch-desc">Weekly digest. Tier promotions, efficiency flags, top AWU performers, trend alerts, agent adoption stats.</div><div class="ch-pills"><span class="ch-pill">All Orgs</span><span class="ch-pill">Leaders</span></div></div></div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-reporting-ops</div><div class="ch-desc">Private. Analytics working channel. Dashboards, pipeline issues, exec report prep.</div><div class="ch-pills"><span class="ch-pill">Analytics</span><span class="ch-pill">AI Council</span></div></div></div></div>
+  </div>
+  <div class="callout cg" style="margin-top:12px"><span class="c-ico">&#9670;</span><span><strong>Comms principle:</strong> Every channel has one clear owner, one defined audience, and one content type. If a message could go in two channels, it belongs in the higher governance tier and gets summarized downward.</span></div>
+</div>
+
+</main>
+</div>
+<script>
+const LC={prequal:'#032D60',discovery:'#1565C0',active:'#0A4A96',late:'#0D9DDA',postdeal:'#5A8AB0',postsale:'#1B96FF'};
+const AGENTS=[
+  {id:'intake',name:'Intake Agent',lc:'Intake',lcKey:'prequal',icon:'[IN]',jtbd:'Initial request triage, stakeholder alignment, meeting scheduling',inputs:'Inbound request, stakeholder context, priority signal',outputs:'Intake summary, next-step brief, meeting scheduled',integrations:'Calendar, communication tools, task management',note:'First agent to fire. Handles the administrative layer so the human can focus on the relationship and the work.'},
+  {id:'discovery',name:'Discovery Agent',lc:'Discovery',lcKey:'discovery',icon:'[DI]',jtbd:'Needs uncovering, gap mapping, question generation',inputs:'Stakeholder context, org signals, known constraints',outputs:'Discovery question bank, needs map, qualification summary',integrations:'Research tools, knowledge base, communication history',note:'Surfaces the right questions before the first conversation so discovery is structured, not improvised.'},
+  {id:'context',name:'Research Agent',lc:'Intake',lcKey:'prequal',icon:'[RE]',jtbd:'Background research, stakeholder mapping, landscape analysis',inputs:'Organization name, stakeholder list, domain or topic',outputs:'Research brief, stakeholder map, landscape summary',integrations:'Web research, internal knowledge base, org directories',note:'Ensures the Agentic Worker walks into every engagement prepared, not reactive.'},
+  {id:'prep',name:'Prep Agent',lc:'Execution',lcKey:'active',icon:'[PR]',jtbd:'Content preparation, narrative building, objection anticipation',inputs:'Discovery output, audience profile, goals',outputs:'Structured narrative, objection handler, preparation checklist',integrations:'Knowledge base, content library, collaboration tools',note:'Does the heavy lifting before any high-stakes interaction.'},
+  {id:'liveassist',name:'Live Assist Agent',lc:'Execution',lcKey:'active',icon:'[LA]',jtbd:'Real-time guidance, in-meeting support, follow-up capture',inputs:'Agenda, attendee context, live signals',outputs:'Real-time talking points, pivot suggestions, action item capture',integrations:'Meeting platforms (Zoom, Teams), note-taking tools',note:'The human stays present and in control. The agent surfaces context quietly in the background.'},
+  {id:'proposal',name:'Proposal Agent',lc:'Execution',lcKey:'active',icon:'[PO]',jtbd:'Document drafting, proposal structuring, compliance mapping',inputs:'Requirements, prior documents, goals and constraints',outputs:'Draft proposal, gap flags, key theme recommendations',integrations:'Document tools, knowledge base, content library',note:'Accelerates output quality and speed. Agentic Worker reviews and refines.'},
+  {id:'solution',name:'Solutioning Agent',lc:'Delivery',lcKey:'late',icon:'[SO]',jtbd:'Solution design, scoping, validation',inputs:'Requirements, constraints, available resources',outputs:'Solution blueprint, scope recommendation, risk flags',integrations:'Planning tools, architecture library, knowledge base',note:'Brings structure and rigor to the design phase.'},
+  {id:'dataai',name:'Data &amp; AI Agent',lc:'Delivery',lcKey:'late',icon:'[DA]',jtbd:'Data modeling, AI readiness assessment, architecture patterns',inputs:'Current data landscape, AI objectives, existing stack',outputs:'Architecture recommendation, AI readiness score, patterns brief',integrations:'Data platforms, AI tooling, architecture library',note:'Critical for any engagement involving AI, automation, or data transformation.'},
+  {id:'integration',name:'Integration Agent',lc:'Delivery',lcKey:'late',icon:'[IG]',jtbd:'Integration patterns, connectivity strategy, system mapping',inputs:'Current tech stack, integration requirements',outputs:'Integration pattern recommendation, system map, connector shortlist',integrations:'Integration platforms, API catalog, partner ecosystem',note:'Prevents late-stage technical friction from derailing delivery.'},
+  {id:'handoff',name:'Handoff Agent',lc:'Delivery',lcKey:'postdeal',icon:'[HO]',jtbd:'Transition documentation, context transfer, risk callouts',inputs:'Full engagement history, decisions made, open items',outputs:'Handoff brief, transition doc, risk summary',integrations:'Project management tools, communication platforms',note:'Closes the loop between teams. Eliminates information loss at transition points.'},
+  {id:'expansion',name:'Expansion Agent',lc:'Growth',lcKey:'postsale',icon:'[EX]',jtbd:'Opportunity identification, signal monitoring, expansion planning',inputs:'Engagement history, usage signals, stakeholder health data',outputs:'Expansion opportunity brief, recommended next actions, priority list',integrations:'CRM, customer success platforms, data tools',note:'Turns every completed engagement into a platform for what comes next.'},
+  {id:'forecast',name:'Forecasting Agent',lc:'Growth',lcKey:'postsale',icon:'[FC]',jtbd:'Capacity modeling, outcome forecasting, ROI narrative',inputs:'Current usage, commitments, growth signals',outputs:'Forecast model, risk flags, value narrative',integrations:'Planning tools, finance systems, data platforms',note:'Gives Agentic Workers the data-backed story they need for planning conversations.'},
+];
+
+const FUNCTIONS=[
+  {mode:'Hybrid',modeColor:'#0D9DDA',modeBg:'#E4F4FF',title:'Tools Roadmap &amp; Strategy',desc:'Council defines eval criteria, One Tool Principle, and prioritization. Orgs surface needs; Council curates and sequences adoption.',owner:'AI Council',input:'All Orgs, Product',raci:[{role:'AI Council',type:'own'},{role:'Security',type:'consult'},{role:'Legal',type:'consult'},{role:'Procurement',type:'consult'},{role:'SE Teams',type:'contrib'}]},
+  {mode:'Hybrid',modeColor:'#0D9DDA',modeBg:'#E4F4FF',title:'Enablement',desc:'SE Enablement owns delivery. Council owns the T1/T2/T3 framework, AWU standards, and gamification logic. Skills published to shared library.',owner:'SE Enablement',input:'AI Council',raci:[{role:'AI Council',type:'own'},{role:'SE Enablement',type:'contrib'},{role:'Analytics',type:'contrib'},{role:'SE Teams',type:'contrib'}]},
+  {mode:'Top-Down',modeColor:'#B05C00',modeBg:'#FFF4D6',title:'Security',desc:'Non-negotiable: DLP policies, data residency, access controls, vendor security posture. No pilot proceeds without Security sign-off.',owner:'Security &amp; Compliance',input:'Mandatory Gate',raci:[{role:'Security',type:'gate'},{role:'Legal',type:'consult'},{role:'AI Council',type:'consult'}]},
+  {mode:'Top-Down',modeColor:'#B05C00',modeBg:'#FFF4D6',title:'Procurement &amp; Finance',desc:'All vendor contracts route through Procurement. Finance owns token budgets and ROI thresholds. No vendor bypasses this gate.',owner:'Procurement + Finance BP',input:'Mandatory Gate',raci:[{role:'Procurement',type:'gate'},{role:'Finance',type:'gate'},{role:'AI Council',type:'consult'},{role:'Security',type:'contrib'}]},
+  {mode:'Collaborative',modeColor:'#4A2EC0',modeBg:'#EDE9FF',title:'Reporting &amp; Analytics',desc:'Council defines KPIs. Analytics builds and maintains leaderboard, token dashboards, and exec QBRs. All council seats consume outputs.',owner:'Analytics &amp; Council',input:'All Seats',raci:[{role:'Analytics',type:'own'},{role:'AI Council',type:'contrib'},{role:'Change Mgmt',type:'contrib'}]},
+  {mode:'Top-Down',modeColor:'#B05C00',modeBg:'#FFF4D6',title:'Governance',desc:'Framework v2.3 is the operating standard. Mandatory gates, fixed SLAs, and blocking fields. Advisory guidance is explicitly out of scope.',owner:'AI Council',input:'Council + Legal',raci:[{role:'AI Council',type:'gate'},{role:'Security',type:'contrib'},{role:'Legal',type:'contrib'},{role:'Procurement',type:'contrib'}]},
+  {mode:'Hybrid',modeColor:'#0D9DDA',modeBg:'#E4F4FF',title:'Change Management',desc:'Council sets the adoption curve model. Change Mgmt executes comms, readiness assessments, and resistance playbooks tied to milestones.',owner:'Change Mgmt',input:'Council milestones',raci:[{role:'Change Mgmt',type:'own'},{role:'AI Council',type:'contrib'},{role:'Enablement',type:'contrib'},{role:'SE Teams',type:'contrib'}]},
+  {mode:'Collaborative',modeColor:'#4A2EC0',modeBg:'#EDE9FF',title:'Pilots',desc:'Council designs the evaluation structure. Security, Legal, and Procurement all gate entry. Results feed directly to Reporting.',owner:'AI Council',input:'Security, Legal, Procurement',raci:[{role:'AI Council',type:'own'},{role:'Security',type:'gate'},{role:'Legal',type:'gate'},{role:'Procurement',type:'gate'},{role:'Analytics',type:'contrib'}]},
+  {mode:'Collaborative',modeColor:'#4A2EC0',modeBg:'#EDE9FF',title:'Slack &amp; Comms',desc:'Channel architecture owned by Council. Each function has a designated lane. One owner per channel &#8212; no overlapping audiences.',owner:'AI Council',input:'All Contributors',raci:[{role:'AI Council',type:'own'},{role:'Change Mgmt',type:'own'},{role:'Enablement',type:'contrib'},{role:'SE Teams',type:'contrib'}]},
+];
+
+const RTYPE={own:'<span class="r-own">OWN</span>',gate:'<span class="r-gate">GATE</span>',contrib:'<span class="r-contrib">CONTRIB</span>',consult:'<span class="r-consult">CONSULT</span>',inform:'<span class="r-inform">INFORM</span>'};
+
+function buildFnAccordion(){
+  document.getElementById('fn-accordion').innerHTML=FUNCTIONS.map((fn,i)=>
+    '<div class="fn-acc"><div class="fn-acc-hdr" onclick="toggleFn('+i+',this)"><div class="fn-acc-left"><span class="fn-acc-badge" style="background:'+fn.modeBg+';color:'+fn.modeColor+'">'+fn.mode+'</span><span class="fn-acc-title">'+fn.title+'</span></div><span class="fn-acc-chev">&#9662;</span></div><div class="fn-acc-body" id="fnacc-body-'+i+'"><div style="font-size:12px;color:var(--mut);line-height:1.6;margin-bottom:10px">'+fn.desc+'</div><div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Responsibility</div><div>'+fn.raci.map(r=>'<span class="raci-role">'+RTYPE[r.type]+'<span style="font-size:11px;color:var(--navy)">'+r.role+'</span></span>').join('')+'</div><div style="font-size:10px;color:var(--mut);margin-top:8px"><strong>Owner:</strong> '+fn.owner+' &nbsp;&middot;&nbsp; <strong>Input from:</strong> '+fn.input+'</div></div></div>'
+  ).join('');
+}
+
+function toggleFn(i,hdr){
+  const body=document.getElementById('fnacc-body-'+i);
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  hdr.classList.toggle('open',!isOpen);
+}
+
+function buildBench(){
+  document.getElementById('bench-grid').innerHTML=AGENTS.map(a=>{
+    const c=LC[a.lcKey];
+    return '<div class="bench-card'+(selAgent===a.id?' sel':'')+'" style="--card-accent:'+c+'" onclick="selectAgent(\''+a.id+'\')">'
+      +'<div class="bc-top"><div class="bc-icon" style="background:'+c+'20;color:'+c+';font-size:10px;font-weight:700;font-family:monospace">'+a.icon+'</div><div><div class="bc-name">'+a.name+'</div><div class="bc-lc" style="color:'+c+'">'+a.lc+'</div></div></div>'
+      +'<div class="bc-jtbd">'+a.jtbd+'</div></div>';
+  }).join('');
+}
+
+let selAgent=null;
+function selectAgent(id){
+  selAgent=selAgent===id?null:id;
+  buildBench();
+  const det=document.getElementById('bench-detail');
+  if(!selAgent){det.classList.remove('open');return;}
+  const a=AGENTS.find(x=>x.id===id);
+  const c=LC[a.lcKey];
+  det.innerHTML='<div class="bd-eyebrow">'+a.icon+' Agent detail</div><div class="bd-name">'+a.name+'</div><div class="bd-lc" style="color:'+c+'">'+a.lc+' &middot; '+a.jtbd+'</div><div class="bd-grid"><div class="bd-item"><label>Inputs</label><p>'+a.inputs+'</p></div><div class="bd-item"><label>Outputs</label><p>'+a.outputs+'</p></div><div class="bd-item"><label>Integrations</label><p>'+a.integrations+'</p></div><div class="bd-item"><label>Design note</label><p>'+a.note+'</p></div></div><div class="bd-note">'+a.note+'</div>';
+  det.classList.add('open');
+  det.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+const pillarsData=[
+  {color:'#0D9DDA',title:'Signal Intake & Closed-Loop Steering',sub:'One loop. From first signal to governance decision.',vision:'Every tool demand signal flows into a lightweight submission process fast enough that people actually use it. The same system that captures the signal closes the loop: adoption data flows back in, tools that deliver get investment, tools that don\'t get retired.',methods:[{t:'Lightweight signal submission',b:'Slack-native intake. Submitting a signal feels like a message, not a procurement request. Every tool maps to a job to be done, by role.'},{t:'Three-lane launch tracks',b:'Lane 1 (internal/demo): no approval, 48hr ack. Lane 2 (customer, early adopter): 5-day SLA. Lane 3 (customer, broad scale): full approval cycle.'},{t:'Closed-loop governance pulse',b:'Standing CoE cadence. Adoption signals, escalations, and tool retirement reviewed on schedule. Tools gaining adoption get investment. Tools not delivering get retired.'}],measures:['Signal volume by source: field / customer / vendor','Avg time-to-approval per lane vs. SLA','Lane 1 to Lane 2 conversion rate','Tools retired vs. added per quarter']},
+  {color:'#7B5EA7',title:'Agentic Tools Enablement Framework',sub:'From tool instruction to builder fluency.',vision:'Enablement happens by doing, not by completing a module. This is also a change management program. Participation is not optional, it is the expectation. People who are ready to build will be given room to lead.',methods:[{t:'Expose to Experiment to Operationalize',b:'Three-stage model by role. Expose: introduction. Experiment: guided use with required output. Operationalize: embedded in workflow, skill published to CoE library.'},{t:'Builder fluency benchmarks by role',b:'Fluency defined for SE, FDE, ProServ, and CS. Measured by demonstrated output, not training completion. Time-to-proficiency tracked as a core metric.'},{t:'Change management and resource rebalancing',b:'Building is the expectation. Two levers: recruiting AI-native people, and unlocking those already here. That shift is a leadership decision.'}],measures:['Time-to-proficiency by role (target: <30 days)','Teach-backs completed per quarter','Skills published to CoE library (cumulative)','AWU velocity attributed to enablement cohorts']},
+  {color:'#04C3B5',title:'Connected GTM Handoffs',sub:'SE to FDE to ProServ to CS. Every handoff is a data event.',vision:'When tools become connective tissue across the GTM motion, context stops getting lost. Each handoff carries structured, role-specific intelligence forward, not summaries, not PDFs. Customer context compounds across the lifecycle.',methods:[{t:'SE to FDE: technical qualification handoff',b:'SE passes architecture notes, objections surfaced, PoC outcomes, demo assets, integration flags. FDE enters every engagement with a clear technical baseline.'},{t:'FDE to ProServ: scoping and delivery handoff',b:'FDE passes confirmed requirements, stakeholder map, risks, and timeline sensitivities. ProServ starts with full pre-sales context, reducing rework.'},{t:'ProServ to CS: success and expansion handoff',b:'ProServ passes delivery outcomes, adoption signals, open risks, and expansion opportunities. CS enters with full engagement history, not just a CRM record.'}],measures:['Handoff completion rate (structured vs. informal)','Time-to-productive engagement per FDE / ProServ','NNAoV preservation rate (post-win quality proxy)','CS expansion pipeline sourced from ProServ signals']},
+  {color:'#E8A500',title:'Measuring Success',sub:'Standardized definitions. A central Hub. Data that moves.',vision:'Measurement only works if everyone is measuring the same thing. This pillar owns three layers: standards defining adoption by role, the Hub making data accessible, and the data infrastructure that makes it possible at scale.',methods:[{t:'Standardization, unified definitions by role',b:'Adoption, proficiency, and impact defined consistently across SE, FDE, ProServ, and CS. Shared language for what good looks like, tied to CCR, AWUs, pipeline, NNAoV, and cycle time.'},{t:'Experience layer, The Hub',b:'Central repository: approved tools, waitlisted, not approved. Enablement sessions, skills library, leaderboards in one place. Single pane of glass from IC to CRO.'},{t:'Data infrastructure, unified pipeline',b:'Streaming process unifying activity, adoption, and outcome signals across all functions. SE to FDE to ProServ to CS, all connected. Powers the outcome dashboard.'}],measures:['Adoption rate by role vs. proficiency benchmark','Dashboard coverage: % of GTM on shared definitions','Data pipeline latency (signal-to-dashboard SLA)','Hub engagement: active users, tools accessed, sessions']},
+];
+
+function selP(idx,el){
+  document.querySelectorAll('.pm').forEach(p=>p.classList.remove('sel'));
+  el.classList.add('sel');
+  const p=pillarsData[idx];
+  document.getElementById('pd-area').innerHTML='<div class="pd"><div class="pd-hd"><div class="pd-num" style="background:'+p.color+'">'+(idx+1)+'</div><div><div class="pd-ti">'+p.title+'</div><div class="pd-su">'+p.sub+'</div></div></div><div class="pd-vis">'+p.vision+'</div><div class="pd-cols"><div><div class="pd-sl">Methods</div>'+p.methods.map(m=>'<div class="pd-m"><div class="pd-mt" style="color:'+p.color+'">'+m.t+'</div><div class="pd-mb">'+m.b+'</div></div>').join('')+'</div><div><div class="pd-sl">Key measures</div>'+p.measures.map(m=>'<div class="pd-ms"><div style="width:5px;height:5px;border-radius:50%;background:'+p.color+';flex-shrink:0;margin-top:5px"></div>'+m+'</div>').join('')+'</div></div></div>';
+}
+
+function showP(id,el){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nl').forEach(n=>n.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  el.classList.add('active');
+  document.getElementById('scroller').scrollTo({top:0,behavior:'smooth'});
+}
+
+const tooltips={
+  a:{color:'#E8A500',label:'High spend, low impact',title:'Tech without direction',body:'Accelerating AI without a defined business problem. Buying unlimited token plans, deploying overlapping tools, no reporting on what is used or why.'},
+  b:{color:'#C23B22',label:'Gap 01, Strategy gap',title:'Strategy without infrastructure',body:'Vision for agent-first innovation but no operating model to execute it. Tools adopted ad hoc. No mechanism to turn field learning into org capability.'},
+  c:{color:'#7B5EA7',label:'Gap 02, Definition gap',title:'Adoption without outcomes',body:'Engineers count tokens. ProServ counts solution outcomes. Without a unified definition of adoption, we cannot connect AI activity to business results.'},
+  d:{color:'#0D9DDA',label:'Gap 03 resolved, Scale path',title:'Framework launched, Art of the possible',body:'With intake, enablement, handoffs, and measurement aligned, the org moves up both axes simultaneously. Innovation compounds instead of fragmenting.'},
+};
+
+const tip=document.getElementById('roi-tip');
+const svg=document.getElementById('roi-svg');
+if(svg){
+  ['a','b','c','d'].forEach(function(id){
+    const dot=document.getElementById('dot-'+id);
+    if(!dot)return;
+    dot.addEventListener('mouseenter',function(){
+      const t=tooltips[id];
+      tip.innerHTML='<div class="tb-label" style="color:'+t.color+'">'+t.label+'</div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:5px">'+t.title+'</div><div style="font-size:12px;color:#c8dff0;line-height:1.6">'+t.body+'</div>';
+      tip.style.display='block';
+      const rect=svg.getBoundingClientRect();
+      const scaleX=rect.width/480,scaleY=rect.height/320;
+      const cx=parseFloat(dot.getAttribute('cx')),cy=parseFloat(dot.getAttribute('cy'));
+      const left=Math.min(cx*scaleX+14,rect.width-230);
+      const top=Math.max(cy*scaleY-80,4);
+      tip.style.left=left+'px';tip.style.top=top+'px';
+    });
+    dot.addEventListener('mouseleave',function(){tip.style.display='none';});
+  });
+}
+
+selP(0,document.getElementById('pm0'));
+buildBench();
+buildFnAccordion();
+
+// ── HATM tab switching ──
+function switchHatmTab(tab,btn){
+  ['org','bench2','hub2','how2'].forEach(t=>{
+    const el=document.getElementById('hatm-tab-'+t);
+    if(el)el.style.display=t===tab?'block':'none';
+  });
+  document.querySelectorAll('#hatm-tabs button').forEach(b=>{
+    b.style.background='transparent';b.style.color='var(--mut)';
+  });
+  btn.style.background='var(--navy)';btn.style.color='#fff';
+  if(tab==='bench2')buildBench2();
+}
+
+// ── Leader agent data ──
+const LEADER_AGENTS=[
+  {icon:'&#129517;',label:'Strategy Agent',jtbd:'Org-level planning, territory prioritization, headcount strategy',outputs:'Quarterly strategy brief, territory heat map, priority account list',note:'Gives any leader an always-on strategic co-pilot &#8212; surfacing where to invest and how to align the team to priorities.'},
+  {icon:'&#128161;',label:'Work Intel Agent',jtbd:'Work health monitoring, risk flagging, review prep',outputs:'Work health summary, at-risk flags, review talking points, forecast accuracy report',note:'Replaces manual status gathering. Leader walks into every review already knowing what needs attention.'},
+  {icon:'&#127891;',label:'Coaching Agent',jtbd:'Team development tracking, skill gap identification, coaching plan generation',outputs:'Individual coaching plan, skill gap summary, recommended skill-builds, recognition prompts',note:'Turns performance data into actionable coaching conversations &#8212; so the leader spends time developing people, not building spreadsheets.'},
+];
+let selLdrAgent=null;
+function toggleLeaderAgent(idx){
+  const det=document.getElementById('ldr-detail');
+  LEADER_AGENTS.forEach((_,i)=>{
+    const chip=document.getElementById('ldr-chip-'+i);
+    if(chip){chip.style.background='rgba(255,255,255,.08)';chip.style.borderColor='rgba(140,207,254,.35)';chip.style.color='#8CCFFE';}
+  });
+  if(selLdrAgent===idx){selLdrAgent=null;det.style.display='none';return;}
+  selLdrAgent=idx;
+  const chip=document.getElementById('ldr-chip-'+idx);
+  if(chip){chip.style.background='#1B96FF';chip.style.borderColor='#1B96FF';chip.style.color='#032D60';}
+  const a=LEADER_AGENTS[idx];
+  document.getElementById('ldr-eyebrow').innerHTML=a.icon+' Leader agent';
+  document.getElementById('ldr-name').textContent=a.label;
+  document.getElementById('ldr-jtbd').textContent=a.jtbd;
+  document.getElementById('ldr-outputs').textContent=a.outputs;
+  document.getElementById('ldr-note').innerHTML=a.note;
+  det.style.display='block';
+  det.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ── Agentic Worker bench data ──
+const AW_BENCHES=[
+  ['intake','context','prep','liveassist','proposal','expansion'],
+  ['intake','context','prep','solution','dataai','liveassist'],
+  ['discovery','context','dataai','integration','solution','forecast'],
+  ['intake','discovery','prep','liveassist','proposal','handoff'],
+  ['discovery','solution','dataai','integration','handoff','expansion'],
+];
+let selAW=null;
+function toggleAWDetail(idx){
+  const det=document.getElementById('aw-detail');
+  for(let i=0;i<5;i++){
+    const inner=document.querySelector('#aw-node-'+i+' div[onclick]');
+    if(inner){inner.style.borderColor='var(--bd)';inner.style.background='#fff';}
+  }
+  if(selAW===idx){selAW=null;det.style.display='none';return;}
+  selAW=idx;
+  const inner=document.querySelector('#aw-node-'+idx+' div[onclick]');
+  if(inner){inner.style.borderColor='var(--navy)';inner.style.background='var(--lighter)';}
+  document.getElementById('aw-name').textContent='Agentic Worker '+(idx+1);
+  document.getElementById('aw-role-lbl').textContent=AW_BENCHES[idx].length+' agents on bench';
+  document.getElementById('aw-agents-grid').innerHTML=AW_BENCHES[idx].map(aid=>{
+    const a=AGENTS.find(x=>x.id===aid);if(!a)return'';
+    const c=LC[a.lcKey];
+    return'<div style="background:#fff;border:.5px solid var(--bd);border-radius:8px;padding:9px 11px;display:flex;align-items:center;gap:8px">'
+      +'<div style="width:9px;height:9px;border-radius:50%;background:'+c+';flex-shrink:0"></div>'
+      +'<div><div style="font-size:11px;font-weight:600;color:var(--navy);line-height:1.2">'+a.name+'</div>'
+      +'<div style="font-size:10px;color:var(--mut)">'+a.lc+'</div></div></div>';
+  }).join('');
+  det.style.display='block';
+  det.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ── Second bench grid inside HATM tab ──
+let selAgent2=null;
+function buildBench2(){
+  const grid=document.getElementById('bench-grid2');
+  if(!grid)return;
+  grid.innerHTML=AGENTS.map(a=>{
+    const c=LC[a.lcKey];
+    return'<div class="bench-card'+(selAgent2===a.id?' sel':'')+'" style="--card-accent:'+c+'" onclick="selectAgent2(\''+a.id+'\')">'
+      +'<div class="bc-top"><div class="bc-icon" style="background:'+c+'20;color:'+c+';font-size:10px;font-weight:700;font-family:monospace">'+a.icon+'</div>'
+      +'<div><div class="bc-name">'+a.name+'</div><div class="bc-lc" style="color:'+c+'">'+a.lc+'</div></div></div>'
+      +'<div class="bc-jtbd">'+a.jtbd+'</div></div>';
+  }).join('');
+}
+function selectAgent2(id){
+  selAgent2=selAgent2===id?null:id;
+  buildBench2();
+  const det=document.getElementById('bench-detail2');
+  if(!selAgent2){det.classList.remove('open');return;}
+  const a=AGENTS.find(x=>x.id===id);
+  const c=LC[a.lcKey];
+  det.innerHTML='<div class="bd-eyebrow">'+a.icon+' Agent detail</div><div class="bd-name">'+a.name+'</div>'
+    +'<div class="bd-lc" style="color:'+c+'">'+a.lc+' &middot; '+a.jtbd+'</div>'
+    +'<div class="bd-grid"><div class="bd-item"><label>Inputs</label><p>'+a.inputs+'</p></div>'
+    +'<div class="bd-item"><label>Outputs</label><p>'+a.outputs+'</p></div>'
+    +'<div class="bd-item"><label>Integrations</label><p>'+a.integrations+'</p></div>'
+    +'<div class="bd-item"><label>Design note</label><p>'+a.note+'</p></div></div>'
+    +'<div class="bd-note">'+a.note+'</div>';
+  det.classList.add('open');
+  det.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
