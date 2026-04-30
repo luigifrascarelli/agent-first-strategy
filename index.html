@@ -283,6 +283,9 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <div class="sb-sub">Solutions CoE · FY27</div>
   </div>
   <nav>
+    <div class="ng">Executive View</div>
+    <div class="nl" onclick="showP('exec-moment',this)"><span class="nl-ic">&#9733;</span>Strategy Overview</div>
+    <div class="nl" onclick="showP('exec-diagnosis',this)"><span class="nl-ic">&#9733;</span>Problem Overview</div>
     <div class="ng">Agentic Value Creation</div>
     <div class="nl active" onclick="showP('moment',this)"><span class="nl-ic">&#9670;</span>Strategic Moment</div>
     <div class="nl" onclick="showP('hatm',this)"><span class="nl-ic">&#8859;</span>Human-Agent Teaming</div>
@@ -304,6 +307,269 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 </aside>
 
 <main id="scroller">
+
+<!-- ═══════════════════════════════════════════
+     EXEC SUMMARY: STRATEGY
+════════════════════════════════════════════ -->
+<div id="p-exec-moment" class="panel">
+
+  <!-- Full-bleed header -->
+  <div style="background:var(--navy);border-radius:14px;padding:32px 36px;margin-bottom:20px;position:relative;overflow:hidden">
+    <!-- Background accent rings -->
+    <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;border:1px solid rgba(13,157,218,.12);pointer-events:none"></div>
+    <div style="position:absolute;top:-30px;right:-30px;width:200px;height:200px;border-radius:50%;border:1px solid rgba(13,157,218,.18);pointer-events:none"></div>
+    <div style="position:absolute;bottom:-40px;left:200px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(232,165,0,.1);pointer-events:none"></div>
+
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px">
+      <div style="flex:1;max-width:580px">
+        <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.18em;margin-bottom:12px">Executive Overview · FY27</div>
+        <div style="font-size:32px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:10px">AI isn't the strategy.<br>The <span style="color:#0D9DDA">operating model</span> is.</div>
+        <div style="font-size:var(--t-md);color:rgba(255,255,255,.55);line-height:1.75;max-width:480px">One framework. People, process, and technology aligned around a single outcome: compressing the cycle from first signal to customer value.</div>
+      </div>
+      <!-- Big stat cluster -->
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:130px;align-items:flex-end">
+        <div style="background:rgba(13,157,218,.12);border:1px solid rgba(13,157,218,.25);border-radius:10px;padding:13px 18px;text-align:center;width:120px">
+          <div style="font-size:36px;font-weight:700;color:#0D9DDA;line-height:1;font-family:monospace">3</div>
+          <div style="font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.06em;margin-top:3px">Dimensions</div>
+        </div>
+        <div style="background:rgba(232,165,0,.1);border:1px solid rgba(232,165,0,.25);border-radius:10px;padding:13px 18px;text-align:center;width:120px">
+          <div style="font-size:36px;font-weight:700;color:#E8A500;line-height:1;font-family:monospace">4</div>
+          <div style="font-size:var(--t-xs);color:#F5C57A;text-transform:uppercase;letter-spacing:.06em;margin-top:3px">Pillars</div>
+        </div>
+        <div style="background:rgba(93,202,165,.1);border:1px solid rgba(93,202,165,.25);border-radius:10px;padding:13px 18px;text-align:center;width:120px">
+          <div style="font-size:36px;font-weight:700;color:#5DCAA5;line-height:1;font-family:monospace">6</div>
+          <div style="font-size:var(--t-xs);color:#A8EDD4;text-transform:uppercase;letter-spacing:.06em;margin-top:3px">Months</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 Strategic Dimensions — icon-forward cards -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
+    <!-- Card 1 -->
+    <div style="background:#fff;border-radius:12px;padding:20px 22px;border:.5px solid var(--bd);position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#0D9DDA"></div>
+      <div style="width:44px;height:44px;background:#E4F4FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#0D9DDA" stroke-width="2" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke="#0D9DDA" stroke-width="2" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke="#0D9DDA" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Customer Adoption</div>
+      <div style="font-size:var(--t-xl);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:8px">Speed &amp; specificity<br>at scale</div>
+      <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6">Solutions in days, not quarters. Agents purpose-built for industry and role.</div>
+    </div>
+    <!-- Card 2 -->
+    <div style="background:#fff;border-radius:12px;padding:20px 22px;border:.5px solid var(--bd);position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#04C3B5"></div>
+      <div style="width:44px;height:44px;background:#E0FBF9;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="#04C3B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16 7 22 7 22 13" stroke="#04C3B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:#04C3B5;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Economic Impact</div>
+      <div style="font-size:var(--t-xl);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:8px">Revenue velocity<br>without drag</div>
+      <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6">Margin expansion. Faster TTV. Growth that doesn't scale headcount linearly.</div>
+    </div>
+    <!-- Card 3 -->
+    <div style="background:#fff;border-radius:12px;padding:20px 22px;border:.5px solid var(--bd);position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#7B5EA7"></div>
+      <div style="width:44px;height:44px;background:#EDE9FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#7B5EA7" stroke-width="2"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#7B5EA7" stroke-width="2" stroke-linecap="round"/><path d="M20 12l2 2-2 2" stroke="#7B5EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Organizational Shift</div>
+      <div style="font-size:var(--t-xl);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:8px">Roles elevated<br>around judgment</div>
+      <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6">AI handles execution volume. Humans own relationships, direction, and high-stakes decisions.</div>
+    </div>
+  </div>
+
+  <!-- Maturity Arc — 3 stages visual -->
+  <div style="background:var(--navy);border-radius:12px;padding:22px 28px;margin-bottom:20px">
+    <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px">The Journey</div>
+    <div style="display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr;align-items:center;gap:0">
+      <!-- Stage 1 -->
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 18px">
+        <div style="display:inline-block;font-size:var(--t-xs);font-weight:700;background:rgba(255,255,255,.1);color:#8CCFFE;padding:2px 9px;border-radius:20px;letter-spacing:.06em;margin-bottom:8px">NOW</div>
+        <div style="font-size:var(--t-lg);font-weight:700;color:#fff;margin-bottom:4px">AI Augmentation</div>
+        <div style="font-size:var(--t-sm);color:rgba(255,255,255,.45);line-height:1.5">Tools assist individuals. Humans drive every workflow.</div>
+      </div>
+      <!-- Arrow -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+        <div style="font-size:22px;color:#E8A500">→</div>
+        <div style="font-size:var(--t-xs);color:rgba(232,165,0,.6);text-transform:uppercase;letter-spacing:.05em;font-weight:600">builds to</div>
+      </div>
+      <!-- Stage 2 -->
+      <div style="background:rgba(232,165,0,.08);border:1px solid rgba(232,165,0,.25);border-radius:10px;padding:16px 18px">
+        <div style="display:inline-block;font-size:var(--t-xs);font-weight:700;background:rgba(232,165,0,.2);color:#E8A500;padding:2px 9px;border-radius:20px;letter-spacing:.06em;margin-bottom:8px">ACTIVE</div>
+        <div style="font-size:var(--t-lg);font-weight:700;color:#fff;margin-bottom:4px">Agentic Adoption</div>
+        <div style="font-size:var(--t-sm);color:rgba(255,255,255,.45);line-height:1.5">Workers manage agent benches. Governance enables scale.</div>
+      </div>
+      <!-- Arrow -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+        <div style="font-size:22px;color:#04C3B5">→</div>
+        <div style="font-size:var(--t-xs);color:rgba(4,195,181,.6);text-transform:uppercase;letter-spacing:.05em;font-weight:600">leads to</div>
+      </div>
+      <!-- Stage 3 -->
+      <div style="background:rgba(93,202,165,.08);border:1px solid rgba(93,202,165,.3);border-radius:10px;padding:16px 18px">
+        <div style="display:inline-block;font-size:var(--t-xs);font-weight:700;background:rgba(93,202,165,.2);color:#5DCAA5;padding:2px 9px;border-radius:20px;letter-spacing:.06em;margin-bottom:8px">TARGET</div>
+        <div style="font-size:var(--t-lg);font-weight:700;color:#fff;margin-bottom:4px">AI Native</div>
+        <div style="font-size:var(--t-sm);color:rgba(255,255,255,.45);line-height:1.5">Agents orchestrate the work. Humans set direction.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 Pillars strip — horizontal compact -->
+  <div style="background:#fff;border-radius:12px;border:.5px solid var(--bd);padding:18px 22px;margin-bottom:20px">
+    <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px">The Four Pillars — How the strategy executes</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+      <div style="padding:12px 14px;background:var(--light);border-radius:8px;border-top:3px solid #0D9DDA">
+        <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);margin-bottom:4px">01</div>
+        <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy);line-height:1.3">Signal Intake &amp; Closed-Loop Steering</div>
+      </div>
+      <div style="padding:12px 14px;background:var(--pur-bg);border-radius:8px;border-top:3px solid #7B5EA7">
+        <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);margin-bottom:4px">02</div>
+        <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy);line-height:1.3">Agentic Tools Enablement</div>
+      </div>
+      <div style="padding:12px 14px;background:#E0FBF9;border-radius:8px;border-top:3px solid #04C3B5">
+        <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);margin-bottom:4px">03</div>
+        <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy);line-height:1.3">Connected GTM Handoffs</div>
+      </div>
+      <div style="padding:12px 14px;background:var(--amb-bg);border-radius:8px;border-top:3px solid #E8A500">
+        <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);margin-bottom:4px">04</div>
+        <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy);line-height:1.3">Measuring Success</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom line + nav -->
+  <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:stretch">
+    <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 10px 10px 0;padding:16px 20px">
+      <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:5px">The Bottom Line</div>
+      <div style="font-size:var(--t-lg);color:#e8f4ff;line-height:1.65;font-style:italic">The org that builds the operating model first compounds fastest — in capability, in customer outcomes, and in revenue.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;justify-content:center">
+      <button onclick="navTo('moment')" style="display:flex;align-items:center;gap:8px;padding:11px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-sm);font-weight:700;cursor:pointer;white-space:nowrap">Full Strategic Detail &#8594;</button>
+      <button onclick="navTo('pillars')" style="display:flex;align-items:center;gap:8px;padding:11px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-sm);font-weight:700;cursor:pointer;white-space:nowrap">See 4 Pillars &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     EXEC SUMMARY: DIAGNOSIS
+════════════════════════════════════════════ -->
+<div id="p-exec-diagnosis" class="panel">
+
+  <!-- Full-bleed header -->
+  <div style="background:var(--navy);border-radius:14px;padding:32px 36px;margin-bottom:20px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-50px;right:-50px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(194,59,34,.15);pointer-events:none"></div>
+    <div style="position:absolute;top:-20px;right:-20px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(194,59,34,.22);pointer-events:none"></div>
+    <div style="position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#C23B22,#E8A500,#7B5EA7);opacity:.5"></div>
+
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px">
+      <div style="flex:1;max-width:560px">
+        <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.18em;margin-bottom:12px">Executive Overview · Problem Statement</div>
+        <div style="font-size:32px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:10px">We have activity.<br>We don't have <span style="color:#0D9DDA">outcomes</span>.</div>
+        <div style="font-size:var(--t-md);color:rgba(255,255,255,.55);line-height:1.75">Three compounding gaps prevent AI activity from becoming measurable business results. The gaps are known. The framework closes them.</div>
+      </div>
+      <!-- Diagnosis verdict -->
+      <div style="background:rgba(194,59,34,.12);border:1px solid rgba(194,59,34,.3);border-radius:12px;padding:18px 20px;min-width:160px;text-align:center">
+        <div style="font-size:48px;font-weight:700;color:#C23B22;font-family:monospace;line-height:1">3</div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:rgba(255,200,190,.7);text-transform:uppercase;letter-spacing:.07em;margin-top:4px">Active<br>Gaps</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 Gap Cards — visual, numbered, bold -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
+    <!-- Gap 1 -->
+    <div style="border-radius:12px;overflow:hidden;border:.5px solid #F5C4B3">
+      <div style="background:#C23B22;padding:14px 18px;display:flex;align-items:center;gap:10px">
+        <div style="font-size:28px;font-weight:700;color:rgba(255,255,255,.3);font-family:monospace;line-height:1">01</div>
+        <div style="font-size:var(--t-sm);font-weight:700;color:#fff;line-height:1.3">Strategy Without<br>Infrastructure</div>
+      </div>
+      <div style="background:#fff;padding:14px 18px">
+        <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:10px">Vision exists. Operating model doesn't.</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:var(--t-xs);display:flex;align-items:center;gap:7px;color:#7A2010"><span style="width:6px;height:6px;border-radius:50%;background:#C23B22;flex-shrink:0"></span>Tools adopted ad hoc</div>
+          <div style="font-size:var(--t-xs);display:flex;align-items:center;gap:7px;color:#7A2010"><span style="width:6px;height:6px;border-radius:50%;background:#C23B22;flex-shrink:0"></span>No front door for requests</div>
+          <div style="font-size:var(--t-xs);display:flex;align-items:center;gap:7px;color:#7A2010"><span style="width:6px;height:6px;border-radius:50%;background:#C23B22;flex-shrink:0"></span>Field learning doesn't scale</div>
+        </div>
+      </div>
+    </div>
+    <!-- Gap 2 -->
+    <div style="border-radius:12px;overflow:hidden;border:.5px solid var(--amb-bd)">
+      <div style="background:#B05C00;padding:14px 18px;display:flex;align-items:center;gap:10px">
+        <div style="font-size:28px;font-weight:700;color:rgba(255,255,255,.3);font-family:monospace;line-height:1">02</div>
+        <div style="font-size:var(--t-sm);font-weight:700;color:#fff;line-height:1.3">Adoption Without<br>Outcomes</div>
+      </div>
+      <div style="background:#fff;padding:14px 18px">
+        <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:10px">Tokens tracked. Business results aren't.</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:var(--t-xs);display:flex;align-items:center;gap:7px;color:#4A2500"><span style="width:6px;height:6px;border-radius:50%;background:#B05C00;flex-shrink:0"></span>No shared definition of "done"</div>
+          <div style="font-size:var(--t-xs);display:flex;align-items:center;gap:7px;color:#4A2500"><span style="width:6px;height:6px;border-radius:50%;background:#B05C00;flex-shrink:0"></span>Activity ≠ customer value</div>
+          <div style="font-size:var(--t-xs);display:flex;align-items:center;gap:7px;color:#4A2500"><span style="width:6px;height:6px;border-radius:50%;background:#B05C00;flex-shrink:0"></span>No unified adoption metric</div>
+        </div>
+      </div>
+    </div>
+    <!-- Gap 3 -->
+    <div style="border-radius:12px;overflow:hidden;border:.5px solid var(--pur-bd)">
+      <div style="background:#4A2EC0;padding:14px 18px;display:flex;align-items:center;gap:10px">
+        <div style="font-size:28px;font-weight:700;color:rgba(255,255,255,.3);font-family:monospace;line-height:1">03</div>
+        <div style="font-size:var(--t-sm);font-weight:700;color:#fff;line-height:1.3">Innovation Without<br>Compounding</div>
+      </div>
+      <div style="background:#fff;padding:14px 18px">
+        <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:10px">Same work rebuilt by different teams.</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:var(--t-xs);display:flex;align-items:center;gap:7px;color:#2A1060"><span style="width:6px;height:6px;border-radius:50%;background:#4A2EC0;flex-shrink:0"></span>Parallel builds, no sharing</div>
+          <div style="font-size:var(--t-xs);display:flex;align-items:center;gap:7px;color:#2A1060"><span style="width:6px;height:6px;border-radius:50%;background:#4A2EC0;flex-shrink:0"></span>Context lost between teams</div>
+          <div style="font-size:var(--t-xs);display:flex;align-items:center;gap:7px;color:#2A1060"><span style="width:6px;height:6px;border-radius:50%;background:#4A2EC0;flex-shrink:0"></span>Org doesn't get smarter</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Before / After contrast -->
+  <div style="background:#fff;border-radius:12px;border:.5px solid var(--bd);padding:20px 24px;margin-bottom:20px">
+    <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px">What changes when the framework closes the gaps</div>
+    <div style="display:grid;grid-template-columns:1fr 36px 1fr;gap:0;align-items:stretch">
+      <!-- Before -->
+      <div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#C23B22;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;padding-left:4px">Before</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:var(--t-sm);padding:7px 11px;background:#FFF0EE;border-left:3px solid #FACACB;border-radius:0 6px 6px 0;color:#7A1A10;line-height:1.4">Too many tools — no front door</div>
+          <div style="font-size:var(--t-sm);padding:7px 11px;background:#FFF0EE;border-left:3px solid #FACACB;border-radius:0 6px 6px 0;color:#7A1A10;line-height:1.4">High token spend, low measurable output</div>
+          <div style="font-size:var(--t-sm);padding:7px 11px;background:#FFF0EE;border-left:3px solid #FACACB;border-radius:0 6px 6px 0;color:#7A1A10;line-height:1.4">Context reset at every handoff</div>
+          <div style="font-size:var(--t-sm);padding:7px 11px;background:#FFF0EE;border-left:3px solid #FACACB;border-radius:0 6px 6px 0;color:#7A1A10;line-height:1.4">"Adoption" means different things to everyone</div>
+        </div>
+      </div>
+      <!-- Divider arrow -->
+      <div style="display:flex;align-items:center;justify-content:center"><div style="font-size:22px;color:var(--blue)">&#8594;</div></div>
+      <!-- After -->
+      <div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;padding-left:4px">After</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:var(--t-sm);padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 6px 6px 0;color:#0A2A1A;line-height:1.4">One intake loop — signal to governance, end-to-end</div>
+          <div style="font-size:var(--t-sm);padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 6px 6px 0;color:#0A2A1A;line-height:1.4">Output-based enablement — fluency, not completion</div>
+          <div style="font-size:var(--t-sm);padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 6px 6px 0;color:#0A2A1A;line-height:1.4">Every handoff is a structured data event</div>
+          <div style="font-size:var(--t-sm);padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 6px 6px 0;color:#0A2A1A;line-height:1.4">One metric language across all orgs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The strategic question callout -->
+  <div style="background:var(--navy);border-radius:12px;padding:22px 28px;margin-bottom:20px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center">
+    <div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px">The Central Question</div>
+      <div style="font-size:var(--t-xl);font-weight:700;color:#fff;line-height:1.45;max-width:560px">If pre-sale assets are built for specific use cases — how do we create a GTM motion that becomes a shared foundation with post-sales?</div>
+    </div>
+    <div style="background:rgba(13,157,218,.1);border:1px solid rgba(13,157,218,.25);border-radius:10px;padding:14px 18px;text-align:center;min-width:110px">
+      <div style="font-size:var(--t-3xl);font-weight:700;color:#0D9DDA;font-family:monospace;line-height:1">TTV</div>
+      <div style="font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.06em;margin-top:4px">Compresses<br>when context<br>travels</div>
+    </div>
+  </div>
+
+  <!-- Nav buttons -->
+  <div style="display:flex;gap:10px;justify-content:flex-end">
+    <button onclick="navTo('diagnosis')" style="display:flex;align-items:center;gap:8px;padding:11px 20px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-sm);font-weight:700;cursor:pointer">Full Diagnosis &#8594;</button>
+    <button onclick="navTo('roi')" style="display:flex;align-items:center;gap:8px;padding:11px 20px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-sm);font-weight:700;cursor:pointer">See ROI Axis &#8594;</button>
+  </div>
+</div>
 
 <!-- STRATEGIC MOMENT -->
 <div id="p-moment" class="panel active">
@@ -412,7 +678,7 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div style="background:var(--navy);border-radius:10px;padding:14px 16px"><div style="font-size:var(--t-sm);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms today</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div><div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div><div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div><div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of &#8220;adoption&#8221; across orgs</div></div></div>
       <div style="background:#fff;border-radius:10px;padding:14px 16px;border:.5px solid var(--bd)"><div style="font-size:var(--t-sm);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework solves</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &#8212; signal to governance, end-to-end</div><div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &#8212; fluency, not completion</div><div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &#8212; every transition is a data event</div><div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &#8212; one metric language across all orgs</div></div></div>
     </div>
-    <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:8px;padding:11px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between"><div style="font-size:var(--t-base);color:var(--mut)">See how the three gaps map to business and technology ROI</div><button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="font-size:var(--t-sm);font-weight:700;color:var(--blue);background:none;border:.5px solid var(--blue);border-radius:6px;padding:5px 12px;cursor:pointer">View ROI Axis &#8599;</button></div>
+    <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:8px;padding:11px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between"><div style="font-size:var(--t-base);color:var(--mut)">See how the three gaps map to business and technology ROI</div><button onclick="navTo('roi')" style="font-size:var(--t-sm);font-weight:700;color:var(--blue);background:none;border:.5px solid var(--blue);border-radius:6px;padding:5px 12px;cursor:pointer">View ROI Axis &#8599;</button></div>
     <div style="display:flex;justify-content:space-between"><button onclick="diagStep(0)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">&#8592; External Problem</button><button onclick="diagStep(2)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">Strategic Question &#8594;</button></div>
   </div>
   <div id="diag-panel-2" style="display:none">
@@ -424,7 +690,7 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px"><div style="width:28px;height:28px;border-radius:8px;background:#F3EEFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#9670;</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">The GTM motion becomes a shared foundation</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">SE, FDE, ProServ, and CS are a single continuous context thread with agents passing intelligence at every transition point.</div></div>
     </div>
     <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px"><div style="font-size:var(--t-sm);font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">This strategy&#8217;s answer</div><div style="font-size:var(--t-lg);color:#e8f4ff;line-height:1.75;font-style:italic">Build the operating model that makes it possible. When pre-sale assets travel with every handoff, the GTM motion becomes a shared foundation that accelerates delivery, reduces rework, and compounds customer value over time.</div></div>
-    <div style="display:flex;justify-content:space-between"><button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">&#8592; Internal Gaps</button><button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#04C3B5;color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">See ROI Axis &#8599;</button></div>
+    <div style="display:flex;justify-content:space-between"><button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">&#8592; Internal Gaps</button><button onclick="navTo('roi')" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#04C3B5;color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">See ROI Axis &#8599;</button></div>
   </div>
 </div>
 
@@ -964,6 +1230,12 @@ function selP(idx,el){
   el.classList.add('sel');
   const p=pillarsData[idx];
   document.getElementById('pd-area').innerHTML='<div class="pd"><div class="pd-hd"><div class="pd-num" style="background:'+p.color+'">'+(idx+1)+'</div><div><div class="pd-ti">'+p.title+'</div><div class="pd-su">'+p.sub+'</div></div></div><div class="pd-vis">'+p.vision+'</div><div class="pd-cols"><div><div class="pd-sl">Methods</div>'+p.methods.map(m=>'<div class="pd-m"><div class="pd-mt" style="color:'+p.color+'">'+m.t+'</div><div class="pd-mb">'+m.b+'</div></div>').join('')+'</div><div><div class="pd-sl">Key measures</div>'+p.measures.map(m=>'<div class="pd-ms"><div style="width:5px;height:5px;border-radius:50%;background:'+p.color+';flex-shrink:0;margin-top:5px"></div>'+m+'</div>').join('')+'</div></div></div>';
+}
+
+function navTo(id){
+  // Finds the nav item that targets panel 'id' and uses it
+  const nl=document.querySelector('.nl[onclick*="\''+id+'\'"]');
+  if(nl)showP(id,nl);
 }
 
 function showP(id,el){
