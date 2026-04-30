@@ -200,7 +200,28 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 .fn-acc-body.open{display:block}
 .raci-role{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;background:#fff;border:.5px solid var(--bd);border-radius:20px;margin:3px}
 
-/* ── Portfolio Economics Engine ── */
+/* ── Collapsible nav groups ── */
+.ng-toggle{padding:6px 18px 3px;font-size:var(--t-xs);font-weight:700;color:rgba(140,207,254,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:6px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:color .12s}
+.ng-toggle:hover{color:rgba(140,207,254,.65)}
+.ng-toggle.open{color:rgba(140,207,254,.65)}
+.ng-chev{font-size:9px;transition:transform .2s;opacity:.6}
+.ng-toggle.open .ng-chev{transform:rotate(180deg)}
+.nav-group{overflow:hidden}
+
+/* ── Exec Vision panel ── */
+.ev-layer{border-radius:10px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden;cursor:default}
+.ev-layer-num{font-size:64px;font-weight:700;font-family:monospace;line-height:1;opacity:.08;position:absolute;right:20px;top:50%;transform:translateY(-50%);pointer-events:none}
+.ev-layer-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ev-conn{display:flex;align-items:center;justify-content:center;height:22px}
+
+/* ── Exec Layers (Ind/Teams/Systems) panel ── */
+.causal-arrow{display:flex;align-items:center;color:rgba(255,255,255,.25);font-size:22px;flex-shrink:0;padding:0 4px}
+.horizon-card{border-radius:10px;padding:16px 18px;border:1px solid}
+.h-num{font-size:var(--t-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.h-title{font-size:var(--t-lg);font-weight:700;margin-bottom:8px}
+.h-item{font-size:var(--t-sm);padding:3px 0;display:flex;align-items:flex-start;gap:6px;line-height:1.4}
+.h-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:5px}
+
 .pe-tabs{display:flex;gap:5px;background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:6px;margin-bottom:18px}
 .pe-tab{flex:1;font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer;transition:all .12s;text-align:center}
 .pe-tab:hover{background:var(--lighter);color:var(--navy)}
@@ -283,30 +304,424 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <div class="sb-sub">Solutions CoE · FY27</div>
   </div>
   <nav>
-    <div class="ng">Executive View</div>
-    <div class="nl" onclick="showP('exec-moment',this)"><span class="nl-ic">&#9733;</span>Strategy Overview</div>
-    <div class="nl" onclick="showP('exec-diagnosis',this)"><span class="nl-ic">&#9733;</span>Problem Overview</div>
-    <div class="ng">Agentic Value Creation</div>
-    <div class="nl active" onclick="showP('moment',this)"><span class="nl-ic">&#9670;</span>Strategic Moment</div>
-    <div class="nl" onclick="showP('hatm',this)"><span class="nl-ic">&#8859;</span>Human-Agent Teaming</div>
-    <div class="ng">The Problem We Are Solving</div>
-    <div class="nl" onclick="showP('diagnosis',this)"><span class="nl-ic">&#8856;</span>The Diagnosis</div>
-    <div class="nl" onclick="showP('roi',this)"><span class="nl-ic">&#8853;</span>ROI Axis</div>
-    <div class="ng">The Tactical How</div>
-    <div class="nl" onclick="showP('pillars',this)"><span class="nl-ic">&#8862;</span>4 Pillars</div>
-    <div class="nl" onclick="showP('council',this)"><span class="nl-ic">&#9673;</span>Council Structure</div>
-    <div class="nl" onclick="showP('functions',this)"><span class="nl-ic">&#8863;</span>Functions &amp; RACI</div>
-    <div class="nl" onclick="showP('govlifecycle',this)"><span class="nl-ic">&#8855;</span>Pilot Lifecycle</div>
-    <div class="nl" onclick="showP('outcomes',this)"><span class="nl-ic">&#8858;</span>Outcomes</div>
-    <div class="nl" onclick="showP('roadmap',this)"><span class="nl-ic">&#8856;</span>Roadmap</div>
-    <div class="nl" onclick="showP('comms',this)"><span class="nl-ic">&#8861;</span>Comms &amp; Slack</div>
-    <div class="ng">Innovation</div>
-    <div class="nl" onclick="showP('portfolio',this)"><span class="nl-ic">&#9636;</span>Portfolio Engine</div>
+    <!-- EXECUTIVE VIEW — always visible, primary -->
+    <div class="ng" style="color:rgba(140,207,254,.7);margin-top:4px">Executive View</div>
+    <div class="nl" onclick="showP('exec-vision',this)"><span class="nl-ic">&#9670;</span>Unified Vision</div>
+    <div class="nl" onclick="showP('exec-layers',this)"><span class="nl-ic">&#9670;</span>Ind · Teams · Systems</div>
+    <div class="nl" onclick="showP('exec-moment',this)"><span class="nl-ic">&#9670;</span>Strategy Overview</div>
+    <div class="nl" onclick="showP('exec-diagnosis',this)"><span class="nl-ic">&#9670;</span>Problem Overview</div>
+
+    <!-- COLLAPSIBLE: Agentic Value Creation -->
+    <div class="ng-toggle" onclick="toggleNav('nav-avc',this)">
+      <span>Agentic Value Creation</span><span class="ng-chev">&#9660;</span>
+    </div>
+    <div id="nav-avc" class="nav-group" style="display:none">
+      <div class="nl" onclick="showP('moment',this)"><span class="nl-ic">&#9670;</span>Strategic Moment</div>
+      <div class="nl" onclick="showP('hatm',this)"><span class="nl-ic">&#8859;</span>Human-Agent Teaming</div>
+    </div>
+
+    <!-- COLLAPSIBLE: The Problem -->
+    <div class="ng-toggle" onclick="toggleNav('nav-problem',this)">
+      <span>The Problem We Are Solving</span><span class="ng-chev">&#9660;</span>
+    </div>
+    <div id="nav-problem" class="nav-group" style="display:none">
+      <div class="nl" onclick="showP('diagnosis',this)"><span class="nl-ic">&#8856;</span>The Diagnosis</div>
+      <div class="nl" onclick="showP('roi',this)"><span class="nl-ic">&#8853;</span>ROI Axis</div>
+    </div>
+
+    <!-- COLLAPSIBLE: The Tactical How -->
+    <div class="ng-toggle" onclick="toggleNav('nav-tactical',this)">
+      <span>The Tactical How</span><span class="ng-chev">&#9660;</span>
+    </div>
+    <div id="nav-tactical" class="nav-group" style="display:none">
+      <div class="nl" onclick="showP('pillars',this)"><span class="nl-ic">&#8862;</span>4 Pillars</div>
+      <div class="nl" onclick="showP('council',this)"><span class="nl-ic">&#9673;</span>Council Structure</div>
+      <div class="nl" onclick="showP('functions',this)"><span class="nl-ic">&#8863;</span>Functions &amp; RACI</div>
+      <div class="nl" onclick="showP('govlifecycle',this)"><span class="nl-ic">&#8855;</span>Pilot Lifecycle</div>
+      <div class="nl" onclick="showP('outcomes',this)"><span class="nl-ic">&#8858;</span>Outcomes</div>
+      <div class="nl" onclick="showP('roadmap',this)"><span class="nl-ic">&#8856;</span>Roadmap</div>
+      <div class="nl" onclick="showP('comms',this)"><span class="nl-ic">&#8861;</span>Comms &amp; Slack</div>
+    </div>
+
+    <!-- COLLAPSIBLE: Innovation -->
+    <div class="ng-toggle" onclick="toggleNav('nav-innovation',this)">
+      <span>Innovation</span><span class="ng-chev">&#9660;</span>
+    </div>
+    <div id="nav-innovation" class="nav-group" style="display:none">
+      <div class="nl" onclick="showP('portfolio',this)"><span class="nl-ic">&#9636;</span>Portfolio Engine</div>
+    </div>
   </nav>
   <div class="sb-foot">FY27 · Confidential<br>Framework v2.3 · CoE + ProServ</div>
 </aside>
 
 <main id="scroller">
+
+<!-- ═══════════════════════════════════════════
+     EXEC PANEL: UNIFIED VISION
+════════════════════════════════════════════ -->
+<div id="p-exec-vision" class="panel active">
+
+  <!-- Hero -->
+  <div style="background:var(--navy);border-radius:14px;padding:34px 38px;margin-bottom:20px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-80px;right:-80px;width:340px;height:340px;border-radius:50%;border:1px solid rgba(13,157,218,.1);pointer-events:none"></div>
+    <div style="position:absolute;top:-40px;right:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(13,157,218,.16);pointer-events:none"></div>
+    <div style="position:absolute;bottom:-60px;left:100px;width:240px;height:240px;border-radius:50%;border:1px solid rgba(4,195,181,.08);pointer-events:none"></div>
+    <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.2em;margin-bottom:14px">FY27 · Solutions CoE · Unified Strategy</div>
+    <div style="font-size:36px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:12px;max-width:640px">One company.<br>One motion.<br><span style="color:#0D9DDA">One operating model.</span></div>
+    <div style="font-size:var(--t-md);color:rgba(255,255,255,.5);line-height:1.8;max-width:560px">AI tools will keep changing. What endures is how we build, govern, and scale AI across every team and every function — from first signal to customer value.</div>
+    <!-- Pill tags -->
+    <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
+      <span style="font-size:var(--t-xs);font-weight:700;padding:4px 13px;border-radius:20px;background:rgba(13,157,218,.14);border:1px solid rgba(13,157,218,.3);color:#8CCFFE;letter-spacing:.06em;text-transform:uppercase">People</span>
+      <span style="font-size:var(--t-xs);font-weight:700;padding:4px 13px;border-radius:20px;background:rgba(232,165,0,.12);border:1px solid rgba(232,165,0,.3);color:#F5C57A;letter-spacing:.06em;text-transform:uppercase">Process</span>
+      <span style="font-size:var(--t-xs);font-weight:700;padding:4px 13px;border-radius:20px;background:rgba(93,202,165,.12);border:1px solid rgba(93,202,165,.3);color:#A8EDD4;letter-spacing:.06em;text-transform:uppercase">Technology</span>
+      <span style="font-size:var(--t-xs);font-weight:700;padding:4px 13px;border-radius:20px;background:rgba(155,127,232,.14);border:1px solid rgba(155,127,232,.3);color:#C5B4F8;letter-spacing:.06em;text-transform:uppercase">Governance</span>
+    </div>
+  </div>
+
+  <!-- Old model → New model visual -->
+  <div style="display:grid;grid-template-columns:1fr 56px 1fr;gap:0;margin-bottom:20px;align-items:stretch">
+
+    <!-- OLD MODEL -->
+    <div style="background:#fff;border-radius:12px 0 0 12px;border:.5px solid var(--bd);padding:20px 22px;border-right:none">
+      <div style="font-size:var(--t-xs);font-weight:700;color:#C23B22;text-transform:uppercase;letter-spacing:.13em;margin-bottom:14px">Old Model</div>
+      <!-- Mini grid -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:14px">
+        <div style="background:#F5F5F8;border-radius:6px;padding:7px 6px;text-align:center;font-size:var(--t-xs);color:var(--mut);font-weight:600">Plan</div>
+        <div style="background:#F5F5F8;border-radius:6px;padding:7px 6px;text-align:center;font-size:var(--t-xs);color:var(--mut);font-weight:600">Design</div>
+        <div style="background:#F5F5F8;border-radius:6px;padding:7px 6px;text-align:center;font-size:var(--t-xs);color:var(--mut);font-weight:600">Build</div>
+        <div style="background:#F5F5F8;border-radius:6px;padding:7px 6px;text-align:center;font-size:var(--t-xs);color:var(--mut);font-weight:600">Test</div>
+        <div style="background:#F5F5F8;border-radius:6px;padding:7px 6px;text-align:center;font-size:var(--t-xs);color:var(--mut);font-weight:500;font-style:italic">Tool A</div>
+        <div style="background:#F5F5F8;border-radius:6px;padding:7px 6px;text-align:center;font-size:var(--t-xs);color:var(--mut);font-weight:500;font-style:italic">Tool B</div>
+        <div style="background:#F5F5F8;border-radius:6px;padding:7px 6px;text-align:center;font-size:var(--t-xs);color:var(--mut);font-weight:500;font-style:italic">Tool C</div>
+        <div style="background:#F5F5F8;border-radius:6px;padding:7px 6px;text-align:center;font-size:var(--t-xs);color:var(--mut);font-weight:500;font-style:italic">Tool D</div>
+      </div>
+      <div style="font-size:var(--t-xs);color:#C23B22;font-weight:700;line-height:1.6">Process = Execution<br><span style="font-weight:500;color:var(--mut)">Rebuilding is costly. Tools are coupled to process.</span></div>
+    </div>
+
+    <!-- Arrow connector -->
+    <div style="display:flex;align-items:center;justify-content:center;background:var(--lighter);border-top:.5px solid var(--bd);border-bottom:.5px solid var(--bd)">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center">
+          <span style="color:#fff;font-size:14px">&#8594;</span>
+        </div>
+        <div style="font-size:9px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;text-align:center;line-height:1.4">New<br>Model</div>
+      </div>
+    </div>
+
+    <!-- NEW MODEL: 3 stacked layers -->
+    <div style="background:#fff;border-radius:0 12px 12px 0;border:.5px solid var(--bd);padding:20px 22px;border-left:none">
+      <div style="font-size:var(--t-xs);font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.13em;margin-bottom:14px">New Model</div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <!-- Layer 1: Process -->
+        <div style="background:#EDE9FF;border:1px solid #C5B4F8;border-radius:8px;padding:12px 16px;position:relative">
+          <div style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:#7B5EA7"></div>
+          <div style="font-size:var(--t-sm);font-weight:700;color:#4A2EC0;margin-bottom:2px">Process</div>
+          <div style="font-size:var(--t-xs);color:#6A50B0">defines the flow — sequence, decisions, handoffs</div>
+        </div>
+        <!-- connector -->
+        <div style="display:flex;justify-content:center;padding:3px 0"><span style="color:#9B7FE8;font-size:16px;font-weight:700">&#8595;</span></div>
+        <!-- Layer 2: Orchestration -->
+        <div style="background:#E0FBF9;border:1px solid #5DCAA5;border-radius:8px;padding:12px 16px;position:relative">
+          <div style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:#0F6E56"></div>
+          <div style="font-size:var(--t-sm);font-weight:700;color:#0F6E56;margin-bottom:2px">Orchestration</div>
+          <div style="font-size:var(--t-xs);color:#1A6A58">determines when and how work moves</div>
+        </div>
+        <!-- connector -->
+        <div style="display:flex;justify-content:center;padding:3px 0"><span style="color:#5DCAA5;font-size:16px;font-weight:700">&#8595;</span></div>
+        <!-- Layer 3: Execution -->
+        <div style="background:#FFF4D6;border:1px solid #E8A24A;border-radius:8px;padding:12px 16px;position:relative">
+          <div style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:#B05C00"></div>
+          <div style="font-size:var(--t-sm);font-weight:700;color:#B05C00;margin-bottom:2px">Execution</div>
+          <div style="font-size:var(--t-xs);color:#7A4010">tools, AI, and people — replaceable, swappable, seasonal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-pillar principles row -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
+    <div style="background:#fff;border-radius:12px;padding:20px 22px;border:.5px solid var(--bd);border-top:3px solid #7B5EA7">
+      <div style="width:36px;height:36px;background:#EDE9FF;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 20H5a2 2 0 01-2-2V6a2 2 0 012-2h4" stroke="#7B5EA7" stroke-width="2" stroke-linecap="round"/><path d="M15 4h4a2 2 0 012 2v12a2 2 0 01-2 2h-4" stroke="#7B5EA7" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="2" x2="12" y2="22" stroke="#7B5EA7" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Cross-Org Alignment</div>
+      <div style="font-size:var(--t-lg);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:6px">SE · FDE · ProServ · CS</div>
+      <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6">One motion from first signal to customer value. Every function in the same operating model.</div>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:20px 22px;border:.5px solid var(--bd);border-top:3px solid #0D9DDA">
+      <div style="width:36px;height:36px;background:#E4F4FF;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#0D9DDA" stroke-width="2"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="#0D9DDA" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Tools Are Interchangeable</div>
+      <div style="font-size:var(--t-lg);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:6px">Durable Model. Seasonal Tools.</div>
+      <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6">The stack evolves continuously. Process and orchestration stay stable. Tools plug in and out without rebuilding.</div>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:20px 22px;border:.5px solid var(--bd);border-top:3px solid #04C3B5">
+      <div style="width:36px;height:36px;background:#E0FBF9;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" stroke="#04C3B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:#04C3B5;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Compounding Returns</div>
+      <div style="font-size:var(--t-lg);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:6px">Each cycle gets faster.</div>
+      <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6">Governance, enablement, and measurement feed back into the model. The org accelerates with every quarter.</div>
+    </div>
+  </div>
+
+  <!-- The causal chain -->
+  <div style="background:var(--navy);border-radius:12px;padding:22px 28px;margin-bottom:16px">
+    <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.13em;margin-bottom:16px">The Causal Chain — How value compounds</div>
+    <div style="display:grid;grid-template-columns:1fr 32px 1fr 32px 1fr 32px 1fr;align-items:center;gap:0">
+      <div style="background:rgba(13,157,218,.12);border:1px solid rgba(13,157,218,.25);border-radius:10px;padding:14px 16px;text-align:center">
+        <div style="font-size:var(--t-xl);font-weight:700;color:#0D9DDA;margin-bottom:4px">Productivity</div>
+        <div style="font-size:var(--t-xs);color:#8CCFFE;line-height:1.5">Individual speed &amp; output quality</div>
+      </div>
+      <div style="text-align:center;color:#E8A500;font-size:18px">&#8594;</div>
+      <div style="background:rgba(93,202,165,.1);border:1px solid rgba(93,202,165,.25);border-radius:10px;padding:14px 16px;text-align:center">
+        <div style="font-size:var(--t-xl);font-weight:700;color:#5DCAA5;margin-bottom:4px">Consistency</div>
+        <div style="font-size:var(--t-xs);color:#A8EDD4;line-height:1.5">Repeatable quality across teams</div>
+      </div>
+      <div style="text-align:center;color:#E8A500;font-size:18px">&#8594;</div>
+      <div style="background:rgba(232,165,0,.1);border:1px solid rgba(232,165,0,.25);border-radius:10px;padding:14px 16px;text-align:center">
+        <div style="font-size:var(--t-xl);font-weight:700;color:#E8A500;margin-bottom:4px">Consumption</div>
+        <div style="font-size:var(--t-xs);color:#F5C57A;line-height:1.5">Customer adoption &amp; value realization</div>
+      </div>
+      <div style="text-align:center;color:#E8A500;font-size:18px">&#8594;</div>
+      <div style="background:rgba(155,127,232,.1);border:1px solid rgba(155,127,232,.25);border-radius:10px;padding:14px 16px;text-align:center">
+        <div style="font-size:var(--t-xl);font-weight:700;color:#9B7FE8;margin-bottom:4px">NNAoV</div>
+        <div style="font-size:var(--t-xs);color:#C5B4F8;line-height:1.5">Commercial outcomes at scale</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06);font-size:var(--t-xs);color:rgba(140,207,254,.45);font-style:italic;text-align:center">Productivity enables consistency · Consistency improves consumption · Consumption drives commercial outcomes</div>
+  </div>
+
+  <!-- Nav buttons -->
+  <div style="display:flex;gap:10px;justify-content:flex-end">
+    <button onclick="showP('exec-layers',document.querySelector('[onclick*=exec-layers]'))" style="display:flex;align-items:center;gap:8px;padding:11px 20px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-sm);font-weight:700;cursor:pointer">Ind · Teams · Systems &#8594;</button>
+    <button onclick="showP('exec-moment',document.querySelector('[onclick*=exec-moment]'))" style="display:flex;align-items:center;gap:8px;padding:11px 20px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-sm);font-weight:700;cursor:pointer">Strategy Overview &#8594;</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     EXEC PANEL: INDIVIDUALS · TEAMS · SYSTEMS
+════════════════════════════════════════════ -->
+<div id="p-exec-layers" class="panel">
+
+  <!-- Hero -->
+  <div style="background:var(--navy);border-radius:14px;padding:32px 36px;margin-bottom:20px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-50px;right:-50px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(13,157,218,.12);pointer-events:none"></div>
+    <div style="position:absolute;bottom:-40px;left:160px;width:200px;height:200px;border-radius:50%;border:1px solid rgba(93,202,165,.1);pointer-events:none"></div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px">
+      <div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.18em;margin-bottom:12px">Architecture Model · FY27</div>
+        <div style="font-size:32px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:10px">How the strategy<br>scales at every level.</div>
+        <div style="font-size:var(--t-md);color:rgba(255,255,255,.5);line-height:1.75;max-width:520px">At the individual level, tools are interchangeable. At the team level, consistency compounds. At the systems level, consumption drives commercial outcomes.</div>
+      </div>
+      <!-- Stacked label chip -->
+      <div style="display:flex;flex-direction:column;gap:6px;min-width:100px;align-items:flex-end;justify-content:center">
+        <div style="font-size:var(--t-xs);font-weight:700;padding:5px 13px;border-radius:20px;background:rgba(13,157,218,.14);border:1px solid rgba(13,157,218,.3);color:#8CCFFE;white-space:nowrap">Individual</div>
+        <div style="font-size:var(--t-xs);font-weight:700;padding:5px 13px;border-radius:20px;background:rgba(93,202,165,.12);border:1px solid rgba(93,202,165,.3);color:#A8EDD4;white-space:nowrap">Teams</div>
+        <div style="font-size:var(--t-xs);font-weight:700;padding:5px 13px;border-radius:20px;background:rgba(155,127,232,.14);border:1px solid rgba(155,127,232,.3);color:#C5B4F8;white-space:nowrap">Systems</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 Level Cards -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px">
+
+    <!-- INDIVIDUAL -->
+    <div style="border-radius:12px;overflow:hidden;border:.5px solid var(--bd)">
+      <div style="background:#032D60;padding:16px 20px;border-bottom:3px solid #0D9DDA">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <div style="width:36px;height:36px;background:rgba(13,157,218,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#0D9DDA" stroke-width="2"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#0D9DDA" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em">Level 01</div>
+            <div style="font-size:var(--t-lg);font-weight:700;color:#fff">Individual</div>
+          </div>
+        </div>
+        <div style="font-size:var(--t-sm);color:rgba(255,255,255,.55);line-height:1.6">How do we improve execution productivity for every delivery resource?</div>
+      </div>
+      <div style="background:#fff;padding:16px 20px">
+        <div style="font-size:var(--t-xs);font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Tools are interchangeable here</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--light);border-radius:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:#0D9DDA;flex-shrink:0"></div>
+            <span style="font-size:var(--t-sm);color:var(--navy)">Agent bench — personalized per role</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--light);border-radius:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:#0D9DDA;flex-shrink:0"></div>
+            <span style="font-size:var(--t-sm);color:var(--navy)">AWU fluency &amp; tier progression</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--light);border-radius:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:#0D9DDA;flex-shrink:0"></div>
+            <span style="font-size:var(--t-sm);color:var(--navy)">CoE skills library — pull-to-bench</span>
+          </div>
+        </div>
+        <!-- Tool swap visual -->
+        <div style="background:#F7FBFF;border-radius:8px;padding:10px 12px;border:.5px solid var(--bd)">
+          <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px">Tool layer — always evolving</div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap">
+            <span style="font-size:var(--t-xs);padding:3px 9px;background:#fff;border:1px solid var(--bd);border-radius:20px;color:var(--navy);font-weight:600">Claude</span>
+            <span style="font-size:var(--t-xs);padding:3px 9px;background:#fff;border:1px solid var(--bd);border-radius:20px;color:var(--navy);font-weight:600">Cursor</span>
+            <span style="font-size:var(--t-xs);padding:3px 9px;background:#fff;border:1px solid var(--bd);border-radius:20px;color:var(--navy);font-weight:600">MeshMesh</span>
+            <span style="font-size:var(--t-xs);padding:3px 9px;background:#fff;border:1px solid var(--bd);border-radius:20px;color:var(--navy);font-weight:600">Saleo</span>
+            <span style="font-size:var(--t-xs);padding:3px 9px;background:#E8F4FF;border:1px dashed var(--bd);border-radius:20px;color:var(--mut);font-style:italic">Next tool →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAMS -->
+    <div style="border-radius:12px;overflow:hidden;border:.5px solid var(--bd)">
+      <div style="background:#0A2A22;padding:16px 20px;border-bottom:3px solid #5DCAA5">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <div style="width:36px;height:36px;background:rgba(93,202,165,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#5DCAA5" stroke-width="2"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:var(--t-xs);font-weight:700;color:#A8EDD4;text-transform:uppercase;letter-spacing:.08em">Level 02</div>
+            <div style="font-size:var(--t-lg);font-weight:700;color:#fff">Teams</div>
+          </div>
+        </div>
+        <div style="font-size:var(--t-sm);color:rgba(255,255,255,.55);line-height:1.6">How do we create repeatable consistency across SE, FDE, ProServ, and CS?</div>
+      </div>
+      <div style="background:#fff;padding:16px 20px">
+        <div style="font-size:var(--t-xs);font-weight:700;color:#0F6E56;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Consistency compounds at this level</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--grn-bg);border-radius:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:#5DCAA5;flex-shrink:0"></div>
+            <span style="font-size:var(--t-sm);color:var(--navy)">Shared skills library &amp; standards</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--grn-bg);border-radius:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:#5DCAA5;flex-shrink:0"></div>
+            <span style="font-size:var(--t-sm);color:var(--navy)">T1 / T2 / T3 certification model</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--grn-bg);border-radius:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:#5DCAA5;flex-shrink:0"></div>
+            <span style="font-size:var(--t-sm);color:var(--navy)">Teach-back loops &amp; cross-team adoption</span>
+          </div>
+        </div>
+        <!-- GTM handoff visual -->
+        <div style="background:#F7FBFF;border-radius:8px;padding:10px 12px;border:.5px solid var(--bd)">
+          <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px">Connected GTM handoff chain</div>
+          <div style="display:flex;align-items:center;gap:4px">
+            <span style="font-size:var(--t-xs);font-weight:700;padding:4px 8px;background:var(--navy);color:#fff;border-radius:5px">SE</span>
+            <span style="color:var(--bd);font-size:12px">&#8594;</span>
+            <span style="font-size:var(--t-xs);font-weight:700;padding:4px 8px;background:#063A7A;color:#fff;border-radius:5px">FDE</span>
+            <span style="color:var(--bd);font-size:12px">&#8594;</span>
+            <span style="font-size:var(--t-xs);font-weight:700;padding:4px 8px;background:#2A1A70;color:#fff;border-radius:5px">ProServ</span>
+            <span style="color:var(--bd);font-size:12px">&#8594;</span>
+            <span style="font-size:var(--t-xs);font-weight:700;padding:4px 8px;background:#1A4A3A;color:#fff;border-radius:5px">CS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYSTEMS -->
+    <div style="border-radius:12px;overflow:hidden;border:.5px solid var(--bd)">
+      <div style="background:#1A0A50;padding:16px 20px;border-bottom:3px solid #9B7FE8">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <div style="width:36px;height:36px;background:rgba(155,127,232,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#9B7FE8" stroke-width="2"/><rect x="13" y="2" width="9" height="9" rx="2" stroke="#9B7FE8" stroke-width="2"/><rect x="2" y="13" width="9" height="9" rx="2" stroke="#9B7FE8" stroke-width="2"/><rect x="13" y="13" width="9" height="9" rx="2" stroke="#9B7FE8" stroke-width="2"/></svg>
+          </div>
+          <div>
+            <div style="font-size:var(--t-xs);font-weight:700;color:#C5B4F8;text-transform:uppercase;letter-spacing:.08em">Level 03</div>
+            <div style="font-size:var(--t-lg);font-weight:700;color:#fff">Systems</div>
+          </div>
+        </div>
+        <div style="font-size:var(--t-sm);color:rgba(255,255,255,.55);line-height:1.6">How do we improve customer consumption through efficient and consistent execution?</div>
+      </div>
+      <div style="background:#fff;padding:16px 20px">
+        <div style="font-size:var(--t-xs);font-weight:700;color:#4A2EC0;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Consumption &amp; commercial outcomes</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--pur-bg);border-radius:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:#9B7FE8;flex-shrink:0"></div>
+            <span style="font-size:var(--t-sm);color:var(--navy)">Unified leaderboard &amp; outcome metrics</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--pur-bg);border-radius:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:#9B7FE8;flex-shrink:0"></div>
+            <span style="font-size:var(--t-sm);color:var(--navy)">AI Council governance &amp; Portfolio Engine</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--pur-bg);border-radius:7px">
+            <div style="width:7px;height:7px;border-radius:50%;background:#9B7FE8;flex-shrink:0"></div>
+            <span style="font-size:var(--t-sm);color:var(--navy)">CCR · NNAoV · TTV · Customer Value</span>
+          </div>
+        </div>
+        <!-- Business metrics -->
+        <div style="background:#F7FBFF;border-radius:8px;padding:10px 12px;border:.5px solid var(--bd)">
+          <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px">Business outcomes tracked</div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap">
+            <span style="font-size:var(--t-xs);padding:3px 9px;background:#fff;border:1px solid var(--bd);border-radius:20px;color:var(--navy);font-weight:700">CCR</span>
+            <span style="font-size:var(--t-xs);padding:3px 9px;background:#fff;border:1px solid var(--bd);border-radius:20px;color:var(--navy);font-weight:700">NNAoV</span>
+            <span style="font-size:var(--t-xs);padding:3px 9px;background:#fff;border:1px solid var(--bd);border-radius:20px;color:var(--navy);font-weight:700">TTV</span>
+            <span style="font-size:var(--t-xs);padding:3px 9px;background:#fff;border:1px solid var(--bd);border-radius:20px;color:var(--navy);font-weight:700">AWU</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Horizon Bars — Prove → Scale → Optimize -->
+  <div style="background:#fff;border-radius:12px;border:.5px solid var(--bd);padding:20px 24px;margin-bottom:16px">
+    <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px">Three Horizons — how the model matures</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+      <!-- H1 -->
+      <div style="border-radius:10px;overflow:hidden;border:.5px solid var(--bd)">
+        <div style="background:#032D60;padding:11px 16px;display:flex;align-items:center;gap:8px">
+          <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;opacity:.6">H1</div>
+          <div style="font-size:var(--t-base);font-weight:700;color:#fff">Prove</div>
+          <div style="margin-left:auto;font-size:var(--t-xs);font-weight:700;background:rgba(13,157,218,.2);color:#8CCFFE;padding:2px 8px;border-radius:10px">Now</div>
+        </div>
+        <div style="padding:12px 16px;background:#F7FBFF">
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#0D9DDA;flex-shrink:0;margin-top:1px">·</span>Demonstrate productivity gains</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#0D9DDA;flex-shrink:0;margin-top:1px">·</span>Pilot execution consistency</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#0D9DDA;flex-shrink:0;margin-top:1px">·</span>Establish baseline consumption</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#0D9DDA;flex-shrink:0;margin-top:1px">·</span>Validate workflows, tools, data</div>
+          </div>
+        </div>
+      </div>
+      <!-- H2 -->
+      <div style="border-radius:10px;overflow:hidden;border:.5px solid var(--grn-bd)">
+        <div style="background:#0A2A22;padding:11px 16px;display:flex;align-items:center;gap:8px">
+          <div style="font-size:var(--t-xs);font-weight:700;color:#A8EDD4;opacity:.6">H2</div>
+          <div style="font-size:var(--t-base);font-weight:700;color:#fff">Scale</div>
+          <div style="margin-left:auto;font-size:var(--t-xs);font-weight:700;background:rgba(93,202,165,.2);color:#A8EDD4;padding:2px 8px;border-radius:10px">Months 4–5</div>
+        </div>
+        <div style="padding:12px 16px;background:#F7FFF9">
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#5DCAA5;flex-shrink:0;margin-top:1px">·</span>Expand consistency across regions</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#5DCAA5;flex-shrink:0;margin-top:1px">·</span>Standardize successful patterns</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#5DCAA5;flex-shrink:0;margin-top:1px">·</span>Measure consumption vs. baseline</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#5DCAA5;flex-shrink:0;margin-top:1px">·</span>Strengthen GTM-to-delivery link</div>
+          </div>
+        </div>
+      </div>
+      <!-- H3 -->
+      <div style="border-radius:10px;overflow:hidden;border:.5px solid var(--pur-bd)">
+        <div style="background:#1A0A50;padding:11px 16px;display:flex;align-items:center;gap:8px">
+          <div style="font-size:var(--t-xs);font-weight:700;color:#C5B4F8;opacity:.6">H3</div>
+          <div style="font-size:var(--t-base);font-weight:700;color:#fff">Optimize</div>
+          <div style="margin-left:auto;font-size:var(--t-xs);font-weight:700;background:rgba(155,127,232,.2);color:#C5B4F8;padding:2px 8px;border-radius:10px">Month 6+</div>
+        </div>
+        <div style="padding:12px 16px;background:#F9F7FF">
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#9B7FE8;flex-shrink:0;margin-top:1px">·</span>Improve via continuous telemetry</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#9B7FE8;flex-shrink:0;margin-top:1px">·</span>Reduce variance &amp; friction</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#9B7FE8;flex-shrink:0;margin-top:1px">·</span>Refine model based on evidence</div>
+            <div style="display:flex;align-items:flex-start;gap:6px;font-size:var(--t-sm);color:var(--mut);line-height:1.4"><span style="color:#9B7FE8;flex-shrink:0;margin-top:1px">·</span>Link to broader commercial outcomes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <div style="display:flex;gap:10px;justify-content:flex-end">
+    <button onclick="showP('exec-moment',document.querySelector('[onclick*=exec-moment]'))" style="display:flex;align-items:center;gap:8px;padding:11px 20px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-sm);font-weight:700;cursor:pointer">Strategy Overview &#8594;</button>
+    <button onclick="showP('exec-diagnosis',document.querySelector('[onclick*=exec-diagnosis]'))" style="display:flex;align-items:center;gap:8px;padding:11px 20px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-sm);font-weight:700;cursor:pointer">Problem Overview &#8594;</button>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════
      EXEC SUMMARY: STRATEGY
@@ -572,7 +987,7 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 </div>
 
 <!-- STRATEGIC MOMENT -->
-<div id="p-moment" class="panel active">
+<div id="p-moment" class="panel">
   <div class="hero">
     <div><div class="hero-title">AI Innovation &amp; Tooling Strategy</div><div class="hero-sub">A unified go-to-market strategy &#183; People, Process &amp; Technology &#183; FY27</div></div>
   </div>
@@ -1232,17 +1647,33 @@ function selP(idx,el){
   document.getElementById('pd-area').innerHTML='<div class="pd"><div class="pd-hd"><div class="pd-num" style="background:'+p.color+'">'+(idx+1)+'</div><div><div class="pd-ti">'+p.title+'</div><div class="pd-su">'+p.sub+'</div></div></div><div class="pd-vis">'+p.vision+'</div><div class="pd-cols"><div><div class="pd-sl">Methods</div>'+p.methods.map(m=>'<div class="pd-m"><div class="pd-mt" style="color:'+p.color+'">'+m.t+'</div><div class="pd-mb">'+m.b+'</div></div>').join('')+'</div><div><div class="pd-sl">Key measures</div>'+p.measures.map(m=>'<div class="pd-ms"><div style="width:5px;height:5px;border-radius:50%;background:'+p.color+';flex-shrink:0;margin-top:5px"></div>'+m+'</div>').join('')+'</div></div></div>';
 }
 
+function toggleNav(groupId, toggleEl){
+  const group = document.getElementById(groupId);
+  const isOpen = group.style.display !== 'none';
+  group.style.display = isOpen ? 'none' : 'block';
+  toggleEl.classList.toggle('open', !isOpen);
+}
+
 function navTo(id){
-  // Finds the nav item that targets panel 'id' and uses it
   const nl=document.querySelector('.nl[onclick*="\''+id+'\'"]');
-  if(nl)showP(id,nl);
+  if(nl) showP(id,nl);
+  else showP(id,null);
 }
 
 function showP(id,el){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nl').forEach(n=>n.classList.remove('active'));
   document.getElementById('p-'+id).classList.add('active');
-  el.classList.add('active');
+  if(el) el.classList.add('active');
+  // Expand parent nav group if collapsed
+  if(el){
+    const grp = el.closest('.nav-group');
+    if(grp && grp.style.display==='none'){
+      grp.style.display='block';
+      const toggle = grp.previousElementSibling;
+      if(toggle && toggle.classList.contains('ng-toggle')) toggle.classList.add('open');
+    }
+  }
   document.getElementById('scroller').scrollTo({top:0,behavior:'smooth'});
   if(id==='portfolio'){initPortfolioEngine();}
 }
