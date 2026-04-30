@@ -151,7 +151,7 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 .bb-flow-title::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--dot-color,var(--blue));flex-shrink:0}
 .bb-item{font-size:12px;color:var(--navy);padding:4px 0;border-bottom:.5px solid #EFF8FF;line-height:1.4;display:flex;align-items:flex-start;gap:7px}
 .bb-item:last-child{border-bottom:none}
-.bb-item::before{content:'?';color:var(--blue);font-size:11px;margin-top:1px;flex-shrink:0}
+.bb-item::before{content:'→';color:var(--blue);font-size:11px;margin-top:1px;flex-shrink:0}
 .kpi-card{background:var(--navy);border-radius:10px;overflow:hidden;border:.5px solid #1B5EA0}
 .kpi-top{height:4px}
 .kpi-in{padding:15px 17px}
@@ -212,21 +212,19 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <div class="sb-sub">Solutions CoE · FY27</div>
   </div>
   <nav>
-    <div class="ng">Strategy</div>
+    <div class="ng">Agentic Value Creation</div>
     <div class="nl active" onclick="showP('moment',this)"><span class="nl-ic">&#9670;</span>Strategic Moment</div>
-    <div class="nl" onclick="showP('diagnosis',this)"><span class="nl-ic">&#8856;</span>The Diagnosis</div>
-    <div class="nl" onclick="showP('roi',this)"><span class="nl-ic">&#8853;</span>ROI Axis</div>
-    <div class="ng">Framework</div>
-    <div class="nl" onclick="showP('pillars',this)"><span class="nl-ic">&#8862;</span>4 Pillars</div>
-    <div class="ng">Governance</div>
-    <div class="nl" onclick="showP('council',this)"><span class="nl-ic">&#9673;</span>Council Structure</div>
-    <div class="nl" onclick="showP('functions',this)"><span class="nl-ic">&#8863;</span>Functions &amp; RACI</div>
-    <div class="nl" onclick="showP('govlifecycle',this)"><span class="nl-ic">&#8855;</span>Pilot Lifecycle</div>
-    <div class="ng">Scale</div>
     <div class="nl" onclick="showP('hatm',this)"><span class="nl-ic">&#8859;</span>Human-Agent Teaming</div>
     <div class="nl" onclick="showP('bench',this)"><span class="nl-ic">&#8860;</span>Agent Bench</div>
     <div class="nl" onclick="showP('backbone',this)"><span class="nl-ic">&#8857;</span>Central Hub</div>
-    <div class="ng">Execution</div>
+    <div class="ng">The Problem We Are Solving</div>
+    <div class="nl" onclick="showP('diagnosis',this)"><span class="nl-ic">&#8856;</span>The Diagnosis</div>
+    <div class="nl" onclick="showP('roi',this)"><span class="nl-ic">&#8853;</span>ROI Axis</div>
+    <div class="ng">The Tactical How</div>
+    <div class="nl" onclick="showP('pillars',this)"><span class="nl-ic">&#8862;</span>4 Pillars</div>
+    <div class="nl" onclick="showP('council',this)"><span class="nl-ic">&#9673;</span>Council Structure</div>
+    <div class="nl" onclick="showP('functions',this)"><span class="nl-ic">&#8863;</span>Functions &amp; RACI</div>
+    <div class="nl" onclick="showP('govlifecycle',this)"><span class="nl-ic">&#8855;</span>Pilot Lifecycle</div>
     <div class="nl" onclick="showP('outcomes',this)"><span class="nl-ic">&#8858;</span>Outcomes</div>
     <div class="nl" onclick="showP('roadmap',this)"><span class="nl-ic">&#8856;</span>Roadmap</div>
     <div class="nl" onclick="showP('comms',this)"><span class="nl-ic">&#8861;</span>Comms &amp; Slack</div>
@@ -239,24 +237,62 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 <!-- STRATEGIC MOMENT -->
 <div id="p-moment" class="panel active">
   <div class="hero">
-    <div><div class="hero-title">AI Innovation &amp; Tooling Strategy</div><div class="hero-sub">Agent-First Operating Model · AI Council · FY27</div></div>
-    <div class="hero-kpis">
-      <div class="hk" style="border-top-color:#0D9DDA"><div class="hk-v">4</div><div class="hk-l">Pillars</div></div>
-      <div class="hk" style="border-top-color:#9B7FE8"><div class="hk-v">12</div><div class="hk-l">Agents</div></div>
-      <div class="hk" style="border-top-color:#E8A24A"><div class="hk-v">5</div><div class="hk-l">Council Seats</div></div>
-      <div class="hk" style="border-top-color:#5DCAA5"><div class="hk-v">4</div><div class="hk-l">Gates</div></div>
+    <div><div class="hero-title">AI Innovation &amp; Tooling Strategy</div><div class="hero-sub">A unified go-to-market strategy &#183; People, Process &amp; Technology &#183; FY27</div></div>
+  </div>
+
+  <!-- Executive framing — the single most important idea -->
+  <div style="background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:18px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:0;right:0;width:220px;height:100%;background:linear-gradient(135deg,transparent 60%,rgba(13,157,218,.08));pointer-events:none"></div>
+    <div style="font-size:10px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">The Strategic Imperative</div>
+    <div style="font-size:20px;font-weight:700;color:#fff;line-height:1.45;margin-bottom:14px;max-width:680px">This is a unified go-to-market strategy.<br>The focus is <span style="color:#0D9DDA">customer adoption</span> &#8212; and the economics behind it.</div>
+    <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.75;max-width:620px">AI tools are seasonal &#8212; they change constantly. What endures is the operating model: a people, process, and technology framework that compresses the cycle from first signal to customer value, solves the economic adoption problem, and compounds returns across every GTM motion.</div>
+  </div>
+
+  <!-- 3 exec dimensions -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px">
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;border-top:3px solid #0D9DDA">
+      <div style="font-size:11px;font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Customer Adoption</div>
+      <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Speed &amp; specificity<br>at scale</div>
+      <div style="font-size:12px;color:var(--mut);line-height:1.65">Solutions built in days, not quarters. Agents purpose-built for industry and role. The art of the possible is only unlocked when the operating model can deliver it reliably.</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;border-top:3px solid #04C3B5">
+      <div style="font-size:11px;font-weight:700;color:#04C3B5;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Economic Impact</div>
+      <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Revenue velocity<br>without drag</div>
+      <div style="font-size:12px;color:var(--mut);line-height:1.65">Margin expansion through AI-native delivery. Faster time-to-value. Scalable growth that does not require proportional headcount increases to sustain it.</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;border-top:3px solid #7B5EA7">
+      <div style="font-size:11px;font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Organizational Shift</div>
+      <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Roles elevated<br>around judgment</div>
+      <div style="font-size:12px;color:var(--mut);line-height:1.65">AI takes on execution volume so architects, engineers, and sellers can focus on what only a human can do: customer relationships, strategic direction, and high-stakes decisions. Culture, not technology, is the adoption barrier.</div>
     </div>
   </div>
-  <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:16px">
-    <div style="font-size:11px;font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px">Leadership Moment</div>
-    <div style="font-size:14px;color:#e8f4ff;line-height:1.75;font-style:italic">The art of the possible &#8212; speed, scale, specificity, affordability, and reliability for customers &#8212; is unlocked only by an agent-first operating model. The question is not whether to make this shift. It is whether we define it or react to it.</div>
+
+  <!-- Three-chapter narrative -->
+  <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:18px">
+    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">How this strategy is structured</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0">
+      <div style="padding:0 18px 0 0;border-right:.5px solid var(--bd)">
+        <div style="width:32px;height:32px;border-radius:8px;background:var(--navy);color:#8CCFFE;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-bottom:10px;font-family:monospace">01</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Agentic Value Creation</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">What becomes possible when every person in the GTM motion manages a personal bench of agents &#8212; and those agents share context across the full customer lifecycle.</div>
+      </div>
+      <div style="padding:0 18px;border-right:.5px solid var(--bd)">
+        <div style="width:32px;height:32px;border-radius:8px;background:#C23B22;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-bottom:10px;font-family:monospace">02</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">The Problem We Are Solving</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Three compounding gaps &#8212; strategy without infrastructure, adoption without outcomes, innovation without compounding &#8212; that prevent AI activity from becoming business results.</div>
+      </div>
+      <div style="padding:0 0 0 18px">
+        <div style="width:32px;height:32px;border-radius:8px;background:#04C3B5;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-bottom:10px;font-family:monospace">03</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">The Tactical How</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Governance structure, enablement framework, agent bench design, and a connected GTM motion that makes the strategy executable in months, not fiscal years.</div>
+      </div>
+    </div>
   </div>
-  <div class="grid3" style="margin-bottom:14px">
-    <div class="stk-card"><div class="stk-head"><div class="stk-num" style="background:#0D9DDA">1</div><div class="stk-ht">For Customers</div></div><div class="stk-items"><div class="stk-item"><div class="si-dot" style="background:#0D9DDA"></div>Solutions built in days, not quarters</div><div class="stk-item"><div class="si-dot" style="background:#0D9DDA"></div>Specificity at scale for every industry</div><div class="stk-item"><div class="si-dot" style="background:#0D9DDA"></div>Reliable agents with protected data</div><div class="stk-item"><div class="si-dot" style="background:#0D9DDA"></div>Affordability of bespoke AI delivery</div></div></div>
-    <div class="stk-card"><div class="stk-head"><div class="stk-num" style="background:#04C3B5">2</div><div class="stk-ht">For Investors</div></div><div class="stk-items"><div class="stk-item"><div class="si-dot" style="background:#04C3B5"></div>Margin expansion via AI-native delivery</div><div class="stk-item"><div class="si-dot" style="background:#04C3B5"></div>Faster time-to-value on new deployments</div><div class="stk-item"><div class="si-dot" style="background:#04C3B5"></div>Differentiation in agentic enterprise</div><div class="stk-item"><div class="si-dot" style="background:#04C3B5"></div>Scalable growth without headcount drag</div></div></div>
-    <div class="stk-card"><div class="stk-head"><div class="stk-num" style="background:#7B5EA7">3</div><div class="stk-ht">For Employees</div></div><div class="stk-items"><div class="stk-item"><div class="si-dot" style="background:#7B5EA7"></div>Builder identity: build with agents</div><div class="stk-item"><div class="si-dot" style="background:#7B5EA7"></div>Permission to experiment &#8212; ungated</div><div class="stk-item"><div class="si-dot" style="background:#7B5EA7"></div>Compound capability via CoE library</div><div class="stk-item"><div class="si-dot" style="background:#7B5EA7"></div>AI fluency as a career differentiator</div></div></div>
+
+  <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:14px 18px">
+    <div style="font-size:11px;font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">The Bottom Line</div>
+    <div style="font-size:15px;color:#e8f4ff;line-height:1.75;font-style:italic">The question is not whether to make this shift. It is whether we define it or react to it. The org that builds the operating model first compounds fastest &#8212; in capability, in customer outcomes, and in revenue.</div>
   </div>
-  <div class="callout cb"><span class="c-ico">&#9670;</span><span>This is a <strong>leadership decision</strong> &#8212; not a culture initiative. The AI Innovation &amp; Tooling Strategy ties together the GTM operating model, AI Council governance, and Human-Agent Teaming into a single executable framework.</span></div>
 </div>
 
 <!-- DIAGNOSIS -->
@@ -268,10 +304,65 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <div class="gap-card" style="border-top-color:#E8A500"><div class="gap-inner"><div class="gap-n">Gap 02</div><div class="gap-t">Adoption without outcomes</div><div class="gap-b">Engineers count tokens. ProServ counts solution outcomes. Without a unified definition, we cannot connect AI activity to business results.</div></div></div>
     <div class="gap-card" style="border-top-color:#7B5EA7"><div class="gap-inner"><div class="gap-n">Gap 03</div><div class="gap-t">Innovation without compounding</div><div class="gap-b">Similar solutions built in parallel with no sharing mechanism. Field learning disappears. The org is not getting smarter with every engagement.</div></div></div>
   </div>
-  <div class="grid2">
-    <div style="background:var(--navy);border-radius:10px;padding:14px 16px"><div style="font-size:11px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of "adoption" across orgs</div></div></div>
+  <div class="grid2" style="margin-bottom:18px">
+    <div style="background:var(--navy);border-radius:10px;padding:14px 16px"><div style="font-size:11px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of &#8220;adoption&#8221; across orgs</div></div></div>
     <div style="background:#fff;border-radius:10px;padding:14px 16px;border:.5px solid var(--bd)"><div style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework solves</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &#8212; signal to governance, end-to-end</div><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &#8212; fluency, not completion</div><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &#8212; every transition is a data event</div><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &#8212; one metric language across all orgs</div></div></div>
   </div>
+
+  <!-- Change 3: AI States Journey -->
+  <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:14px">
+    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">Defining the journey &#8212; from AI augmentation to AI native</div>
+    <div style="display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:stretch;gap:0">
+      <!-- State 1 -->
+      <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--navy)">01</div>
+          <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em">Current State</div>
+        </div>
+        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">AI Augmentation</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.65">AI assists the individual. Humans drive every workflow. Tools compress the agile cycle &#8212; faster drafts, quicker research, reduced manual effort &#8212; but the process and org structure stay the same.</div>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Human-led</span>
+          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Tool-assisted</span>
+          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Cycle compression</span>
+        </div>
+      </div>
+      <!-- Arrow 1 -->
+      <div style="display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--bd)">&#8594;</div>
+      <!-- State 2 -->
+      <div style="background:#FFF8E8;border:.5px solid var(--amb-bd);border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--amb-bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--amb)">02</div>
+          <div style="font-size:10px;font-weight:700;color:var(--amb);text-transform:uppercase;letter-spacing:.07em">Transition &#8212; Where We Are</div>
+        </div>
+        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">Agentic Adoption</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.65">Agentic Workers begin managing a bench of purpose-built agents. Workflows shift. Roles evolve. Governance and enablement infrastructure must exist before this scales &#8212; or it fragments.</div>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Bench-managed</span>
+          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Role transition</span>
+          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Governance critical</span>
+        </div>
+      </div>
+      <!-- Arrow 2 -->
+      <div style="display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--bd)">&#8594;</div>
+      <!-- State 3 -->
+      <div style="background:#E8F8F3;border:.5px solid var(--grn-bd);border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--grn-bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--grn)">03</div>
+          <div style="font-size:10px;font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.07em">Future State</div>
+        </div>
+        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">AI Native</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.65">Orchestrated agents manage the work. Humans set direction, make decisions, and own relationships. The org structure flattens. Roles are redefined around judgment and strategy, not execution volume.</div>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Agent-orchestrated</span>
+          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Human judgment</span>
+          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Flat org model</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 
 <!-- ROI -->
@@ -580,24 +671,200 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 <!-- OUTCOMES -->
 <div id="p-outcomes" class="panel">
   <div class="hero"><div><div class="hero-title">Outcomes</div><div class="hero-sub">This is not an efficiency play. It is a revenue play &#8212; and a talent play.</div></div></div>
-  <div class="grid3" style="margin-bottom:14px">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px">
     <div class="kpi-card"><div class="kpi-top" style="background:#0D9DDA"></div><div class="kpi-in"><div class="kpi-m" style="color:#0D9DDA">CCR</div><div class="kpi-l">Customer Consumed Revenue</div><div class="kpi-b">Faster cycle times, richer handoffs, and purposeful AI adoption drive more PoCs shipped and more pipeline converted.</div></div></div>
     <div class="kpi-card"><div class="kpi-top" style="background:#04C3B5"></div><div class="kpi-in"><div class="kpi-m" style="color:#04C3B5">CV</div><div class="kpi-l">Customer Value</div><div class="kpi-b">Measurable business outcomes customers achieve ensuring they adopt, consume, and realize ROI from their Salesforce investment.</div></div></div>
     <div class="kpi-card"><div class="kpi-top" style="background:#E8A500"></div><div class="kpi-in"><div class="kpi-m" style="color:#E8A500">NNAoV</div><div class="kpi-l">Net New Annual Order Value</div><div class="kpi-b">Protecting handoff quality and reducing rework preserves deals won in evaluation. Deals are lost after the win, not during it.</div></div></div>
+    <div class="kpi-card"><div class="kpi-top" style="background:#7B5EA7"></div><div class="kpi-in"><div class="kpi-m" style="color:#7B5EA7">TTV</div><div class="kpi-l">Time to Value</div><div class="kpi-b">How fast we move from demo to PoC to customer adoption and expansion. Compressing this cycle is the clearest signal the strategy is working.</div></div></div>
   </div>
-  <div class="flow-row"><span class="flow-l">Connected GTM motion:</span><span class="fl-stage" style="background:#0D9DDA">SE</span><span class="fl-arr">&#8594;</span><span class="fl-stage" style="background:#04C3B5">FDE</span><span class="fl-arr">&#8594;</span><span class="fl-stage" style="background:#7B5EA7">ProServ</span><span class="fl-arr">&#8594;</span><span class="fl-stage" style="background:#E8A500">CS</span><span style="font-size:12px;color:var(--mut);font-style:italic">&#160;&#183; Every handoff is a data event, not a conversation</span></div>
+
+  <!-- Connected GTM motion — connective tissue visual -->
+  <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:14px">
+    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:16px">Connected GTM motion &#8212; built on context and data, not a conversation</div>
+
+    <!-- Stage blocks with living connective tissue SVG between them -->
+    <div style="display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr;gap:0;align-items:stretch;margin-bottom:14px">
+      <!-- SE -->
+      <div style="background:var(--navy);border-radius:10px;padding:14px 16px">
+        <div style="font-size:9px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Pre-Sales</div>
+        <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px">SE</div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Architecture notes</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Objection log</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>PoC outcomes</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Integration flags</div>
+        </div>
+      </div>
+      <!-- Connector 1 -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px">
+        <div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--navy),#063A7A)"></div>
+        <div style="width:7px;height:7px;border-radius:50%;background:#0D9DDA;flex-shrink:0;box-shadow:0 0 0 3px rgba(13,157,218,.2)"></div>
+        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#063A7A,var(--navy))"></div>
+      </div>
+      <!-- FDE -->
+      <div style="background:#063A7A;border-radius:10px;padding:14px 16px">
+        <div style="font-size:9px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Technical</div>
+        <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px">FDE</div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Implementation plan</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Config decisions</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Risk flags</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Training needs</div>
+        </div>
+      </div>
+      <!-- Connector 2 -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px">
+        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#063A7A,#2A1A70)"></div>
+        <div style="width:7px;height:7px;border-radius:50%;background:#7B5EA7;flex-shrink:0;box-shadow:0 0 0 3px rgba(123,94,167,.2)"></div>
+        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#2A1A70,#063A7A)"></div>
+      </div>
+      <!-- ProServ -->
+      <div style="background:#2A1A70;border-radius:10px;padding:14px 16px">
+        <div style="font-size:9px;font-weight:700;color:#C5B4F8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Delivery</div>
+        <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px">ProServ</div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Delivery milestones</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Scope changes</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Stakeholder health</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Adoption signals</div>
+        </div>
+      </div>
+      <!-- Connector 3 -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px">
+        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#2A1A70,#1A4A3A)"></div>
+        <div style="width:7px;height:7px;border-radius:50%;background:#04C3B5;flex-shrink:0;box-shadow:0 0 0 3px rgba(4,195,181,.2)"></div>
+        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#1A4A3A,#2A1A70)"></div>
+      </div>
+      <!-- CS -->
+      <div style="background:#1A4A3A;border-radius:10px;padding:14px 16px">
+        <div style="font-size:9px;font-weight:700;color:#6FDDAA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Post-Sales</div>
+        <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px">CS</div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Expansion signals</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Renewal risk</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Value realization</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Health &amp; NPS data</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feedback loop arc — the symbiotic element -->
+    <div style="position:relative;height:28px;margin-bottom:12px">
+      <svg viewBox="0 0 760 28" width="100%" xmlns="http://www.w3.org/2000/svg" style="display:block">
+        <defs>
+          <marker id="fb-arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3 Z" fill="#04C3B5"/>
+          </marker>
+          <marker id="fb-arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+            <path d="M0,0 L0,6 L6,3 Z" fill="#0D9DDA"/>
+          </marker>
+        </defs>
+        <!-- Forward flow line (top) -->
+        <path d="M30,10 Q380,2 730,10" stroke="#0D9DDA" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#fb-arr)"/>
+        <!-- Feedback loop line (bottom) -->
+        <path d="M730,18 Q380,26 30,18" stroke="#04C3B5" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#fb-arr2)"/>
+        <text x="370" y="9" font-family="-apple-system,sans-serif" font-size="8" fill="#0D9DDA" text-anchor="middle" font-weight="600">CONTEXT FLOWS FORWARD</text>
+        <text x="370" y="27" font-family="-apple-system,sans-serif" font-size="8" fill="#04C3B5" text-anchor="middle" font-weight="600">EXPANSION SIGNALS FEED BACK</text>
+      </svg>
+    </div>
+
+    <!-- Agent-to-agent callout -->
+    <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:8px;padding:12px 16px;display:flex;align-items:flex-start;gap:12px">
+      <div style="width:32px;height:32px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#0D9DDA;font-size:16px">&#9654;</div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px">Agents pass context to each other &#8212; the Agentic Worker doesn&#8217;t carry it manually</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Each role&#8217;s agents hand structured intelligence to the next role&#8217;s agents at every transition. The Handoff Agent packages the full engagement history &#8212; decisions, risks, stakeholder context &#8212; as a data object. What arrives at CS is the same complete picture that started at SE. Context compounds. Expansion signals feed back. Nothing is lost.</div>
+      </div>
+    </div>
+  </div>
+
   <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-left:3px solid var(--pur-bd)"><div style="font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Talent &amp; Permission: The Multiplier</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div style="font-size:13px;color:var(--mut);line-height:1.75">Two levers: recruiting people who carry AI-native instincts, and unlocking the people already here. The second is the faster one. AI DNA does not have to be hired in &#8212; much of it already exists in the org, waiting for the expectation to change.</div><div style="border-left:.5px solid var(--bd);padding-left:14px;display:flex;flex-direction:column;justify-content:center"><div style="font-size:15px;font-weight:600;color:var(--pur);line-height:1.5;font-style:italic;margin-bottom:6px">When leadership makes building the standard rather than the exception, that shift happens fast.</div><div style="font-size:12px;color:var(--mut);font-style:italic">That is not a culture initiative. That is a decision.</div></div></div></div>
 </div>
 
 <!-- ROADMAP -->
 <div id="p-roadmap" class="panel">
-  <div class="hero"><div><div class="hero-title">FY27 Execution Roadmap</div><div class="hero-sub">Council formation in Q1 &#183; Operational infrastructure in Q2 &#183; Scaled adoption H2</div></div></div>
-  <div class="tl-grid">
-    <div class="tl-col"><div class="tl-hdr" style="background:var(--navy)"><div class="tl-q" style="color:#8CCFFE">Q1 FY27</div><div class="tl-name" style="color:#fff">Foundation</div></div><div class="tl-body" style="border-color:var(--bd)"><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">AI Council charter &amp; seats defined</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">EVP Sponsor identified</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Framework v2.3 ratified</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Security baseline published</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">HATM v1 launched internally</div></div></div>
-    <div class="tl-col"><div class="tl-hdr" style="background:var(--navy2)"><div class="tl-q" style="color:#8CCFFE">Q2 FY27</div><div class="tl-name" style="color:#fff">Infrastructure</div></div><div class="tl-body" style="border-color:var(--bd)"><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">T1/T2/T3 enablement launched</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Leaderboard &amp; dashboards live</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">First pilot cohort: Gates 1&#8211;2</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Agent bench v1 deployed org-wide</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">CoE skills repo published</div></div></div>
-    <div class="tl-col"><div class="tl-hdr" style="background:#1A0A50"><div class="tl-q" style="color:#C5B4F8">Q3 FY27</div><div class="tl-name" style="color:#fff">Scale</div></div><div class="tl-body" style="border-color:var(--pur-bd)"><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">Second pilot cohort ops</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">T3 teach-backs active</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">Token optimization flags live</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">First QBR exec cycle done</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">HATM v2 function extensions</div></div></div>
-    <div class="tl-col"><div class="tl-hdr" style="background:#001A10"><div class="tl-q" style="color:#6FDDAA">Q4 FY27</div><div class="tl-name" style="color:#fff">Optimize</div></div><div class="tl-body" style="border-color:var(--grn-bd)"><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Framework v3.0 ratified</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Full org T1 certification</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">AI impact on CCR/NNAOV</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">FY28 tool budget to EVP</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Council annual review done</div></div></div>
+  <div class="hero"><div><div class="hero-title">Execution Roadmap</div><div class="hero-sub">Month-by-month &#183; Foundation to scale in 6 months &#183; Pilots already in motion</div></div></div>
+
+  <!-- Active now banner -->
+  <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:11px 16px;margin-bottom:18px;display:flex;align-items:center;gap:10px">
+    <div style="width:8px;height:8px;border-radius:50%;background:#E8A500;flex-shrink:0;animation:pulse 1.5s infinite"></div>
+    <div style="font-size:13px;color:#e8f4ff;line-height:1.5"><strong style="color:#E8A500">Pilots are already in motion.</strong> The roadmap below reflects the governance and enablement infrastructure being built around active work &#8212; not a prerequisite for starting.</div>
   </div>
+
+  <div class="tl-grid">
+    <!-- Month 1 -->
+    <div class="tl-col">
+      <div class="tl-hdr" style="background:var(--navy)">
+        <div class="tl-q" style="color:#8CCFFE">Month 1</div>
+        <div class="tl-name" style="color:#fff">Foundation</div>
+      </div>
+      <div class="tl-body" style="border-color:var(--bd)">
+        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">AI Council charter &amp; seats defined</div>
+        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">EVP Sponsor confirmed</div>
+        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Framework v2.3 ratified</div>
+        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Security baseline published</div>
+        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Tool registry seeded &amp; live</div>
+      </div>
+    </div>
+    <!-- Month 2 -->
+    <div class="tl-col">
+      <div class="tl-hdr" style="background:var(--navy2)">
+        <div class="tl-q" style="color:#8CCFFE">Month 2</div>
+        <div class="tl-name" style="color:#fff">Enablement</div>
+      </div>
+      <div class="tl-body" style="border-color:var(--bd)">
+        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">T1/T2/T3 framework launched</div>
+        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">HATM v1 deployed internally</div>
+        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Agent bench v1 org-wide</div>
+        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">CoE skills repo published</div>
+        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Slack channel architecture live</div>
+      </div>
+    </div>
+    <!-- Month 3 -->
+    <div class="tl-col">
+      <div class="tl-hdr" style="background:#0A3A5A">
+        <div class="tl-q" style="color:#8CCFFE">Month 3</div>
+        <div class="tl-name" style="color:#fff">Measurement</div>
+      </div>
+      <div class="tl-body" style="border-color:var(--bd)">
+        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">Leaderboard &amp; dashboards live</div>
+        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">First AWU report to leadership</div>
+        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">TTV baseline established</div>
+        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">Token optimization flags active</div>
+        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">Council cadence running</div>
+      </div>
+    </div>
+    <!-- Month 4-5 -->
+    <div class="tl-col">
+      <div class="tl-hdr" style="background:#1A0A50">
+        <div class="tl-q" style="color:#C5B4F8">Months 4&#8211;5</div>
+        <div class="tl-name" style="color:#fff">Scale</div>
+      </div>
+      <div class="tl-body" style="border-color:var(--pur-bd)">
+        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">T3 teach-backs active org-wide</div>
+        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">HATM v2 function extensions</div>
+        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">First exec QBR cycle complete</div>
+        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">CCR &amp; TTV impact visible</div>
+        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur);font-style:italic;opacity:.7">Future pilot cohort &#8212; TBD</div>
+      </div>
+    </div>
+    <!-- Month 6 -->
+    <div class="tl-col">
+      <div class="tl-hdr" style="background:#001A10">
+        <div class="tl-q" style="color:#6FDDAA">Month 6</div>
+        <div class="tl-name" style="color:#fff">Optimize</div>
+      </div>
+      <div class="tl-body" style="border-color:var(--grn-bd)">
+        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Framework v3.0 ratified</div>
+        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Full org T1 certification</div>
+        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">AI impact on CCR/NNAoV reported</div>
+        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">FY28 tool budget to EVP</div>
+        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Council annual review done</div>
+      </div>
+    </div>
+  </div>
+
+  <style>@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}</style>
 </div>
 
 <!-- COMMS -->
