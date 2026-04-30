@@ -14,33 +14,44 @@
   --amb:#B05C00;--amb-bg:#FFF4D6;--amb-bd:#E8A24A;
   --grn:#0F6E56;--grn-bg:#E1F5EE;--grn-bd:#5DCAA5;
   --mut:#5A8AB0;--bg:#EFF7FF;
+
+  /* ── Type scale ── */
+  --t-xs:   12px;   /* eyebrows, badges, labels, pills, tags */
+  --t-sm:   13px;   /* secondary body, captions, sublabels */
+  --t-base: 14px;   /* primary body copy */
+  --t-md:   15px;   /* emphasized body, list items */
+  --t-lg:   16px;   /* card titles, section subheads */
+  --t-xl:   18px;   /* panel section titles, agent names */
+  --t-2xl:  22px;   /* hero titles, strategic callouts */
+  --t-3xl:  30px;   /* KPI metrics */
+  --t-4xl:  40px;   /* large stat numbers */
 }
-html,body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;background:var(--bg);color:var(--navy);min-height:100vh}
+html,body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:var(--t-lg);background:var(--bg);color:var(--navy);min-height:100vh}
 .shell{display:flex;min-height:100vh}
 aside{width:224px;min-width:224px;background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto}
 .sb-logo{padding:20px 18px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
 .sb-logo-row{display:flex;align-items:center;gap:10px}
 .sf-icon{width:38px;height:38px;background:#1798C1;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sb-brand{font-size:13px;font-weight:700;color:#fff;line-height:1.25}
-.sb-sub{font-size:10px;color:#8CCFFE;margin-top:5px;letter-spacing:.06em;text-transform:uppercase}
+.sb-brand{font-size:var(--t-md);font-weight:700;color:#fff;line-height:1.25}
+.sb-sub{font-size:var(--t-xs);color:#8CCFFE;margin-top:5px;letter-spacing:.06em;text-transform:uppercase}
 nav{padding:10px 0;flex:1}
-.ng{padding:6px 18px 3px;font-size:10px;font-weight:700;color:rgba(140,207,254,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
-.nl{display:flex;align-items:center;gap:9px;padding:9px 18px;font-size:13px;color:rgba(255,255,255,.55);border-left:2px solid transparent;cursor:pointer;transition:all .12s;user-select:none}
+.ng{padding:6px 18px 3px;font-size:var(--t-xs);font-weight:700;color:rgba(140,207,254,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.nl{display:flex;align-items:center;gap:9px;padding:9px 18px;font-size:var(--t-sm);color:rgba(255,255,255,.55);border-left:2px solid transparent;cursor:pointer;transition:all .12s;user-select:none}
 .nl:hover{color:#fff;background:rgba(255,255,255,.05)}
 .nl.active{color:#fff;background:rgba(13,157,218,.14);border-left-color:var(--blue)}
-.nl-ic{font-size:12px;opacity:.7;flex-shrink:0;width:14px;text-align:center}
-.sb-foot{padding:12px 18px;border-top:1px solid rgba(255,255,255,.07);font-size:10px;color:rgba(140,207,254,.35);line-height:1.6}
+.nl-ic{font-size:var(--t-sm);opacity:.7;flex-shrink:0;width:14px;text-align:center}
+.sb-foot{padding:12px 18px;border-top:1px solid rgba(255,255,255,.07);font-size:var(--t-xs);color:rgba(140,207,254,.35);line-height:1.6}
 main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 .panel{display:none}.panel.active{display:block}
 .hero{background:var(--navy);border-radius:12px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;gap:16px}
-.hero-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:3px}
-.hero-sub{font-size:11px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em}
+.hero-title{font-size:var(--t-2xl);font-weight:700;color:#fff;margin-bottom:3px}
+.hero-sub{font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em}
 .hero-kpis{display:flex;gap:9px}
 .hk{background:rgba(255,255,255,.07);border-radius:8px;padding:11px 16px;text-align:center;border-top:3px solid}
-.hk-v{font-size:26px;font-weight:700;color:#fff;line-height:1}
-.hk-l{font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.05em;margin-top:3px;font-weight:600}
-.callout{border-radius:8px;padding:12px 16px;font-size:13px;line-height:1.7;display:flex;gap:9px;align-items:flex-start;margin-top:14px}
-.c-ico{font-size:13px;flex-shrink:0;margin-top:2px}
+.hk-v{font-size:var(--t-3xl);font-weight:700;color:#fff;line-height:1}
+.hk-l{font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.05em;margin-top:3px;font-weight:600}
+.callout{border-radius:8px;padding:12px 16px;font-size:var(--t-md);line-height:1.7;display:flex;gap:9px;align-items:flex-start;margin-top:14px}
+.c-ico{font-size:var(--t-md);flex-shrink:0;margin-top:2px}
 .cb{background:var(--light);border:1px solid var(--bd);color:var(--navy)}
 .ca{background:var(--amb-bg);border:1px solid var(--amb-bd);color:#4A2500}
 .cg{background:var(--grn-bg);border:1px solid var(--grn-bd);color:#0A2A22}
@@ -48,35 +59,35 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .gap-card{background:#fff;border-radius:10px;border:.5px solid var(--bd);overflow:hidden;border-top:3px solid}
 .gap-inner{padding:15px 17px}
-.gap-n{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--mut);margin-bottom:5px}
-.gap-t{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
-.gap-b{font-size:12px;color:var(--mut);line-height:1.6}
+.gap-n{font-size:var(--t-xs);font-weight:700;letter-spacing:.1em;color:var(--mut);margin-bottom:5px}
+.gap-t{font-size:var(--t-lg);font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.gap-b{font-size:var(--t-base);color:var(--mut);line-height:1.6}
 .stk-card{background:#0A3870;border-radius:10px;overflow:hidden;border:.5px solid #1B5EA0}
 .stk-head{padding:12px 14px;display:flex;align-items:center;gap:8px;border-bottom:.5px solid #1B5EA0}
-.stk-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
-.stk-ht{font-size:14px;font-weight:700;color:#fff}
+.stk-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:var(--t-base);font-weight:700;color:#fff;flex-shrink:0}
+.stk-ht{font-size:var(--t-lg);font-weight:700;color:#fff}
 .stk-items{padding:10px 14px}
-.stk-item{font-size:13px;color:#8CCFFE;padding:5px 0;border-bottom:.5px solid rgba(27,94,160,.5);line-height:1.5;display:flex;align-items:flex-start;gap:7px}
+.stk-item{font-size:var(--t-md);color:#8CCFFE;padding:5px 0;border-bottom:.5px solid rgba(27,94,160,.5);line-height:1.5;display:flex;align-items:flex-start;gap:7px}
 .stk-item:last-child{border-bottom:none}
 .si-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:7px}
 .roi-wrap{background:#0B1628;border-radius:10px;overflow:hidden;margin-bottom:16px}
 .roi-header{padding:18px 22px 0}
-.roi-eyebrow{font-size:11px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
-.roi-title{font-size:19px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px}
+.roi-eyebrow{font-size:var(--t-sm);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+.roi-title{font-size:var(--t-2xl);font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px}
 .roi-title .tx{color:#E8A500}.roi-title .bx{color:#0D9DDA}
-.roi-sub{font-size:12px;color:#8CCFFE;margin-bottom:12px}
+.roi-sub{font-size:var(--t-base);color:#8CCFFE;margin-bottom:12px}
 .chart-area{display:flex;gap:0;align-items:flex-start}
 .chart-left{flex:1;min-width:0;padding:0 16px 16px}
 .chart-right{width:280px;flex-shrink:0;padding:12px 16px 16px;border-left:1px solid rgba(255,255,255,.06)}
-.tooltip-box{position:absolute;background:#1A2E4A;border:1px solid #2A4E7A;border-radius:8px;padding:11px 14px;font-size:12px;color:#fff;pointer-events:none;max-width:220px;z-index:10;line-height:1.6;display:none}
-.tb-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.tooltip-box{position:absolute;background:#1A2E4A;border:1px solid #2A4E7A;border-radius:8px;padding:11px 14px;font-size:var(--t-base);color:#fff;pointer-events:none;max-width:220px;z-index:10;line-height:1.6;display:none}
+.tb-label{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
 .ri-card{background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(255,255,255,.07);margin-bottom:9px;overflow:hidden}
 .ri-card-head{padding:8px 12px;display:flex;align-items:center;gap:7px}
-.ri-card-lbl{font-size:10px;font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase}
+.ri-card-lbl{font-size:var(--t-xs);font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase}
 .ri-card-body{padding:9px 12px}
-.ri-card-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}
-.ri-card-sub{font-size:11px;color:#8CCFFE;font-style:italic;margin-bottom:7px}
-.ri-item{font-size:12px;color:#8CCFFE;display:flex;align-items:flex-start;gap:6px;padding:4px 0;border-bottom:.5px solid rgba(255,255,255,.06);line-height:1.5}
+.ri-card-title{font-size:var(--t-lg);font-weight:700;color:#fff;margin-bottom:2px}
+.ri-card-sub{font-size:var(--t-sm);color:#8CCFFE;font-style:italic;margin-bottom:7px}
+.ri-item{font-size:var(--t-base);color:#8CCFFE;display:flex;align-items:flex-start;gap:6px;padding:4px 0;border-bottom:.5px solid rgba(255,255,255,.06);line-height:1.5}
 .ri-item:last-child{border-bottom:none}
 .ri-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .pillar-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
@@ -85,114 +96,114 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 .pm.sel{border-color:#fff}
 .pm-top{height:4px}
 .pm-in{padding:9px 11px}
-.pm-n{font-size:10px;font-weight:700;color:rgba(255,255,255,.35);margin-bottom:3px;letter-spacing:.05em}
-.pm-t{font-size:12px;font-weight:600;color:#fff;line-height:1.35}
+.pm-n{font-size:var(--t-xs);font-weight:700;color:rgba(255,255,255,.35);margin-bottom:3px;letter-spacing:.05em}
+.pm-t{font-size:var(--t-base);font-weight:600;color:#fff;line-height:1.35}
 .pd{background:var(--lighter);border:1px solid var(--bd);border-radius:10px;padding:16px 18px}
 .pd-hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.pd-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
-.pd-ti{font-size:15px;font-weight:700;color:var(--navy);line-height:1.2}
-.pd-su{font-size:12px;color:var(--mut);font-style:italic;margin-top:2px}
-.pd-vis{font-size:13px;color:var(--mut);line-height:1.7;margin-bottom:14px;padding:12px 15px;background:#fff;border-radius:8px;border:1px solid var(--bd)}
+.pd-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);font-weight:700;color:#fff;flex-shrink:0}
+.pd-ti{font-size:var(--t-lg);font-weight:700;color:var(--navy);line-height:1.2}
+.pd-su{font-size:var(--t-base);color:var(--mut);font-style:italic;margin-top:2px}
+.pd-vis{font-size:var(--t-md);color:var(--mut);line-height:1.7;margin-bottom:14px;padding:12px 15px;background:#fff;border-radius:8px;border:1px solid var(--bd)}
 .pd-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.pd-sl{font-size:10px;font-weight:700;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.pd-sl{font-size:var(--t-xs);font-weight:700;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
 .pd-m{margin-bottom:12px}
-.pd-mt{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;line-height:1.3}
-.pd-mb{font-size:12px;color:var(--mut);line-height:1.6}
-.pd-ms{font-size:12px;color:var(--mut);padding:5px 0;border-bottom:.5px solid var(--bd);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.pd-mt{font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:3px;line-height:1.3}
+.pd-mb{font-size:var(--t-base);color:var(--mut);line-height:1.6}
+.pd-ms{font-size:var(--t-base);color:var(--mut);padding:5px 0;border-bottom:.5px solid var(--bd);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
 .pd-ms:last-child{border-bottom:none}
-.c-tier-label{font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px;padding-left:2px}
+.c-tier-label{font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px;padding-left:2px}
 .c-row{display:flex;gap:8px;margin-bottom:8px}
 .c-card{flex:1;border-radius:10px;padding:13px 15px;border:1px solid}
-.c-badge{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
-.c-title{font-size:13px;font-weight:700;margin-bottom:4px}
-.c-desc{font-size:11px;line-height:1.5;margin-bottom:7px}
+.c-badge{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.c-title{font-size:var(--t-md);font-weight:700;margin-bottom:4px}
+.c-desc{font-size:var(--t-sm);line-height:1.5;margin-bottom:7px}
 .c-tags{display:flex;flex-wrap:wrap;gap:4px}
-.c-tag{font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px}
-.c-tag-tbd{font-size:9px;font-weight:700;padding:2px 10px;border-radius:20px;background:#F0F0F4;color:#888;font-style:italic;border:1px dashed #ccc}
-.tier-arrow{text-align:center;font-size:16px;color:var(--bd);margin:2px 0;line-height:1}
+.c-tag{font-size:var(--t-xs);font-weight:700;padding:2px 8px;border-radius:20px}
+.c-tag-tbd{font-size:var(--t-xs);font-weight:700;padding:2px 10px;border-radius:20px;background:#F0F0F4;color:#888;font-style:italic;border:1px dashed #ccc}
+.tier-arrow{text-align:center;font-size:var(--t-xl);color:var(--bd);margin:2px 0;line-height:1}
 .legend{display:flex;flex-wrap:wrap;gap:8px;padding:9px 13px;background:#F7FBFF;border-radius:8px;border:1px solid var(--bd);margin-bottom:14px}
-.leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--navy)}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:var(--t-xs);color:var(--navy)}
 .stages{display:flex;gap:5px;align-items:stretch}
 .stage-box{flex:1;border-radius:10px;overflow:hidden;min-width:0}
 .stage-hdr{padding:10px 12px}
-.stage-num{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
-.stage-name{font-size:12px;font-weight:700}
+.stage-num{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.stage-name{font-size:var(--t-base);font-weight:700}
 .stage-items{padding:10px 12px;background:#fff;border:1px solid;border-top:none;border-radius:0 0 10px 10px;display:flex;flex-direction:column;gap:4px}
-.si{font-size:10px;padding:5px 8px;border-radius:5px;border-left:3px solid;line-height:1.4}
-.stage-arrow{display:flex;align-items:center;color:var(--bd);font-size:16px;flex-shrink:0;align-self:center;padding-bottom:28px}
+.si{font-size:var(--t-xs);padding:5px 8px;border-radius:5px;border-left:3px solid;line-height:1.4}
+.stage-arrow{display:flex;align-items:center;color:var(--bd);font-size:var(--t-xl);flex-shrink:0;align-self:center;padding-bottom:28px}
 .lc-bar{display:flex;border-radius:8px;overflow:hidden;height:28px;border:.5px solid var(--bd);margin-top:8px}
-.lc-seg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;flex:1}
+.lc-seg{display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;flex:1}
 .bench-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
 .bench-card{background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:13px 14px;cursor:pointer;transition:all .16s;position:relative;overflow:hidden;border-top:3px solid var(--card-accent,var(--bd))}
 .bench-card:hover{border-color:var(--blue);transform:translateY(-2px)}
 .bench-card.sel{border-color:var(--navy);background:var(--lighter)}
 .bc-top{display:flex;align-items:flex-start;gap:9px;margin-bottom:6px}
-.bc-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-.bc-name{font-size:12px;font-weight:700;color:var(--navy);line-height:1.25}
-.bc-lc{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
-.bc-jtbd{font-size:11px;color:var(--mut);line-height:1.4}
+.bc-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);flex-shrink:0}
+.bc-name{font-size:var(--t-base);font-weight:700;color:var(--navy);line-height:1.25}
+.bc-lc{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.bc-jtbd{font-size:var(--t-sm);color:var(--mut);line-height:1.4}
 .bench-detail{background:var(--navy);border-radius:12px;padding:18px 22px;margin-bottom:4px;display:none}
 .bench-detail.open{display:block}
-.bd-eyebrow{font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
-.bd-name{font-size:16px;font-weight:700;color:#fff;margin-bottom:3px}
-.bd-lc{font-size:11px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px}
+.bd-eyebrow{font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.bd-name{font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:3px}
+.bd-lc{font-size:var(--t-sm);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px}
 .bd-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.bd-item label{font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:3px}
-.bd-item p{font-size:12px;color:#C5DFFF;line-height:1.55}
-.bd-note{margin-top:12px;padding-top:12px;border-top:.5px solid rgba(27,150,255,.2);font-size:11px;color:#8CCFFE;line-height:1.5;font-style:italic}
+.bd-item label{font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:3px}
+.bd-item p{font-size:var(--t-base);color:#C5DFFF;line-height:1.55}
+.bd-note{margin-top:12px;padding-top:12px;border-top:.5px solid rgba(27,150,255,.2);font-size:var(--t-sm);color:#8CCFFE;line-height:1.5;font-style:italic}
 .bb-hub{background:var(--navy);border-radius:12px;padding:20px 26px;text-align:center;margin-bottom:12px}
-.bb-hub-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:3px}
-.bb-hub-sub{font-size:12px;color:#8CCFFE;margin-bottom:14px}
+.bb-hub-title{font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:3px}
+.bb-hub-sub{font-size:var(--t-base);color:#8CCFFE;margin-bottom:14px}
 .bb-hub-principles{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.bb-principle{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:4px 12px;border-radius:20px;background:#1B96FF14;border:.5px solid #1B96FF33;color:#8CCFFE}
+.bb-principle{font-size:var(--t-xs);font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:4px 12px;border-radius:20px;background:#1B96FF14;border:.5px solid #1B96FF33;color:#8CCFFE}
 .bb-flows{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .bb-flow{background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:14px 16px}
-.bb-flow-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.bb-flow-title{font-size:var(--t-sm);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin-bottom:9px;display:flex;align-items:center;gap:7px}
 .bb-flow-title::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--dot-color,var(--blue));flex-shrink:0}
-.bb-item{font-size:12px;color:var(--navy);padding:4px 0;border-bottom:.5px solid #EFF8FF;line-height:1.4;display:flex;align-items:flex-start;gap:7px}
+.bb-item{font-size:var(--t-base);color:var(--navy);padding:4px 0;border-bottom:.5px solid #EFF8FF;line-height:1.4;display:flex;align-items:flex-start;gap:7px}
 .bb-item:last-child{border-bottom:none}
-.bb-item::before{content:'→';color:var(--blue);font-size:11px;margin-top:1px;flex-shrink:0}
+.bb-item::before{content:'→';color:var(--blue);font-size:var(--t-sm);margin-top:1px;flex-shrink:0}
 .kpi-card{background:var(--navy);border-radius:10px;overflow:hidden;border:.5px solid #1B5EA0}
 .kpi-top{height:4px}
 .kpi-in{padding:15px 17px}
-.kpi-m{font-size:32px;font-weight:700;line-height:1;margin-bottom:4px}
-.kpi-l{font-size:10px;font-weight:700;color:#8CCFFE;letter-spacing:.04em;margin-bottom:8px;text-transform:uppercase}
-.kpi-b{font-size:12px;color:#8CCFFE;line-height:1.6}
+.kpi-m{font-size:var(--t-3xl);font-weight:700;line-height:1;margin-bottom:4px}
+.kpi-l{font-size:var(--t-xs);font-weight:700;color:#8CCFFE;letter-spacing:.04em;margin-bottom:8px;text-transform:uppercase}
+.kpi-b{font-size:var(--t-base);color:#8CCFFE;line-height:1.6}
 .flow-row{background:var(--lighter);border-radius:10px;padding:13px 17px;margin-bottom:13px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;border:1px solid var(--bd)}
-.flow-l{font-size:12px;font-weight:600;color:var(--mut);margin-right:3px}
-.fl-stage{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;color:#fff}
-.fl-arr{color:var(--mut);font-size:15px}
+.flow-l{font-size:var(--t-base);font-weight:600;color:var(--mut);margin-right:3px}
+.fl-stage{padding:6px 16px;border-radius:20px;font-size:var(--t-md);font-weight:700;color:#fff}
+.fl-arr{color:var(--mut);font-size:var(--t-lg)}
 .tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .tl-col{border-radius:10px;overflow:hidden}
 .tl-hdr{padding:10px 12px}
-.tl-q{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
-.tl-name{font-size:12px;font-weight:700}
+.tl-q{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.tl-name{font-size:var(--t-base);font-weight:700}
 .tl-body{padding:10px 11px;background:#fff;border:1px solid;border-top:none;border-radius:0 0 10px 10px;display:flex;flex-direction:column;gap:4px}
-.tl-item{font-size:10px;padding:5px 8px;border-radius:5px;border-left:3px solid;line-height:1.4}
+.tl-item{font-size:var(--t-xs);padding:5px 8px;border-radius:5px;border-left:3px solid;line-height:1.4}
 .slack-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .slack-card{background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:14px 16px}
-.slack-tier{font-size:9px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.slack-tier{font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
 .ch{display:flex;gap:8px;align-items:flex-start;padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid #EEF5FB}
 .ch:last-child{padding-bottom:0;margin-bottom:0;border-bottom:none}
-.ch-hash{font-size:16px;font-weight:700;color:var(--blue);line-height:1;flex-shrink:0;margin-top:1px}
-.ch-name{font-size:12px;font-weight:700;color:var(--navy)}
-.ch-desc{font-size:10px;color:var(--mut);margin-top:2px;line-height:1.4}
+.ch-hash{font-size:var(--t-xl);font-weight:700;color:var(--blue);line-height:1;flex-shrink:0;margin-top:1px}
+.ch-name{font-size:var(--t-base);font-weight:700;color:var(--navy)}
+.ch-desc{font-size:var(--t-xs);color:var(--mut);margin-top:2px;line-height:1.4}
 .ch-pills{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
-.ch-pill{font-size:9px;font-weight:600;padding:2px 6px;border-radius:20px;background:var(--light);color:var(--dark)}
-.r-own{background:var(--navy);color:#fff;font-size:9px;font-weight:700;border-radius:4px;display:inline-block;padding:2px 6px}
-.r-gate{background:#B05C00;color:#fff;font-size:9px;font-weight:700;border-radius:4px;display:inline-block;padding:2px 6px}
-.r-contrib{background:#D4EEFF;color:#003A6B;font-size:9px;font-weight:600;border-radius:4px;display:inline-block;padding:2px 6px}
-.r-consult{background:var(--pur-bg);color:var(--pur);font-size:9px;font-weight:600;border-radius:4px;display:inline-block;padding:2px 6px}
-.r-inform{background:#F0F0F4;color:#666;font-size:9px;font-weight:500;border-radius:4px;display:inline-block;padding:2px 6px}
+.ch-pill{font-size:var(--t-xs);font-weight:600;padding:2px 6px;border-radius:20px;background:var(--light);color:var(--dark)}
+.r-own{background:var(--navy);color:#fff;font-size:var(--t-xs);font-weight:700;border-radius:4px;display:inline-block;padding:2px 6px}
+.r-gate{background:#B05C00;color:#fff;font-size:var(--t-xs);font-weight:700;border-radius:4px;display:inline-block;padding:2px 6px}
+.r-contrib{background:#D4EEFF;color:#003A6B;font-size:var(--t-xs);font-weight:600;border-radius:4px;display:inline-block;padding:2px 6px}
+.r-consult{background:var(--pur-bg);color:var(--pur);font-size:var(--t-xs);font-weight:600;border-radius:4px;display:inline-block;padding:2px 6px}
+.r-inform{background:#F0F0F4;color:#666;font-size:var(--t-xs);font-weight:500;border-radius:4px;display:inline-block;padding:2px 6px}
 .fn-acc{background:#fff;border:.5px solid var(--bd);border-radius:10px;margin-bottom:8px;overflow:hidden}
 .fn-acc-hdr{padding:13px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .12s}
 .fn-acc-hdr:hover{background:var(--lighter)}
 .fn-acc-hdr.open{background:var(--navy)}
 .fn-acc-left{display:flex;align-items:center;gap:10px}
-.fn-acc-badge{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:2px 8px;border-radius:20px}
-.fn-acc-title{font-size:13px;font-weight:700;color:var(--navy)}
+.fn-acc-badge{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:2px 8px;border-radius:20px}
+.fn-acc-title{font-size:var(--t-md);font-weight:700;color:var(--navy)}
 .fn-acc-hdr.open .fn-acc-title{color:#fff}
-.fn-acc-chev{font-size:16px;color:var(--bd);transition:transform .2s}
+.fn-acc-chev{font-size:var(--t-xl);color:var(--bd);transition:transform .2s}
 .fn-acc-hdr.open .fn-acc-chev{transform:rotate(180deg);color:#8CCFFE}
 .fn-acc-body{display:none;padding:14px 16px;background:#F7FBFF;border-top:.5px solid var(--bd)}
 .fn-acc-body.open{display:block}
@@ -241,55 +252,55 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <!-- Executive framing — the single most important idea -->
   <div style="background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:18px;position:relative;overflow:hidden">
     <div style="position:absolute;top:0;right:0;width:220px;height:100%;background:linear-gradient(135deg,transparent 60%,rgba(13,157,218,.08));pointer-events:none"></div>
-    <div style="font-size:10px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">The Strategic Imperative</div>
-    <div style="font-size:20px;font-weight:700;color:#fff;line-height:1.45;margin-bottom:14px;max-width:680px">This is a unified go-to-market strategy.<br>The focus is <span style="color:#0D9DDA">customer adoption</span> &#8212; and the economics behind it.</div>
-    <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.75;max-width:620px">AI tools are seasonal &#8212; they change constantly. What endures is the operating model: a people, process, and technology framework that compresses the cycle from first signal to customer value, solves the economic adoption problem, and compounds returns across every GTM motion.</div>
+    <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">The Strategic Imperative</div>
+    <div style="font-size:var(--t-2xl);font-weight:700;color:#fff;line-height:1.45;margin-bottom:14px;max-width:680px">This is a unified go-to-market strategy.<br>The focus is <span style="color:#0D9DDA">customer adoption</span> &#8212; and the economics behind it.</div>
+    <div style="font-size:var(--t-lg);color:rgba(255,255,255,.6);line-height:1.75;max-width:620px">AI tools are seasonal &#8212; they change constantly. What endures is the operating model: a people, process, and technology framework that compresses the cycle from first signal to customer value, solves the economic adoption problem, and compounds returns across every GTM motion.</div>
   </div>
 
   <!-- 3 exec dimensions -->
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px">
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;border-top:3px solid #0D9DDA">
-      <div style="font-size:11px;font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Customer Adoption</div>
-      <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Speed &amp; specificity<br>at scale</div>
-      <div style="font-size:12px;color:var(--mut);line-height:1.65">Solutions built in days, not quarters. Agents purpose-built for industry and role. The art of the possible is only unlocked when the operating model can deliver it reliably.</div>
+      <div style="font-size:var(--t-sm);font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Customer Adoption</div>
+      <div style="font-size:var(--t-2xl);font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Speed &amp; specificity<br>at scale</div>
+      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.65">Solutions built in days, not quarters. Agents purpose-built for industry and role. The art of the possible is only unlocked when the operating model can deliver it reliably.</div>
     </div>
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;border-top:3px solid #04C3B5">
-      <div style="font-size:11px;font-weight:700;color:#04C3B5;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Economic Impact</div>
-      <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Revenue velocity<br>without drag</div>
-      <div style="font-size:12px;color:var(--mut);line-height:1.65">Margin expansion through AI-native delivery. Faster time-to-value. Scalable growth that does not require proportional headcount increases to sustain it.</div>
+      <div style="font-size:var(--t-sm);font-weight:700;color:#04C3B5;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Economic Impact</div>
+      <div style="font-size:var(--t-2xl);font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Revenue velocity<br>without drag</div>
+      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.65">Margin expansion through AI-native delivery. Faster time-to-value. Scalable growth that does not require proportional headcount increases to sustain it.</div>
     </div>
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;border-top:3px solid #7B5EA7">
-      <div style="font-size:11px;font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Organizational Shift</div>
-      <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Roles elevated<br>around judgment</div>
-      <div style="font-size:12px;color:var(--mut);line-height:1.65">AI takes on execution volume so architects, engineers, and sellers can focus on what only a human can do: customer relationships, strategic direction, and high-stakes decisions. Culture, not technology, is the adoption barrier.</div>
+      <div style="font-size:var(--t-sm);font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Organizational Shift</div>
+      <div style="font-size:var(--t-2xl);font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Roles elevated<br>around judgment</div>
+      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.65">AI takes on execution volume so architects, engineers, and sellers can focus on what only a human can do: customer relationships, strategic direction, and high-stakes decisions. Culture, not technology, is the adoption barrier.</div>
     </div>
   </div>
 
   <!-- Three-chapter narrative -->
   <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:18px">
-    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">How this strategy is structured</div>
+    <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">How this strategy is structured</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0">
       <div style="padding:0 18px 0 0;border-right:.5px solid var(--bd)">
-        <div style="width:32px;height:32px;border-radius:8px;background:var(--navy);color:#8CCFFE;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-bottom:10px;font-family:monospace">01</div>
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Agentic Value Creation</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">What becomes possible when every person in the GTM motion manages a personal bench of agents &#8212; and those agents share context across the full customer lifecycle.</div>
+        <div style="width:32px;height:32px;border-radius:8px;background:var(--navy);color:#8CCFFE;display:flex;align-items:center;justify-content:center;font-size:var(--t-base);font-weight:700;margin-bottom:10px;font-family:monospace">01</div>
+        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Agentic Value Creation</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">What becomes possible when every person in the GTM motion manages a personal bench of agents &#8212; and those agents share context across the full customer lifecycle.</div>
       </div>
       <div style="padding:0 18px;border-right:.5px solid var(--bd)">
-        <div style="width:32px;height:32px;border-radius:8px;background:#C23B22;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-bottom:10px;font-family:monospace">02</div>
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">The Problem We Are Solving</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Three compounding gaps &#8212; strategy without infrastructure, adoption without outcomes, innovation without compounding &#8212; that prevent AI activity from becoming business results.</div>
+        <div style="width:32px;height:32px;border-radius:8px;background:#C23B22;color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--t-base);font-weight:700;margin-bottom:10px;font-family:monospace">02</div>
+        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">The Problem We Are Solving</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Three compounding gaps &#8212; strategy without infrastructure, adoption without outcomes, innovation without compounding &#8212; that prevent AI activity from becoming business results.</div>
       </div>
       <div style="padding:0 0 0 18px">
-        <div style="width:32px;height:32px;border-radius:8px;background:#04C3B5;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-bottom:10px;font-family:monospace">03</div>
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">The Tactical How</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Governance structure, enablement framework, agent bench design, and a connected GTM motion that makes the strategy executable in months, not fiscal years.</div>
+        <div style="width:32px;height:32px;border-radius:8px;background:#04C3B5;color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--t-base);font-weight:700;margin-bottom:10px;font-family:monospace">03</div>
+        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">The Tactical How</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Governance structure, enablement framework, agent bench design, and a connected GTM motion that makes the strategy executable in months, not fiscal years.</div>
       </div>
     </div>
   </div>
 
   <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:14px 18px">
-    <div style="font-size:11px;font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">The Bottom Line</div>
-    <div style="font-size:15px;color:#e8f4ff;line-height:1.75;font-style:italic">The question is not whether to make this shift. It is whether we define it or react to it. The org that builds the operating model first compounds fastest &#8212; in capability, in customer outcomes, and in revenue.</div>
+    <div style="font-size:var(--t-sm);font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">The Bottom Line</div>
+    <div style="font-size:var(--t-lg);color:#e8f4ff;line-height:1.75;font-style:italic">The question is not whether to make this shift. It is whether we define it or react to it. The org that builds the operating model first compounds fastest &#8212; in capability, in customer outcomes, and in revenue.</div>
   </div>
 </div>
 
@@ -300,18 +311,18 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <!-- Stepped journey stepper -->
   <div id="diag-stepper" style="background:#fff;border:.5px solid var(--bd);border-radius:12px;padding:6px;display:flex;gap:0;margin-bottom:20px;position:relative">
     <button onclick="diagStep(0)" id="ds-0" style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:8px;border:none;background:var(--navy);cursor:pointer;text-align:left;transition:all .2s">
-      <div style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;font-family:monospace">01</div>
-      <div><div style="font-size:11px;font-weight:700;color:#fff;letter-spacing:.02em">External Problem</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:1px">Customer adoption &amp; economics</div></div>
+      <div style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:var(--t-sm);font-weight:700;color:#fff;flex-shrink:0;font-family:monospace">01</div>
+      <div><div style="font-size:var(--t-sm);font-weight:700;color:#fff;letter-spacing:.02em">External Problem</div><div style="font-size:var(--t-xs);color:rgba(255,255,255,.5);margin-top:1px">Customer adoption &amp; economics</div></div>
     </button>
-    <div style="display:flex;align-items:center;padding:0 4px;color:var(--bd);font-size:12px;flex-shrink:0">&#8594;</div>
+    <div style="display:flex;align-items:center;padding:0 4px;color:var(--bd);font-size:var(--t-base);flex-shrink:0">&#8594;</div>
     <button onclick="diagStep(1)" id="ds-1" style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:8px;border:none;background:transparent;cursor:pointer;text-align:left;transition:all .2s">
-      <div style="width:26px;height:26px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--mut);flex-shrink:0;font-family:monospace">02</div>
-      <div><div style="font-size:11px;font-weight:700;color:var(--mut);letter-spacing:.02em">Internal Gaps</div><div style="font-size:10px;color:var(--bd);margin-top:1px">Where the operating model breaks</div></div>
+      <div style="width:26px;height:26px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:var(--t-sm);font-weight:700;color:var(--mut);flex-shrink:0;font-family:monospace">02</div>
+      <div><div style="font-size:var(--t-sm);font-weight:700;color:var(--mut);letter-spacing:.02em">Internal Gaps</div><div style="font-size:var(--t-xs);color:var(--bd);margin-top:1px">Where the operating model breaks</div></div>
     </button>
-    <div style="display:flex;align-items:center;padding:0 4px;color:var(--bd);font-size:12px;flex-shrink:0">&#8594;</div>
+    <div style="display:flex;align-items:center;padding:0 4px;color:var(--bd);font-size:var(--t-base);flex-shrink:0">&#8594;</div>
     <button onclick="diagStep(2)" id="ds-2" style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:8px;border:none;background:transparent;cursor:pointer;text-align:left;transition:all .2s">
-      <div style="width:26px;height:26px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--mut);flex-shrink:0;font-family:monospace">03</div>
-      <div><div style="font-size:11px;font-weight:700;color:var(--mut);letter-spacing:.02em">Strategic Question</div><div style="font-size:10px;color:var(--bd);margin-top:1px">The thesis this strategy answers</div></div>
+      <div style="width:26px;height:26px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:var(--t-sm);font-weight:700;color:var(--mut);flex-shrink:0;font-family:monospace">03</div>
+      <div><div style="font-size:var(--t-sm);font-weight:700;color:var(--mut);letter-spacing:.02em">Strategic Question</div><div style="font-size:var(--t-xs);color:var(--bd);margin-top:1px">The thesis this strategy answers</div></div>
     </button>
   </div>
 
@@ -319,79 +330,79 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <div id="diag-panel-0">
     <!-- Intro -->
     <div style="background:var(--navy);border-radius:10px;padding:18px 22px;margin-bottom:14px">
-      <div style="font-size:10px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Layer 01 &#8212; The External Problem</div>
-      <div style="font-size:17px;font-weight:700;color:#fff;line-height:1.5;margin-bottom:10px;max-width:640px">Customer adoption is not a technology problem.<br>It is an <span style="color:#0D9DDA">outcome definition</span> problem.</div>
-      <div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;max-width:620px">Without a shared definition of what &#8220;done&#8221; looks like for the customer, every tool decision is arbitrary and every adoption metric is meaningless. Tools only become relevant once we have defined the job to be done, the expected outcome, and where in the lifecycle that job fires.</div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Layer 01 &#8212; The External Problem</div>
+      <div style="font-size:var(--t-xl);font-weight:700;color:#fff;line-height:1.5;margin-bottom:10px;max-width:640px">Customer adoption is not a technology problem.<br>It is an <span style="color:#0D9DDA">outcome definition</span> problem.</div>
+      <div style="font-size:var(--t-md);color:rgba(255,255,255,.6);line-height:1.75;max-width:620px">Without a shared definition of what &#8220;done&#8221; looks like for the customer, every tool decision is arbitrary and every adoption metric is meaningless. Tools only become relevant once we have defined the job to be done, the expected outcome, and where in the lifecycle that job fires.</div>
     </div>
 
     <!-- Three problem threads -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px">
       <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #0D9DDA">
-        <div style="font-size:10px;font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem A</div>
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">Customer adoption stalls without outcome clarity</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">What matters most is customer outcome, time to value, and customer value. The tool becomes relevant only at a specific step in the process. Without knowing what is expected from the user with a given set of tools, customer outcomes cannot be driven.</div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem A</div>
+        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px">Customer adoption stalls without outcome clarity</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">What matters most is customer outcome, time to value, and customer value. The tool becomes relevant only at a specific step in the process. Without knowing what is expected from the user with a given set of tools, customer outcomes cannot be driven.</div>
       </div>
       <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #E8A500">
-        <div style="font-size:10px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem B</div>
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">Tools are ubiquitous, seasonal, and increasingly expensive</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Compute costs for Anthropic, OpenAI, Gemini, and others are rising. This creates pressure on the economic model: continue investing in 3rd-party tools, or build purpose-built solutions for specific JTBDs. The answer is likely both &#8212; sequenced by switching cost and outcome fit.</div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem B</div>
+        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px">Tools are ubiquitous, seasonal, and increasingly expensive</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Compute costs for Anthropic, OpenAI, Gemini, and others are rising. This creates pressure on the economic model: continue investing in 3rd-party tools, or build purpose-built solutions for specific JTBDs. The answer is likely both &#8212; sequenced by switching cost and outcome fit.</div>
       </div>
       <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #7B5EA7">
-        <div style="font-size:10px;font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem C</div>
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">No consistent GTM operating model across the enterprise</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Process standardization is not the goal &#8212; it is the byproduct of a clear operating model. The goal is consistent customer outcomes. Standardization is how we get there at scale without every team reinventing the approach for each engagement.</div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem C</div>
+        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px">No consistent GTM operating model across the enterprise</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Process standardization is not the goal &#8212; it is the byproduct of a clear operating model. The goal is consistent customer outcomes. Standardization is how we get there at scale without every team reinventing the approach for each engagement.</div>
       </div>
     </div>
 
     <!-- AI States journey -->
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:14px">
-      <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">Defining the journey &#8212; from AI augmentation to AI native</div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">Defining the journey &#8212; from AI augmentation to AI native</div>
       <div style="display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;align-items:stretch;gap:0">
         <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:10px;padding:15px 17px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--light);border:.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--navy)">01</div>
-            <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em">Current State</div>
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--light);border:.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;color:var(--navy)">01</div>
+            <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em">Current State</div>
           </div>
-          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">AI Augmentation</div>
-          <div style="font-size:11px;color:var(--mut);line-height:1.6;margin-bottom:9px">AI assists the individual. Humans drive every workflow. Tools compress the agile cycle &#8212; faster drafts, quicker research &#8212; but the process and structure stay the same.</div>
-          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Human-led</span><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Tool-assisted</span></div>
+          <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">AI Augmentation</div>
+          <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:9px">AI assists the individual. Humans drive every workflow. Tools compress the agile cycle &#8212; faster drafts, quicker research &#8212; but the process and structure stay the same.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Human-led</span><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Tool-assisted</span></div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
           <div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--bd))"></div>
-          <div style="font-size:10px;color:var(--mut);writing-mode:vertical-rl;letter-spacing:.05em;font-weight:600;transform:rotate(180deg)">which creates</div>
-          <div style="font-size:14px;color:#E8A500">&#8594;</div>
+          <div style="font-size:var(--t-xs);color:var(--mut);writing-mode:vertical-rl;letter-spacing:.05em;font-weight:600;transform:rotate(180deg)">which creates</div>
+          <div style="font-size:var(--t-lg);color:#E8A500">&#8594;</div>
           <div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--bd),transparent)"></div>
         </div>
         <div style="background:#FFF8E8;border:.5px solid var(--amb-bd);border-radius:10px;padding:15px 17px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--amb-bg);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--amb)">02</div>
-            <div style="font-size:10px;font-weight:700;color:var(--amb);text-transform:uppercase;letter-spacing:.07em">Where We Are</div>
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--amb-bg);display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;color:var(--amb)">02</div>
+            <div style="font-size:var(--t-xs);font-weight:700;color:var(--amb);text-transform:uppercase;letter-spacing:.07em">Where We Are</div>
           </div>
-          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Agentic Adoption</div>
-          <div style="font-size:11px;color:var(--mut);line-height:1.6;margin-bottom:9px">Agentic Workers begin managing a bench of purpose-built agents. Workflows shift. Roles evolve. Governance and enablement must exist before this scales &#8212; or it fragments.</div>
-          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Bench-managed</span><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Governance critical</span></div>
+          <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Agentic Adoption</div>
+          <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:9px">Agentic Workers begin managing a bench of purpose-built agents. Workflows shift. Roles evolve. Governance and enablement must exist before this scales &#8212; or it fragments.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Bench-managed</span><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Governance critical</span></div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
           <div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--bd))"></div>
-          <div style="font-size:10px;color:var(--mut);writing-mode:vertical-rl;letter-spacing:.05em;font-weight:600;transform:rotate(180deg)">leading to</div>
-          <div style="font-size:14px;color:#04C3B5">&#8594;</div>
+          <div style="font-size:var(--t-xs);color:var(--mut);writing-mode:vertical-rl;letter-spacing:.05em;font-weight:600;transform:rotate(180deg)">leading to</div>
+          <div style="font-size:var(--t-lg);color:#04C3B5">&#8594;</div>
           <div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--bd),transparent)"></div>
         </div>
         <div style="background:#E8F8F3;border:.5px solid var(--grn-bd);border-radius:10px;padding:15px 17px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--grn-bg);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--grn)">03</div>
-            <div style="font-size:10px;font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.07em">Future State</div>
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--grn-bg);display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;color:var(--grn)">03</div>
+            <div style="font-size:var(--t-xs);font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.07em">Future State</div>
           </div>
-          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">AI Native</div>
-          <div style="font-size:11px;color:var(--mut);line-height:1.6;margin-bottom:9px">Orchestrated agents manage the work. Humans set direction, make decisions, and own relationships. Roles are elevated around judgment and strategy, not execution volume.</div>
-          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Agent-orchestrated</span><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Human judgment</span></div>
+          <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">AI Native</div>
+          <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:9px">Orchestrated agents manage the work. Humans set direction, make decisions, and own relationships. Roles are elevated around judgment and strategy, not execution volume.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Agent-orchestrated</span><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Human judgment</span></div>
         </div>
       </div>
     </div>
 
     <!-- Step nav -->
     <div style="display:flex;justify-content:flex-end">
-      <button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.03em">Internal Gaps &#8594;</button>
+      <button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer;letter-spacing:.03em">Internal Gaps &#8594;</button>
     </div>
   </div>
 
@@ -399,8 +410,8 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <div id="diag-panel-1" style="display:none">
     <!-- Connecting thread from Step 1 -->
     <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--lighter);border-radius:8px;border:.5px solid var(--bd);margin-bottom:14px">
-      <div style="font-size:18px;color:#0D9DDA">&#8617;</div>
-      <div style="font-size:12px;color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Because</strong> customer adoption is an outcome definition problem &#8212; and because tools proliferate without a shared model &#8212; <strong style="color:var(--navy)">the operating model breaks in three specific places.</strong></div>
+      <div style="font-size:var(--t-xl);color:#0D9DDA">&#8617;</div>
+      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Because</strong> customer adoption is an outcome definition problem &#8212; and because tools proliferate without a shared model &#8212; <strong style="color:var(--navy)">the operating model breaks in three specific places.</strong></div>
     </div>
 
     <!-- Three gap cards -->
@@ -413,35 +424,35 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <!-- Symptoms / What it solves -->
     <div class="grid2" style="margin-bottom:14px">
       <div style="background:var(--navy);border-radius:10px;padding:14px 16px">
-        <div style="font-size:11px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms today</div>
+        <div style="font-size:var(--t-sm);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms today</div>
         <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="font-size:12px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div>
-          <div style="font-size:12px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div>
-          <div style="font-size:12px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div>
-          <div style="font-size:12px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of &#8220;adoption&#8221; across orgs</div>
+          <div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div>
+          <div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div>
+          <div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div>
+          <div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of &#8220;adoption&#8221; across orgs</div>
         </div>
       </div>
       <div style="background:#fff;border-radius:10px;padding:14px 16px;border:.5px solid var(--bd)">
-        <div style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework solves</div>
+        <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework solves</div>
         <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="font-size:12px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &#8212; signal to governance, end-to-end</div>
-          <div style="font-size:12px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &#8212; fluency, not completion</div>
-          <div style="font-size:12px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &#8212; every transition is a data event</div>
-          <div style="font-size:12px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &#8212; one metric language across all orgs</div>
+          <div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &#8212; signal to governance, end-to-end</div>
+          <div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &#8212; fluency, not completion</div>
+          <div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &#8212; every transition is a data event</div>
+          <div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &#8212; one metric language across all orgs</div>
         </div>
       </div>
     </div>
 
     <!-- See ROI Axis -->
     <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:8px;padding:11px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between">
-      <div style="font-size:12px;color:var(--mut)">See how the three gaps map to business and technology ROI</div>
-      <button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="font-size:11px;font-weight:700;color:var(--blue);background:none;border:.5px solid var(--blue);border-radius:6px;padding:5px 12px;cursor:pointer;letter-spacing:.03em">View ROI Axis &#8599;</button>
+      <div style="font-size:var(--t-base);color:var(--mut)">See how the three gaps map to business and technology ROI</div>
+      <button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="font-size:var(--t-sm);font-weight:700;color:var(--blue);background:none;border:.5px solid var(--blue);border-radius:6px;padding:5px 12px;cursor:pointer;letter-spacing:.03em">View ROI Axis &#8599;</button>
     </div>
 
     <!-- Step nav -->
     <div style="display:flex;justify-content:space-between">
-      <button onclick="diagStep(0)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">&#8592; External Problem</button>
-      <button onclick="diagStep(2)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">Strategic Question &#8594;</button>
+      <button onclick="diagStep(0)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">&#8592; External Problem</button>
+      <button onclick="diagStep(2)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">Strategic Question &#8594;</button>
     </div>
   </div>
 
@@ -449,47 +460,47 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <div id="diag-panel-2" style="display:none">
     <!-- Connecting thread from Step 2 -->
     <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--lighter);border-radius:8px;border:.5px solid var(--bd);margin-bottom:14px">
-      <div style="font-size:18px;color:#04C3B5">&#8617;</div>
-      <div style="font-size:12px;color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Which leads to the question</strong> this strategy is designed to answer &#8212; one that reframes how we think about the relationship between pre-sale and post-sale.</div>
+      <div style="font-size:var(--t-xl);color:#04C3B5">&#8617;</div>
+      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Which leads to the question</strong> this strategy is designed to answer &#8212; one that reframes how we think about the relationship between pre-sale and post-sale.</div>
     </div>
 
     <!-- The provocation -->
     <div style="background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:16px;position:relative;overflow:hidden">
       <div style="position:absolute;top:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(13,157,218,.06);pointer-events:none"></div>
-      <div style="font-size:10px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">The Strategic Question</div>
-      <div style="font-size:19px;font-weight:700;color:#fff;line-height:1.5;margin-bottom:14px;max-width:660px">If pre-sale assets are built for specific customer use cases, how do we create a GTM motion that becomes a shared foundation with post-sales?</div>
-      <div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;max-width:600px">The opportunity is a continuous context thread &#8212; where the work done in pre-sales becomes the starting point for delivery, not a handoff that gets rebuilt from scratch. Time to value compresses not because we move faster, but because we stop losing context at every transition.</div>
+      <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">The Strategic Question</div>
+      <div style="font-size:var(--t-2xl);font-weight:700;color:#fff;line-height:1.5;margin-bottom:14px;max-width:660px">If pre-sale assets are built for specific customer use cases, how do we create a GTM motion that becomes a shared foundation with post-sales?</div>
+      <div style="font-size:var(--t-md);color:rgba(255,255,255,.6);line-height:1.75;max-width:600px">The opportunity is a continuous context thread &#8212; where the work done in pre-sales becomes the starting point for delivery, not a handoff that gets rebuilt from scratch. Time to value compresses not because we move faster, but because we stop losing context at every transition.</div>
     </div>
 
     <!-- Three implications -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px">
       <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px">
-        <div style="width:28px;height:28px;border-radius:8px;background:#EEF6FF;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:10px">&#127775;</div>
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">The SE becomes a solution architect whose work ships</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Pre-sale assets are no longer disposable. They become the foundation of the delivered solution &#8212; with context, data, and decisions intact from the first conversation.</div>
+        <div style="width:28px;height:28px;border-radius:8px;background:#EEF6FF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#127775;</div>
+        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">The SE becomes a solution architect whose work ships</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Pre-sale assets are no longer disposable. They become the foundation of the delivered solution &#8212; with context, data, and decisions intact from the first conversation.</div>
       </div>
       <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px">
-        <div style="width:28px;height:28px;border-radius:8px;background:#E8F8F3;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:10px">&#9654;</div>
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">TTV compresses when context doesn&#8217;t reset</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Every role in the GTM motion receives a complete picture &#8212; not a summary email. What the CS team knows at month six started accumulating at the first SE call.</div>
+        <div style="width:28px;height:28px;border-radius:8px;background:#E8F8F3;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#9654;</div>
+        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">TTV compresses when context doesn&#8217;t reset</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Every role in the GTM motion receives a complete picture &#8212; not a summary email. What the CS team knows at month six started accumulating at the first SE call.</div>
       </div>
       <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px">
-        <div style="width:28px;height:28px;border-radius:8px;background:#F3EEFF;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:10px">&#9670;</div>
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">The GTM motion becomes a shared foundation</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">SE, FDE, ProServ, and CS are no longer sequential hand-offs. They are a single continuous context thread &#8212; with agents passing intelligence at every transition point.</div>
+        <div style="width:28px;height:28px;border-radius:8px;background:#F3EEFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#9670;</div>
+        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">The GTM motion becomes a shared foundation</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">SE, FDE, ProServ, and CS are no longer sequential hand-offs. They are a single continuous context thread &#8212; with agents passing intelligence at every transition point.</div>
       </div>
     </div>
 
     <!-- Closing thesis -->
     <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
-      <div style="font-size:11px;font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">This strategy&#8217;s answer</div>
-      <div style="font-size:14px;color:#e8f4ff;line-height:1.75;font-style:italic">Build the operating model that makes it possible. When pre-sale assets are purpose-built for specific customer use cases &#8212; and the context behind them travels with every handoff &#8212; the GTM motion becomes a shared foundation that accelerates delivery, reduces rework, and compounds customer value over time.</div>
+      <div style="font-size:var(--t-sm);font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">This strategy&#8217;s answer</div>
+      <div style="font-size:var(--t-lg);color:#e8f4ff;line-height:1.75;font-style:italic">Build the operating model that makes it possible. When pre-sale assets are purpose-built for specific customer use cases &#8212; and the context behind them travels with every handoff &#8212; the GTM motion becomes a shared foundation that accelerates delivery, reduces rework, and compounds customer value over time.</div>
     </div>
 
     <!-- Step nav -->
     <div style="display:flex;justify-content:space-between">
-      <button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">&#8592; Internal Gaps</button>
-      <button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#04C3B5;color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">See ROI Axis &#8599;</button>
+      <button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">&#8592; Internal Gaps</button>
+      <button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#04C3B5;color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">See ROI Axis &#8599;</button>
     </div>
   </div>
 </div>
@@ -530,7 +541,7 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div class="chart-right">
         <div class="ri-card"><div class="ri-card-head" style="background:#7B5EA7"><span class="ri-card-lbl">Y-axis · CRO owns</span></div><div class="ri-card-body"><div class="ri-card-title">Business ROI</div><div class="ri-card-sub">What new value do we create?</div><div class="ri-item"><div class="ri-dot" style="background:#7B5EA7"></div>Customer-facing agents across all workflows</div><div class="ri-item"><div class="ri-dot" style="background:#7B5EA7"></div>Business process transformation</div><div class="ri-item"><div class="ri-dot" style="background:#7B5EA7"></div>CCR and NNAoV acceleration</div></div></div>
         <div class="ri-card"><div class="ri-card-head" style="background:#04C3B5"><span class="ri-card-lbl">X-axis · CTO/Eng owns</span></div><div class="ri-card-body"><div class="ri-card-title">Technology ROI</div><div class="ri-card-sub">How much faster can we build?</div><div class="ri-item"><div class="ri-dot" style="background:#04C3B5"></div>Dev acceleration: coding, testing, deploy</div><div class="ri-item"><div class="ri-dot" style="background:#04C3B5"></div>Demo and PoC automation</div><div class="ri-item"><div class="ri-dot" style="background:#04C3B5"></div>AWU velocity per AI-assisted hour</div></div></div>
-        <div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:8px;padding:8px 10px"><div style="font-size:11px;font-weight:700;color:#22C55E;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Aligned acceleration</div><div style="font-size:12px;color:#86EFAC;line-height:1.6">When Business + Tech ROI move together, every dollar maps to a measurable outcome.</div></div>
+        <div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:8px;padding:8px 10px"><div style="font-size:var(--t-sm);font-weight:700;color:#22C55E;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Aligned acceleration</div><div style="font-size:var(--t-base);color:#86EFAC;line-height:1.6">When Business + Tech ROI move together, every dollar maps to a measurable outcome.</div></div>
       </div>
     </div>
   </div>
@@ -544,7 +555,7 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 <!-- PILLARS -->
 <div id="p-pillars" class="panel">
   <div class="hero"><div><div class="hero-title">The Four Pillars</div><div class="hero-sub">The execution vehicle &#8212; not the strategy itself</div></div></div>
-  <div style="background:var(--navy);border-radius:10px;padding:13px 15px;margin-bottom:14px"><div style="font-size:11px;font-weight:700;color:#8CCFFE;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px">Vision</div><div style="font-size:14px;color:#e8f4ff;font-style:italic;line-height:1.75;border-left:3px solid var(--blue);padding-left:12px">Build a unified AI operating model that makes the right tools available to the right roles, measures what matters, and connects the full GTM motion &#8212; from first signal to customer outcome.</div></div>
+  <div style="background:var(--navy);border-radius:10px;padding:13px 15px;margin-bottom:14px"><div style="font-size:var(--t-sm);font-weight:700;color:#8CCFFE;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px">Vision</div><div style="font-size:var(--t-lg);color:#e8f4ff;font-style:italic;line-height:1.75;border-left:3px solid var(--blue);padding-left:12px">Build a unified AI operating model that makes the right tools available to the right roles, measures what matters, and connects the full GTM motion &#8212; from first signal to customer outcome.</div></div>
   <div class="pillar-row">
     <div class="pm sel" onclick="selP(0,this)" id="pm0"><div class="pm-top" style="background:#0D9DDA"></div><div class="pm-in"><div class="pm-n">Pillar 01</div><div class="pm-t">Signal Intake &amp; Closed-Loop Steering</div></div></div>
     <div class="pm" onclick="selP(1,this)" id="pm1"><div class="pm-top" style="background:#7B5EA7"></div><div class="pm-in"><div class="pm-n">Pillar 02</div><div class="pm-t">Agentic Tools Enablement</div></div></div>
@@ -610,43 +621,43 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <!-- Thesis stat cards -->
   <div class="grid3" style="margin-bottom:18px">
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px">
-      <div style="font-size:42px;font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">12</div>
-      <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Agents per bench</div>
-      <div style="font-size:12px;color:var(--mut);line-height:1.6">Each Agentic Worker runs a personal team of specialized agents, each with a defined job to be done across the work lifecycle.</div>
+      <div style="font-size:var(--t-4xl);font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">12</div>
+      <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Agents per bench</div>
+      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Each Agentic Worker runs a personal team of specialized agents, each with a defined job to be done across the work lifecycle.</div>
     </div>
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px">
-      <div style="font-size:42px;font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">5</div>
-      <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Lifecycle stages covered</div>
-      <div style="font-size:12px;color:var(--mut);line-height:1.6">Intake through delivery and expansion &#8212; agents fire at the right moment across the full lifecycle of work.</div>
+      <div style="font-size:var(--t-4xl);font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">5</div>
+      <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Lifecycle stages covered</div>
+      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Intake through delivery and expansion &#8212; agents fire at the right moment across the full lifecycle of work.</div>
     </div>
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px">
-      <div style="font-size:42px;font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">1</div>
-      <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Central hub</div>
-      <div style="font-size:12px;color:var(--mut);line-height:1.6">Skills built by any team member sync to a central hub. Governance without over-control. Agentic Workers own their bench; the center owns the library.</div>
+      <div style="font-size:var(--t-4xl);font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">1</div>
+      <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Central hub</div>
+      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Skills built by any team member sync to a central hub. Governance without over-control. Agentic Workers own their bench; the center owns the library.</div>
     </div>
   </div>
 
   <!-- 4-tab nav -->
   <div style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:7px;display:flex;gap:5px;margin-bottom:18px" id="hatm-tabs">
-    <button onclick="switchHatmTab('org',this)" style="flex:1;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:var(--navy);color:#fff;cursor:pointer">Org Model</button>
-    <button onclick="switchHatmTab('bench2',this)" style="flex:1;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">Agent Bench</button>
-    <button onclick="switchHatmTab('hub2',this)" style="flex:1;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">Central Hub</button>
-    <button onclick="switchHatmTab('how2',this)" style="flex:1;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">How It Works</button>
+    <button onclick="switchHatmTab('org',this)" style="flex:1;font-size:var(--t-sm);font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:var(--navy);color:#fff;cursor:pointer">Org Model</button>
+    <button onclick="switchHatmTab('bench2',this)" style="flex:1;font-size:var(--t-sm);font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">Agent Bench</button>
+    <button onclick="switchHatmTab('hub2',this)" style="flex:1;font-size:var(--t-sm);font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">Central Hub</button>
+    <button onclick="switchHatmTab('how2',this)" style="flex:1;font-size:var(--t-sm);font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">How It Works</button>
   </div>
 
   <!-- TAB: ORG MODEL -->
   <div id="hatm-tab-org">
-    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:12px">Org structure &#8212; every person is an Agentic Worker</div>
+    <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:12px">Org structure &#8212; every person is an Agentic Worker</div>
 
     <!-- Org Leader node -->
     <div style="display:flex;justify-content:center;margin-bottom:0">
       <div style="background:var(--navy);border-radius:12px;padding:18px 28px;text-align:center;min-width:340px;max-width:500px;width:100%">
-        <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:3px">Org Leader</div>
-        <div style="font-size:10px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px">Manager of team + agent bench</div>
+        <div style="font-size:var(--t-lg);font-weight:700;color:#fff;margin-bottom:3px">Org Leader</div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px">Manager of team + agent bench</div>
         <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-          <button id="ldr-chip-0" onclick="toggleLeaderAgent(0)" style="background:rgba(255,255,255,.08);border:.5px solid rgba(140,207,254,.35);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;color:#8CCFFE;cursor:pointer;transition:all .15s;letter-spacing:.03em">&#129517; Strategy Agent</button>
-          <button id="ldr-chip-1" onclick="toggleLeaderAgent(1)" style="background:rgba(255,255,255,.08);border:.5px solid rgba(140,207,254,.35);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;color:#8CCFFE;cursor:pointer;transition:all .15s;letter-spacing:.03em">&#128161; Work Intel Agent</button>
-          <button id="ldr-chip-2" onclick="toggleLeaderAgent(2)" style="background:rgba(255,255,255,.08);border:.5px solid rgba(140,207,254,.35);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;color:#8CCFFE;cursor:pointer;transition:all .15s;letter-spacing:.03em">&#127891; Coaching Agent</button>
+          <button id="ldr-chip-0" onclick="toggleLeaderAgent(0)" style="background:rgba(255,255,255,.08);border:.5px solid rgba(140,207,254,.35);border-radius:20px;padding:6px 14px;font-size:var(--t-sm);font-weight:700;color:#8CCFFE;cursor:pointer;transition:all .15s;letter-spacing:.03em">&#129517; Strategy Agent</button>
+          <button id="ldr-chip-1" onclick="toggleLeaderAgent(1)" style="background:rgba(255,255,255,.08);border:.5px solid rgba(140,207,254,.35);border-radius:20px;padding:6px 14px;font-size:var(--t-sm);font-weight:700;color:#8CCFFE;cursor:pointer;transition:all .15s;letter-spacing:.03em">&#128161; Work Intel Agent</button>
+          <button id="ldr-chip-2" onclick="toggleLeaderAgent(2)" style="background:rgba(255,255,255,.08);border:.5px solid rgba(140,207,254,.35);border-radius:20px;padding:6px 14px;font-size:var(--t-sm);font-weight:700;color:#8CCFFE;cursor:pointer;transition:all .15s;letter-spacing:.03em">&#127891; Coaching Agent</button>
         </div>
       </div>
     </div>
@@ -655,13 +666,13 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <div id="ldr-detail" style="display:none;max-width:500px;margin:0 auto">
       <div style="width:1.5px;height:16px;background:var(--bd);margin:0 auto"></div>
       <div style="background:#063A7A;border-radius:10px;padding:16px 18px">
-        <div id="ldr-eyebrow" style="font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px"></div>
-        <div id="ldr-name" style="font-size:16px;font-weight:700;color:#fff;margin-bottom:12px"></div>
+        <div id="ldr-eyebrow" style="font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px"></div>
+        <div id="ldr-name" style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:12px"></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div><div style="font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">JTBD</div><div id="ldr-jtbd" style="font-size:12px;color:#C5DFFF;line-height:1.55"></div></div>
-          <div><div style="font-size:10px;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Outputs</div><div id="ldr-outputs" style="font-size:12px;color:#C5DFFF;line-height:1.55"></div></div>
+          <div><div style="font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">JTBD</div><div id="ldr-jtbd" style="font-size:var(--t-base);color:#C5DFFF;line-height:1.55"></div></div>
+          <div><div style="font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Outputs</div><div id="ldr-outputs" style="font-size:var(--t-base);color:#C5DFFF;line-height:1.55"></div></div>
         </div>
-        <div style="margin-top:10px;padding-top:10px;border-top:.5px solid rgba(27,150,255,.2);font-size:11px;color:#8CCFFE;font-style:italic" id="ldr-note"></div>
+        <div style="margin-top:10px;padding-top:10px;border-top:.5px solid rgba(27,150,255,.2);font-size:var(--t-sm);color:#8CCFFE;font-style:italic" id="ldr-note"></div>
       </div>
     </div>
 
@@ -675,8 +686,8 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div id="aw-node-0" style="display:flex;flex-direction:column;align-items:center">
         <div style="width:1px;height:18px;background:var(--bd)"></div>
         <div onclick="toggleAWDetail(0)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
           <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
             <div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
           </div>
@@ -685,8 +696,8 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div id="aw-node-1" style="display:flex;flex-direction:column;align-items:center">
         <div style="width:1px;height:18px;background:var(--bd)"></div>
         <div onclick="toggleAWDetail(1)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
           <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
             <div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div>
           </div>
@@ -695,8 +706,8 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div id="aw-node-2" style="display:flex;flex-direction:column;align-items:center">
         <div style="width:1px;height:18px;background:var(--bd)"></div>
         <div onclick="toggleAWDetail(2)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
           <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
             <div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
           </div>
@@ -705,8 +716,8 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div id="aw-node-3" style="display:flex;flex-direction:column;align-items:center">
         <div style="width:1px;height:18px;background:var(--bd)"></div>
         <div onclick="toggleAWDetail(3)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
           <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
             <div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
           </div>
@@ -715,8 +726,8 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div id="aw-node-4" style="display:flex;flex-direction:column;align-items:center">
         <div style="width:1px;height:18px;background:var(--bd)"></div>
         <div onclick="toggleAWDetail(4)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:11px;font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:10px;color:var(--mut);margin:3px 0 8px">6 agents</div>
+          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
+          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
           <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
             <div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
           </div>
@@ -727,26 +738,26 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <!-- AW detail drawer -->
     <div id="aw-detail" style="display:none;background:var(--lighter);border:.5px solid var(--bd);border-radius:10px;padding:16px 18px;margin-top:12px">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-        <div style="width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">AW</div>
-        <div><div id="aw-name" style="font-size:14px;font-weight:700;color:var(--navy)">Agentic Worker</div><div id="aw-role-lbl" style="font-size:11px;color:var(--mut);margin-top:2px">6 agents on bench</div></div>
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--t-md);font-weight:700;flex-shrink:0">AW</div>
+        <div><div id="aw-name" style="font-size:var(--t-lg);font-weight:700;color:var(--navy)">Agentic Worker</div><div id="aw-role-lbl" style="font-size:var(--t-sm);color:var(--mut);margin-top:2px">6 agents on bench</div></div>
       </div>
       <div id="aw-agents-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px"></div>
     </div>
 
     <!-- Lifecycle dot legend -->
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;padding:8px 12px;background:#F7FBFF;border-radius:8px;border:.5px solid var(--bd)">
-      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div>Intake</div>
-      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div>Discovery</div>
-      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div>Execution</div>
-      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div>Delivery</div>
-      <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>Growth</div>
-      <div style="font-size:10px;color:var(--mut);font-style:italic;margin-left:6px">Click any leader agent or worker to expand</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:var(--t-xs);color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div>Intake</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:var(--t-xs);color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div>Discovery</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:var(--t-xs);color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div>Execution</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:var(--t-xs);color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div>Delivery</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:var(--t-xs);color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>Growth</div>
+      <div style="font-size:var(--t-xs);color:var(--mut);font-style:italic;margin-left:6px">Click any leader agent or worker to expand</div>
     </div>
   </div>
 
   <!-- TAB: AGENT BENCH -->
   <div id="hatm-tab-bench2" style="display:none">
-    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px">12 core agents &#183; click any to expand</div>
+    <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px">12 core agents &#183; click any to expand</div>
     <div class="lc-bar" style="margin-bottom:14px"><div class="lc-seg" style="background:#032D60">Intake</div><div class="lc-seg" style="background:#1565C0">Discovery</div><div class="lc-seg" style="background:#0A4A96;flex:1.8">Execution</div><div class="lc-seg" style="background:#0D9DDA;flex:1.5">Delivery</div><div class="lc-seg" style="background:#1B96FF;color:#032D60;flex:1.3">Growth</div></div>
     <div class="bench-grid" id="bench-grid2"></div>
     <div class="bench-detail" id="bench-detail2"></div>
@@ -766,12 +777,12 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <!-- TAB: HOW IT WORKS -->
   <div id="hatm-tab-how2" style="display:none">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--navy)"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">01</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Every person manages a bench</div><div style="font-size:12px;color:var(--mut);line-height:1.6">Every Agentic Worker &#8212; regardless of role &#8212; maintains a personal team of specialized agents. Not one general-purpose AI. A curated bench with distinct jobs to be done.</div></div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--blue)"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">02</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Agents fire at the right moment</div><div style="font-size:12px;color:var(--mut);line-height:1.6">The Intake Agent fires at the start. The Live Assist Agent fires during the meeting. The Growth Agent fires post-delivery. Each agent is purpose-built for its moment.</div></div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--bright)"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">03</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Central hub &#8212; federated build</div><div style="font-size:12px;color:var(--mut);line-height:1.6">Skills built by any Agentic Worker sync to the central hub. The center governs what&#8217;s approved; workers decide what&#8217;s on their bench. Agents can call into each other.</div></div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #E8A500"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">04</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Human connection preserved</div><div style="font-size:12px;color:var(--mut);line-height:1.6">Agents handle triage, research, prep, and documentation. The human&#8217;s attention goes to what matters most: relationships, judgment, and high-stakes decisions.</div></div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #9B7FE8"><div style="font-size:36px;font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">05</div><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Outcomes tied to business results</div><div style="font-size:12px;color:var(--mut);line-height:1.6">Agent adoption is measured against business outcomes &#8212; not raw AI token usage. The metric is work quality and velocity, not activity volume.</div></div>
-      <div style="background:var(--navy);border-radius:10px;padding:16px 18px;border-top:3px solid #5DCAA5"><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;font-style:italic">&#8220;When leadership makes building the standard rather than the exception, that shift happens fast.&#8221;</div><div style="font-size:11px;color:#8CCFFE;line-height:1.5">That is not a culture initiative. That is a decision.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--navy)"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">01</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Every person manages a bench</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Every Agentic Worker &#8212; regardless of role &#8212; maintains a personal team of specialized agents. Not one general-purpose AI. A curated bench with distinct jobs to be done.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--blue)"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">02</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Agents fire at the right moment</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">The Intake Agent fires at the start. The Live Assist Agent fires during the meeting. The Growth Agent fires post-delivery. Each agent is purpose-built for its moment.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--bright)"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">03</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Central hub &#8212; federated build</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Skills built by any Agentic Worker sync to the central hub. The center governs what&#8217;s approved; workers decide what&#8217;s on their bench. Agents can call into each other.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #E8A500"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">04</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Human connection preserved</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Agents handle triage, research, prep, and documentation. The human&#8217;s attention goes to what matters most: relationships, judgment, and high-stakes decisions.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #9B7FE8"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">05</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Outcomes tied to business results</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Agent adoption is measured against business outcomes &#8212; not raw AI token usage. The metric is work quality and velocity, not activity volume.</div></div>
+      <div style="background:var(--navy);border-radius:10px;padding:16px 18px;border-top:3px solid #5DCAA5"><div style="font-size:var(--t-md);font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;font-style:italic">&#8220;When leadership makes building the standard rather than the exception, that shift happens fast.&#8221;</div><div style="font-size:var(--t-sm);color:#8CCFFE;line-height:1.5">That is not a culture initiative. That is a decision.</div></div>
     </div>
   </div>
 </div>
@@ -809,19 +820,19 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 
   <!-- Connected GTM motion — connective tissue visual -->
   <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:14px">
-    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:16px">Connected GTM motion &#8212; built on context and data, not a conversation</div>
+    <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:16px">Connected GTM motion &#8212; built on context and data, not a conversation</div>
 
     <!-- Stage blocks with living connective tissue SVG between them -->
     <div style="display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr;gap:0;align-items:stretch;margin-bottom:14px">
       <!-- SE -->
       <div style="background:var(--navy);border-radius:10px;padding:14px 16px">
-        <div style="font-size:9px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Pre-Sales</div>
-        <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px">SE</div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Pre-Sales</div>
+        <div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">SE</div>
         <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Architecture notes</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Objection log</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>PoC outcomes</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Integration flags</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Architecture notes</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Objection log</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>PoC outcomes</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Integration flags</div>
         </div>
       </div>
       <!-- Connector 1 -->
@@ -832,13 +843,13 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       </div>
       <!-- FDE -->
       <div style="background:#063A7A;border-radius:10px;padding:14px 16px">
-        <div style="font-size:9px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Technical</div>
-        <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px">FDE</div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Technical</div>
+        <div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">FDE</div>
         <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Implementation plan</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Config decisions</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Risk flags</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Training needs</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Implementation plan</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Config decisions</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Risk flags</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Training needs</div>
         </div>
       </div>
       <!-- Connector 2 -->
@@ -849,13 +860,13 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       </div>
       <!-- ProServ -->
       <div style="background:#2A1A70;border-radius:10px;padding:14px 16px">
-        <div style="font-size:9px;font-weight:700;color:#C5B4F8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Delivery</div>
-        <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px">ProServ</div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#C5B4F8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Delivery</div>
+        <div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">ProServ</div>
         <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Delivery milestones</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Scope changes</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Stakeholder health</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Adoption signals</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Delivery milestones</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Scope changes</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Stakeholder health</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Adoption signals</div>
         </div>
       </div>
       <!-- Connector 3 -->
@@ -866,13 +877,13 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       </div>
       <!-- CS -->
       <div style="background:#1A4A3A;border-radius:10px;padding:14px 16px">
-        <div style="font-size:9px;font-weight:700;color:#6FDDAA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Post-Sales</div>
-        <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px">CS</div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:#6FDDAA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Post-Sales</div>
+        <div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">CS</div>
         <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Expansion signals</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Renewal risk</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Value realization</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Health &amp; NPS data</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Expansion signals</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Renewal risk</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Value realization</div>
+          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Health &amp; NPS data</div>
         </div>
       </div>
     </div>
@@ -899,15 +910,15 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 
     <!-- Agent-to-agent callout -->
     <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:8px;padding:12px 16px;display:flex;align-items:flex-start;gap:12px">
-      <div style="width:32px;height:32px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#0D9DDA;font-size:16px">&#9654;</div>
+      <div style="width:32px;height:32px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#0D9DDA;font-size:var(--t-xl)">&#9654;</div>
       <div>
-        <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px">Agents pass context to each other &#8212; the Agentic Worker doesn&#8217;t carry it manually</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">Each role&#8217;s agents hand structured intelligence to the next role&#8217;s agents at every transition. The Handoff Agent packages the full engagement history &#8212; decisions, risks, stakeholder context &#8212; as a data object. What arrives at CS is the same complete picture that started at SE. Context compounds. Expansion signals feed back. Nothing is lost.</div>
+        <div style="font-size:var(--t-base);font-weight:700;color:var(--navy);margin-bottom:4px">Agents pass context to each other &#8212; the Agentic Worker doesn&#8217;t carry it manually</div>
+        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Each role&#8217;s agents hand structured intelligence to the next role&#8217;s agents at every transition. The Handoff Agent packages the full engagement history &#8212; decisions, risks, stakeholder context &#8212; as a data object. What arrives at CS is the same complete picture that started at SE. Context compounds. Expansion signals feed back. Nothing is lost.</div>
       </div>
     </div>
   </div>
 
-  <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-left:3px solid var(--pur-bd)"><div style="font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Talent &amp; Permission: The Multiplier</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div style="font-size:13px;color:var(--mut);line-height:1.75">Two levers: recruiting people who carry AI-native instincts, and unlocking the people already here. The second is the faster one. AI DNA does not have to be hired in &#8212; much of it already exists in the org, waiting for the expectation to change.</div><div style="border-left:.5px solid var(--bd);padding-left:14px;display:flex;flex-direction:column;justify-content:center"><div style="font-size:15px;font-weight:600;color:var(--pur);line-height:1.5;font-style:italic;margin-bottom:6px">When leadership makes building the standard rather than the exception, that shift happens fast.</div><div style="font-size:12px;color:var(--mut);font-style:italic">That is not a culture initiative. That is a decision.</div></div></div></div>
+  <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-left:3px solid var(--pur-bd)"><div style="font-size:var(--t-sm);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Talent &amp; Permission: The Multiplier</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div style="font-size:var(--t-md);color:var(--mut);line-height:1.75">Two levers: recruiting people who carry AI-native instincts, and unlocking the people already here. The second is the faster one. AI DNA does not have to be hired in &#8212; much of it already exists in the org, waiting for the expectation to change.</div><div style="border-left:.5px solid var(--bd);padding-left:14px;display:flex;flex-direction:column;justify-content:center"><div style="font-size:var(--t-lg);font-weight:600;color:var(--pur);line-height:1.5;font-style:italic;margin-bottom:6px">When leadership makes building the standard rather than the exception, that shift happens fast.</div><div style="font-size:var(--t-base);color:var(--mut);font-style:italic">That is not a culture initiative. That is a decision.</div></div></div></div>
 </div>
 
 <!-- ROADMAP -->
@@ -917,7 +928,7 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <!-- Active now banner -->
   <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:11px 16px;margin-bottom:18px;display:flex;align-items:center;gap:10px">
     <div style="width:8px;height:8px;border-radius:50%;background:#E8A500;flex-shrink:0;animation:pulse 1.5s infinite"></div>
-    <div style="font-size:13px;color:#e8f4ff;line-height:1.5"><strong style="color:#E8A500">Pilots are already in motion.</strong> The roadmap below reflects the governance and enablement infrastructure being built around active work &#8212; not a prerequisite for starting.</div>
+    <div style="font-size:var(--t-md);color:#e8f4ff;line-height:1.5"><strong style="color:#E8A500">Pilots are already in motion.</strong> The roadmap below reflects the governance and enablement infrastructure being built around active work &#8212; not a prerequisite for starting.</div>
   </div>
 
   <div class="tl-grid">
@@ -1043,7 +1054,7 @@ const RTYPE={own:'<span class="r-own">OWN</span>',gate:'<span class="r-gate">GAT
 
 function buildFnAccordion(){
   document.getElementById('fn-accordion').innerHTML=FUNCTIONS.map((fn,i)=>
-    '<div class="fn-acc"><div class="fn-acc-hdr" onclick="toggleFn('+i+',this)"><div class="fn-acc-left"><span class="fn-acc-badge" style="background:'+fn.modeBg+';color:'+fn.modeColor+'">'+fn.mode+'</span><span class="fn-acc-title">'+fn.title+'</span></div><span class="fn-acc-chev">&#9662;</span></div><div class="fn-acc-body" id="fnacc-body-'+i+'"><div style="font-size:12px;color:var(--mut);line-height:1.6;margin-bottom:10px">'+fn.desc+'</div><div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Responsibility</div><div>'+fn.raci.map(r=>'<span class="raci-role">'+RTYPE[r.type]+'<span style="font-size:11px;color:var(--navy)">'+r.role+'</span></span>').join('')+'</div><div style="font-size:10px;color:var(--mut);margin-top:8px"><strong>Owner:</strong> '+fn.owner+' &nbsp;&middot;&nbsp; <strong>Input from:</strong> '+fn.input+'</div></div></div>'
+    '<div class="fn-acc"><div class="fn-acc-hdr" onclick="toggleFn('+i+',this)"><div class="fn-acc-left"><span class="fn-acc-badge" style="background:'+fn.modeBg+';color:'+fn.modeColor+'">'+fn.mode+'</span><span class="fn-acc-title">'+fn.title+'</span></div><span class="fn-acc-chev">&#9662;</span></div><div class="fn-acc-body" id="fnacc-body-'+i+'"><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6;margin-bottom:10px">'+fn.desc+'</div><div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Responsibility</div><div>'+fn.raci.map(r=>'<span class="raci-role">'+RTYPE[r.type]+'<span style="font-size:var(--t-sm);color:var(--navy)">'+r.role+'</span></span>').join('')+'</div><div style="font-size:var(--t-xs);color:var(--mut);margin-top:8px"><strong>Owner:</strong> '+fn.owner+' &nbsp;&middot;&nbsp; <strong>Input from:</strong> '+fn.input+'</div></div></div>'
   ).join('');
 }
 
@@ -1058,7 +1069,7 @@ function buildBench(){
   document.getElementById('bench-grid').innerHTML=AGENTS.map(a=>{
     const c=LC[a.lcKey];
     return '<div class="bench-card'+(selAgent===a.id?' sel':'')+'" style="--card-accent:'+c+'" onclick="selectAgent(\''+a.id+'\')">'
-      +'<div class="bc-top"><div class="bc-icon" style="background:'+c+'20;color:'+c+';font-size:10px;font-weight:700;font-family:monospace">'+a.icon+'</div><div><div class="bc-name">'+a.name+'</div><div class="bc-lc" style="color:'+c+'">'+a.lc+'</div></div></div>'
+      +'<div class="bc-top"><div class="bc-icon" style="background:'+c+'20;color:'+c+';font-size:var(--t-xs);font-weight:700;font-family:monospace">'+a.icon+'</div><div><div class="bc-name">'+a.name+'</div><div class="bc-lc" style="color:'+c+'">'+a.lc+'</div></div></div>'
       +'<div class="bc-jtbd">'+a.jtbd+'</div></div>';
   }).join('');
 }
@@ -1113,7 +1124,7 @@ if(svg){
     if(!dot)return;
     dot.addEventListener('mouseenter',function(){
       const t=tooltips[id];
-      tip.innerHTML='<div class="tb-label" style="color:'+t.color+'">'+t.label+'</div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:5px">'+t.title+'</div><div style="font-size:12px;color:#c8dff0;line-height:1.6">'+t.body+'</div>';
+      tip.innerHTML='<div class="tb-label" style="color:'+t.color+'">'+t.label+'</div><div style="font-size:var(--t-md);font-weight:700;color:#fff;margin-bottom:5px">'+t.title+'</div><div style="font-size:var(--t-base);color:#c8dff0;line-height:1.6">'+t.body+'</div>';
       tip.style.display='block';
       const rect=svg.getBoundingClientRect();
       const scaleX=rect.width/480,scaleY=rect.height/320;
@@ -1219,8 +1230,8 @@ function toggleAWDetail(idx){
     const c=LC[a.lcKey];
     return'<div style="background:#fff;border:.5px solid var(--bd);border-radius:8px;padding:9px 11px;display:flex;align-items:center;gap:8px">'
       +'<div style="width:9px;height:9px;border-radius:50%;background:'+c+';flex-shrink:0"></div>'
-      +'<div><div style="font-size:11px;font-weight:600;color:var(--navy);line-height:1.2">'+a.name+'</div>'
-      +'<div style="font-size:10px;color:var(--mut)">'+a.lc+'</div></div></div>';
+      +'<div><div style="font-size:var(--t-sm);font-weight:600;color:var(--navy);line-height:1.2">'+a.name+'</div>'
+      +'<div style="font-size:var(--t-xs);color:var(--mut)">'+a.lc+'</div></div></div>';
   }).join('');
   det.style.display='block';
   det.scrollIntoView({behavior:'smooth',block:'nearest'});
@@ -1234,7 +1245,7 @@ function buildBench2(){
   grid.innerHTML=AGENTS.map(a=>{
     const c=LC[a.lcKey];
     return'<div class="bench-card'+(selAgent2===a.id?' sel':'')+'" style="--card-accent:'+c+'" onclick="selectAgent2(\''+a.id+'\')">'
-      +'<div class="bc-top"><div class="bc-icon" style="background:'+c+'20;color:'+c+';font-size:10px;font-weight:700;font-family:monospace">'+a.icon+'</div>'
+      +'<div class="bc-top"><div class="bc-icon" style="background:'+c+'20;color:'+c+';font-size:var(--t-xs);font-weight:700;font-family:monospace">'+a.icon+'</div>'
       +'<div><div class="bc-name">'+a.name+'</div><div class="bc-lc" style="color:'+c+'">'+a.lc+'</div></div></div>'
       +'<div class="bc-jtbd">'+a.jtbd+'</div></div>';
   }).join('');
