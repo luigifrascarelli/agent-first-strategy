@@ -14,17 +14,8 @@
   --amb:#B05C00;--amb-bg:#FFF4D6;--amb-bd:#E8A24A;
   --grn:#0F6E56;--grn-bg:#E1F5EE;--grn-bd:#5DCAA5;
   --mut:#5A8AB0;--bg:#EFF7FF;
-
-  /* ── Type scale ── */
-  --t-xs:   12px;   /* eyebrows, badges, labels, pills, tags */
-  --t-sm:   13px;   /* secondary body, captions, sublabels */
-  --t-base: 14px;   /* primary body copy */
-  --t-md:   15px;   /* emphasized body, list items */
-  --t-lg:   16px;   /* card titles, section subheads */
-  --t-xl:   18px;   /* panel section titles, agent names */
-  --t-2xl:  22px;   /* hero titles, strategic callouts */
-  --t-3xl:  30px;   /* KPI metrics */
-  --t-4xl:  40px;   /* large stat numbers */
+  --t-xs:12px;--t-sm:13px;--t-base:14px;--t-md:15px;--t-lg:16px;
+  --t-xl:18px;--t-2xl:22px;--t-3xl:30px;--t-4xl:40px;
 }
 html,body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:var(--t-lg);background:var(--bg);color:var(--navy);min-height:100vh}
 .shell{display:flex;min-height:100vh}
@@ -173,7 +164,7 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 .flow-l{font-size:var(--t-base);font-weight:600;color:var(--mut);margin-right:3px}
 .fl-stage{padding:6px 16px;border-radius:20px;font-size:var(--t-md);font-weight:700;color:#fff}
 .fl-arr{color:var(--mut);font-size:var(--t-lg)}
-.tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tl-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .tl-col{border-radius:10px;overflow:hidden}
 .tl-hdr{padding:10px 12px}
 .tl-q{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
@@ -208,6 +199,75 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 .fn-acc-body{display:none;padding:14px 16px;background:#F7FBFF;border-top:.5px solid var(--bd)}
 .fn-acc-body.open{display:block}
 .raci-role{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;background:#fff;border:.5px solid var(--bd);border-radius:20px;margin:3px}
+
+/* ── Portfolio Economics Engine ── */
+.pe-tabs{display:flex;gap:5px;background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:6px;margin-bottom:18px}
+.pe-tab{flex:1;font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer;transition:all .12s;text-align:center}
+.pe-tab:hover{background:var(--lighter);color:var(--navy)}
+.pe-tab.active-tab{background:var(--navy);color:#fff}
+.pe-section{display:none}.pe-section.active-pe{display:block}
+.pe-stat-row{display:flex;gap:9px;margin-bottom:16px}
+.pe-stat{flex:1;background:#fff;border:.5px solid var(--bd);border-radius:8px;padding:12px 14px;text-align:center}
+.pe-stat-v{font-size:var(--t-3xl);font-weight:700;line-height:1;margin-bottom:3px}
+.pe-stat-l{font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.lc-flow{display:flex;align-items:stretch;gap:0;margin-bottom:16px;overflow-x:auto}
+.lc-step{flex:1;min-width:84px;background:#fff;border:.5px solid var(--bd);padding:12px 10px;text-align:center;cursor:pointer;transition:all .14s;position:relative}
+.lc-step:first-child{border-radius:8px 0 0 8px}
+.lc-step:last-child{border-radius:0 8px 8px 0}
+.lc-step+.lc-step{border-left:none}
+.lc-step:hover{background:var(--lighter)}
+.lc-step.lc-active{background:var(--navy);border-color:var(--navy)}
+.lc-step-n{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin-bottom:3px}
+.lc-step.lc-active .lc-step-n{color:#8CCFFE}
+.lc-step-name{font-size:var(--t-sm);font-weight:700;color:var(--navy);line-height:1.25}
+.lc-step.lc-active .lc-step-name{color:#fff}
+.lc-step-desc{font-size:var(--t-xs);color:var(--mut);line-height:1.4;margin-top:3px}
+.lc-step.lc-active .lc-step-desc{color:#8CCFFE}
+.lc-arr{display:flex;align-items:center;color:var(--bd);font-size:var(--t-lg);flex-shrink:0;background:#fff;border-top:.5px solid var(--bd);border-bottom:.5px solid var(--bd);padding:0 3px}
+.lc-detail{background:var(--navy);border-radius:10px;padding:16px 20px;margin-bottom:16px;display:none}
+.lc-detail.open{display:block}
+.agent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
+.agent-card{background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:13px 15px;cursor:pointer;transition:all .14s;border-top:3px solid transparent}
+.agent-card:hover{border-color:var(--blue);transform:translateY(-1px)}
+.agent-card.ag-sel{border-top-color:inherit;box-shadow:0 0 0 2px var(--navy)}
+.ag-icon{font-size:var(--t-xl);margin-bottom:6px}
+.ag-name{font-size:var(--t-base);font-weight:700;color:var(--navy);margin-bottom:3px}
+.ag-role{font-size:var(--t-xs);color:var(--mut);line-height:1.4}
+.ag-detail{background:var(--navy);border-radius:10px;padding:16px 20px;margin-bottom:14px;display:none}
+.ag-detail.open{display:block}
+.ag-det-name{font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:12px}
+.ag-det-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ag-det-grid label{font-size:var(--t-xs);color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:3px}
+.ag-det-grid p{font-size:var(--t-base);color:#C5DFFF;line-height:1.55}
+.rice-row{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:14px}
+.rice-card{background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:14px 16px;border-top:3px solid}
+.rice-letter{font-size:var(--t-4xl);font-weight:700;line-height:1;margin-bottom:4px}
+.rice-word{font-size:var(--t-base);font-weight:700;color:var(--navy);margin-bottom:6px}
+.rice-desc{font-size:var(--t-sm);color:var(--mut);line-height:1.5}
+.bvb-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:14px}
+.bvb-card{background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:14px 16px}
+.bvb-badge{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 9px;border-radius:20px;display:inline-block;margin-bottom:7px}
+.bvb-title{font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:7px}
+.bvb-item{font-size:var(--t-sm);color:var(--mut);line-height:1.5;margin-bottom:3px;padding-left:11px;position:relative}
+.bvb-item::before{content:'·';position:absolute;left:0;color:var(--blue);font-weight:700}
+.quad-grid{display:grid;grid-template-columns:auto 1fr 1fr;gap:2px;background:var(--bd);border-radius:10px;overflow:hidden;margin-bottom:4px}
+.quad-axis-lbl{display:flex;align-items:center;justify-content:center;background:var(--bg);padding:0 6px}
+.quad-axis-txt{writing-mode:vertical-rl;transform:rotate(180deg);font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;text-align:center}
+.quad-cell{padding:16px 18px;cursor:pointer;transition:filter .12s}
+.quad-cell:hover{filter:brightness(.96)}
+.quad-cell.qsel{outline:3px solid var(--navy);outline-offset:-3px;z-index:2;position:relative}
+.quad-lbl{font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.quad-title{font-size:var(--t-md);font-weight:700;margin-bottom:4px}
+.quad-team{font-size:var(--t-xs);font-weight:700;margin-bottom:6px}
+.quad-ex{font-size:var(--t-xs);line-height:1.6}
+.quad-detail{background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 20px;margin-top:10px;margin-bottom:14px;display:none}
+.quad-detail.open{display:block}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+.comp-card{background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:15px 17px}
+.comp-num{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:var(--t-base);font-weight:700;color:#fff;margin-bottom:9px}
+.comp-title{font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px}
+.comp-item{font-size:var(--t-sm);color:var(--mut);line-height:1.5;margin-bottom:3px;padding-left:11px;position:relative}
+.comp-item::before{content:'·';position:absolute;left:0;color:var(--blue);font-weight:700}
 </style>
 </head>
 <body>
@@ -237,8 +297,10 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <div class="nl" onclick="showP('outcomes',this)"><span class="nl-ic">&#8858;</span>Outcomes</div>
     <div class="nl" onclick="showP('roadmap',this)"><span class="nl-ic">&#8856;</span>Roadmap</div>
     <div class="nl" onclick="showP('comms',this)"><span class="nl-ic">&#8861;</span>Comms &amp; Slack</div>
+    <div class="ng">Innovation</div>
+    <div class="nl" onclick="showP('portfolio',this)"><span class="nl-ic">&#9636;</span>Portfolio Engine</div>
   </nav>
-  <div class="sb-foot">FY27 · Confidential<br>Framework v2.3</div>
+  <div class="sb-foot">FY27 · Confidential<br>Framework v2.3 · CoE + ProServ</div>
 </aside>
 
 <main id="scroller">
@@ -248,16 +310,12 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <div class="hero">
     <div><div class="hero-title">AI Innovation &amp; Tooling Strategy</div><div class="hero-sub">A unified go-to-market strategy &#183; People, Process &amp; Technology &#183; FY27</div></div>
   </div>
-
-  <!-- Executive framing — the single most important idea -->
   <div style="background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:18px;position:relative;overflow:hidden">
     <div style="position:absolute;top:0;right:0;width:220px;height:100%;background:linear-gradient(135deg,transparent 60%,rgba(13,157,218,.08));pointer-events:none"></div>
     <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">The Strategic Imperative</div>
     <div style="font-size:var(--t-2xl);font-weight:700;color:#fff;line-height:1.45;margin-bottom:14px;max-width:680px">This is a unified go-to-market strategy.<br>The focus is <span style="color:#0D9DDA">customer adoption</span> &#8212; and the economics behind it.</div>
     <div style="font-size:var(--t-lg);color:rgba(255,255,255,.6);line-height:1.75;max-width:620px">AI tools are seasonal &#8212; they change constantly. What endures is the operating model: a people, process, and technology framework that compresses the cycle from first signal to customer value, solves the economic adoption problem, and compounds returns across every GTM motion.</div>
   </div>
-
-  <!-- 3 exec dimensions -->
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px">
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;border-top:3px solid #0D9DDA">
       <div style="font-size:var(--t-sm);font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Customer Adoption</div>
@@ -272,11 +330,9 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;border-top:3px solid #7B5EA7">
       <div style="font-size:var(--t-sm);font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Organizational Shift</div>
       <div style="font-size:var(--t-2xl);font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px">Roles elevated<br>around judgment</div>
-      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.65">AI takes on execution volume so architects, engineers, and sellers can focus on what only a human can do: customer relationships, strategic direction, and high-stakes decisions. Culture, not technology, is the adoption barrier.</div>
+      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.65">AI takes on execution volume so architects, engineers, and sellers can focus on what only a human can do: customer relationships, strategic direction, and high-stakes decisions.</div>
     </div>
   </div>
-
-  <!-- Three-chapter narrative -->
   <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:18px">
     <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">How this strategy is structured</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0">
@@ -297,7 +353,6 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       </div>
     </div>
   </div>
-
   <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:14px 18px">
     <div style="font-size:var(--t-sm);font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">The Bottom Line</div>
     <div style="font-size:var(--t-lg);color:#e8f4ff;line-height:1.75;font-style:italic">The question is not whether to make this shift. It is whether we define it or react to it. The org that builds the operating model first compounds fastest &#8212; in capability, in customer outcomes, and in revenue.</div>
@@ -307,8 +362,6 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 <!-- DIAGNOSIS -->
 <div id="p-diagnosis" class="panel">
   <div class="hero"><div><div class="hero-title">The Problem We Are Solving</div><div class="hero-sub">A prescription without a diagnosis is malpractice</div></div></div>
-
-  <!-- Stepped journey stepper -->
   <div id="diag-stepper" style="background:#fff;border:.5px solid var(--bd);border-radius:12px;padding:6px;display:flex;gap:0;margin-bottom:20px;position:relative">
     <button onclick="diagStep(0)" id="ds-0" style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:8px;border:none;background:var(--navy);cursor:pointer;text-align:left;transition:all .2s">
       <div style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:var(--t-sm);font-weight:700;color:#fff;flex-shrink:0;font-family:monospace">01</div>
@@ -325,183 +378,53 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div><div style="font-size:var(--t-sm);font-weight:700;color:var(--mut);letter-spacing:.02em">Strategic Question</div><div style="font-size:var(--t-xs);color:var(--bd);margin-top:1px">The thesis this strategy answers</div></div>
     </button>
   </div>
-
-  <!-- STEP 1: External Problem -->
   <div id="diag-panel-0">
-    <!-- Intro -->
     <div style="background:var(--navy);border-radius:10px;padding:18px 22px;margin-bottom:14px">
       <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Layer 01 &#8212; The External Problem</div>
       <div style="font-size:var(--t-xl);font-weight:700;color:#fff;line-height:1.5;margin-bottom:10px;max-width:640px">Customer adoption is not a technology problem.<br>It is an <span style="color:#0D9DDA">outcome definition</span> problem.</div>
-      <div style="font-size:var(--t-md);color:rgba(255,255,255,.6);line-height:1.75;max-width:620px">Without a shared definition of what &#8220;done&#8221; looks like for the customer, every tool decision is arbitrary and every adoption metric is meaningless. Tools only become relevant once we have defined the job to be done, the expected outcome, and where in the lifecycle that job fires.</div>
+      <div style="font-size:var(--t-md);color:rgba(255,255,255,.6);line-height:1.75;max-width:620px">Without a shared definition of what &#8220;done&#8221; looks like for the customer, every tool decision is arbitrary and every adoption metric is meaningless.</div>
     </div>
-
-    <!-- Three problem threads -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px">
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #0D9DDA">
-        <div style="font-size:var(--t-xs);font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem A</div>
-        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px">Customer adoption stalls without outcome clarity</div>
-        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">What matters most is customer outcome, time to value, and customer value. The tool becomes relevant only at a specific step in the process. Without knowing what is expected from the user with a given set of tools, customer outcomes cannot be driven.</div>
-      </div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #E8A500">
-        <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem B</div>
-        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px">Tools are ubiquitous, seasonal, and increasingly expensive</div>
-        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Compute costs for Anthropic, OpenAI, Gemini, and others are rising. This creates pressure on the economic model: continue investing in 3rd-party tools, or build purpose-built solutions for specific JTBDs. The answer is likely both &#8212; sequenced by switching cost and outcome fit.</div>
-      </div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #7B5EA7">
-        <div style="font-size:var(--t-xs);font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem C</div>
-        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px">No consistent GTM operating model across the enterprise</div>
-        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Process standardization is not the goal &#8212; it is the byproduct of a clear operating model. The goal is consistent customer outcomes. Standardization is how we get there at scale without every team reinventing the approach for each engagement.</div>
-      </div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #0D9DDA"><div style="font-size:var(--t-xs);font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem A</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px">Customer adoption stalls without outcome clarity</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">What matters most is customer outcome, time to value, and customer value. The tool becomes relevant only at a specific step in the process.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #E8A500"><div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem B</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px">Tools are ubiquitous, seasonal, and increasingly expensive</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Compute costs for Anthropic, OpenAI, Gemini, and others are rising. Build vs Buy decisions must be sequenced by switching cost and outcome fit.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #7B5EA7"><div style="font-size:var(--t-xs);font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem C</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:6px">No consistent GTM operating model across the enterprise</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Process standardization is not the goal &#8212; it is the byproduct of a clear operating model. The goal is consistent customer outcomes at scale.</div></div>
     </div>
-
-    <!-- AI States journey -->
     <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:14px">
       <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">Defining the journey &#8212; from AI augmentation to AI native</div>
       <div style="display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;align-items:stretch;gap:0">
-        <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:10px;padding:15px 17px">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--light);border:.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;color:var(--navy)">01</div>
-            <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em">Current State</div>
-          </div>
-          <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">AI Augmentation</div>
-          <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:9px">AI assists the individual. Humans drive every workflow. Tools compress the agile cycle &#8212; faster drafts, quicker research &#8212; but the process and structure stay the same.</div>
-          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Human-led</span><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Tool-assisted</span></div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
-          <div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--bd))"></div>
-          <div style="font-size:var(--t-xs);color:var(--mut);writing-mode:vertical-rl;letter-spacing:.05em;font-weight:600;transform:rotate(180deg)">which creates</div>
-          <div style="font-size:var(--t-lg);color:#E8A500">&#8594;</div>
-          <div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--bd),transparent)"></div>
-        </div>
-        <div style="background:#FFF8E8;border:.5px solid var(--amb-bd);border-radius:10px;padding:15px 17px">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--amb-bg);display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;color:var(--amb)">02</div>
-            <div style="font-size:var(--t-xs);font-weight:700;color:var(--amb);text-transform:uppercase;letter-spacing:.07em">Where We Are</div>
-          </div>
-          <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Agentic Adoption</div>
-          <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:9px">Agentic Workers begin managing a bench of purpose-built agents. Workflows shift. Roles evolve. Governance and enablement must exist before this scales &#8212; or it fragments.</div>
-          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Bench-managed</span><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Governance critical</span></div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
-          <div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--bd))"></div>
-          <div style="font-size:var(--t-xs);color:var(--mut);writing-mode:vertical-rl;letter-spacing:.05em;font-weight:600;transform:rotate(180deg)">leading to</div>
-          <div style="font-size:var(--t-lg);color:#04C3B5">&#8594;</div>
-          <div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--bd),transparent)"></div>
-        </div>
-        <div style="background:#E8F8F3;border:.5px solid var(--grn-bd);border-radius:10px;padding:15px 17px">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--grn-bg);display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;color:var(--grn)">03</div>
-            <div style="font-size:var(--t-xs);font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.07em">Future State</div>
-          </div>
-          <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">AI Native</div>
-          <div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:9px">Orchestrated agents manage the work. Humans set direction, make decisions, and own relationships. Roles are elevated around judgment and strategy, not execution volume.</div>
-          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Agent-orchestrated</span><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Human judgment</span></div>
-        </div>
+        <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:10px;padding:15px 17px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><div style="width:26px;height:26px;border-radius:50%;background:var(--light);border:.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;color:var(--navy)">01</div><div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em">Current State</div></div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">AI Augmentation</div><div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:9px">AI assists the individual. Humans drive every workflow. Tools compress the agile cycle but the process stays the same.</div><div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Human-led</span><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Tool-assisted</span></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--bd))"></div><div style="font-size:var(--t-lg);color:#E8A500">&#8594;</div><div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--bd),transparent)"></div></div>
+        <div style="background:#FFF8E8;border:.5px solid var(--amb-bd);border-radius:10px;padding:15px 17px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><div style="width:26px;height:26px;border-radius:50%;background:var(--amb-bg);display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;color:var(--amb)">02</div><div style="font-size:var(--t-xs);font-weight:700;color:var(--amb);text-transform:uppercase;letter-spacing:.07em">Where We Are</div></div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Agentic Adoption</div><div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:9px">Agentic Workers begin managing a bench of purpose-built agents. Governance and enablement must exist before this scales &#8212; or it fragments.</div><div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Bench-managed</span><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Governance critical</span></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--bd))"></div><div style="font-size:var(--t-lg);color:#04C3B5">&#8594;</div><div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--bd),transparent)"></div></div>
+        <div style="background:#E8F8F3;border:.5px solid var(--grn-bd);border-radius:10px;padding:15px 17px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><div style="width:26px;height:26px;border-radius:50%;background:var(--grn-bg);display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:700;color:var(--grn)">03</div><div style="font-size:var(--t-xs);font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.07em">Future State</div></div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">AI Native</div><div style="font-size:var(--t-sm);color:var(--mut);line-height:1.6;margin-bottom:9px">Orchestrated agents manage the work. Humans set direction, make decisions, and own relationships. Roles are elevated around judgment and strategy.</div><div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Agent-orchestrated</span><span style="font-size:var(--t-xs);font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Human judgment</span></div></div>
       </div>
     </div>
-
-    <!-- Step nav -->
-    <div style="display:flex;justify-content:flex-end">
-      <button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer;letter-spacing:.03em">Internal Gaps &#8594;</button>
-    </div>
+    <div style="display:flex;justify-content:flex-end"><button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">Internal Gaps &#8594;</button></div>
   </div>
-
-  <!-- STEP 2: Internal Gaps -->
   <div id="diag-panel-1" style="display:none">
-    <!-- Connecting thread from Step 1 -->
-    <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--lighter);border-radius:8px;border:.5px solid var(--bd);margin-bottom:14px">
-      <div style="font-size:var(--t-xl);color:#0D9DDA">&#8617;</div>
-      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Because</strong> customer adoption is an outcome definition problem &#8212; and because tools proliferate without a shared model &#8212; <strong style="color:var(--navy)">the operating model breaks in three specific places.</strong></div>
-    </div>
-
-    <!-- Three gap cards -->
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--lighter);border-radius:8px;border:.5px solid var(--bd);margin-bottom:14px"><div style="font-size:var(--t-xl);color:#0D9DDA">&#8617;</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Because</strong> customer adoption is an outcome definition problem &#8212; and because tools proliferate without a shared model &#8212; <strong style="color:var(--navy)">the operating model breaks in three specific places.</strong></div></div>
     <div class="grid3" style="margin-bottom:14px">
       <div class="gap-card" style="border-top-color:#C23B22"><div class="gap-inner"><div class="gap-n">Gap 01</div><div class="gap-t">Strategy without infrastructure</div><div class="gap-b">Vision for agent-first innovation but no operating model to execute it. Tools adopted ad hoc. No mechanism to turn field learning into org capability.</div></div></div>
       <div class="gap-card" style="border-top-color:#E8A500"><div class="gap-inner"><div class="gap-n">Gap 02</div><div class="gap-t">Adoption without outcomes</div><div class="gap-b">Token consumption is tracked. Customer outcomes are not. Without a unified definition, AI activity cannot be connected to business results.</div></div></div>
       <div class="gap-card" style="border-top-color:#7B5EA7"><div class="gap-inner"><div class="gap-n">Gap 03</div><div class="gap-t">Innovation without compounding</div><div class="gap-b">Similar solutions built in parallel with no sharing mechanism. Field learning disappears. The org is not getting smarter with every engagement.</div></div></div>
     </div>
-
-    <!-- Symptoms / What it solves -->
     <div class="grid2" style="margin-bottom:14px">
-      <div style="background:var(--navy);border-radius:10px;padding:14px 16px">
-        <div style="font-size:var(--t-sm);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms today</div>
-        <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div>
-          <div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div>
-          <div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div>
-          <div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of &#8220;adoption&#8221; across orgs</div>
-        </div>
-      </div>
-      <div style="background:#fff;border-radius:10px;padding:14px 16px;border:.5px solid var(--bd)">
-        <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework solves</div>
-        <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &#8212; signal to governance, end-to-end</div>
-          <div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &#8212; fluency, not completion</div>
-          <div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &#8212; every transition is a data event</div>
-          <div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &#8212; one metric language across all orgs</div>
-        </div>
-      </div>
+      <div style="background:var(--navy);border-radius:10px;padding:14px 16px"><div style="font-size:var(--t-sm);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms today</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div><div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div><div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div><div style="font-size:var(--t-base);padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of &#8220;adoption&#8221; across orgs</div></div></div>
+      <div style="background:#fff;border-radius:10px;padding:14px 16px;border:.5px solid var(--bd)"><div style="font-size:var(--t-sm);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework solves</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &#8212; signal to governance, end-to-end</div><div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &#8212; fluency, not completion</div><div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &#8212; every transition is a data event</div><div style="font-size:var(--t-base);padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &#8212; one metric language across all orgs</div></div></div>
     </div>
-
-    <!-- See ROI Axis -->
-    <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:8px;padding:11px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between">
-      <div style="font-size:var(--t-base);color:var(--mut)">See how the three gaps map to business and technology ROI</div>
-      <button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="font-size:var(--t-sm);font-weight:700;color:var(--blue);background:none;border:.5px solid var(--blue);border-radius:6px;padding:5px 12px;cursor:pointer;letter-spacing:.03em">View ROI Axis &#8599;</button>
-    </div>
-
-    <!-- Step nav -->
-    <div style="display:flex;justify-content:space-between">
-      <button onclick="diagStep(0)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">&#8592; External Problem</button>
-      <button onclick="diagStep(2)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">Strategic Question &#8594;</button>
-    </div>
+    <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:8px;padding:11px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between"><div style="font-size:var(--t-base);color:var(--mut)">See how the three gaps map to business and technology ROI</div><button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="font-size:var(--t-sm);font-weight:700;color:var(--blue);background:none;border:.5px solid var(--blue);border-radius:6px;padding:5px 12px;cursor:pointer">View ROI Axis &#8599;</button></div>
+    <div style="display:flex;justify-content:space-between"><button onclick="diagStep(0)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">&#8592; External Problem</button><button onclick="diagStep(2)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">Strategic Question &#8594;</button></div>
   </div>
-
-  <!-- STEP 3: Strategic Question -->
   <div id="diag-panel-2" style="display:none">
-    <!-- Connecting thread from Step 2 -->
-    <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--lighter);border-radius:8px;border:.5px solid var(--bd);margin-bottom:14px">
-      <div style="font-size:var(--t-xl);color:#04C3B5">&#8617;</div>
-      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Which leads to the question</strong> this strategy is designed to answer &#8212; one that reframes how we think about the relationship between pre-sale and post-sale.</div>
-    </div>
-
-    <!-- The provocation -->
-    <div style="background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:16px;position:relative;overflow:hidden">
-      <div style="position:absolute;top:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(13,157,218,.06);pointer-events:none"></div>
-      <div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">The Strategic Question</div>
-      <div style="font-size:var(--t-2xl);font-weight:700;color:#fff;line-height:1.5;margin-bottom:14px;max-width:660px">If pre-sale assets are built for specific customer use cases, how do we create a GTM motion that becomes a shared foundation with post-sales?</div>
-      <div style="font-size:var(--t-md);color:rgba(255,255,255,.6);line-height:1.75;max-width:600px">The opportunity is a continuous context thread &#8212; where the work done in pre-sales becomes the starting point for delivery, not a handoff that gets rebuilt from scratch. Time to value compresses not because we move faster, but because we stop losing context at every transition.</div>
-    </div>
-
-    <!-- Three implications -->
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--lighter);border-radius:8px;border:.5px solid var(--bd);margin-bottom:14px"><div style="font-size:var(--t-xl);color:#04C3B5">&#8617;</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Which leads to the question</strong> this strategy is designed to answer.</div></div>
+    <div style="background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:16px"><div style="font-size:var(--t-xs);font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">The Strategic Question</div><div style="font-size:var(--t-2xl);font-weight:700;color:#fff;line-height:1.5;margin-bottom:14px;max-width:660px">If pre-sale assets are built for specific customer use cases, how do we create a GTM motion that becomes a shared foundation with post-sales?</div><div style="font-size:var(--t-md);color:rgba(255,255,255,.6);line-height:1.75;max-width:600px">The opportunity is a continuous context thread &#8212; where the work done in pre-sales becomes the starting point for delivery, not a handoff that gets rebuilt from scratch.</div></div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px">
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px">
-        <div style="width:28px;height:28px;border-radius:8px;background:#EEF6FF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#127775;</div>
-        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">The SE becomes a solution architect whose work ships</div>
-        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Pre-sale assets are no longer disposable. They become the foundation of the delivered solution &#8212; with context, data, and decisions intact from the first conversation.</div>
-      </div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px">
-        <div style="width:28px;height:28px;border-radius:8px;background:#E8F8F3;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#9654;</div>
-        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">TTV compresses when context doesn&#8217;t reset</div>
-        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Every role in the GTM motion receives a complete picture &#8212; not a summary email. What the CS team knows at month six started accumulating at the first SE call.</div>
-      </div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px">
-        <div style="width:28px;height:28px;border-radius:8px;background:#F3EEFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#9670;</div>
-        <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">The GTM motion becomes a shared foundation</div>
-        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">SE, FDE, ProServ, and CS are no longer sequential hand-offs. They are a single continuous context thread &#8212; with agents passing intelligence at every transition point.</div>
-      </div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px"><div style="width:28px;height:28px;border-radius:8px;background:#EEF6FF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#127775;</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">The SE becomes a solution architect whose work ships</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Pre-sale assets are no longer disposable. They become the foundation of the delivered solution.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px"><div style="width:28px;height:28px;border-radius:8px;background:#E8F8F3;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#9654;</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">TTV compresses when context doesn&#8217;t reset</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">What the CS team knows at month six started accumulating at the first SE call.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px"><div style="width:28px;height:28px;border-radius:8px;background:#F3EEFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lg);margin-bottom:10px">&#9670;</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">The GTM motion becomes a shared foundation</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">SE, FDE, ProServ, and CS are a single continuous context thread with agents passing intelligence at every transition point.</div></div>
     </div>
-
-    <!-- Closing thesis -->
-    <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
-      <div style="font-size:var(--t-sm);font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">This strategy&#8217;s answer</div>
-      <div style="font-size:var(--t-lg);color:#e8f4ff;line-height:1.75;font-style:italic">Build the operating model that makes it possible. When pre-sale assets are purpose-built for specific customer use cases &#8212; and the context behind them travels with every handoff &#8212; the GTM motion becomes a shared foundation that accelerates delivery, reduces rework, and compounds customer value over time.</div>
-    </div>
-
-    <!-- Step nav -->
-    <div style="display:flex;justify-content:space-between">
-      <button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">&#8592; Internal Gaps</button>
-      <button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#04C3B5;color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">See ROI Axis &#8599;</button>
-    </div>
+    <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px"><div style="font-size:var(--t-sm);font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">This strategy&#8217;s answer</div><div style="font-size:var(--t-lg);color:#e8f4ff;line-height:1.75;font-style:italic">Build the operating model that makes it possible. When pre-sale assets travel with every handoff, the GTM motion becomes a shared foundation that accelerates delivery, reduces rework, and compounds customer value over time.</div></div>
+    <div style="display:flex;justify-content:space-between"><button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">&#8592; Internal Gaps</button><button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#04C3B5;color:#fff;border:none;border-radius:8px;font-size:var(--t-base);font-weight:700;cursor:pointer">See ROI Axis &#8599;</button></div>
   </div>
 </div>
 
@@ -547,7 +470,7 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   </div>
   <div class="grid3">
     <div class="callout" style="background:#FFF0EE;border:1px solid #F5C4B3;color:#7A1A08"><span class="c-ico">x</span><div><strong>Tech without direction:</strong> Unlimited token plans, no governance, no reporting on what is used or why.</div></div>
-    <div class="callout ca"><span class="c-ico">!</span><div><strong>Untapped productivity:</strong> 66% of orgs report AI efficiency gains — but only 20% see revenue impact. The gap is not the technology.</div></div>
+    <div class="callout ca"><span class="c-ico">!</span><div><strong>Untapped productivity:</strong> 66% of orgs report AI efficiency gains &#8212; but only 20% see revenue impact. The gap is not the technology.</div></div>
     <div class="callout cg"><span class="c-ico">+</span><div><strong>Agent-first intersection:</strong> Tools that accelerate delivery speed (X) and create new customer outcomes (Y) are where this framework focuses investment.</div></div>
   </div>
 </div>
@@ -573,17 +496,17 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
   <div class="tier-arrow">&#8597;</div>
   <div class="c-tier-label">Core Council &#8212; Gate Authority</div>
   <div class="c-row" style="margin-bottom:4px">
-    <div class="c-card" style="border-color:var(--blue);background:var(--lighter)"><div class="c-badge" style="color:var(--blue)">Strategy</div><div class="c-title">AI Council Lead(s)</div><div class="c-desc" style="color:var(--mut)">Owns tool roadmap, pilot framework, and gamification model. Sets the standards all other functions align to.</div><div class="c-tags"><span class="c-tag-tbd">Rep TBD &#8212; SE CoE</span><span class="c-tag-tbd">Rep TBD &#8212; FDE</span><span class="c-tag-tbd">Rep TBD &#8212; CS</span></div></div>
-    <div class="c-card" style="border-color:var(--amb-bd);background:var(--amb-bg)"><div class="c-badge" style="color:var(--amb)">Security</div><div class="c-title">Security &amp; Compliance</div><div class="c-desc" style="color:#5A3010">Mandatory gate authority. DLP, data residency, and access controls are non-negotiable. No pilot proceeds without Security sign-off.</div><div class="c-tags"><span class="c-tag" style="background:rgba(184,92,0,.12);color:var(--amb)">Security Lead</span></div></div>
+    <div class="c-card" style="border-color:var(--blue);background:var(--lighter)"><div class="c-badge" style="color:var(--blue)">Strategy</div><div class="c-title">AI Council Lead(s)</div><div class="c-desc" style="color:var(--mut)">Owns tool roadmap, pilot framework, and gamification model.</div><div class="c-tags"><span class="c-tag-tbd">Rep TBD &#8212; SE CoE</span><span class="c-tag-tbd">Rep TBD &#8212; FDE</span><span class="c-tag-tbd">Rep TBD &#8212; CS</span></div></div>
+    <div class="c-card" style="border-color:var(--amb-bd);background:var(--amb-bg)"><div class="c-badge" style="color:var(--amb)">Security</div><div class="c-title">Security &amp; Compliance</div><div class="c-desc" style="color:#5A3010">Mandatory gate authority. DLP, data residency, and access controls. No pilot proceeds without Security sign-off.</div><div class="c-tags"><span class="c-tag" style="background:rgba(184,92,0,.12);color:var(--amb)">Security Lead</span></div></div>
     <div class="c-card" style="border-color:var(--pur-bd);background:var(--pur-bg)"><div class="c-badge" style="color:var(--pur)">Legal</div><div class="c-title">Legal &amp; Risk</div><div class="c-desc" style="color:#2A1060">IP, data usage rights, vendor contract terms, and AI liability review. Blocking authority on all vendor approvals.</div><div class="c-tags"><span class="c-tag" style="background:rgba(74,46,192,.1);color:var(--pur)">Legal Counsel</span></div></div>
-    <div class="c-card" style="border-color:var(--grn-bd);background:var(--grn-bg)"><div class="c-badge" style="color:var(--grn)">Procurement</div><div class="c-title">Procurement &amp; Finance</div><div class="c-desc" style="color:#0A2A1A">All vendor contracts route through Procurement. Finance owns token budget allocation, ROI thresholds, and renewal approvals.</div><div class="c-tags"><span class="c-tag" style="background:rgba(15,110,86,.1);color:var(--grn)">Procurement Lead</span></div></div>
+    <div class="c-card" style="border-color:var(--grn-bd);background:var(--grn-bg)"><div class="c-badge" style="color:var(--grn)">Procurement</div><div class="c-title">Procurement &amp; Finance</div><div class="c-desc" style="color:#0A2A1A">All vendor contracts route through Procurement. Finance owns token budget allocation and ROI thresholds.</div><div class="c-tags"><span class="c-tag" style="background:rgba(15,110,86,.1);color:var(--grn)">Procurement Lead</span></div></div>
   </div>
   <div class="tier-arrow">&#8597;</div>
   <div class="c-tier-label">Extended Council &#8212; Operational Layer</div>
   <div class="c-row">
     <div class="c-card" style="border-color:var(--bd);background:#fff"><div class="c-badge" style="color:var(--mut)">Enablement</div><div class="c-title">SE Enablement</div><div class="c-desc" style="color:var(--mut)">AWU certifications, tier progression (T1/T2/T3), CoE skills library, and teach-back programs.</div></div>
     <div class="c-card" style="border-color:var(--bd);background:#fff"><div class="c-badge" style="color:var(--mut)">Change Mgmt</div><div class="c-title">Change Management</div><div class="c-desc" style="color:var(--mut)">Adoption curve, stakeholder comms, resistance handling, and readiness scoring tied to gamification milestones.</div></div>
-    <div class="c-card" style="border-color:var(--bd);background:#fff"><div class="c-badge" style="color:var(--mut)">Analytics</div><div class="c-title">Reporting &amp; Analytics</div><div class="c-desc" style="color:var(--mut)">Leaderboard, token dashboards, pilot scorecards, and exec QBR packages. Defines what "good" looks like in data.</div></div>
+    <div class="c-card" style="border-color:var(--bd);background:#fff"><div class="c-badge" style="color:var(--mut)">Analytics</div><div class="c-title">Reporting &amp; Analytics</div><div class="c-desc" style="color:var(--mut)">Leaderboard, token dashboards, pilot scorecards, and exec QBR packages.</div></div>
   </div>
   <div class="callout cb" style="margin-top:12px"><span class="c-ico">&#9670;</span><span>The AI Council is a <strong>unified governance body</strong> &#8212; not a committee. It owns decisions, not just recommendations. Security, Legal, and Procurement hold blocking authority on every pilot and vendor onboarding.</span></div>
 </div>
@@ -617,39 +540,19 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 <!-- HATM -->
 <div id="p-hatm" class="panel">
   <div class="hero"><div><div class="hero-title">Human-Agent Teaming Model</div><div class="hero-sub">Every Agentic Worker manages a personal bench of specialized agents</div></div></div>
-
-  <!-- Thesis stat cards -->
   <div class="grid3" style="margin-bottom:18px">
-    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px">
-      <div style="font-size:var(--t-4xl);font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">12</div>
-      <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Agents per bench</div>
-      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Each Agentic Worker runs a personal team of specialized agents, each with a defined job to be done across the work lifecycle.</div>
-    </div>
-    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px">
-      <div style="font-size:var(--t-4xl);font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">5</div>
-      <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Lifecycle stages covered</div>
-      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Intake through delivery and expansion &#8212; agents fire at the right moment across the full lifecycle of work.</div>
-    </div>
-    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px">
-      <div style="font-size:var(--t-4xl);font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">1</div>
-      <div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Central hub</div>
-      <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Skills built by any team member sync to a central hub. Governance without over-control. Agentic Workers own their bench; the center owns the library.</div>
-    </div>
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px"><div style="font-size:var(--t-4xl);font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">12</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Agents per bench</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Each Agentic Worker runs a personal team of specialized agents, each with a defined job to be done across the work lifecycle.</div></div>
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px"><div style="font-size:var(--t-4xl);font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">5</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Lifecycle stages covered</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Intake through delivery and expansion &#8212; agents fire at the right moment across the full lifecycle of work.</div></div>
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px"><div style="font-size:var(--t-4xl);font-weight:700;color:var(--blue);font-family:monospace;line-height:1;margin-bottom:5px">1</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Central hub</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Skills built by any team member sync to a central hub. Governance without over-control. Agentic Workers own their bench; the center owns the library.</div></div>
   </div>
-
-  <!-- 4-tab nav -->
   <div style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:7px;display:flex;gap:5px;margin-bottom:18px" id="hatm-tabs">
     <button onclick="switchHatmTab('org',this)" style="flex:1;font-size:var(--t-sm);font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:var(--navy);color:#fff;cursor:pointer">Org Model</button>
     <button onclick="switchHatmTab('bench2',this)" style="flex:1;font-size:var(--t-sm);font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">Agent Bench</button>
     <button onclick="switchHatmTab('hub2',this)" style="flex:1;font-size:var(--t-sm);font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">Central Hub</button>
     <button onclick="switchHatmTab('how2',this)" style="flex:1;font-size:var(--t-sm);font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:9px 12px;border-radius:7px;border:none;background:transparent;color:var(--mut);cursor:pointer">How It Works</button>
   </div>
-
-  <!-- TAB: ORG MODEL -->
   <div id="hatm-tab-org">
     <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:12px">Org structure &#8212; every person is an Agentic Worker</div>
-
-    <!-- Org Leader node -->
     <div style="display:flex;justify-content:center;margin-bottom:0">
       <div style="background:var(--navy);border-radius:12px;padding:18px 28px;text-align:center;min-width:340px;max-width:500px;width:100%">
         <div style="font-size:var(--t-lg);font-weight:700;color:#fff;margin-bottom:3px">Org Leader</div>
@@ -661,8 +564,6 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
         </div>
       </div>
     </div>
-
-    <!-- Leader agent detail drawer -->
     <div id="ldr-detail" style="display:none;max-width:500px;margin:0 auto">
       <div style="width:1.5px;height:16px;background:var(--bd);margin:0 auto"></div>
       <div style="background:#063A7A;border-radius:10px;padding:16px 18px">
@@ -675,76 +576,19 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
         <div style="margin-top:10px;padding-top:10px;border-top:.5px solid rgba(27,150,255,.2);font-size:var(--t-sm);color:#8CCFFE;font-style:italic" id="ldr-note"></div>
       </div>
     </div>
-
-    <!-- Connector -->
     <div style="width:1.5px;height:22px;background:var(--bd);margin:0 auto"></div>
-    <!-- Horizontal branch -->
     <div style="position:relative;height:1px;margin:0 5%"><div style="position:absolute;inset:0;background:var(--bd)"></div></div>
-
-    <!-- Agentic Worker nodes -->
     <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding-top:20px">
-      <div id="aw-node-0" style="display:flex;flex-direction:column;align-items:center">
-        <div style="width:1px;height:18px;background:var(--bd)"></div>
-        <div onclick="toggleAWDetail(0)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
-          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
-            <div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
-          </div>
-        </div>
-      </div>
-      <div id="aw-node-1" style="display:flex;flex-direction:column;align-items:center">
-        <div style="width:1px;height:18px;background:var(--bd)"></div>
-        <div onclick="toggleAWDetail(1)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
-          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
-            <div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div>
-          </div>
-        </div>
-      </div>
-      <div id="aw-node-2" style="display:flex;flex-direction:column;align-items:center">
-        <div style="width:1px;height:18px;background:var(--bd)"></div>
-        <div onclick="toggleAWDetail(2)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
-          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
-            <div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
-          </div>
-        </div>
-      </div>
-      <div id="aw-node-3" style="display:flex;flex-direction:column;align-items:center">
-        <div style="width:1px;height:18px;background:var(--bd)"></div>
-        <div onclick="toggleAWDetail(3)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
-          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
-            <div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
-          </div>
-        </div>
-      </div>
-      <div id="aw-node-4" style="display:flex;flex-direction:column;align-items:center">
-        <div style="width:1px;height:18px;background:var(--bd)"></div>
-        <div onclick="toggleAWDetail(4)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s">
-          <div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div>
-          <div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div>
-          <div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap">
-            <div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div>
-          </div>
-        </div>
-      </div>
+      <div id="aw-node-0" style="display:flex;flex-direction:column;align-items:center"><div style="width:1px;height:18px;background:var(--bd)"></div><div onclick="toggleAWDetail(0)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s"><div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div><div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div><div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap"><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div></div></div></div>
+      <div id="aw-node-1" style="display:flex;flex-direction:column;align-items:center"><div style="width:1px;height:18px;background:var(--bd)"></div><div onclick="toggleAWDetail(1)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s"><div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div><div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div><div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap"><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div></div></div></div>
+      <div id="aw-node-2" style="display:flex;flex-direction:column;align-items:center"><div style="width:1px;height:18px;background:var(--bd)"></div><div onclick="toggleAWDetail(2)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s"><div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div><div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div><div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap"><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div></div></div></div>
+      <div id="aw-node-3" style="display:flex;flex-direction:column;align-items:center"><div style="width:1px;height:18px;background:var(--bd)"></div><div onclick="toggleAWDetail(3)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s"><div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div><div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div><div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap"><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div></div></div></div>
+      <div id="aw-node-4" style="display:flex;flex-direction:column;align-items:center"><div style="width:1px;height:18px;background:var(--bd)"></div><div onclick="toggleAWDetail(4)" style="background:#fff;border:.5px solid var(--bd);border-radius:10px;padding:11px 8px;width:100%;text-align:center;cursor:pointer;transition:all .15s"><div style="font-size:var(--t-sm);font-weight:700;color:var(--navy)">Agentic Worker</div><div style="font-size:var(--t-xs);color:var(--mut);margin:3px 0 8px">6 agents</div><div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap"><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div><div style="width:9px;height:9px;border-radius:50%;background:#0A4A96"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#0D9DDA"></div><div style="width:9px;height:9px;border-radius:50%;background:#5A8AB0"></div><div style="width:9px;height:9px;border-radius:50%;background:#1B96FF"></div></div></div></div>
     </div>
-
-    <!-- AW detail drawer -->
     <div id="aw-detail" style="display:none;background:var(--lighter);border:.5px solid var(--bd);border-radius:10px;padding:16px 18px;margin-top:12px">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-        <div style="width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--t-md);font-weight:700;flex-shrink:0">AW</div>
-        <div><div id="aw-name" style="font-size:var(--t-lg);font-weight:700;color:var(--navy)">Agentic Worker</div><div id="aw-role-lbl" style="font-size:var(--t-sm);color:var(--mut);margin-top:2px">6 agents on bench</div></div>
-      </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><div style="width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--t-md);font-weight:700;flex-shrink:0">AW</div><div><div id="aw-name" style="font-size:var(--t-lg);font-weight:700;color:var(--navy)">Agentic Worker</div><div id="aw-role-lbl" style="font-size:var(--t-sm);color:var(--mut);margin-top:2px">6 agents on bench</div></div></div>
       <div id="aw-agents-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px"></div>
     </div>
-
-    <!-- Lifecycle dot legend -->
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;padding:8px 12px;background:#F7FBFF;border-radius:8px;border:.5px solid var(--bd)">
       <div style="display:flex;align-items:center;gap:5px;font-size:var(--t-xs);color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#032D60"></div>Intake</div>
       <div style="display:flex;align-items:center;gap:5px;font-size:var(--t-xs);color:var(--mut)"><div style="width:9px;height:9px;border-radius:50%;background:#1565C0"></div>Discovery</div>
@@ -754,16 +598,12 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div style="font-size:var(--t-xs);color:var(--mut);font-style:italic;margin-left:6px">Click any leader agent or worker to expand</div>
     </div>
   </div>
-
-  <!-- TAB: AGENT BENCH -->
   <div id="hatm-tab-bench2" style="display:none">
     <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px">12 core agents &#183; click any to expand</div>
     <div class="lc-bar" style="margin-bottom:14px"><div class="lc-seg" style="background:#032D60">Intake</div><div class="lc-seg" style="background:#1565C0">Discovery</div><div class="lc-seg" style="background:#0A4A96;flex:1.8">Execution</div><div class="lc-seg" style="background:#0D9DDA;flex:1.5">Delivery</div><div class="lc-seg" style="background:#1B96FF;color:#032D60;flex:1.3">Growth</div></div>
     <div class="bench-grid" id="bench-grid2"></div>
     <div class="bench-detail" id="bench-detail2"></div>
   </div>
-
-  <!-- TAB: CENTRAL HUB -->
   <div id="hatm-tab-hub2" style="display:none">
     <div class="bb-hub"><div class="bb-hub-title">Central Skills &amp; Agent Hub</div><div class="bb-hub-sub">Central backbone &#183; Skills sync &#183; System integration &#183; Org-wide library</div><div class="bb-hub-principles"><span class="bb-principle">Central governance</span><span class="bb-principle">Federated build</span><span class="bb-principle">Agent-to-agent calling</span><span class="bb-principle">CRM integration</span><span class="bb-principle">One Tool Principle</span></div></div>
     <div class="bb-flows" style="margin-top:12px">
@@ -773,39 +613,16 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
       <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#9B7FE8">Agentic Worker autonomy</div><div class="bb-item">Customize agents for daily job to be done</div><div class="bb-item">Sub-agents built per team or domain</div><div class="bb-item">Push new skills back to central library</div><div class="bb-item">Adoption tracking measures impact, not activity</div></div>
     </div>
   </div>
-
-  <!-- TAB: HOW IT WORKS -->
   <div id="hatm-tab-how2" style="display:none">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--navy)"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">01</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Every person manages a bench</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Every Agentic Worker &#8212; regardless of role &#8212; maintains a personal team of specialized agents. Not one general-purpose AI. A curated bench with distinct jobs to be done.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--navy)"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">01</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Every person manages a bench</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Every Agentic Worker &#8212; regardless of role &#8212; maintains a personal team of specialized agents. Not one general-purpose AI. A curated bench.</div></div>
       <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--blue)"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">02</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Agents fire at the right moment</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">The Intake Agent fires at the start. The Live Assist Agent fires during the meeting. The Growth Agent fires post-delivery. Each agent is purpose-built for its moment.</div></div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--bright)"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">03</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Central hub &#8212; federated build</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Skills built by any Agentic Worker sync to the central hub. The center governs what&#8217;s approved; workers decide what&#8217;s on their bench. Agents can call into each other.</div></div>
-      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #E8A500"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">04</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Human connection preserved</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Agents handle triage, research, prep, and documentation. The human&#8217;s attention goes to what matters most: relationships, judgment, and high-stakes decisions.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid var(--bright)"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">03</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Central hub &#8212; federated build</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Skills built by any Agentic Worker sync to the central hub. The center governs approvals; workers decide what&#8217;s on their bench.</div></div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #E8A500"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">04</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Human connection preserved</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Agents handle triage, research, prep, and documentation. The human&#8217;s attention goes to relationships, judgment, and high-stakes decisions.</div></div>
       <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #9B7FE8"><div style="font-size:var(--t-3xl);font-weight:700;color:var(--light);font-family:monospace;line-height:1;margin-bottom:6px">05</div><div style="font-size:var(--t-md);font-weight:700;color:var(--navy);margin-bottom:5px">Outcomes tied to business results</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Agent adoption is measured against business outcomes &#8212; not raw AI token usage. The metric is work quality and velocity, not activity volume.</div></div>
       <div style="background:var(--navy);border-radius:10px;padding:16px 18px;border-top:3px solid #5DCAA5"><div style="font-size:var(--t-md);font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;font-style:italic">&#8220;When leadership makes building the standard rather than the exception, that shift happens fast.&#8221;</div><div style="font-size:var(--t-sm);color:#8CCFFE;line-height:1.5">That is not a culture initiative. That is a decision.</div></div>
     </div>
   </div>
-</div>
-
-<!-- BENCH -->
-<div id="p-bench" class="panel">
-  <div class="hero"><div><div class="hero-title">The Agent Bench</div><div class="hero-sub">12 core agents &#183; Click any to expand &#183; Organized by lifecycle stage</div></div></div>
-  <div class="lc-bar" style="margin-bottom:14px"><div class="lc-seg" style="background:#032D60">Intake</div><div class="lc-seg" style="background:#1565C0">Discovery</div><div class="lc-seg" style="background:#0A4A96;flex:1.8">Execution</div><div class="lc-seg" style="background:#0D9DDA;flex:1.5">Delivery</div><div class="lc-seg" style="background:#1B96FF;color:#032D60;flex:1.3">Growth</div></div>
-  <div class="bench-grid" id="bench-grid"></div>
-  <div class="bench-detail" id="bench-detail"></div>
-</div>
-
-<!-- BACKBONE -->
-<div id="p-backbone" class="panel">
-  <div class="hero"><div><div class="hero-title">Central Hub</div><div class="hero-sub">Governance without over-control &#183; Skills sync &#183; Org-wide library</div></div></div>
-  <div class="bb-hub"><div class="bb-hub-title">Central Skills &amp; Agent Hub</div><div class="bb-hub-sub">Central backbone &#183; Skills sync &#183; System integration &#183; Org-wide library</div><div class="bb-hub-principles"><span class="bb-principle">Central governance</span><span class="bb-principle">Federated build</span><span class="bb-principle">Agent-to-agent calling</span><span class="bb-principle">CRM integration</span><span class="bb-principle">One Tool Principle</span></div></div>
-  <div class="bb-flows">
-    <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#0D9DDA">Inputs to backbone</div><div class="bb-item">Agent outputs from every team bench</div><div class="bb-item">Skills built by any Agentic Worker</div><div class="bb-item">Outcome signals from completed engagements</div><div class="bb-item">Consumption &amp; usage patterns</div></div>
-    <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#1B96FF">Outputs from backbone</div><div class="bb-item">Approved agent library (pull-to-bench)</div><div class="bb-item">Skill updates synced org-wide</div><div class="bb-item">Work data pushed to core business systems</div><div class="bb-item">Org reporting &amp; adoption tracking feeds</div></div>
-    <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#EDBC3A">Design principles</div><div class="bb-item">Central governance, federated build</div><div class="bb-item">Agentic Workers own bench; center owns library</div><div class="bb-item">Agents can call into each other</div><div class="bb-item">One Tool Principle governs approvals</div></div>
-    <div class="bb-flow"><div class="bb-flow-title" style="--dot-color:#9B7FE8">Agentic Worker autonomy</div><div class="bb-item">Customize agents for daily job to be done</div><div class="bb-item">Sub-agents built per team or domain</div><div class="bb-item">Push new skills back to central library</div><div class="bb-item">Adoption tracking measures impact, not activity</div></div>
-  </div>
-  <div class="callout cb" style="margin-top:12px"><span class="c-ico">&#9670;</span><span><strong>Connection to AI Council:</strong> The Central Hub is governed by the AI Council. Approved tools, waitlisted, and rejected tools all route through the same governance pipeline &#8212; ensuring the One Tool Principle holds across every org and bench.</span></div>
 </div>
 
 <!-- OUTCOMES -->
@@ -817,193 +634,48 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <div class="kpi-card"><div class="kpi-top" style="background:#E8A500"></div><div class="kpi-in"><div class="kpi-m" style="color:#E8A500">NNAoV</div><div class="kpi-l">Net New Annual Order Value</div><div class="kpi-b">Protecting handoff quality and reducing rework preserves deals won in evaluation. Deals are lost after the win, not during it.</div></div></div>
     <div class="kpi-card"><div class="kpi-top" style="background:#7B5EA7"></div><div class="kpi-in"><div class="kpi-m" style="color:#7B5EA7">TTV</div><div class="kpi-l">Time to Value</div><div class="kpi-b">How fast we move from demo to PoC to customer adoption and expansion. Compressing this cycle is the clearest signal the strategy is working.</div></div></div>
   </div>
-
-  <!-- Connected GTM motion — connective tissue visual -->
   <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:14px">
     <div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:16px">Connected GTM motion &#8212; built on context and data, not a conversation</div>
-
-    <!-- Stage blocks with living connective tissue SVG between them -->
     <div style="display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr;gap:0;align-items:stretch;margin-bottom:14px">
-      <!-- SE -->
-      <div style="background:var(--navy);border-radius:10px;padding:14px 16px">
-        <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Pre-Sales</div>
-        <div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">SE</div>
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Architecture notes</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Objection log</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>PoC outcomes</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Integration flags</div>
-        </div>
-      </div>
-      <!-- Connector 1 -->
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px">
-        <div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--navy),#063A7A)"></div>
-        <div style="width:7px;height:7px;border-radius:50%;background:#0D9DDA;flex-shrink:0;box-shadow:0 0 0 3px rgba(13,157,218,.2)"></div>
-        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#063A7A,var(--navy))"></div>
-      </div>
-      <!-- FDE -->
-      <div style="background:#063A7A;border-radius:10px;padding:14px 16px">
-        <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Technical</div>
-        <div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">FDE</div>
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Implementation plan</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Config decisions</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Risk flags</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Training needs</div>
-        </div>
-      </div>
-      <!-- Connector 2 -->
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px">
-        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#063A7A,#2A1A70)"></div>
-        <div style="width:7px;height:7px;border-radius:50%;background:#7B5EA7;flex-shrink:0;box-shadow:0 0 0 3px rgba(123,94,167,.2)"></div>
-        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#2A1A70,#063A7A)"></div>
-      </div>
-      <!-- ProServ -->
-      <div style="background:#2A1A70;border-radius:10px;padding:14px 16px">
-        <div style="font-size:var(--t-xs);font-weight:700;color:#C5B4F8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Delivery</div>
-        <div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">ProServ</div>
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Delivery milestones</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Scope changes</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Stakeholder health</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Adoption signals</div>
-        </div>
-      </div>
-      <!-- Connector 3 -->
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px">
-        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#2A1A70,#1A4A3A)"></div>
-        <div style="width:7px;height:7px;border-radius:50%;background:#04C3B5;flex-shrink:0;box-shadow:0 0 0 3px rgba(4,195,181,.2)"></div>
-        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#1A4A3A,#2A1A70)"></div>
-      </div>
-      <!-- CS -->
-      <div style="background:#1A4A3A;border-radius:10px;padding:14px 16px">
-        <div style="font-size:var(--t-xs);font-weight:700;color:#6FDDAA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Post-Sales</div>
-        <div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">CS</div>
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Expansion signals</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Renewal risk</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Value realization</div>
-          <div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Health &amp; NPS data</div>
-        </div>
-      </div>
+      <div style="background:var(--navy);border-radius:10px;padding:14px 16px"><div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Pre-Sales</div><div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">SE</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Architecture notes</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Objection log</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>PoC outcomes</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Integration flags</div></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px"><div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--navy),#063A7A)"></div><div style="width:7px;height:7px;border-radius:50%;background:#0D9DDA;flex-shrink:0;box-shadow:0 0 0 3px rgba(13,157,218,.2)"></div><div style="width:1px;flex:1;background:linear-gradient(to bottom,#063A7A,var(--navy))"></div></div>
+      <div style="background:#063A7A;border-radius:10px;padding:14px 16px"><div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Technical</div><div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">FDE</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Implementation plan</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Config decisions</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Risk flags</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#0D9DDA;flex-shrink:0">&#8594;</span>Training needs</div></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px"><div style="width:1px;flex:1;background:linear-gradient(to bottom,#063A7A,#2A1A70)"></div><div style="width:7px;height:7px;border-radius:50%;background:#7B5EA7;flex-shrink:0;box-shadow:0 0 0 3px rgba(123,94,167,.2)"></div><div style="width:1px;flex:1;background:linear-gradient(to bottom,#2A1A70,#063A7A)"></div></div>
+      <div style="background:#2A1A70;border-radius:10px;padding:14px 16px"><div style="font-size:var(--t-xs);font-weight:700;color:#C5B4F8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Delivery</div><div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">ProServ</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Delivery milestones</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Scope changes</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Stakeholder health</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#9B7FE8;flex-shrink:0">&#8594;</span>Adoption signals</div></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px"><div style="width:1px;flex:1;background:linear-gradient(to bottom,#2A1A70,#1A4A3A)"></div><div style="width:7px;height:7px;border-radius:50%;background:#04C3B5;flex-shrink:0;box-shadow:0 0 0 3px rgba(4,195,181,.2)"></div><div style="width:1px;flex:1;background:linear-gradient(to bottom,#1A4A3A,#2A1A70)"></div></div>
+      <div style="background:#1A4A3A;border-radius:10px;padding:14px 16px"><div style="font-size:var(--t-xs);font-weight:700;color:#6FDDAA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Post-Sales</div><div style="font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:8px">CS</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Expansion signals</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Renewal risk</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Value realization</div><div style="font-size:var(--t-sm);color:rgba(255,255,255,.5);display:flex;gap:6px;align-items:baseline"><span style="color:#04C3B5;flex-shrink:0">&#8594;</span>Health &amp; NPS data</div></div></div>
     </div>
-
-    <!-- Feedback loop arc — the symbiotic element -->
     <div style="position:relative;height:28px;margin-bottom:12px">
       <svg viewBox="0 0 760 28" width="100%" xmlns="http://www.w3.org/2000/svg" style="display:block">
-        <defs>
-          <marker id="fb-arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L6,3 Z" fill="#04C3B5"/>
-          </marker>
-          <marker id="fb-arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
-            <path d="M0,0 L0,6 L6,3 Z" fill="#0D9DDA"/>
-          </marker>
-        </defs>
-        <!-- Forward flow line (top) -->
+        <defs><marker id="fb-arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 Z" fill="#04C3B5"/></marker><marker id="fb-arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M0,0 L0,6 L6,3 Z" fill="#0D9DDA"/></marker></defs>
         <path d="M30,10 Q380,2 730,10" stroke="#0D9DDA" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#fb-arr)"/>
-        <!-- Feedback loop line (bottom) -->
         <path d="M730,18 Q380,26 30,18" stroke="#04C3B5" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#fb-arr2)"/>
         <text x="370" y="9" font-family="-apple-system,sans-serif" font-size="8" fill="#0D9DDA" text-anchor="middle" font-weight="600">CONTEXT FLOWS FORWARD</text>
         <text x="370" y="27" font-family="-apple-system,sans-serif" font-size="8" fill="#04C3B5" text-anchor="middle" font-weight="600">EXPANSION SIGNALS FEED BACK</text>
       </svg>
     </div>
-
-    <!-- Agent-to-agent callout -->
     <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:8px;padding:12px 16px;display:flex;align-items:flex-start;gap:12px">
       <div style="width:32px;height:32px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#0D9DDA;font-size:var(--t-xl)">&#9654;</div>
-      <div>
-        <div style="font-size:var(--t-base);font-weight:700;color:var(--navy);margin-bottom:4px">Agents pass context to each other &#8212; the Agentic Worker doesn&#8217;t carry it manually</div>
-        <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Each role&#8217;s agents hand structured intelligence to the next role&#8217;s agents at every transition. The Handoff Agent packages the full engagement history &#8212; decisions, risks, stakeholder context &#8212; as a data object. What arrives at CS is the same complete picture that started at SE. Context compounds. Expansion signals feed back. Nothing is lost.</div>
-      </div>
+      <div><div style="font-size:var(--t-base);font-weight:700;color:var(--navy);margin-bottom:4px">Agents pass context to each other &#8212; the Agentic Worker doesn&#8217;t carry it manually</div><div style="font-size:var(--t-base);color:var(--mut);line-height:1.6">Each role&#8217;s agents hand structured intelligence to the next role&#8217;s agents at every transition. The Handoff Agent packages the full engagement history as a data object. Context compounds. Expansion signals feed back. Nothing is lost.</div></div>
     </div>
   </div>
-
   <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-left:3px solid var(--pur-bd)"><div style="font-size:var(--t-sm);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Talent &amp; Permission: The Multiplier</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div style="font-size:var(--t-md);color:var(--mut);line-height:1.75">Two levers: recruiting people who carry AI-native instincts, and unlocking the people already here. The second is the faster one. AI DNA does not have to be hired in &#8212; much of it already exists in the org, waiting for the expectation to change.</div><div style="border-left:.5px solid var(--bd);padding-left:14px;display:flex;flex-direction:column;justify-content:center"><div style="font-size:var(--t-lg);font-weight:600;color:var(--pur);line-height:1.5;font-style:italic;margin-bottom:6px">When leadership makes building the standard rather than the exception, that shift happens fast.</div><div style="font-size:var(--t-base);color:var(--mut);font-style:italic">That is not a culture initiative. That is a decision.</div></div></div></div>
 </div>
 
 <!-- ROADMAP -->
 <div id="p-roadmap" class="panel">
   <div class="hero"><div><div class="hero-title">Execution Roadmap</div><div class="hero-sub">Month-by-month &#183; Foundation to scale in 6 months &#183; Pilots already in motion</div></div></div>
-
-  <!-- Active now banner -->
   <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:11px 16px;margin-bottom:18px;display:flex;align-items:center;gap:10px">
     <div style="width:8px;height:8px;border-radius:50%;background:#E8A500;flex-shrink:0;animation:pulse 1.5s infinite"></div>
-    <div style="font-size:var(--t-md);color:#e8f4ff;line-height:1.5"><strong style="color:#E8A500">Pilots are already in motion.</strong> The roadmap below reflects the governance and enablement infrastructure being built around active work &#8212; not a prerequisite for starting.</div>
+    <div style="font-size:var(--t-md);color:#e8f4ff;line-height:1.5"><strong style="color:#E8A500">Pilots are already in motion.</strong> The roadmap below reflects the governance and enablement infrastructure being built around active work.</div>
   </div>
-
   <div class="tl-grid">
-    <!-- Month 1 -->
-    <div class="tl-col">
-      <div class="tl-hdr" style="background:var(--navy)">
-        <div class="tl-q" style="color:#8CCFFE">Month 1</div>
-        <div class="tl-name" style="color:#fff">Foundation</div>
-      </div>
-      <div class="tl-body" style="border-color:var(--bd)">
-        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">AI Council charter &amp; seats defined</div>
-        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">EVP Sponsor confirmed</div>
-        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Framework v2.3 ratified</div>
-        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Security baseline published</div>
-        <div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Tool registry seeded &amp; live</div>
-      </div>
-    </div>
-    <!-- Month 2 -->
-    <div class="tl-col">
-      <div class="tl-hdr" style="background:var(--navy2)">
-        <div class="tl-q" style="color:#8CCFFE">Month 2</div>
-        <div class="tl-name" style="color:#fff">Enablement</div>
-      </div>
-      <div class="tl-body" style="border-color:var(--bd)">
-        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">T1/T2/T3 framework launched</div>
-        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">HATM v1 deployed internally</div>
-        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Agent bench v1 org-wide</div>
-        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">CoE skills repo published</div>
-        <div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Slack channel architecture live</div>
-      </div>
-    </div>
-    <!-- Month 3 -->
-    <div class="tl-col">
-      <div class="tl-hdr" style="background:#0A3A5A">
-        <div class="tl-q" style="color:#8CCFFE">Month 3</div>
-        <div class="tl-name" style="color:#fff">Measurement</div>
-      </div>
-      <div class="tl-body" style="border-color:var(--bd)">
-        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">Leaderboard &amp; dashboards live</div>
-        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">First AWU report to leadership</div>
-        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">TTV baseline established</div>
-        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">Token optimization flags active</div>
-        <div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">Council cadence running</div>
-      </div>
-    </div>
-    <!-- Month 4-5 -->
-    <div class="tl-col">
-      <div class="tl-hdr" style="background:#1A0A50">
-        <div class="tl-q" style="color:#C5B4F8">Months 4&#8211;5</div>
-        <div class="tl-name" style="color:#fff">Scale</div>
-      </div>
-      <div class="tl-body" style="border-color:var(--pur-bd)">
-        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">T3 teach-backs active org-wide</div>
-        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">HATM v2 function extensions</div>
-        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">First exec QBR cycle complete</div>
-        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">CCR &amp; TTV impact visible</div>
-        <div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur);font-style:italic;opacity:.7">Future pilot cohort &#8212; TBD</div>
-      </div>
-    </div>
-    <!-- Month 6 -->
-    <div class="tl-col">
-      <div class="tl-hdr" style="background:#001A10">
-        <div class="tl-q" style="color:#6FDDAA">Month 6</div>
-        <div class="tl-name" style="color:#fff">Optimize</div>
-      </div>
-      <div class="tl-body" style="border-color:var(--grn-bd)">
-        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Framework v3.0 ratified</div>
-        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Full org T1 certification</div>
-        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">AI impact on CCR/NNAoV reported</div>
-        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">FY28 tool budget to EVP</div>
-        <div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Council annual review done</div>
-      </div>
-    </div>
+    <div class="tl-col"><div class="tl-hdr" style="background:var(--navy)"><div class="tl-q" style="color:#8CCFFE">Month 1</div><div class="tl-name" style="color:#fff">Foundation</div></div><div class="tl-body" style="border-color:var(--bd)"><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">AI Council charter &amp; seats defined</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">EVP Sponsor confirmed</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Framework v2.3 ratified</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Security baseline published</div><div class="tl-item" style="background:var(--light);border-left-color:var(--blue);color:var(--navy)">Tool registry seeded &amp; live</div></div></div>
+    <div class="tl-col"><div class="tl-hdr" style="background:var(--navy2)"><div class="tl-q" style="color:#8CCFFE">Month 2</div><div class="tl-name" style="color:#fff">Enablement</div></div><div class="tl-body" style="border-color:var(--bd)"><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">T1/T2/T3 framework launched</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">HATM v1 deployed internally</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Agent bench v1 org-wide</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">CoE skills repo published</div><div class="tl-item" style="background:#EEF6FF;border-left-color:var(--bright);color:var(--navy)">Slack channel architecture live</div></div></div>
+    <div class="tl-col"><div class="tl-hdr" style="background:#0A3A5A"><div class="tl-q" style="color:#8CCFFE">Month 3</div><div class="tl-name" style="color:#fff">Measurement</div></div><div class="tl-body" style="border-color:var(--bd)"><div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">Leaderboard &amp; dashboards live</div><div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">First AWU report to leadership</div><div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">TTV baseline established</div><div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">Token optimization flags active</div><div class="tl-item" style="background:#E8F4FF;border-left-color:#0D9DDA;color:var(--navy)">Council cadence running</div></div></div>
+    <div class="tl-col"><div class="tl-hdr" style="background:#1A0A50"><div class="tl-q" style="color:#C5B4F8">Months 4&#8211;5</div><div class="tl-name" style="color:#fff">Scale</div></div><div class="tl-body" style="border-color:var(--pur-bd)"><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">T3 teach-backs active org-wide</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">HATM v2 function extensions</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">First exec QBR cycle complete</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur)">CCR &amp; TTV impact visible</div><div class="tl-item" style="background:var(--pur-bg);border-left-color:var(--pur-bd);color:var(--pur);font-style:italic;opacity:.7">Future pilot cohort &#8212; TBD</div></div></div>
+    <div class="tl-col"><div class="tl-hdr" style="background:#001A10"><div class="tl-q" style="color:#6FDDAA">Month 6</div><div class="tl-name" style="color:#fff">Optimize</div></div><div class="tl-body" style="border-color:var(--grn-bd)"><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Framework v3.0 ratified</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Full org T1 certification</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">AI impact on CCR/NNAoV reported</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">FY28 tool budget to EVP</div><div class="tl-item" style="background:var(--grn-bg);border-left-color:var(--grn-bd);color:#003A1A">Council annual review done</div></div></div>
   </div>
-
   <style>@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}</style>
 </div>
 
@@ -1011,12 +683,203 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 <div id="p-comms" class="panel">
   <div class="hero"><div><div class="hero-title">Comms &amp; Slack Architecture</div><div class="hero-sub">One channel per audience &#183; Eight channels &#183; Council owns the architecture</div></div></div>
   <div class="slack-grid">
-    <div class="slack-card"><div class="slack-tier">Council / Executive Tier</div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-council</div><div class="ch-desc">Private. Decision records, pilot outcomes, framework updates, escalations. Council seats only.</div><div class="ch-pills"><span class="ch-pill">AI Council</span><span class="ch-pill">Security</span><span class="ch-pill">Legal</span><span class="ch-pill">EVP+</span></div></div></div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-council-pilots</div><div class="ch-desc">Active pilot coordination. Gate status, vendor Q&A threads, scoring updates.</div><div class="ch-pills"><span class="ch-pill">AI Council</span><span class="ch-pill">Security</span><span class="ch-pill">Procurement</span></div></div></div></div>
+    <div class="slack-card"><div class="slack-tier">Council / Executive Tier</div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-council</div><div class="ch-desc">Private. Decision records, pilot outcomes, framework updates, escalations. Council seats only.</div><div class="ch-pills"><span class="ch-pill">AI Council</span><span class="ch-pill">Security</span><span class="ch-pill">Legal</span><span class="ch-pill">EVP+</span></div></div></div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-council-pilots</div><div class="ch-desc">Active pilot coordination. Gate status, vendor Q&amp;A threads, scoring updates.</div><div class="ch-pills"><span class="ch-pill">AI Council</span><span class="ch-pill">Security</span><span class="ch-pill">Procurement</span></div></div></div></div>
     <div class="slack-card"><div class="slack-tier">Practitioner Tier (SE, FDE, PS, CS)</div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-tools-practitioners</div><div class="ch-desc">Primary community. Tool tips, wins, prompt sharing, agent bench updates, leaderboard shoutouts.</div><div class="ch-pills"><span class="ch-pill">SE</span><span class="ch-pill">FDE</span><span class="ch-pill">ProServ</span><span class="ch-pill">CS</span></div></div></div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-enablement</div><div class="ch-desc">T1/T2/T3 updates, AWU announcements, CoE skill releases, teach-back scheduling, HATM updates.</div><div class="ch-pills"><span class="ch-pill">All Orgs</span><span class="ch-pill">Enablement</span></div></div></div></div>
     <div class="slack-card"><div class="slack-tier">Governance Notifications</div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-governance-updates</div><div class="ch-desc">Read-only broadcast. Framework releases, policy changes, mandatory security updates.</div><div class="ch-pills"><span class="ch-pill">All Solutions Staff</span></div></div></div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-tool-intake</div><div class="ch-desc">Workflow-triggered intake submissions. Auto-routes to Council triage. No discussion.</div><div class="ch-pills"><span class="ch-pill">Council Triage</span><span class="ch-pill">Requestors</span></div></div></div></div>
     <div class="slack-card"><div class="slack-tier">Analytics &amp; Reporting</div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-leaderboard</div><div class="ch-desc">Weekly digest. Tier promotions, efficiency flags, top AWU performers, trend alerts, agent adoption stats.</div><div class="ch-pills"><span class="ch-pill">All Orgs</span><span class="ch-pill">Leaders</span></div></div></div><div class="ch"><div class="ch-hash">#</div><div><div class="ch-name">ai-reporting-ops</div><div class="ch-desc">Private. Analytics working channel. Dashboards, pipeline issues, exec report prep.</div><div class="ch-pills"><span class="ch-pill">Analytics</span><span class="ch-pill">AI Council</span></div></div></div></div>
   </div>
   <div class="callout cg" style="margin-top:12px"><span class="c-ico">&#9670;</span><span><strong>Comms principle:</strong> Every channel has one clear owner, one defined audience, and one content type. If a message could go in two channels, it belongs in the higher governance tier and gets summarized downward.</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PORTFOLIO ECONOMICS ENGINE
+══════════════════════════════════════════════════════════════ -->
+<div id="p-portfolio" class="panel">
+  <div class="hero">
+    <div>
+      <div class="hero-title">Portfolio Economics Engine</div>
+      <div class="hero-sub">Agentic Innovation Decision System &middot; CoE + Professional Services &middot; FY27</div>
+    </div>
+    <div class="hero-kpis">
+      <div class="hk" style="border-top-color:#0D9DDA"><div class="hk-v">6</div><div class="hk-l">Agents</div></div>
+      <div class="hk" style="border-top-color:#E8A500"><div class="hk-v">4</div><div class="hk-l">Quadrants</div></div>
+      <div class="hk" style="border-top-color:#5DCAA5"><div class="hk-v">RICE</div><div class="hk-l">Scoring</div></div>
+    </div>
+  </div>
+
+  <div class="callout cb" style="margin-bottom:16px">
+    <span class="c-ico">&#9636;</span>
+    <div><strong>Why this exists:</strong> Innovation demand is accelerating but decision discipline has not scaled with it. This engine standardizes how ideas are submitted, evaluated, prioritized, and assigned. Every idea gets evaluated the same way. Every decision becomes explainable. Every investment aligns to measurable business outcomes.</div>
+  </div>
+
+  <div class="pe-tabs">
+    <button class="pe-tab active-tab" onclick="showPE('overview',this)">Overview</button>
+    <button class="pe-tab" onclick="showPE('lifecycle',this)">Engine Lifecycle</button>
+    <button class="pe-tab" onclick="showPE('agents',this)">Agent Roles</button>
+    <button class="pe-tab" onclick="showPE('scoring',this)">Scoring</button>
+    <button class="pe-tab" onclick="showPE('bvb',this)">Build vs Buy</button>
+    <button class="pe-tab" onclick="showPE('quadrant',this)">Priority Quadrant</button>
+    <button class="pe-tab" onclick="showPE('components',this)">What to Build</button>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div id="pe-overview" class="pe-section active-pe">
+    <div class="pe-stat-row">
+      <div class="pe-stat"><div class="pe-stat-v" style="color:#0D9DDA">1</div><div class="pe-stat-l">Intake Funnel</div></div>
+      <div class="pe-stat"><div class="pe-stat-v" style="color:#7B5EA7">RICE</div><div class="pe-stat-l">Scoring Method</div></div>
+      <div class="pe-stat"><div class="pe-stat-v" style="color:#E8A24A">4</div><div class="pe-stat-l">Priority Tiers</div></div>
+      <div class="pe-stat"><div class="pe-stat-v" style="color:#5DCAA5">6</div><div class="pe-stat-l">Specialized Agents</div></div>
+      <div class="pe-stat"><div class="pe-stat-v" style="color:#C23B22">TCO</div><div class="pe-stat-l">Cost Intelligence</div></div>
+    </div>
+    <div class="grid2" style="margin-bottom:14px">
+      <div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;margin-bottom:9px">The problem it solves</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:var(--t-base);padding:7px 11px;background:#FFF0EE;border-left:3px solid #FACACB;border-radius:0 6px 6px 0;color:#7A1A10;line-height:1.4">Requests evaluated inconsistently &#8212; no shared criteria</div>
+          <div style="font-size:var(--t-base);padding:7px 11px;background:#FFF0EE;border-left:3px solid #FACACB;border-radius:0 6px 6px 0;color:#7A1A10;line-height:1.4">Build vs Buy decisions vary widely across teams</div>
+          <div style="font-size:var(--t-base);padding:7px 11px;background:#FFF0EE;border-left:3px solid #FACACB;border-radius:0 6px 6px 0;color:#7A1A10;line-height:1.4">Total cost chronically underestimated</div>
+          <div style="font-size:var(--t-base);padding:7px 11px;background:#FFF0EE;border-left:3px solid #FACACB;border-radius:0 6px 6px 0;color:#7A1A10;line-height:1.4">Work prioritized reactively, not strategically</div>
+          <div style="font-size:var(--t-base);padding:7px 11px;background:#FFF0EE;border-left:3px solid #FACACB;border-radius:0 6px 6px 0;color:#7A1A10;line-height:1.4">Leadership lacks consistent portfolio visibility</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;margin-bottom:9px">What the engine delivers</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:var(--t-base);padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 6px 6px 0;color:#0A2A1A;line-height:1.4">Every idea gets the same structured evaluation</div>
+          <div style="font-size:var(--t-base);padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 6px 6px 0;color:#0A2A1A;line-height:1.4">Standardized RICE score + quadrant placement</div>
+          <div style="font-size:var(--t-base);padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 6px 6px 0;color:#0A2A1A;line-height:1.4">TCO calculated before any investment decision</div>
+          <div style="font-size:var(--t-base);padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 6px 6px 0;color:#0A2A1A;line-height:1.4">Roadmap assignment + team routing automated</div>
+          <div style="font-size:var(--t-base);padding:7px 11px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 6px 6px 0;color:#0A2A1A;line-height:1.4">Portfolio dashboard updated continuously</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--navy);border-radius:10px;padding:14px 18px">
+      <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Each initiative produces four outputs</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:9px">
+        <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:12px;text-align:center"><div style="font-size:var(--t-2xl);font-weight:700;color:#0D9DDA;margin-bottom:4px">1</div><div style="font-size:var(--t-sm);font-weight:700;color:#fff;margin-bottom:3px">Investment Decision</div><div style="font-size:var(--t-xs);color:#8CCFFE">Do we fund this?</div></div>
+        <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:12px;text-align:center"><div style="font-size:var(--t-2xl);font-weight:700;color:#9B7FE8;margin-bottom:4px">2</div><div style="font-size:var(--t-sm);font-weight:700;color:#fff;margin-bottom:3px">Priority Placement</div><div style="font-size:var(--t-xs);color:#8CCFFE">When does it happen?</div></div>
+        <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:12px;text-align:center"><div style="font-size:var(--t-2xl);font-weight:700;color:#5DCAA5;margin-bottom:4px">3</div><div style="font-size:var(--t-sm);font-weight:700;color:#fff;margin-bottom:3px">Team Assignment</div><div style="font-size:var(--t-xs);color:#8CCFFE">Who builds it?</div></div>
+        <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:12px;text-align:center"><div style="font-size:var(--t-2xl);font-weight:700;color:#E8A24A;margin-bottom:4px">4</div><div style="font-size:var(--t-sm);font-weight:700;color:#fff;margin-bottom:3px">Expected Outcome</div><div style="font-size:var(--t-xs);color:#8CCFFE">What value will it produce?</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIFECYCLE -->
+  <div id="pe-lifecycle" class="pe-section">
+    <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6;margin-bottom:14px">Every idea moves through the same standardized sequence. The engine operates as a continuous, closed-loop system. Click any stage to learn more.</div>
+    <div class="lc-flow" id="pe-lc-flow"></div>
+    <div class="lc-detail" id="pe-lc-detail"></div>
+    <div style="margin-top:14px">
+      <div style="font-size:var(--t-xs);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Design principles</div>
+      <div class="grid3">
+        <div class="callout cb" style="margin-top:0"><span class="c-ico">&#9670;</span><div><strong>Consistent:</strong> Same evaluation criteria applied to every submission regardless of who submitted it.</div></div>
+        <div class="callout cg" style="margin-top:0"><span class="c-ico">&#10003;</span><div><strong>Transparent:</strong> Every score, placement, and decision is documented and traceable. No black boxes.</div></div>
+        <div class="callout ca" style="margin-top:0"><span class="c-ico">&#9432;</span><div><strong>Measurable:</strong> Outcome tracking built in from the start. Value realization is a required stage, not an afterthought.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGENTS -->
+  <div id="pe-agents" class="pe-section">
+    <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6;margin-bottom:14px">Six specialized agents operate the engine. Humans retain final decision authority. Click any agent to expand.</div>
+    <div class="agent-grid" id="pe-agent-grid"></div>
+    <div class="ag-detail" id="pe-ag-detail"></div>
+    <div class="callout cb" style="margin-top:0"><span class="c-ico">&#9432;</span><div><strong>Human in the loop:</strong> The Human Approval stage is mandatory between Decision and Execution. No agent bypasses this gate.</div></div>
+  </div>
+
+  <!-- SCORING -->
+  <div id="pe-scoring" class="pe-section">
+    <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6;margin-bottom:14px">Every submission is scored using RICE &#8212; a standardized framework that converts subjective estimates into comparable, rankable scores. This removes political prioritization and creates a defensible paper trail.</div>
+    <div class="rice-row">
+      <div class="rice-card" style="border-top-color:#0D9DDA"><div class="rice-letter" style="color:#0D9DDA">R</div><div class="rice-word">Reach</div><div class="rice-desc">How many people or workflows does this impact in a given period? Larger reach = higher score.</div></div>
+      <div class="rice-card" style="border-top-color:#9B7FE8"><div class="rice-letter" style="color:#9B7FE8">I</div><div class="rice-word">Impact</div><div class="rice-desc">How significantly does this move the needle? Scored 0.25 (minimal) to 3 (massive) against business outcomes.</div></div>
+      <div class="rice-card" style="border-top-color:#5DCAA5"><div class="rice-letter" style="color:#5DCAA5">C</div><div class="rice-word">Confidence</div><div class="rice-desc">How certain are we in our estimates? Expressed as a percentage. Low confidence discounts the score automatically.</div></div>
+      <div class="rice-card" style="border-top-color:#E8A24A"><div class="rice-letter" style="color:#E8A24A">E</div><div class="rice-word">Effort</div><div class="rice-desc">How many person-months does this require? Effort sits in the denominator &#8212; high effort lowers the score.</div></div>
+    </div>
+    <div style="background:var(--navy);border-radius:10px;padding:16px 20px;margin-bottom:14px">
+      <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">RICE Formula</div>
+      <div style="font-size:var(--t-xl);font-weight:700;color:#fff;font-family:'Courier New',monospace;text-align:center;padding:14px;background:rgba(255,255,255,.05);border-radius:8px">Score = (Reach &times; Impact &times; Confidence) / Effort</div>
+      <div style="font-size:var(--t-sm);color:#8CCFFE;margin-top:8px;text-align:center">Higher score = higher priority. Scores are relative &#8212; rank ideas against each other, not against a fixed threshold.</div>
+    </div>
+    <div class="grid2">
+      <div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Business Value Dimensions</div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:var(--t-base);padding:6px 10px;background:var(--light);border-left:2px solid var(--blue);border-radius:0 5px 5px 0;color:var(--navy)">Revenue impact (CCR, NNAOV, pipeline)</div>
+          <div style="font-size:var(--t-base);padding:6px 10px;background:var(--light);border-left:2px solid var(--blue);border-radius:0 5px 5px 0;color:var(--navy)">Customer success and retention signals</div>
+          <div style="font-size:var(--t-base);padding:6px 10px;background:var(--light);border-left:2px solid var(--blue);border-radius:0 5px 5px 0;color:var(--navy)">Delivery velocity improvement</div>
+          <div style="font-size:var(--t-base);padding:6px 10px;background:var(--light);border-left:2px solid var(--blue);border-radius:0 5px 5px 0;color:var(--navy)">Cost reduction or avoidance</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:var(--t-xs);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Technical Value Dimensions</div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:var(--t-base);padding:6px 10px;background:var(--pur-bg);border-left:2px solid var(--pur-bd);border-radius:0 5px 5px 0;color:var(--pur)">Platform reusability and scalability</div>
+          <div style="font-size:var(--t-base);padding:6px 10px;background:var(--pur-bg);border-left:2px solid var(--pur-bd);border-radius:0 5px 5px 0;color:var(--pur)">Infrastructure or architectural value</div>
+          <div style="font-size:var(--t-base);padding:6px 10px;background:var(--pur-bg);border-left:2px solid var(--pur-bd);border-radius:0 5px 5px 0;color:var(--pur)">Reduction of technical debt</div>
+          <div style="font-size:var(--t-base);padding:6px 10px;background:var(--pur-bg);border-left:2px solid var(--pur-bd);border-radius:0 5px 5px 0;color:var(--pur)">Enables future capability development</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUILD VS BUY -->
+  <div id="pe-bvb" class="pe-section">
+    <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6;margin-bottom:14px">Every idea that passes RICE scoring gets a Build vs Buy evaluation before any investment decision. The Cost Intelligence Agent runs all three options and estimates TCO for the full lifecycle &#8212; not just year one.</div>
+    <div class="bvb-grid">
+      <div class="bvb-card"><div class="bvb-badge" style="background:var(--light);color:var(--dark)">Build</div><div class="bvb-title">Custom Development</div><div class="bvb-item">Full control over design and roadmap</div><div class="bvb-item">Higher upfront effort and time-to-value</div><div class="bvb-item">Best fit for differentiated core capabilities</div><div class="bvb-item">Ongoing maintenance burden is internal</div></div>
+      <div class="bvb-card"><div class="bvb-badge" style="background:var(--grn-bg);color:var(--grn)">Buy</div><div class="bvb-title">Vendor / Off-the-Shelf</div><div class="bvb-item">Fast time-to-value, proven functionality</div><div class="bvb-item">License and integration costs are ongoing</div><div class="bvb-item">Best fit for non-differentiating capabilities</div><div class="bvb-item">Vendor dependency and roadmap risk</div></div>
+      <div class="bvb-card"><div class="bvb-badge" style="background:var(--amb-bg);color:var(--amb)">Hybrid</div><div class="bvb-title">Platform + Custom Layer</div><div class="bvb-item">Buy the platform, build the differentiation</div><div class="bvb-item">Balances speed with organizational fit</div><div class="bvb-item">Most common outcome for agentic builds</div><div class="bvb-item">Requires clear boundary between layers</div></div>
+    </div>
+    <div style="background:var(--navy);border-radius:10px;padding:14px 18px;margin-bottom:14px">
+      <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">TCO Calculation &#8212; What gets estimated</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:7px">
+        <div style="background:rgba(255,255,255,.07);border-radius:7px;padding:10px;text-align:center"><div style="font-size:var(--t-sm);font-weight:700;color:#fff;margin-bottom:2px">License</div><div style="font-size:var(--t-xs);color:#8CCFFE">Vendor fees &amp; seat costs</div></div>
+        <div style="background:rgba(255,255,255,.07);border-radius:7px;padding:10px;text-align:center"><div style="font-size:var(--t-sm);font-weight:700;color:#fff;margin-bottom:2px">Integration</div><div style="font-size:var(--t-xs);color:#8CCFFE">Setup &amp; API costs</div></div>
+        <div style="background:rgba(255,255,255,.07);border-radius:7px;padding:10px;text-align:center"><div style="font-size:var(--t-sm);font-weight:700;color:#fff;margin-bottom:2px">Maintenance</div><div style="font-size:var(--t-xs);color:#8CCFFE">Ongoing upkeep</div></div>
+        <div style="background:rgba(255,255,255,.07);border-radius:7px;padding:10px;text-align:center"><div style="font-size:var(--t-sm);font-weight:700;color:#fff;margin-bottom:2px">Support</div><div style="font-size:var(--t-xs);color:#8CCFFE">Help desk &amp; SLAs</div></div>
+        <div style="background:rgba(255,255,255,.07);border-radius:7px;padding:10px;text-align:center"><div style="font-size:var(--t-sm);font-weight:700;color:#fff;margin-bottom:2px">Infrastructure</div><div style="font-size:var(--t-xs);color:#8CCFFE">Compute &amp; cloud</div></div>
+      </div>
+    </div>
+    <div class="callout ca" style="margin-top:0"><span class="c-ico">&#9888;</span><div><strong>Common failure mode:</strong> Teams evaluate only year-one cost. The TCO module forces a full lifecycle estimate including maintenance burden and sunset costs &#8212; this frequently changes the Build vs Buy recommendation.</div></div>
+  </div>
+
+  <!-- PRIORITY QUADRANT -->
+  <div id="pe-quadrant" class="pe-section">
+    <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6;margin-bottom:12px">After scoring, every initiative is placed into one of four quadrants based on Business Value vs Technical Value. Placement drives team assignment and roadmap position. Click any quadrant to explore.</div>
+    <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:2px;margin-bottom:4px">
+      <div></div>
+      <div style="text-align:center;font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;padding:3px">Low Technical Value</div>
+      <div style="text-align:center;font-size:var(--t-xs);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;padding:3px">High Technical Value</div>
+    </div>
+    <div class="quad-grid">
+      <div class="quad-axis-lbl" style="grid-row:span 2"><div class="quad-axis-txt">High Business Value <br>↑<br>Low Business Value</div></div>
+      <div class="quad-cell" style="background:#E1F5EE" onclick="selQuad(0,this)"><div class="quad-lbl" style="color:var(--grn)">Business Accelerators</div><div class="quad-title" style="color:#0A2A1A">Fast wins. Visible impact.</div><div class="quad-team" style="color:var(--grn)">&#8594; Scrappy Team</div><div class="quad-ex" style="color:#2A5A40">Workflow auto. &bull; Reporting auto. &bull; Manual task elimination &bull; Team copilots</div></div>
+      <div class="quad-cell" style="background:#EDE9FF" onclick="selQuad(1,this)"><div class="quad-lbl" style="color:var(--pur)">Strategic Transformation</div><div class="quad-title" style="color:#1A0A50">Your biggest bets.</div><div class="quad-team" style="color:var(--pur)">&#8594; Tier 1 Core Team</div><div class="quad-ex" style="color:#3A1A80">Enterprise agent platforms &bull; Workflow orchestration &bull; Knowledge graph systems &bull; Core integrations</div></div>
+      <div class="quad-cell" style="background:#FFF4D6" onclick="selQuad(2,this)"><div class="quad-lbl" style="color:var(--amb)">Low Priority / Experimental</div><div class="quad-title" style="color:#3A1A00">Park or reject.</div><div class="quad-team" style="color:var(--amb)">&#8594; Backlog / Declined</div><div class="quad-ex" style="color:#5A2D00">Low-impact automation &bull; Niche requests &bull; Redundant tools &bull; Experimental prototypes</div></div>
+      <div class="quad-cell" style="background:#E4F4FF" onclick="selQuad(3,this)"><div class="quad-lbl" style="color:var(--navy)">Foundational Capabilities</div><div class="quad-title" style="color:#032D60">Often overlooked. Critical.</div><div class="quad-team" style="color:var(--blue)">&#8594; Foundation Phase</div><div class="quad-ex" style="color:#1A4A80">Shared APIs &bull; Data pipelines &bull; Integration layers &bull; Platform architecture</div></div>
+    </div>
+    <div class="quad-detail" id="pe-quad-detail"></div>
+    <div class="callout ca" style="margin-top:4px"><span class="c-ico">&#9888;</span><div><strong>Foundational work is frequently undervalued</strong> &#8212; until it is framed correctly. The quadrant gives leadership a visual tool to defend infrastructure investment that does not have an obvious near-term business ROI.</div></div>
+  </div>
+
+  <!-- WHAT TO BUILD -->
+  <div id="pe-components" class="pe-section">
+    <div style="font-size:var(--t-base);color:var(--mut);line-height:1.6;margin-bottom:14px">Four core technical components need to be built to make the engine operational. Each is purpose-built and feeds the next in the lifecycle.</div>
+    <div class="comp-grid">
+      <div class="comp-card"><div class="comp-num" style="background:#0D9DDA">1</div><div class="comp-title">Intake Interface</div><div style="font-size:var(--t-xs);color:var(--mut);margin-bottom:8px">Form-based submission system. Human submits idea, agent standardizes it.</div><div class="comp-item">Reads submissions and extracts required fields</div><div class="comp-item">Flags missing or ambiguous information</div><div class="comp-item">Suggests classifications based on content</div><div class="comp-item">Removes inconsistent language before scoring</div></div>
+      <div class="comp-card"><div class="comp-num" style="background:#9B7FE8">2</div><div class="comp-title">Scoring Engine</div><div style="font-size:var(--t-xs);color:var(--mut);margin-bottom:8px">Rules-based evaluation system. Applies RICE and value calculations.</div><div class="comp-item">Applies RICE scoring formula consistently</div><div class="comp-item">Calculates Business Value dimension score</div><div class="comp-item">Calculates Technical Value dimension score</div><div class="comp-item">Outputs quadrant placement and priority rank</div></div>
+      <div class="comp-card"><div class="comp-num" style="background:#E8A24A">3</div><div class="comp-title">Cost Intelligence Module</div><div style="font-size:var(--t-xs);color:var(--mut);margin-bottom:8px">Handles Build vs Buy evaluation and full TCO calculation.</div><div class="comp-item">Evaluates Build, Buy, and Hybrid options</div><div class="comp-item">Estimates cost, effort, and time-to-value</div><div class="comp-item">Calculates full lifecycle TCO</div><div class="comp-item">Flags maintenance burden and sunset cost</div></div>
+      <div class="comp-card"><div class="comp-num" style="background:#5DCAA5">4</div><div class="comp-title">Portfolio Dashboard</div><div style="font-size:var(--t-xs);color:var(--mut);margin-bottom:8px">Automatically maintained view of the full innovation portfolio.</div><div class="comp-item">Live quadrant view of all active initiatives</div><div class="comp-item">Roadmap placement and timeline view</div><div class="comp-item">Team assignment tracking (Tier 1 / Scrappy)</div><div class="comp-item">Duplication detection across submissions</div></div>
+    </div>
+    <div style="background:var(--navy);border-radius:10px;padding:16px 20px">
+      <div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">What this is NOT</div>
+      <div class="grid2">
+        <div><div style="font-size:var(--t-xs);font-weight:700;color:#C23B22;margin-bottom:6px">Not this</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:var(--t-base);padding:6px 10px;background:rgba(194,59,34,.1);border-left:2px solid #C23B22;border-radius:0 5px 5px 0;color:#FFC5B8">Bureaucracy that slows things down</div><div style="font-size:var(--t-base);padding:6px 10px;background:rgba(194,59,34,.1);border-left:2px solid #C23B22;border-radius:0 5px 5px 0;color:#FFC5B8">Gatekeeping that blocks ideas</div><div style="font-size:var(--t-base);padding:6px 10px;background:rgba(194,59,34,.1);border-left:2px solid #C23B22;border-radius:0 5px 5px 0;color:#FFC5B8">A slow approval committee</div></div></div>
+        <div><div style="font-size:var(--t-xs);font-weight:700;color:#5DCAA5;margin-bottom:6px">This</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:var(--t-base);padding:6px 10px;background:rgba(93,202,165,.1);border-left:2px solid #5DCAA5;border-radius:0 5px 5px 0;color:#A8EDD4">A prioritization accelerator</div><div style="font-size:var(--t-base);padding:6px 10px;background:rgba(93,202,165,.1);border-left:2px solid #5DCAA5;border-radius:0 5px 5px 0;color:#A8EDD4">Transparent, repeatable, defensible decisions</div><div style="font-size:var(--t-base);padding:6px 10px;background:rgba(93,202,165,.1);border-left:2px solid #5DCAA5;border-radius:0 5px 5px 0;color:#A8EDD4">Intentional innovation capacity</div></div></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </main>
@@ -1066,7 +929,9 @@ function toggleFn(i,hdr){
 }
 
 function buildBench(){
-  document.getElementById('bench-grid').innerHTML=AGENTS.map(a=>{
+  const grid=document.getElementById('bench-grid');
+  if(!grid)return;
+  grid.innerHTML=AGENTS.map(a=>{
     const c=LC[a.lcKey];
     return '<div class="bench-card'+(selAgent===a.id?' sel':'')+'" style="--card-accent:'+c+'" onclick="selectAgent(\''+a.id+'\')">'
       +'<div class="bc-top"><div class="bc-icon" style="background:'+c+'20;color:'+c+';font-size:var(--t-xs);font-weight:700;font-family:monospace">'+a.icon+'</div><div><div class="bc-name">'+a.name+'</div><div class="bc-lc" style="color:'+c+'">'+a.lc+'</div></div></div>'
@@ -1088,10 +953,10 @@ function selectAgent(id){
 }
 
 const pillarsData=[
-  {color:'#0D9DDA',title:'Signal Intake & Closed-Loop Steering',sub:'One loop. From first signal to governance decision.',vision:'Every tool demand signal flows into a lightweight submission process fast enough that people actually use it. The same system that captures the signal closes the loop: adoption data flows back in, tools that deliver get investment, tools that don\'t get retired.',methods:[{t:'Lightweight signal submission',b:'Slack-native intake. Submitting a signal feels like a message, not a procurement request. Every tool maps to a job to be done, by role.'},{t:'Three-lane launch tracks',b:'Lane 1 (internal/demo): no approval, 48hr ack. Lane 2 (customer, early adopter): 5-day SLA. Lane 3 (customer, broad scale): full approval cycle.'},{t:'Closed-loop governance pulse',b:'Standing CoE cadence. Adoption signals, escalations, and tool retirement reviewed on schedule. Tools gaining adoption get investment. Tools not delivering get retired.'}],measures:['Signal volume by source: field / customer / vendor','Avg time-to-approval per lane vs. SLA','Lane 1 to Lane 2 conversion rate','Tools retired vs. added per quarter']},
-  {color:'#7B5EA7',title:'Agentic Tools Enablement Framework',sub:'From tool instruction to builder fluency.',vision:'Enablement happens by doing, not by completing a module. This is also a change management program. Participation is not optional, it is the expectation. People who are ready to build will be given room to lead.',methods:[{t:'Expose to Experiment to Operationalize',b:'Three-stage model by role. Expose: introduction. Experiment: guided use with required output. Operationalize: embedded in workflow, skill published to CoE library.'},{t:'Builder fluency benchmarks by role',b:'Fluency defined for SE, FDE, ProServ, and CS. Measured by demonstrated output, not training completion. Time-to-proficiency tracked as a core metric.'},{t:'Change management and resource rebalancing',b:'Building is the expectation. Two levers: recruiting AI-native people, and unlocking those already here. That shift is a leadership decision.'}],measures:['Time-to-proficiency by role (target: <30 days)','Teach-backs completed per quarter','Skills published to CoE library (cumulative)','AWU velocity attributed to enablement cohorts']},
-  {color:'#04C3B5',title:'Connected GTM Handoffs',sub:'SE to FDE to ProServ to CS. Every handoff is a data event.',vision:'When tools become connective tissue across the GTM motion, context stops getting lost. Each handoff carries structured, role-specific intelligence forward, not summaries, not PDFs. Customer context compounds across the lifecycle.',methods:[{t:'SE to FDE: technical qualification handoff',b:'SE passes architecture notes, objections surfaced, PoC outcomes, demo assets, integration flags. FDE enters every engagement with a clear technical baseline.'},{t:'FDE to ProServ: scoping and delivery handoff',b:'FDE passes confirmed requirements, stakeholder map, risks, and timeline sensitivities. ProServ starts with full pre-sales context, reducing rework.'},{t:'ProServ to CS: success and expansion handoff',b:'ProServ passes delivery outcomes, adoption signals, open risks, and expansion opportunities. CS enters with full engagement history, not just a CRM record.'}],measures:['Handoff completion rate (structured vs. informal)','Time-to-productive engagement per FDE / ProServ','NNAoV preservation rate (post-win quality proxy)','CS expansion pipeline sourced from ProServ signals']},
-  {color:'#E8A500',title:'Measuring Success',sub:'Standardized definitions. A central Hub. Data that moves.',vision:'Measurement only works if everyone is measuring the same thing. This pillar owns three layers: standards defining adoption by role, the Hub making data accessible, and the data infrastructure that makes it possible at scale.',methods:[{t:'Standardization, unified definitions by role',b:'Adoption, proficiency, and impact defined consistently across SE, FDE, ProServ, and CS. Shared language for what good looks like, tied to CCR, AWUs, pipeline, NNAoV, and cycle time.'},{t:'Experience layer, The Hub',b:'Central repository: approved tools, waitlisted, not approved. Enablement sessions, skills library, leaderboards in one place. Single pane of glass from IC to CRO.'},{t:'Data infrastructure, unified pipeline',b:'Streaming process unifying activity, adoption, and outcome signals across all functions. SE to FDE to ProServ to CS, all connected. Powers the outcome dashboard.'}],measures:['Adoption rate by role vs. proficiency benchmark','Dashboard coverage: % of GTM on shared definitions','Data pipeline latency (signal-to-dashboard SLA)','Hub engagement: active users, tools accessed, sessions']},
+  {color:'#0D9DDA',title:'Signal Intake & Closed-Loop Steering',sub:'One loop. From first signal to governance decision.',vision:'Every tool demand signal flows into a lightweight submission process fast enough that people actually use it. The same system that captures the signal closes the loop: adoption data flows back in, tools that deliver get investment, tools that don\'t get retired.',methods:[{t:'Lightweight signal submission',b:'Slack-native intake. Submitting a signal feels like a message, not a procurement request. Every tool maps to a job to be done, by role.'},{t:'Three-lane launch tracks',b:'Lane 1 (internal/demo): no approval, 48hr ack. Lane 2 (customer, early adopter): 5-day SLA. Lane 3 (customer, broad scale): full approval cycle.'},{t:'Closed-loop governance pulse',b:'Standing CoE cadence. Adoption signals, escalations, and tool retirement reviewed on schedule.'}],measures:['Signal volume by source: field / customer / vendor','Avg time-to-approval per lane vs. SLA','Lane 1 to Lane 2 conversion rate','Tools retired vs. added per quarter']},
+  {color:'#7B5EA7',title:'Agentic Tools Enablement Framework',sub:'From tool instruction to builder fluency.',vision:'Enablement happens by doing, not by completing a module. This is also a change management program. Participation is not optional, it is the expectation.',methods:[{t:'Expose to Experiment to Operationalize',b:'Three-stage model by role. Expose: introduction. Experiment: guided use with required output. Operationalize: embedded in workflow, skill published to CoE library.'},{t:'Builder fluency benchmarks by role',b:'Fluency defined for SE, FDE, ProServ, and CS. Measured by demonstrated output, not training completion.'},{t:'Change management and resource rebalancing',b:'Building is the expectation. Two levers: recruiting AI-native people, and unlocking those already here.'}],measures:['Time-to-proficiency by role (target: <30 days)','Teach-backs completed per quarter','Skills published to CoE library (cumulative)','AWU velocity attributed to enablement cohorts']},
+  {color:'#04C3B5',title:'Connected GTM Handoffs',sub:'SE to FDE to ProServ to CS. Every handoff is a data event.',vision:'When tools become connective tissue across the GTM motion, context stops getting lost. Each handoff carries structured, role-specific intelligence forward.',methods:[{t:'SE to FDE: technical qualification handoff',b:'SE passes architecture notes, objections surfaced, PoC outcomes, demo assets, integration flags.'},{t:'FDE to ProServ: scoping and delivery handoff',b:'FDE passes confirmed requirements, stakeholder map, risks, and timeline sensitivities.'},{t:'ProServ to CS: success and expansion handoff',b:'ProServ passes delivery outcomes, adoption signals, open risks, and expansion opportunities.'}],measures:['Handoff completion rate (structured vs. informal)','Time-to-productive engagement per FDE / ProServ','NNAoV preservation rate (post-win quality proxy)','CS expansion pipeline sourced from ProServ signals']},
+  {color:'#E8A500',title:'Measuring Success',sub:'Standardized definitions. A central Hub. Data that moves.',vision:'Measurement only works if everyone is measuring the same thing. This pillar owns three layers: standards defining adoption by role, the Hub making data accessible, and the data infrastructure.',methods:[{t:'Standardization, unified definitions by role',b:'Adoption, proficiency, and impact defined consistently across SE, FDE, ProServ, and CS. Shared language tied to CCR, AWUs, pipeline, NNAoV, and cycle time.'},{t:'Experience layer, The Hub',b:'Central repository: approved tools, waitlisted, not approved. Enablement sessions, skills library, leaderboards in one place.'},{t:'Data infrastructure, unified pipeline',b:'Streaming process unifying activity, adoption, and outcome signals across all functions.'}],measures:['Adoption rate by role vs. proficiency benchmark','Dashboard coverage: % of GTM on shared definitions','Data pipeline latency (signal-to-dashboard SLA)','Hub engagement: active users, tools accessed, sessions']},
 ];
 
 function selP(idx,el){
@@ -1107,6 +972,7 @@ function showP(id,el){
   document.getElementById('p-'+id).classList.add('active');
   el.classList.add('active');
   document.getElementById('scroller').scrollTo({top:0,behavior:'smooth'});
+  if(id==='portfolio'){initPortfolioEngine();}
 }
 
 const tooltips={
@@ -1141,55 +1007,35 @@ selP(0,document.getElementById('pm0'));
 buildBench();
 buildFnAccordion();
 
-// Diagnosis stepper
 function diagStep(idx){
   [0,1,2].forEach(i=>{
     const panel=document.getElementById('diag-panel-'+i);
     const btn=document.getElementById('ds-'+i);
-    if(panel) panel.style.display=i===idx?'block':'none';
+    if(panel)panel.style.display=i===idx?'block':'none';
     if(btn){
-      if(i===idx){
-        btn.style.background='var(--navy)';
-        btn.querySelector('div:first-child').style.background='rgba(255,255,255,.15)';
-        btn.querySelectorAll('div')[1].querySelector('div:first-child').style.color='#fff';
-        btn.querySelectorAll('div')[1].querySelector('div:last-child').style.color='rgba(255,255,255,.5)';
-      } else {
-        btn.style.background='transparent';
-        btn.querySelector('div:first-child').style.background='var(--light)';
-        btn.querySelectorAll('div')[1].querySelector('div:first-child').style.color='var(--mut)';
-        btn.querySelectorAll('div')[1].querySelector('div:last-child').style.color='var(--bd)';
-      }
+      if(i===idx){btn.style.background='var(--navy)';btn.querySelector('div:first-child').style.background='rgba(255,255,255,.15)';btn.querySelectorAll('div')[1].querySelector('div:first-child').style.color='#fff';btn.querySelectorAll('div')[1].querySelector('div:last-child').style.color='rgba(255,255,255,.5)';}
+      else{btn.style.background='transparent';btn.querySelector('div:first-child').style.background='var(--light)';btn.querySelectorAll('div')[1].querySelector('div:first-child').style.color='var(--mut)';btn.querySelectorAll('div')[1].querySelector('div:last-child').style.color='var(--bd)';}
     }
   });
   document.getElementById('p-diagnosis').querySelector('.hero').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-// ── HATM tab switching ──
 function switchHatmTab(tab,btn){
-  ['org','bench2','hub2','how2'].forEach(t=>{
-    const el=document.getElementById('hatm-tab-'+t);
-    if(el)el.style.display=t===tab?'block':'none';
-  });
-  document.querySelectorAll('#hatm-tabs button').forEach(b=>{
-    b.style.background='transparent';b.style.color='var(--mut)';
-  });
+  ['org','bench2','hub2','how2'].forEach(t=>{const el=document.getElementById('hatm-tab-'+t);if(el)el.style.display=t===tab?'block':'none';});
+  document.querySelectorAll('#hatm-tabs button').forEach(b=>{b.style.background='transparent';b.style.color='var(--mut)';});
   btn.style.background='var(--navy)';btn.style.color='#fff';
   if(tab==='bench2')buildBench2();
 }
 
-// ── Leader agent data ──
 const LEADER_AGENTS=[
-  {icon:'&#129517;',label:'Strategy Agent',jtbd:'Org-level planning, territory prioritization, headcount strategy',outputs:'Quarterly strategy brief, territory heat map, priority account list',note:'Gives any leader an always-on strategic co-pilot &#8212; surfacing where to invest and how to align the team to priorities.'},
+  {icon:'&#129517;',label:'Strategy Agent',jtbd:'Org-level planning, territory prioritization, headcount strategy',outputs:'Quarterly strategy brief, territory heat map, priority account list',note:'Gives any leader an always-on strategic co-pilot surfacing where to invest and how to align the team.'},
   {icon:'&#128161;',label:'Work Intel Agent',jtbd:'Work health monitoring, risk flagging, review prep',outputs:'Work health summary, at-risk flags, review talking points, forecast accuracy report',note:'Replaces manual status gathering. Leader walks into every review already knowing what needs attention.'},
-  {icon:'&#127891;',label:'Coaching Agent',jtbd:'Team development tracking, skill gap identification, coaching plan generation',outputs:'Individual coaching plan, skill gap summary, recommended skill-builds, recognition prompts',note:'Turns performance data into actionable coaching conversations &#8212; so the leader spends time developing people, not building spreadsheets.'},
+  {icon:'&#127891;',label:'Coaching Agent',jtbd:'Team development tracking, skill gap identification, coaching plan generation',outputs:'Individual coaching plan, skill gap summary, recommended skill-builds, recognition prompts',note:'Turns performance data into actionable coaching conversations.'},
 ];
 let selLdrAgent=null;
 function toggleLeaderAgent(idx){
   const det=document.getElementById('ldr-detail');
-  LEADER_AGENTS.forEach((_,i)=>{
-    const chip=document.getElementById('ldr-chip-'+i);
-    if(chip){chip.style.background='rgba(255,255,255,.08)';chip.style.borderColor='rgba(140,207,254,.35)';chip.style.color='#8CCFFE';}
-  });
+  LEADER_AGENTS.forEach((_,i)=>{const chip=document.getElementById('ldr-chip-'+i);if(chip){chip.style.background='rgba(255,255,255,.08)';chip.style.borderColor='rgba(140,207,254,.35)';chip.style.color='#8CCFFE';}});
   if(selLdrAgent===idx){selLdrAgent=null;det.style.display='none';return;}
   selLdrAgent=idx;
   const chip=document.getElementById('ldr-chip-'+idx);
@@ -1204,7 +1050,6 @@ function toggleLeaderAgent(idx){
   det.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-// ── Agentic Worker bench data ──
 const AW_BENCHES=[
   ['intake','context','prep','liveassist','proposal','expansion'],
   ['intake','context','prep','solution','dataai','liveassist'],
@@ -1215,10 +1060,7 @@ const AW_BENCHES=[
 let selAW=null;
 function toggleAWDetail(idx){
   const det=document.getElementById('aw-detail');
-  for(let i=0;i<5;i++){
-    const inner=document.querySelector('#aw-node-'+i+' div[onclick]');
-    if(inner){inner.style.borderColor='var(--bd)';inner.style.background='#fff';}
-  }
+  for(let i=0;i<5;i++){const inner=document.querySelector('#aw-node-'+i+' div[onclick]');if(inner){inner.style.borderColor='var(--bd)';inner.style.background='#fff';}}
   if(selAW===idx){selAW=null;det.style.display='none';return;}
   selAW=idx;
   const inner=document.querySelector('#aw-node-'+idx+' div[onclick]');
@@ -1228,16 +1070,12 @@ function toggleAWDetail(idx){
   document.getElementById('aw-agents-grid').innerHTML=AW_BENCHES[idx].map(aid=>{
     const a=AGENTS.find(x=>x.id===aid);if(!a)return'';
     const c=LC[a.lcKey];
-    return'<div style="background:#fff;border:.5px solid var(--bd);border-radius:8px;padding:9px 11px;display:flex;align-items:center;gap:8px">'
-      +'<div style="width:9px;height:9px;border-radius:50%;background:'+c+';flex-shrink:0"></div>'
-      +'<div><div style="font-size:var(--t-sm);font-weight:600;color:var(--navy);line-height:1.2">'+a.name+'</div>'
-      +'<div style="font-size:var(--t-xs);color:var(--mut)">'+a.lc+'</div></div></div>';
+    return'<div style="background:#fff;border:.5px solid var(--bd);border-radius:8px;padding:9px 11px;display:flex;align-items:center;gap:8px"><div style="width:9px;height:9px;border-radius:50%;background:'+c+';flex-shrink:0"></div><div><div style="font-size:var(--t-sm);font-weight:600;color:var(--navy);line-height:1.2">'+a.name+'</div><div style="font-size:var(--t-xs);color:var(--mut)">'+a.lc+'</div></div></div>';
   }).join('');
   det.style.display='block';
   det.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-// ── Second bench grid inside HATM tab ──
 let selAgent2=null;
 function buildBench2(){
   const grid=document.getElementById('bench-grid2');
@@ -1257,15 +1095,117 @@ function selectAgent2(id){
   if(!selAgent2){det.classList.remove('open');return;}
   const a=AGENTS.find(x=>x.id===id);
   const c=LC[a.lcKey];
-  det.innerHTML='<div class="bd-eyebrow">'+a.icon+' Agent detail</div><div class="bd-name">'+a.name+'</div>'
-    +'<div class="bd-lc" style="color:'+c+'">'+a.lc+' &middot; '+a.jtbd+'</div>'
-    +'<div class="bd-grid"><div class="bd-item"><label>Inputs</label><p>'+a.inputs+'</p></div>'
-    +'<div class="bd-item"><label>Outputs</label><p>'+a.outputs+'</p></div>'
-    +'<div class="bd-item"><label>Integrations</label><p>'+a.integrations+'</p></div>'
-    +'<div class="bd-item"><label>Design note</label><p>'+a.note+'</p></div></div>'
-    +'<div class="bd-note">'+a.note+'</div>';
+  det.innerHTML='<div class="bd-eyebrow">'+a.icon+' Agent detail</div><div class="bd-name">'+a.name+'</div><div class="bd-lc" style="color:'+c+'">'+a.lc+' &middot; '+a.jtbd+'</div><div class="bd-grid"><div class="bd-item"><label>Inputs</label><p>'+a.inputs+'</p></div><div class="bd-item"><label>Outputs</label><p>'+a.outputs+'</p></div><div class="bd-item"><label>Integrations</label><p>'+a.integrations+'</p></div><div class="bd-item"><label>Design note</label><p>'+a.note+'</p></div></div><div class="bd-note">'+a.note+'</div>';
   det.classList.add('open');
   det.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* ══════════════════════════════════════════
+   PORTFOLIO ECONOMICS ENGINE — JS
+══════════════════════════════════════════ */
+function showPE(id,el){
+  document.querySelectorAll('.pe-section').forEach(s=>s.classList.remove('active-pe'));
+  document.querySelectorAll('.pe-tab').forEach(t=>t.classList.remove('active-tab'));
+  document.getElementById('pe-'+id).classList.add('active-pe');
+  el.classList.add('active-tab');
+}
+
+const PE_LC_STEPS=[
+  {n:'01',name:'Input',desc:'Submitted via standardized intake',detail:'The Intake Agent parses the submission, standardizes language, and flags any missing fields before the idea moves forward. Human submits; agent cleans.',gate:false},
+  {n:'02',name:'Economic Eval',desc:'RICE + TCO + Build vs Buy',detail:'The Evaluation Agent applies RICE scoring and calculates Business and Technical Value. The Cost Intelligence Agent runs TCO and compares all three delivery models simultaneously.',gate:false},
+  {n:'03',name:'Decision',desc:'Quadrant placement + routing',detail:'The Routing Agent assigns the initiative to a quadrant, places it on the roadmap, and assigns it to the appropriate team tier. The Portfolio Agent updates the live dashboard.',gate:false},
+  {n:'04',name:'Human Approval',desc:'Required gate — no bypass',detail:'All scoring, placement, and routing outputs are presented to a human decision-maker for final approval. This gate is mandatory. No agent bypasses it.',gate:true},
+  {n:'05',name:'Execution',desc:'Build begins',detail:'Approved initiative enters the delivery workflow. Team assignment is confirmed. Milestones are set. The Portfolio Agent maintains visibility.',gate:false},
+  {n:'06',name:'Measurement',desc:'Outcome tracking',detail:'Value realization is tracked against the expected outcome defined at scoring. This is not optional — it feeds the Learning Agent.',gate:false},
+  {n:'07',name:'Learning',desc:'Model refinement',detail:'The Learning Agent updates prediction models based on actual vs. estimated outcomes. Scoring accuracy improves with each completed initiative.',gate:false},
+];
+let selPELc=null;
+function buildPELifecycle(){
+  const wrap=document.getElementById('pe-lc-flow');
+  if(!wrap)return;
+  wrap.innerHTML=PE_LC_STEPS.map((s,i)=>{
+    const isActive=selPELc===i;
+    const borderTop=s.gate?'border-top:3px solid #E8A500':'border-top:3px solid #0D9DDA';
+    return'<div class="lc-step'+(isActive?' lc-active':'')+'" style="'+borderTop+'" onclick="selPELcStep('+i+')">'
+      +'<div class="lc-step-n">'+s.n+'</div>'
+      +'<div class="lc-step-name">'+s.name+(s.gate?'<br><span style="font-size:10px;color:#E8A500">&#9650; Gate</span>':'')+'</div>'
+      +'<div class="lc-step-desc">'+s.desc+'</div>'
+      +'</div>'+(i<PE_LC_STEPS.length-1?'<div class="lc-arr">&#8250;</div>':'');
+  }).join('');
+}
+function selPELcStep(i){
+  selPELc=selPELc===i?null:i;
+  buildPELifecycle();
+  const det=document.getElementById('pe-lc-detail');
+  if(selPELc===null){det.classList.remove('open');return;}
+  const s=PE_LC_STEPS[i];
+  det.innerHTML='<div style="font-size:var(--t-xs);font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px">Stage '+s.n+(s.gate?' &nbsp;<span style="background:#E8A500;color:#032D60;font-size:10px;padding:1px 7px;border-radius:10px">MANDATORY GATE</span>':'')+'</div>'
+    +'<div style="font-size:var(--t-lg);font-weight:700;color:#fff;margin-bottom:8px">'+s.name+'</div>'
+    +'<div style="font-size:var(--t-base);color:#8CCFFE;line-height:1.6">'+s.detail+'</div>';
+  det.classList.add('open');
+}
+buildPELifecycle();
+
+const PE_AGENTS=[
+  {name:'Intake Agent',icon:'&#128229;',color:'#0D9DDA',role:'Standardizes submissions',duties:'Parses submissions, standardizes language, flags missing inputs',inputs:'Raw idea submission from any team member',outputs:'Standardized submission record, ready for evaluation',note:'First agent to fire. Removes ambiguity before scoring begins.'},
+  {name:'Evaluation Agent',icon:'&#128202;',color:'#9B7FE8',role:'Applies scoring logic',duties:'Applies RICE scoring, calculates Business and Technical Value',inputs:'Standardized submission from Intake Agent',outputs:'RICE score, value dimension scores, preliminary quadrant placement',note:'Rules-based, not ML. Same formula applied to every submission. Consistent by design.'},
+  {name:'Cost Intelligence Agent',icon:'&#128176;',color:'#E8A24A',role:'Calculates TCO',duties:'Evaluates Build/Buy/Hybrid options, estimates lifecycle cost',inputs:'Scoped submission with technical context',outputs:'TCO estimate per option, delivery model recommendation',note:'Forces full lifecycle costing. Year-one estimates alone are not sufficient for approval.'},
+  {name:'Routing Agent',icon:'&#128256;',color:'#5DCAA5',role:'Assigns tier &amp; backlog',duties:'Assigns team tier, updates backlog, sets roadmap position',inputs:'Scored and evaluated submission',outputs:'Team assignment (Tier 1 / Scrappy), roadmap slot, priority rank',note:'Deterministic routing based on quadrant placement. Placement drives assignment.'},
+  {name:'Portfolio Agent',icon:'&#128196;',color:'#04C3B5',role:'Maintains portfolio view',duties:'Updates quadrant, roadmap, identifies duplication, detects trends',inputs:'All active and completed initiative data',outputs:'Live portfolio dashboard, duplication alerts, trend signals',note:'The source of truth for leadership visibility. Continuous, not point-in-time.'},
+  {name:'Learning Agent',icon:'&#129504;',color:'#C23B22',role:'Improves model accuracy',duties:'Updates prediction models, improves estimation accuracy over time',inputs:'Actual vs. estimated outcomes from completed initiatives',outputs:'Updated scoring weights, improved effort and impact estimates',note:'The engine gets smarter with every completed initiative.'},
+];
+let selPEAgent=null;
+function buildPEAgents(){
+  const grid=document.getElementById('pe-agent-grid');
+  if(!grid)return;
+  grid.innerHTML=PE_AGENTS.map((a,i)=>
+    '<div class="agent-card'+(selPEAgent===i?' ag-sel':'')+'" style="border-top-color:'+a.color+'" onclick="selPEAgentCard('+i+')">'
+    +'<div class="ag-icon">'+a.icon+'</div>'
+    +'<div class="ag-name">'+a.name+'</div>'
+    +'<div class="ag-role">'+a.role+'</div>'
+    +'</div>'
+  ).join('');
+}
+function selPEAgentCard(i){
+  selPEAgent=selPEAgent===i?null:i;
+  buildPEAgents();
+  const det=document.getElementById('pe-ag-detail');
+  if(selPEAgent===null){det.classList.remove('open');return;}
+  const a=PE_AGENTS[i];
+  det.innerHTML='<div class="ag-det-name">'+a.icon+' '+a.name+'</div>'
+    +'<div class="ag-det-grid">'
+    +'<div><label>Duties</label><p>'+a.duties+'</p></div>'
+    +'<div><label>Inputs</label><p>'+a.inputs+'</p></div>'
+    +'<div><label>Outputs</label><p>'+a.outputs+'</p></div>'
+    +'<div><label>Design note</label><p>'+a.note+'</p></div>'
+    +'</div>';
+  det.classList.add('open');
+}
+buildPEAgents();
+
+const PE_QUADS=[
+  {title:'Business Accelerators',color:'#0F6E56',team:'Scrappy Team → Near-term delivery',body:'Fast wins with visible business impact and low technical complexity. These build credibility quickly and are the best way to demonstrate the value of the engine early.',examples:['Team-level copilots','Workflow automation','Reporting automation','Process simplification','Manual task elimination']},
+  {title:'Strategic Transformation',color:'#4A2EC0',team:'Tier 1 Core Team → Multi-quarter strategic roadmap',body:'High Business Value and High Technical Value. Your biggest bets. They require multi-quarter commitment and the full capacity of the Tier 1 Core Team. Under-resourced, these fail. Properly resourced, these are org-defining.',examples:['Enterprise agent platforms','Workflow orchestration layers','Knowledge graph systems','Enterprise copilots','Core integration platforms']},
+  {title:'Low Priority / Experimental',color:'#B05C00',team:'Backlog / Declined',body:'Low Business Value and Low Technical Value. Park or reject. Keeping these out of the active backlog is as important as getting high-value work in.',examples:['Low-impact automation','Niche requests','Redundant tools','Experimental prototypes with no stated outcome']},
+  {title:'Foundational Capabilities',color:'#032D60',team:'Foundation Phase → Enables future Tier 1 work',body:'Low Business Value but High Technical Value. The most frequently undervalued quadrant. These initiatives enable everything that does have business value. Without them, the Strategic Transformation quadrant stalls.',examples:['Shared APIs','Data pipelines','Integration layers','Platform architecture','Infrastructure automation']},
+];
+let selPEQuad=null;
+function selQuad(i,el){
+  document.querySelectorAll('.quad-cell').forEach(q=>q.classList.remove('qsel'));
+  const det=document.getElementById('pe-quad-detail');
+  if(selPEQuad===i){selPEQuad=null;det.classList.remove('open');return;}
+  selPEQuad=i;el.classList.add('qsel');
+  const q=PE_QUADS[i];
+  det.innerHTML='<div style="font-size:var(--t-lg);font-weight:700;color:'+q.color+';margin-bottom:4px">'+q.title+'</div>'
+    +'<div style="font-size:var(--t-xs);font-weight:700;color:var(--mut);margin-bottom:9px">'+q.team+'</div>'
+    +'<div style="font-size:var(--t-base);color:var(--mut);line-height:1.6;margin-bottom:10px">'+q.body+'</div>'
+    +'<div style="display:flex;flex-wrap:wrap;gap:5px">'+q.examples.map(e=>'<span style="font-size:var(--t-xs);background:var(--light);border:1px solid var(--bd);border-radius:20px;padding:3px 10px;color:var(--navy)">'+e+'</span>').join('')+'</div>';
+  det.classList.add('open');
+}
+
+function initPortfolioEngine(){
+  buildPELifecycle();
+  buildPEAgents();
 }
 </script>
 </body>
