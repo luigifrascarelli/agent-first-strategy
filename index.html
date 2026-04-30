@@ -215,8 +215,6 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
     <div class="ng">Agentic Value Creation</div>
     <div class="nl active" onclick="showP('moment',this)"><span class="nl-ic">&#9670;</span>Strategic Moment</div>
     <div class="nl" onclick="showP('hatm',this)"><span class="nl-ic">&#8859;</span>Human-Agent Teaming</div>
-    <div class="nl" onclick="showP('bench',this)"><span class="nl-ic">&#8860;</span>Agent Bench</div>
-    <div class="nl" onclick="showP('backbone',this)"><span class="nl-ic">&#8857;</span>Central Hub</div>
     <div class="ng">The Problem We Are Solving</div>
     <div class="nl" onclick="showP('diagnosis',this)"><span class="nl-ic">&#8856;</span>The Diagnosis</div>
     <div class="nl" onclick="showP('roi',this)"><span class="nl-ic">&#8853;</span>ROI Axis</div>
@@ -297,72 +295,203 @@ main{flex:1;min-width:0;padding:28px 32px;overflow-y:auto;max-height:100vh}
 
 <!-- DIAGNOSIS -->
 <div id="p-diagnosis" class="panel">
-  <div class="hero"><div><div class="hero-title">The Diagnosis</div><div class="hero-sub">A prescription without a diagnosis is malpractice</div></div></div>
-  <div class="callout ca" style="margin-bottom:14px"><span class="c-ico">!</span><span>The current framework solves the <strong>symptom</strong> of tool sprawl. The real problem is the absence of an operating model capable of driving customer adoption at speed, scale, and specificity.</span></div>
-  <div class="grid3" style="margin-bottom:14px">
-    <div class="gap-card" style="border-top-color:#C23B22"><div class="gap-inner"><div class="gap-n">Gap 01</div><div class="gap-t">Strategy without infrastructure</div><div class="gap-b">Vision for agent-first innovation but no operating model to execute it. Tools adopted ad hoc. No mechanism to turn field learning into org capability.</div></div></div>
-    <div class="gap-card" style="border-top-color:#E8A500"><div class="gap-inner"><div class="gap-n">Gap 02</div><div class="gap-t">Adoption without outcomes</div><div class="gap-b">Engineers count tokens. ProServ counts solution outcomes. Without a unified definition, we cannot connect AI activity to business results.</div></div></div>
-    <div class="gap-card" style="border-top-color:#7B5EA7"><div class="gap-inner"><div class="gap-n">Gap 03</div><div class="gap-t">Innovation without compounding</div><div class="gap-b">Similar solutions built in parallel with no sharing mechanism. Field learning disappears. The org is not getting smarter with every engagement.</div></div></div>
-  </div>
-  <div class="grid2" style="margin-bottom:18px">
-    <div style="background:var(--navy);border-radius:10px;padding:14px 16px"><div style="font-size:11px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div><div style="font-size:13px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of &#8220;adoption&#8221; across orgs</div></div></div>
-    <div style="background:#fff;border-radius:10px;padding:14px 16px;border:.5px solid var(--bd)"><div style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework solves</div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &#8212; signal to governance, end-to-end</div><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &#8212; fluency, not completion</div><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &#8212; every transition is a data event</div><div style="font-size:13px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &#8212; one metric language across all orgs</div></div></div>
+  <div class="hero"><div><div class="hero-title">The Problem We Are Solving</div><div class="hero-sub">A prescription without a diagnosis is malpractice</div></div></div>
+
+  <!-- Stepped journey stepper -->
+  <div id="diag-stepper" style="background:#fff;border:.5px solid var(--bd);border-radius:12px;padding:6px;display:flex;gap:0;margin-bottom:20px;position:relative">
+    <button onclick="diagStep(0)" id="ds-0" style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:8px;border:none;background:var(--navy);cursor:pointer;text-align:left;transition:all .2s">
+      <div style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;font-family:monospace">01</div>
+      <div><div style="font-size:11px;font-weight:700;color:#fff;letter-spacing:.02em">External Problem</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:1px">Customer adoption &amp; economics</div></div>
+    </button>
+    <div style="display:flex;align-items:center;padding:0 4px;color:var(--bd);font-size:12px;flex-shrink:0">&#8594;</div>
+    <button onclick="diagStep(1)" id="ds-1" style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:8px;border:none;background:transparent;cursor:pointer;text-align:left;transition:all .2s">
+      <div style="width:26px;height:26px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--mut);flex-shrink:0;font-family:monospace">02</div>
+      <div><div style="font-size:11px;font-weight:700;color:var(--mut);letter-spacing:.02em">Internal Gaps</div><div style="font-size:10px;color:var(--bd);margin-top:1px">Where the operating model breaks</div></div>
+    </button>
+    <div style="display:flex;align-items:center;padding:0 4px;color:var(--bd);font-size:12px;flex-shrink:0">&#8594;</div>
+    <button onclick="diagStep(2)" id="ds-2" style="flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:8px;border:none;background:transparent;cursor:pointer;text-align:left;transition:all .2s">
+      <div style="width:26px;height:26px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--mut);flex-shrink:0;font-family:monospace">03</div>
+      <div><div style="font-size:11px;font-weight:700;color:var(--mut);letter-spacing:.02em">Strategic Question</div><div style="font-size:10px;color:var(--bd);margin-top:1px">The thesis this strategy answers</div></div>
+    </button>
   </div>
 
-  <!-- Change 3: AI States Journey -->
-  <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:14px">
-    <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">Defining the journey &#8212; from AI augmentation to AI native</div>
-    <div style="display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:stretch;gap:0">
-      <!-- State 1 -->
-      <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:10px;padding:16px 18px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-          <div style="width:28px;height:28px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--navy)">01</div>
-          <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em">Current State</div>
-        </div>
-        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">AI Augmentation</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.65">AI assists the individual. Humans drive every workflow. Tools compress the agile cycle &#8212; faster drafts, quicker research, reduced manual effort &#8212; but the process and org structure stay the same.</div>
-        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
-          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Human-led</span>
-          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Tool-assisted</span>
-          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Cycle compression</span>
-        </div>
+  <!-- STEP 1: External Problem -->
+  <div id="diag-panel-0">
+    <!-- Intro -->
+    <div style="background:var(--navy);border-radius:10px;padding:18px 22px;margin-bottom:14px">
+      <div style="font-size:10px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Layer 01 &#8212; The External Problem</div>
+      <div style="font-size:17px;font-weight:700;color:#fff;line-height:1.5;margin-bottom:10px;max-width:640px">Customer adoption is not a technology problem.<br>It is an <span style="color:#0D9DDA">outcome definition</span> problem.</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;max-width:620px">Without a shared definition of what &#8220;done&#8221; looks like for the customer, every tool decision is arbitrary and every adoption metric is meaningless. Tools only become relevant once we have defined the job to be done, the expected outcome, and where in the lifecycle that job fires.</div>
+    </div>
+
+    <!-- Three problem threads -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px">
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #0D9DDA">
+        <div style="font-size:10px;font-weight:700;color:#0D9DDA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem A</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">Customer adoption stalls without outcome clarity</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">What matters most is customer outcome, time to value, and customer value. The tool becomes relevant only at a specific step in the process. Without knowing what is expected from the user with a given set of tools, customer outcomes cannot be driven.</div>
       </div>
-      <!-- Arrow 1 -->
-      <div style="display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--bd)">&#8594;</div>
-      <!-- State 2 -->
-      <div style="background:#FFF8E8;border:.5px solid var(--amb-bd);border-radius:10px;padding:16px 18px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-          <div style="width:28px;height:28px;border-radius:50%;background:var(--amb-bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--amb)">02</div>
-          <div style="font-size:10px;font-weight:700;color:var(--amb);text-transform:uppercase;letter-spacing:.07em">Transition &#8212; Where We Are</div>
-        </div>
-        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">Agentic Adoption</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.65">Agentic Workers begin managing a bench of purpose-built agents. Workflows shift. Roles evolve. Governance and enablement infrastructure must exist before this scales &#8212; or it fragments.</div>
-        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
-          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Bench-managed</span>
-          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Role transition</span>
-          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Governance critical</span>
-        </div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #E8A500">
+        <div style="font-size:10px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem B</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">Tools are ubiquitous, seasonal, and increasingly expensive</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Compute costs for Anthropic, OpenAI, Gemini, and others are rising. This creates pressure on the economic model: continue investing in 3rd-party tools, or build purpose-built solutions for specific JTBDs. The answer is likely both &#8212; sequenced by switching cost and outcome fit.</div>
       </div>
-      <!-- Arrow 2 -->
-      <div style="display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--bd)">&#8594;</div>
-      <!-- State 3 -->
-      <div style="background:#E8F8F3;border:.5px solid var(--grn-bd);border-radius:10px;padding:16px 18px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-          <div style="width:28px;height:28px;border-radius:50%;background:var(--grn-bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--grn)">03</div>
-          <div style="font-size:10px;font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.07em">Future State</div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px;border-top:3px solid #7B5EA7">
+        <div style="font-size:10px;font-weight:700;color:#7B5EA7;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Problem C</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">No consistent GTM operating model across the enterprise</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Process standardization is not the goal &#8212; it is the byproduct of a clear operating model. The goal is consistent customer outcomes. Standardization is how we get there at scale without every team reinventing the approach for each engagement.</div>
+      </div>
+    </div>
+
+    <!-- AI States journey -->
+    <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:18px 20px;margin-bottom:14px">
+      <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px">Defining the journey &#8212; from AI augmentation to AI native</div>
+      <div style="display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;align-items:stretch;gap:0">
+        <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:10px;padding:15px 17px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--light);border:.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--navy)">01</div>
+            <div style="font-size:10px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em">Current State</div>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">AI Augmentation</div>
+          <div style="font-size:11px;color:var(--mut);line-height:1.6;margin-bottom:9px">AI assists the individual. Humans drive every workflow. Tools compress the agile cycle &#8212; faster drafts, quicker research &#8212; but the process and structure stay the same.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Human-led</span><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--light);color:var(--navy);border:.5px solid var(--bd)">Tool-assisted</span></div>
         </div>
-        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px">AI Native</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.65">Orchestrated agents manage the work. Humans set direction, make decisions, and own relationships. The org structure flattens. Roles are redefined around judgment and strategy, not execution volume.</div>
-        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
-          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Agent-orchestrated</span>
-          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Human judgment</span>
-          <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:12px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Flat org model</span>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
+          <div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--bd))"></div>
+          <div style="font-size:10px;color:var(--mut);writing-mode:vertical-rl;letter-spacing:.05em;font-weight:600;transform:rotate(180deg)">which creates</div>
+          <div style="font-size:14px;color:#E8A500">&#8594;</div>
+          <div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--bd),transparent)"></div>
+        </div>
+        <div style="background:#FFF8E8;border:.5px solid var(--amb-bd);border-radius:10px;padding:15px 17px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--amb-bg);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--amb)">02</div>
+            <div style="font-size:10px;font-weight:700;color:var(--amb);text-transform:uppercase;letter-spacing:.07em">Where We Are</div>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">Agentic Adoption</div>
+          <div style="font-size:11px;color:var(--mut);line-height:1.6;margin-bottom:9px">Agentic Workers begin managing a bench of purpose-built agents. Workflows shift. Roles evolve. Governance and enablement must exist before this scales &#8212; or it fragments.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Bench-managed</span><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--amb-bg);color:var(--amb);border:.5px solid var(--amb-bd)">Governance critical</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
+          <div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--bd))"></div>
+          <div style="font-size:10px;color:var(--mut);writing-mode:vertical-rl;letter-spacing:.05em;font-weight:600;transform:rotate(180deg)">leading to</div>
+          <div style="font-size:14px;color:#04C3B5">&#8594;</div>
+          <div style="width:1px;flex:1;background:linear-gradient(to bottom,var(--bd),transparent)"></div>
+        </div>
+        <div style="background:#E8F8F3;border:.5px solid var(--grn-bd);border-radius:10px;padding:15px 17px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--grn-bg);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--grn)">03</div>
+            <div style="font-size:10px;font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.07em">Future State</div>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">AI Native</div>
+          <div style="font-size:11px;color:var(--mut);line-height:1.6;margin-bottom:9px">Orchestrated agents manage the work. Humans set direction, make decisions, and own relationships. Roles are elevated around judgment and strategy, not execution volume.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px"><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Agent-orchestrated</span><span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--grn-bg);color:var(--grn);border:.5px solid var(--grn-bd)">Human judgment</span></div>
         </div>
       </div>
     </div>
+
+    <!-- Step nav -->
+    <div style="display:flex;justify-content:flex-end">
+      <button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.03em">Internal Gaps &#8594;</button>
+    </div>
   </div>
 
+  <!-- STEP 2: Internal Gaps -->
+  <div id="diag-panel-1" style="display:none">
+    <!-- Connecting thread from Step 1 -->
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--lighter);border-radius:8px;border:.5px solid var(--bd);margin-bottom:14px">
+      <div style="font-size:18px;color:#0D9DDA">&#8617;</div>
+      <div style="font-size:12px;color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Because</strong> customer adoption is an outcome definition problem &#8212; and because tools proliferate without a shared model &#8212; <strong style="color:var(--navy)">the operating model breaks in three specific places.</strong></div>
+    </div>
 
+    <!-- Three gap cards -->
+    <div class="grid3" style="margin-bottom:14px">
+      <div class="gap-card" style="border-top-color:#C23B22"><div class="gap-inner"><div class="gap-n">Gap 01</div><div class="gap-t">Strategy without infrastructure</div><div class="gap-b">Vision for agent-first innovation but no operating model to execute it. Tools adopted ad hoc. No mechanism to turn field learning into org capability.</div></div></div>
+      <div class="gap-card" style="border-top-color:#E8A500"><div class="gap-inner"><div class="gap-n">Gap 02</div><div class="gap-t">Adoption without outcomes</div><div class="gap-b">Token consumption is tracked. Customer outcomes are not. Without a unified definition, AI activity cannot be connected to business results.</div></div></div>
+      <div class="gap-card" style="border-top-color:#7B5EA7"><div class="gap-inner"><div class="gap-n">Gap 03</div><div class="gap-t">Innovation without compounding</div><div class="gap-b">Similar solutions built in parallel with no sharing mechanism. Field learning disappears. The org is not getting smarter with every engagement.</div></div></div>
+    </div>
+
+    <!-- Symptoms / What it solves -->
+    <div class="grid2" style="margin-bottom:14px">
+      <div style="background:var(--navy);border-radius:10px;padding:14px 16px">
+        <div style="font-size:11px;font-weight:700;color:#8CCFFE;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Symptoms today</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #C23B22;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Too many tools &#8212; no front door, no qualification</div>
+          <div style="font-size:12px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #E8A500;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">High token consumption, low measurable output</div>
+          <div style="font-size:12px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #7B5EA7;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">Context lost at every handoff: SE &#8594; FDE &#8594; ProServ &#8594; CS</div>
+          <div style="font-size:12px;padding:7px 10px;background:rgba(255,255,255,.05);border-left:3px solid #0D9DDA;border-radius:0 5px 5px 0;color:#e8f4ff;line-height:1.4">No unified definition of &#8220;adoption&#8221; across orgs</div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:10px;padding:14px 16px;border:.5px solid var(--bd)">
+        <div style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">What the framework solves</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">One intake loop &#8212; signal to governance, end-to-end</div>
+          <div style="font-size:12px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Output-based enablement &#8212; fluency, not completion</div>
+          <div style="font-size:12px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Structured handoffs &#8212; every transition is a data event</div>
+          <div style="font-size:12px;padding:7px 10px;background:var(--grn-bg);border-left:3px solid var(--grn-bd);border-radius:0 5px 5px 0;color:#0A2A1A;line-height:1.4">Unified definitions &#8212; one metric language across all orgs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- See ROI Axis -->
+    <div style="background:var(--lighter);border:.5px solid var(--bd);border-radius:8px;padding:11px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between">
+      <div style="font-size:12px;color:var(--mut)">See how the three gaps map to business and technology ROI</div>
+      <button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="font-size:11px;font-weight:700;color:var(--blue);background:none;border:.5px solid var(--blue);border-radius:6px;padding:5px 12px;cursor:pointer;letter-spacing:.03em">View ROI Axis &#8599;</button>
+    </div>
+
+    <!-- Step nav -->
+    <div style="display:flex;justify-content:space-between">
+      <button onclick="diagStep(0)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">&#8592; External Problem</button>
+      <button onclick="diagStep(2)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">Strategic Question &#8594;</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Strategic Question -->
+  <div id="diag-panel-2" style="display:none">
+    <!-- Connecting thread from Step 2 -->
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--lighter);border-radius:8px;border:.5px solid var(--bd);margin-bottom:14px">
+      <div style="font-size:18px;color:#04C3B5">&#8617;</div>
+      <div style="font-size:12px;color:var(--mut);line-height:1.5"><strong style="color:var(--navy)">Which leads to the question</strong> this strategy is designed to answer &#8212; one that reframes how we think about the relationship between pre-sale and post-sale.</div>
+    </div>
+
+    <!-- The provocation -->
+    <div style="background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:16px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-20px;right:-20px;width:180px;height:180px;border-radius:50%;background:rgba(13,157,218,.06);pointer-events:none"></div>
+      <div style="font-size:10px;font-weight:700;color:#E8A500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">The Strategic Question</div>
+      <div style="font-size:19px;font-weight:700;color:#fff;line-height:1.5;margin-bottom:14px;max-width:660px">If pre-sale assets are built for specific customer use cases, how do we create a GTM motion that becomes a shared foundation with post-sales?</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;max-width:600px">The opportunity is a continuous context thread &#8212; where the work done in pre-sales becomes the starting point for delivery, not a handoff that gets rebuilt from scratch. Time to value compresses not because we move faster, but because we stop losing context at every transition.</div>
+    </div>
+
+    <!-- Three implications -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px">
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px">
+        <div style="width:28px;height:28px;border-radius:8px;background:#EEF6FF;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:10px">&#127775;</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">The SE becomes a solution architect whose work ships</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Pre-sale assets are no longer disposable. They become the foundation of the delivered solution &#8212; with context, data, and decisions intact from the first conversation.</div>
+      </div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px">
+        <div style="width:28px;height:28px;border-radius:8px;background:#E8F8F3;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:10px">&#9654;</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">TTV compresses when context doesn&#8217;t reset</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">Every role in the GTM motion receives a complete picture &#8212; not a summary email. What the CS team knows at month six started accumulating at the first SE call.</div>
+      </div>
+      <div style="background:#fff;border-radius:10px;border:.5px solid var(--bd);padding:16px 18px">
+        <div style="width:28px;height:28px;border-radius:8px;background:#F3EEFF;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:10px">&#9670;</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px">The GTM motion becomes a shared foundation</div>
+        <div style="font-size:12px;color:var(--mut);line-height:1.6">SE, FDE, ProServ, and CS are no longer sequential hand-offs. They are a single continuous context thread &#8212; with agents passing intelligence at every transition point.</div>
+      </div>
+    </div>
+
+    <!-- Closing thesis -->
+    <div style="background:#0A3870;border-left:3px solid #E8A500;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
+      <div style="font-size:11px;font-weight:700;color:#E8A500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px">This strategy&#8217;s answer</div>
+      <div style="font-size:14px;color:#e8f4ff;line-height:1.75;font-style:italic">Build the operating model that makes it possible. When pre-sale assets are purpose-built for specific customer use cases &#8212; and the context behind them travels with every handoff &#8212; the GTM motion becomes a shared foundation that accelerates delivery, reduces rework, and compounds customer value over time.</div>
+    </div>
+
+    <!-- Step nav -->
+    <div style="display:flex;justify-content:space-between">
+      <button onclick="diagStep(1)" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#fff;color:var(--navy);border:.5px solid var(--bd);border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">&#8592; Internal Gaps</button>
+      <button onclick="showP('roi',document.querySelector('[onclick*=roi]'))" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:#04C3B5;color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer">See ROI Axis &#8599;</button>
+    </div>
+  </div>
 </div>
 
 <!-- ROI -->
@@ -1000,6 +1129,29 @@ if(svg){
 selP(0,document.getElementById('pm0'));
 buildBench();
 buildFnAccordion();
+
+// Diagnosis stepper
+function diagStep(idx){
+  [0,1,2].forEach(i=>{
+    const panel=document.getElementById('diag-panel-'+i);
+    const btn=document.getElementById('ds-'+i);
+    if(panel) panel.style.display=i===idx?'block':'none';
+    if(btn){
+      if(i===idx){
+        btn.style.background='var(--navy)';
+        btn.querySelector('div:first-child').style.background='rgba(255,255,255,.15)';
+        btn.querySelectorAll('div')[1].querySelector('div:first-child').style.color='#fff';
+        btn.querySelectorAll('div')[1].querySelector('div:last-child').style.color='rgba(255,255,255,.5)';
+      } else {
+        btn.style.background='transparent';
+        btn.querySelector('div:first-child').style.background='var(--light)';
+        btn.querySelectorAll('div')[1].querySelector('div:first-child').style.color='var(--mut)';
+        btn.querySelectorAll('div')[1].querySelector('div:last-child').style.color='var(--bd)';
+      }
+    }
+  });
+  document.getElementById('p-diagnosis').querySelector('.hero').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
 
 // ── HATM tab switching ──
 function switchHatmTab(tab,btn){
